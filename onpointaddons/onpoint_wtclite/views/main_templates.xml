@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="main_layout">
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"/>
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <!-- Color theme for statusbar (Android only) -->
+            <meta name="theme-color" content="#2196f3"/>
+            <!-- Your app title -->
+            <title>OnpointLite</title>
+            <!-- Path to Framework7 Library Bundle CSS -->
+            <link rel="stylesheet" href="/onpoint_wtclite/static/framework7/css/framework7.bundle.min.css"/>
+            <link rel="stylesheet" href="/onpoint_wtclite/static/fontawesome/css/all.css"/>
+            <script type="text/javascript" src="/onpoint_wtclite/static/src/js/cordova.js"/>
+
+            <!-- LightPick -->
+            <script type="text/javascript" src="/highcharts_base/static/lib/lightpick/moment.min.js"/>
+            <script type="text/javascript" src="/highcharts_base/static/lib/lightpick/lightpick.js"/>
+
+            <!-- Highchart -->
+            <script type="text/javascript" src="/highcharts_base/static/lib/highcharts-7.1.1/highcharts.js"/>
+            <script type="text/javascript" src="/highcharts_base/static/lib/highcharts-7.1.1/highcharts-more.js"/>
+            <script type="text/javascript" src="/highcharts_base/static/lib/highcharts-7.1.1/modules/exporting.src.js"/>
+            <script type="text/javascript" src="/highcharts_base/static/lib/highcharts-7.1.1/modules/export-data.js"/>
+
+
+            <!-- Highchart -->
+            <link rel="stylesheet" href="/highcharts_base/static/lib/highcharts-7.1.1/css/highcharts.css"/>
+
+            <!-- LightPick  -->
+            <link rel="stylesheet" type="text/css" href="/highcharts_base/static/lib/lightpick/lightpick.css"/>
+
+
+            <!-- Path to your custom app styles-->
+            <link rel="stylesheet" href="/onpoint_wtclite/static/src/css/mobile-app.css"/>
+            <!--            <t t-call="web.assets_common"/>-->
+        </head>
+
+        <body class="color-theme-deeporange">
+            <div id="app">
+                <div class="view view-main view-init safe-areas">
+                    <div data-name="index" class="page">
+
+                        <!-- Top Navbar -->
+                        <div class="navbar">
+                            <div class="navbar-bg"/>
+                            <div class="navbar-inner">
+                                <div class="title">OnpointLite</div>
+                                <div class="right">
+                                    <i class="icon fas fa-sign-out-alt link-logout ripple"
+                                       style="font-size: larger; margin: 0 10px 5px 0"/>
+                                </div>
+                                <div class="subnavbar">
+                                    <form class="searchbar">
+                                        <div class="searchbar-inner">
+                                            <div class="searchbar-input-wrap">
+                                                <input type="search" placeholder="Search"/>
+                                                <i class="searchbar-icon"></i>
+                                                <span class="input-clear-button"></span>
+                                            </div>
+                                            <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fab fab-right-bottom color-red">
+                            <a id="icon-add-logger" href="#">
+                                <i class="icon fas fa-plus fa-2x"/>
+                            </a>
+                        </div>
+
+                        <!-- Scrollable page content -->
+                        <div class="page-content ptr-content"
+                             data-name="main_page"
+                             data-ptr-distance="55" data-ptr-mousewheel="true">
+                            <div class="searchbar-backdrop"/>
+                            <!-- Default pull to refresh preloader-->
+                            <div class="ptr-preloader">
+                                <div class="preloader"></div>
+                                <div class="ptr-arrow"></div>
+                            </div>
+
+                            <div class="searchbar-backdrop"></div>
+                            <div class="list simple-list searchbar-not-found">
+                                <ul>
+                                    <li>Nothing found</li>
+                                </ul>
+                            </div>
+
+                            <div class="list media-list">
+                                <ul>
+                                    <t t-if="loggers">
+                                        <t t-foreach="loggers" t-as="logger">
+                                            <li>
+                                                <a t-attf-href="/logger/detail/{{ logger['id'] }}"
+                                                   class="item-link item-content"
+                                                   data-force="true"
+                                                   data-ignore-cache="true"
+                                                   data-reload="true">
+                                                    <div class="card_project item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-title">
+                                                                <t t-esc="logger['name']"/>
+                                                            </div>
+                                                            <div class="item-after">
+                                                                <t t-if="logger['is_still_active'] == true">
+                                                                    <i class="fas fa-check-circle"
+                                                                       style="color: green"/>
+                                                                </t>
+                                                                <t t-else="">
+                                                                    <i class="fas fa-exclamation-triangle"
+                                                                       style="color: red"/>
+                                                                </t>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-subtitle">
+                                                            <t t-esc="logger['logger_type_name']"/>
+                                                            <br/>
+                                                            <br/>
+                                                            <t t-foreach="logger['channels']" t-as="channel">
+                                                                <div class="row">
+                                                                    <div class="col-25">
+                                                                        <b><t t-esc="channel['name']"/></b>
+                                                                    </div>
+                                                                    <div class="col-75"
+                                                                         t-attf-style="color: {{channel['color']}};">
+                                                                        <b><t t-esc="channel['last_value']"/> <t t-esc="channel['unit']"/></b>
+                                                                    </div>
+                                                                </div>
+                                                            </t>
+                                                            Last Update :
+                                                            <t t-esc="logger['last_data_date']"/>
+                                                        </div>
+                                                        <!--                                                        <div class="item-text"><t t-esc="project.unit_recap"/></div>-->
+                                                    </div>
+                                                </a>
+                                            </li>
+
+
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        No Enabled Logger...
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Path to Framework7 Library Bundle JS-->
+            <script type="text/javascript" src="/onpoint_wtclite/static/framework7/js/framework7.bundle.min.js"/>
+            <!-- Path to your app js-->
+            <script type="text/javascript" src="/onpoint_wtclite/static/src/js/mobile-app.js"></script>
+        </body>
+
+    </template>
+
+    <template id="main_botom_page">
+        <!-- Bottom Toolbar -->
+        <div class="toolbar tabbar tabbar-labels toolbar-bottom">
+            <div class="toolbar-inner">
+                <!-- Toolbar links -->
+                <a id="link_index" href="/index/" class="tab-link tab-link-active">
+                    <i class="icon fas fa-home"/>
+                    <span class="tabbar-label tabbar-custom-label">Beranda</span>
+                </a>
+                <a id="link_project" href="/project/list/"
+                   class="tab-link link"
+                   data-view=".view-main">
+                    <i class="icon far fa-clipboard"/>
+                    <span class="tabbar-label tabbar-custom-label">Proyek</span>
+                </a>
+                <a id="link_journal" href="/journal/list/" class="tab-link">
+                    <i class="icon far fa-calendar-alt"/>
+                    <span class="tabbar-label tabbar-custom-label">Jurnal Harian</span>
+                </a>
+                <a id="link_work_order" href="/work_order/list/" class="tab-link">
+                    <i class="icon fas fa-inbox"/>
+                    <span class="tabbar-label tabbar-custom-label">Permintaan</span>
+                </a>
+                <a href="#tab-2" class="tab-link">
+                    <i class="icon fas fa-book-open"/>
+                    <span class="tabbar-label tabbar-custom-label">Buku Unit</span>
+                </a>
+            </div>
+        </div>
+
+    </template>
+
+
+</odoo>

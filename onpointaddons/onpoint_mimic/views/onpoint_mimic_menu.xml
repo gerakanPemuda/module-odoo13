@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_mimic_root"
+                  name="Mimic Diagram"
+                  web_icon="onpoint_mimic,static/img/icon_mimic.png"
+                  sequence="3"/>
+
+        <menuitem id="menu_onpoint_mimic" parent="menu_onpoint_mimic_root" name="Mimic Diagram" sequence="1"
+                  action="act_onpoint_mimic"/>
+
+    </data>
+</odoo>

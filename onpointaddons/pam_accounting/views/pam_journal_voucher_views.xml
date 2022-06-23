@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_journal_voucher_tree" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.tree</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="name" />
+					<field name="entry_date"/>
+					<field name="remark"/>
+					<field name="total_debit" string="Total"/>
+	                <field name="state" />
+	                <field name="create_uid" string="Dibuat oleh"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_journal_voucher_form" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.form</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<header>
+						<!-- <button class="oe_highlight" 
+							string="Test" 
+							type="object" 
+							name="construct_voucher_html" /> -->
+
+<!-- 						<button class="oe_highlight" 
+							string="TXT" 
+							type="object" 
+							name="export_report_txt" /> -->
+
+<!-- 						<button class="oe_highlight" 
+							string="HTML" 
+							type="object" 
+							name="export_report_html" /> -->
+
+						<button class="oe_highlight" 
+							string="Payment" 
+							type="object" 
+							name="payment" 
+							attrs="{'invisible': [('state', 'in', ('payment', 'paid', 'submit', 'posted'))]}" />
+
+						<button class="oe_highlight" 
+							string="Submit" 
+							type="object" 
+							name="submit" 
+							attrs="{'invisible': [('state', 'in', ('draft', 'payment', 'submit', 'posted'))]}" />
+
+						<button class="btn btn-danger" 
+							string="Reject" 
+							type="object" 
+							name="payment_reject" 
+							confirm="Apakah anda yakin akan menolak pembayaran ini ?"							
+							attrs="{'invisible': [('state', 'in', ('draft', 'payment', 'submit', 'posted'))]}" />
+
+
+
+
+						<field name="state" widget="statusbar" statusbar_visible="draft,payment,paid,submit,posted" />
+					</header>
+
+	            	<sheet>
+						<group>
+							<group col="4" colspan="2">
+								<label for="code_number" string="Kode"/>
+								<div>
+									<field name="code_number" nolabel="1" class="oe_inline" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+									<label string="/" style="padding-left:5px" for="code_journal_type"/>
+									<field name="code_journal_type" nolabel="1" class="oe_inline" readonly="True"/>
+									<label string="/" style="padding-left:5px" for="code_month"/>
+									<field name="code_month" nolabel="1" class="oe_inline" readonly="True"/>
+									<label string="/" style="padding-left:5px" for="code_year"/>
+									<field name="code_year" nolabel="1" class="oe_inline" readonly="True"/>
+								</div>
+
+
+								<field name="entry_date" string="Tanggal" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+								<field name="vendor_id" required="True" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+								<field name="remark" colspan="4" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+								<!-- <field name="voucher_printout_html" colspan="4"/> -->
+								<field name="journal_type" invisible="True" />
+								<field name="total_debit" invisible="True"/>
+								<field name="total_credit" invisible="True"/>
+								<field name="total_credit_name" invisible="True"/>
+								<field name="approval_name1" invisible="True"/>
+								<field name="approval_name2" invisible="True"/>
+								<field name="approval_name3" invisible="True"/>
+								<field name="approval_name4" invisible="True"/>
+							</group>
+
+							<group string="Pembayaran" col="4" colspan="2" attrs="{'invisible': [('state', '=', 'draft')]}">
+								<field name="payment_type" readonly="True"/>
+								<field name="payment_date" string='Tgl. Pembayaran' attrs="{'required': [('state', 'in', ('paid', 'submit'))], 'readonly': [('state', '=', 'posted')]}"/>
+								<field name="coh_id" coslpan="4" readonly="True" attrs="{'invisible': [('payment_type', '=', 'cheque')]}"/>
+								<field name="coh_date" string='Tgl. COH' readonly="True" attrs="{'invisible': [('payment_type', '=', 'cheque')]}"/>
+								<label for="coa_id" string="Kas/Bank"/>
+								<div coslpan="4" readonly="True" attrs="{'invisible': [('payment_type', '=', 'cheque')]}" >
+									<field name="coa_id" />
+									<label string=" / " style="padding-left:5px" for="coa_id_name"/>
+									<field name="coa_id_name" readonly="1" force_save="1"/>
+								</div>
+								<field name="cheque_number" coslpan="4" readonly="True" attrs="{'invisible': [('payment_type', '=', 'cheque')]}"/>
+								<field name="payment_ids" string="Kas/Bank" colspan="4" widget="one2many_list" readonly="True" attrs="{'invisible': [('payment_type', '=', 'cash')]}" >
+									<tree editable="bottom">
+										<field name="coa_id" />
+										<field name="cheque_number"/>
+										<field name="amount" sum="Total"/>
+									</tree>
+								</field>
+								<field name="total_payment_diff" coslpan="4" readonly="True" attrs="{'invisible': [('payment_type', '=', 'cash')]}"/>
+
+							</group>
+
+
+							<notebook colspan="4">
+								<page string="Akun">
+									<group>
+										<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" attrs="{'readonly': [('state', '=', 'posted')]}">
+											<tree editable="bottom">
+												<field name="coa_id" />
+												<field name="coa_id_name" readonly="1" force_save="1"/>
+												<field name="debit" sum="Total Debit"/>
+												<field name="credit" sum="Total Kredit"/>
+											</tree>
+										</field>
+
+										<group class="oe_subtotal_footer oe_right">
+											<div class="oe_subtotal_footer_separator oe_inline">
+												<label for="total_diff" string="Selisih Debit/Credit"/>
+											</div>
+											<field name="total_diff" nolabel="1" class="oe_subtotal_footer_separator" />
+										</group>
+
+
+
+									</group>
+								</page>
+							</notebook>
+						</group>
+		            </sheet>
+
+					<div class="oe_chatter">
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_journal_voucher_search" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.search</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Jurnal Umum">
+	               <field name="name"/>
+	               <field name="remark"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_journal_voucher">
+			<field name="name">Jurnal Voucher (AP)</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.journal.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('journal_type', '=', 'ap')]</field>
+			<field name="context">{"default_journal_type" : "ap", "default_code_journal_type" : "AP"}</field>
+	        <field name="search_view_id" ref="view_pam_journal_voucher_search"/>
+		</record>
+
+		<record model="ir.actions.act_window.view" id="act_pam_journal_voucher_view_tree">
+			<field name="act_window_id" ref="act_pam_journal_voucher" />
+			<field name="sequence" eval="10" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_pam_journal_voucher_tree" />
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="act_pam_journal_voucher_view_form">
+			<field name="act_window_id" ref="act_pam_journal_voucher" />
+			<field name="sequence" eval="20" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_pam_journal_voucher_form" />
+		</record>
+
+
+    </data>
+</odoo>

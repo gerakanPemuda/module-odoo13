@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_report_log_tree" model="ir.ui.view">
+	        <field name="name">pam.report.log.tree</field>
+	        <field name="model">pam.report.log</field>
+	        <field name="arch" type="xml">
+	            <tree string="Log Laporan">
+	                <field name="name"/>
+	                <field name="report_type"/>
+	                <field name="report_format"/>
+	                <field name="create_date" string='Dibuat Pada'/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_report_log_search" model="ir.ui.view">
+	        <field name="name">pam.report.log.search</field>
+	        <field name="model">pam.report.log</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Laporan">
+	                <field name="name"/>
+	                <field name="report_type"/>
+	                <field name="report_format"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_report_log">
+			<field name="name">Log Laporan</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.report.log</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_report_log_search"/>
+		</record>
+
+    </data>
+</odoo>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="logger_form_page">
+
+        <div class="page" data-name="logger_form_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">Add Logger</div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="block-title" style="font-size: 1.6em; font-weight: bolder">New Logger</div>
+
+                <form id="logger-form" class="list no-hairlines-md">
+                    <ul>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Name</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" name="name" placeholder="Name..."/>
+                                    <span class="input-clear-button"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Identifier</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" name="identifier" placeholder="Identifier..."/>
+                                    <span class="input-clear-button"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="item-link smart-select smart-select-init">
+                                <select name="logger_type_id">
+                                    <t t-foreach="logger_types" t-as="logger_type">
+                                        <option t-att-value="logger_type['id']">
+                                            <t t-esc="logger_type['name']"/>
+                                        </option>
+                                    </t>
+                                </select>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Logger Type</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Address</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" name="address" placeholder="Address..."/>
+                                    <span class="input-clear-button"/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+
+                <div class="block block-strong row">
+                    <div class="col">
+                        <a class="button button-fill color-red convert-form-to-data" href="#">Submit</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </template>
+
+</odoo>

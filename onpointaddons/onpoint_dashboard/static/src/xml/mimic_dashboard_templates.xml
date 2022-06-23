@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="OnpointDashboardMimic">
+        <div class="o_dashboard">
+            X
+        </div>
+    </t>
+
+    <t t-name="OnpointDashboardMimicContent">
+        <div>
+            <div class="mimic_diagram">
+                <img src="/onpoint_dashboard/static/src/img/mimics/mimic1.png"/>
+            </div>
+
+            <div class="row dashboard-header">
+                <div class="col-md-3 dashboard-header">
+                    <img id="btn_logo" class="logo" src="/onpoint_dashboard/static/src/img/icon_logo.png"/>
+                </div>
+                <div class="col-md-8 dashboard-header text-right">
+                    <img id="btn_main" class="icons" src="/onpoint_dashboard/static/src/img/icon_maps.png"/>
+                    <img id="btn_logger_list" class="icons" src="/onpoint_dashboard/static/src/img/icon_logger_list.png"/>
+<!--                    <img id="btn_mimic" class="icons" src="/onpoint_dashboard/static/src/img/icon_mimic.png"/>-->
+                </div>
+            </div>
+        </div>
+
+    </t>
+
+
+
+    <t t-name="OnpointDashboardMimicWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

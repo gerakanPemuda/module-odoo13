@@ -1,0 +1,12 @@
+.o_main_navbar .sh_backmate_theme_appmenu_div.show{
+  @if $sidebar_background_type == 'bg_img' {
+
+background:linear-gradient(rgba(0, 0, 0, 0.71), rgba(0, 0, 0, 0.78)), url('/web/image?model=sh.back.theme.config.settings&id=1&field=sidebar_background_image');
+background-repeat: no-repeat;
+background-size: cover;
+
+    } 
+    @else if $sidebar_background_type == 'bg_color'{
+       background:$sidebar_bg_color;
+    }
+}

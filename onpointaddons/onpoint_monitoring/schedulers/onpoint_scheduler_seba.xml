@@ -1,0 +1,17 @@
+<openerp>     
+    <data noupdate="1">
+        <record id="ir_cron_scheduler_seba_action" model="ir.cron">
+            <field name="name">Scheduler Seba LogD3</field>
+            <field name="active" eval="False" />
+            <field name="user_id" ref="base.user_root"/>            
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall">2019-10-6 11:20:00</field>
+            <field name="doall" eval="True" />
+            <field name="model_id" ref="model_onpoint_scheduler_seba" />
+            <field name="state">code</field>
+            <field name="code">model.read_data()</field>
+        </record>
+    </data>
+</openerp>

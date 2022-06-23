@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_telegram_group" parent="onpoint_monitor.menu_onpoint_config" name="Telegram Group" sequence="10"
+                  action="act_onpoint_telegram_group"/>
+
+    </data>
+</odoo>

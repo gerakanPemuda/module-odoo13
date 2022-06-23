@@ -1,0 +1,19 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "id.onpoint_wo.mobile"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "id.onpoint_wo.mobile"
+    }
+  },
+  "dependent_plugins": {}
+}

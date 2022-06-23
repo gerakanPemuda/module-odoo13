@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+<data noupdate="0">
+    <record model="ir.module.category" id="module_onpoint_monitor">
+      <field name="name">Onpoint Monitor Security</field>
+      <field name="description">Security for Onpoint Monitor</field>
+      <field name="sequence">1</field>
+    </record>
+
+    <record id="group_onpoint_monitor_user" model="res.groups">
+      <field name="name">User</field>
+      <field name="category_id" ref="module_onpoint_monitor"/>
+      <field name="implied_ids" eval="[(6, 0, [ref('base.group_user'), ])]"/>
+    </record>
+
+    <record id="group_onpoint_monitor_admin" model="res.groups">
+      <field name="name">Admin</field>
+      <field name="category_id" ref="module_onpoint_monitor"/>
+      <field name="implied_ids" eval="[(4, ref('group_onpoint_monitor_user'))]"/>
+    </record>
+
+    <record id="group_onpoint_monitor_superadmin" model="res.groups">
+      <field name="name">Super Admin</field>
+      <field name="category_id" ref="module_onpoint_monitor"/>
+      <field name="implied_ids" eval="[(4, ref('group_onpoint_monitor_admin'))]"/>
+      <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+
+</data>
+</odoo>

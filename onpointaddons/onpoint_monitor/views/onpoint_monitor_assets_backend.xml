@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="onpoint_monitor_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/onpoint_monitor/static/src/css/onpoint_logger_dashboard.css"/>
+                <link rel="stylesheet" href="/onpoint_monitor/static/src/css/onpoint_card_course.css"/>
+                <link rel="stylesheet" href="/onpoint_monitor/static/src/css/onpoint_card_logger.css"/>
+                <link rel="stylesheet" href="/onpoint_monitor/static/src/css/onpoint_logger_comparison.css"/>
+                <script type="text/javascript" src="/onpoint_monitor/static/src/js/onpoint_logger_chart.js"/>
+                <script type="text/javascript" src="/onpoint_monitor/static/src/js/onpoint_logger_compare.js"/>
+                <script type="text/javascript" src="/onpoint_monitor/static/src/js/onpoint_monitor_dashboard.js"/>
+            </xpath>
+        </template>
+
+        <record id="act_view_logger_chart" model="ir.actions.client">
+            <field name="name">View Logger Chart</field>
+            <field name="tag">onpoint_monitor_logger_chart</field>
+            <field name="context">{'logger_id': context.get('active_id') }</field>
+        </record>
+
+        <record id="act_view_logger_compare" model="ir.actions.client">
+            <field name="name">View Logger Compare</field>
+            <field name="tag">onpoint_monitor_logger_compare</field>
+            <field name="context">{'compare_id': context.get('active_id') }</field>
+        </record>
+
+        <record id="act_view_monitor_dashboard" model="ir.actions.client">
+            <field name="name">View Monitor Dashboard</field>
+            <field name="tag">onpoint_monitor_monitor_dashboard</field>
+            <field name="context">{}</field>
+        </record>
+
+
+
+    </data>
+</odoo>

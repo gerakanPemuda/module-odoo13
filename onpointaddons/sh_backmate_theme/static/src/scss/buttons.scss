@@ -1,0 +1,323 @@
+.btn-primary {
+	background-color: $primaryColor;
+	border-color: $primaryColor;
+	//color:adjust-hue($primaryColor,50%);
+	//text-shadow: 0 -1px 0 darken($primaryColor, 10%);	
+}
+.btn-primary:hover {
+	background-color:$primary_hover;
+	border-color: $primary_hover;
+	//color:adjust-hue($primary_hover,50%);
+	//text-shadow: 0 -1px 0 darken($primary_hover, 10%);
+	box-shadow: 0 0 2px rgba(0,0,0,.12), 0 2px 2px rgba(0,0,0,.2);	
+}
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+	background-color: $primary_active;
+	border-color: $primary_active;
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+	box-shadow: none;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+	box-shadow: none;
+}
+
+.btn-secondary {
+	background-color: $secondaryColor;
+	border-color: $secondaryColor;
+	//color:adjust-hue($secondaryColor,50%);
+	//text-shadow: 0 -1px 0 darken($secondaryColor, 10%);
+}
+.btn-secondary:hover {
+	background-color:$secondary_hover;
+	border-color:$secondary_hover;
+	//color:adjust-hue($secondary_hover,50%);
+	//text-shadow: 0 -1px 0 darken($secondary_hover, 10%);
+}
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle
+{
+//color: #212529;
+//text-shadow: 0 -1px 0 darken($secondary_active, 10%);
+//background-color: $secondary_active;
+//border-color: $secondary_active;
+    }
+    
+.o_dropdown .dropdown-toggle:first-child {
+background-color: $secondaryColor;
+border-color: $secondaryColor;
+border: 0px;
+margin-right: 5px;
+}
+
+
+
+/*--button style--*/
+
+/*--style-1--*/
+@if $button_style == 'style_1'{
+.btn {border-radius: 0px;}
+.o_cp_buttons .btn.btn-primary{border: 1.5px solid $primaryColor!important;}
+.o_cp_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_cp_buttons .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.o_cp_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle{background:$primary_hover;opacity: 1;color:#fff}
+
+.o_statusbar_buttons .btn.btn-primary{border: 1.5px solid $primaryColor!important;}
+.o_statusbar_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_statusbar_buttons .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.o_statusbar_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+
+.modal-footer .btn.btn-primary{border: 1.5px solid $primaryColor!important;}
+.modal-footer .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.modal-footer .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.modal-footer .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+
+.o_favorites_menu .btn-primary{border: 1.5px solid $primaryColor!important;}
+.o_favorites_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+
+.o_group_by_menu .btn-primary{border: 1.5px solid $primaryColor!important;}
+.o_group_by_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+
+.o_filters_menu .btn-primary{border: 1.5px solid $primaryColor!important;}
+.o_filters_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_filters_menu .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.o_filters_menu .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+@media (max-width: 1023px) {
+.o_cp_left .o_cp_buttons .o_form_button_save:before{color:#fff;}
+.o_control_panel .o_form_buttons_view .o_form_button_edit:before{color:#fff;}
+.o_cp_left .o_cp_buttons .o-kanban-button-new:before{color:#fff;}
+.o_cp_left .o_cp_buttons .o_list_button_add:before{color:#fff;}
+}
+}
+/*--style-1--*/
+
+/*--style-2--*/
+@if $button_style == 'style_2'{
+.o_cp_left .o_cp_buttons .btn{border-radius: 4px!important;}
+.o_cp_buttons .btn.btn-primary{border: 1.5px solid $primaryColor!important;border-radius: 4px!important;}
+.o_cp_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_cp_buttons .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;}
+.o_cp_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle{background:$primary_hover;opacity: 1;color:#fff}
+
+.o_form_view .o_form_statusbar > .o_statusbar_buttons .btn{border-radius: 4px!important;}
+.o_statusbar_buttons .btn.btn-primary{border: 1.5px solid $primaryColor!important;border-radius: 4px!important;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);}
+.o_statusbar_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_statusbar_buttons .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);}
+.o_statusbar_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity:1;}
+
+.modal-footer .btn.btn-primary{border: 1.5px solid $primaryColor!important;border-radius: 4px!important;}
+.modal-footer .btn.btn-primary:hover{background:$primary_hover;opacity:1;color:#fff}
+.modal-footer .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;}
+.modal-footer .btn-secondary:hover{background:$primary_hover;color: #fff;opacity:1;}
+
+.o_favorites_menu .btn.btn-primary{border: 1.5px solid $primaryColor!important;border-radius: 4px!important;}
+.o_favorites_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+
+.o_chatter .o_chatter_topbar > .btn{border: 1.5px solid $primaryColor!important;border-radius: 4px!important;}
+.o_chatter .o_chatter_topbar > .btn:hover{background:$primary_hover;opacity:1;color:#fff}
+
+.o_group_by_menu .btn.btn-primary{border: 1.5px solid $primaryColor!important;border-radius: 4px!important;}
+.o_group_by_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+
+.o_filters_menu .btn.btn-primary{border: 1.5px solid $primaryColor!important;border-radius: 4px!important;}
+.o_filters_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_filters_menu .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;}
+.o_filters_menu .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+.o_field_x2many_list_row_add a{border-radius:4px!important;}
+.btn{border-radius:4px!important;}
+//.o_readonly_modifier .btn{border-radius:0px!important;}
+.o_cp_right .o_search_options .o_dropdown .btn {border-radius:4px;}
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-group:not(:last-child) > .btn{border-radius:4px;}
+.o_cp_switch_activity{border-radius:4px!important;}
+.btn-group > .btn:not(:first-child), .btn-group > .btn-group:not(:first-child) > .btn{border-radius:4px!important;}
+@media (max-width: 1023px) {
+.o_cp_left .o_cp_buttons .o_form_button_save:before{color:#fff;}
+.o_control_panel .o_form_buttons_view .o_form_button_edit:before{color:#fff;}
+.o_cp_left .o_cp_buttons .o-kanban-button-new:before{color:#fff;}
+.o_cp_left .o_cp_buttons .o_list_button_add:before{color:#fff;}
+}
+}
+/*--style-2--*/
+
+
+/*--style-3--*/
+@if $button_style == 'style_3'{
+.o_cp_buttons .btn.btn-primary{border: 1.5px solid $primaryColor!important;}
+.o_cp_buttons .btn.btn-primary:hover{background:$primary_hover;opacity:1;color:#fff}
+.o_cp_buttons .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.o_cp_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity:1;}
+.o_cp_left .o_cp_buttons .btn{box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2)!important;border-radius: 0px 15px 0px 15px!important;  }
+
+.o_statusbar_buttons .btn{box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2)!important;border-radius: 0px 15px 0px 15px!important;}
+.o_statusbar_buttons .btn.btn-primary{border: 1.5px solid $primaryColor!important;}
+.o_statusbar_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_statusbar_buttons .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.o_statusbar_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+
+.modal-footer .btn{box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2)!important;border-radius: 0px 15px 0px 15px!important;}
+.modal-footer .btn.btn-primary{border: 1.5px solid $primaryColor!important;}
+.modal-footer .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.modal-footer .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.modal-footer .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+
+.o_chatter .o_chatter_topbar > .btn{box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2)!important;border-radius: 0px 15px 0px 15px!important;}
+
+.o_favorites_menu .btn{box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2)!important;border-radius: 0px 15px 0px 15px!important;}
+.o_favorites_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_favorites_menu .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+
+.o_group_by_menu .btn{box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2)!important;border-radius: 0px 15px 0px 15px!important;}
+.o_group_by_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_group_by_menu .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+
+
+.o_filters_menu .btn{box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2)!important;border-radius: 0px 15px 0px 15px!important;}
+.o_filters_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_filters_menu .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.o_filters_menu .btn-secondary{border: 1.5px solid $primaryColor!important;background: #fff;}
+.o_filters_menu .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+@media (max-width:1023px) {
+.o_cp_left .o_cp_buttons .o_form_button_save:before{color:#fff;}
+.o_control_panel .o_form_buttons_view .o_form_button_edit:before{color:#fff;}
+.o_cp_left .o_cp_buttons .o-kanban-button-new:before{color:#fff;}
+.o_cp_left .o_cp_buttons .o_list_button_add:before{color:#fff;}
+}
+
+
+
+}
+/*--style-3--*/
+
+
+/*--style-4--*/
+@if $button_style == 'style_4'{
+.o_cp_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_cp_buttons .btn-secondary{box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);background: #fff;box-shadow: none;border-color: transparent!important;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);}
+.o_cp_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+.o_cp_left .o_cp_buttons .btn{box-shadow: none;}
+
+.o_statusbar_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_statusbar_buttons .btn-secondary{box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);border-color: transparent;background: #fff;box-shadow: none;border-color: transparent!important;}
+.o_statusbar_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+
+
+.modal-footer .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.modal-footer .btn-secondary{box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);background: #fff;box-shadow: none;border-color: transparent!important;}
+.modal-footer .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle{border-color:transparant;background:$primary_hover;color: #fff;opacity: 1;}
+
+.o_favorites_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+
+.o_group_by_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+
+.o_filters_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff}
+.o_filters_menu .btn-secondary{box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);background: #fff;box-shadow: none;border-color: transparent!important;}
+.o_filters_menu .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;}
+
+
+.o_chatter .o_chatter_topbar > .btn:hover{background:$primary_hover;opacity: 1;color:#fff}
+
+@media (max-width: 1023px) {
+.o_cp_left .o_cp_buttons .o_form_button_save:before{color:#fff;}
+.o_control_panel .o_form_buttons_view .o_form_button_edit:before{color:#fff;}
+.o_cp_left .o_cp_buttons .o-kanban-button-new:before{color:#fff;}
+.o_cp_left .o_cp_buttons .o_list_button_add:before{color:#fff;}
+}
+
+
+
+}
+/*--style-4--*/
+
+/*--style-5--*/
+@if $button_style == 'style_5'{
+.o_cp_buttons .btn.btn-primary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;color: #212529;text-shadow: none;}
+.o_cp_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff;border-radius: 4px!important;}
+.o_cp_buttons .btn-secondary{background: #fff;border-radius: 4px!important;border-color: transparent;border-color: transparent!important;}
+.o_cp_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;border-radius: 4px!important;}
+.o_cp_left .o_cp_buttons .btn{box-shadow: none;border-radius: 4px!important;}
+.o_cp_left .o_cp_buttons .btn.btn-primary{text-shadow:none!important;}
+
+
+.o_statusbar_buttons .btn.btn-primary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;color: #212529;text-shadow: none;}
+.o_statusbar_buttons .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff;border-radius: 4px!important;}
+.o_statusbar_buttons .btn-secondary{background: #fff;border-radius: 4px!important;border-color: transparent;}
+.o_statusbar_buttons .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;border-radius: 4px!important;}
+
+.modal-footer .btn.btn-primary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;color: #212529;text-shadow: none;}
+.modal-footer .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff;border-radius: 4px!important;border-color: transparent!important;}
+.modal-footer .btn-secondary{background: #fff;border-radius: 4px!important;border-color: transparent;border-color: transparent!important;}
+.modal-footer .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;border-radius: 4px!important;}
+
+
+.o_chatter .o_chatter_topbar > .btn{border: 1.5px solid $primaryColor!important;background: #fff!important;border-radius: 4px!important;color: #212529!important;text-shadow: none;}
+.o_chatter .o_chatter_topbar > .btn:hover{background:$primary_hover!important;opacity: 1;color:#fff!important;border-radius: 4px!important;}
+
+
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle{background:$primary_hover;color: #fff;opacity: 1;}
+
+.o_favorites_menu .btn.btn-primary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;color: #212529;text-shadow: none;}
+.o_favorites_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff;border-radius: 4px!important;}
+
+.o_group_by_menu .btn.btn-primary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;color: #212529;text-shadow: none;}
+.o_group_by_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff;border-radius: 4px!important;}
+
+.o_filters_menu .btn.btn-primary{border: 1.5px solid $primaryColor!important;background: #fff;border-radius: 4px!important;color: #212529;text-shadow: none;}
+.o_filters_menu .btn.btn-primary:hover{background:$primary_hover;opacity: 1;color:#fff;border-radius: 4px!important;}
+.o_filters_menu .btn-secondary{background: #fff;border-radius: 4px!important;border-color: transparent;border-color: transparent!important;}
+.o_filters_menu .btn-secondary:hover{background:$primary_hover;color: #fff;opacity: 1;border-radius: 4px!important;}
+.o_control_panel .o_form_buttons_view .o_form_button_edit:before{}
+
+.o_cp_right .o_search_options .o_dropdown .btn {border-radius:4px;}
+.btn{border-radius:4px!important;}
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-group:not(:last-child) > .btn{border-radius:4px;}
+.o_cp_switch_activity{border-radius:4px!important;}
+.btn-group > .btn:not(:first-child), .btn-group > .btn-group:not(:first-child) > .btn{border-radius:4px!important;}
+}
+/*--style-5--*/
+
+
+/*--style-2--*/
+@if $button_style == 'style_8'{
+.o_cp_left .o_cp_buttons .btn.btn-primary{border: 2px solid $primaryColor!important;color: #fff!important;}
+.o_cp_left .o_cp_buttons .btn.btn-primary:hover {transition: all .3s ease-in-out;color: #000!important;background-color: rgba(0,129,255,0);}
+.o_cp_left .o_cp_buttons .btn.btn-secondary{border: 2px solid $secondaryColor!important;color: #fff!important;}
+.o_cp_left .o_cp_buttons .btn.btn-secondary:hover{background:$secondary_hover!important;color:#000!important;transition: all .3s ease-in-out;}
+.o_statusbar_buttons .btn.btn-primary{border: 2px solid $primaryColor!important;color: #fff!important;}
+.o_statusbar_buttons .btn.btn-primary:hover {transition: all .3s ease-in-out;color: #000!important;background-color: rgba(0,129,255,0)!important;}
+.o_statusbar_buttons .btn.btn-secondary{border: 2px solid $secondaryColor!important;color: $secondaryColor!important;}
+.o_statusbar_buttons .btn.btn-secondary:hover{background:$secondary_hover!important;color:#fff!important;transition: all .3s ease-in-out;}
+}
+/*--style-2--*/
+
+
+/*--style-3--*/
+@if $button_style == 'style_7'{
+.o_cp_left .o_cp_buttons .btn.btn-primary{border: 2px solid $primaryColor!important;color: #fff!important;border-radius:100px!important}
+.o_cp_left .o_cp_buttons .btn.btn-primary:hover {transition: all .3s ease-in-out;color: #000!important;background-color: rgba(0,129,255,0);}
+.o_cp_left .o_cp_buttons .btn.btn-secondary{border: 2px solid $secondaryColor!important;color: #000!important;border-radius:100px!important}
+.o_cp_left .o_cp_buttons .btn.btn-secondary:hover{background:$secondary_hover!important;color:#fff!important;transition: all .3s ease-in-out;}
+.o_statusbar_buttons .btn.btn-primary{border: 2px solid $primaryColor!important;color: #fff!important;border-radius:100px!important}
+.o_statusbar_buttons .btn.btn-primary:hover {transition: all .3s ease-in-out;color: #000!important;background-color: rgba(0,129,255,0)!important;}
+.o_statusbar_buttons .btn.btn-secondary{box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);border: 2px solid $secondaryColor!important;color:#000!important;border-radius:100px!important}
+.o_statusbar_buttons .btn.btn-secondary:hover{background:$secondary_hover!important;color:#fff!important;transition: all .3s ease-in-out;}
+}
+/*--style-3--*/
+
+
+/*--style-4--*/
+@if $button_style == 'style_6'{
+.o_cp_left .o_cp_buttons .btn{border-radius: 100px!important;}
+.o_statusbar_buttons .btn{border-radius: 100px!important;}
+}
+/*--style-4--*/
+
+
+
+/*--button style--*/

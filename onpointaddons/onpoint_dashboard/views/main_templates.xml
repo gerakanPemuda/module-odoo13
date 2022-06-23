@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="main_header">&lt;!DOCTYPE html&gt;
+        <head>
+            <t t-call-assets="web.assets_common"/>
+            <t t-call-assets="web.assets_backend"/>
+            <script src="https://maps.googleapis.com/maps/api/js?key=&amp;callback=initMap&amp;libraries=&amp;v=weekly"
+                    defer=""/>
+            <link rel="stylesheet" href="/onpoint_dashboard/static/src/css/dashboard.css"/>
+        </head>
+    </template>
+
+    <template id="main_layout" name="Main Page">
+        <t t-call="onpoint_dashboard.main_header"/>
+
+        <div>
+            <div class="row dashboard-header">
+                <div class="col-md-3 dashboard-header">
+<!--                    <img id="btn_logo" class="logo" t-attf-src="data:image/*;base64, {{ widget.logger['company_logo'] }}"/>-->
+                </div>
+                <div class="col-md-5 dashboard-header text-right">
+<!--                    <img id="btn_logger_list" class="icons" src="/onpoint_dashboard/static/src/img/icon_logger_list.png"/>-->
+<!--                    <img id="btn_mimic" class="icons" src="/onpoint_dashboard/static/src/img/icon_mimic.png"/>-->
+                </div>
+                <div class="col-md-4 dashboard-header">
+                    <div class="search-box">
+                        <i class="fas fa-search"/>
+                        <input type="text" placeholder="search..."/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="icons-left-container">
+                <div class="icon">
+                    <img id="btn_monitor" class="onpoint_monitor" src="/onpoint_dashboard/static/src/img/icon_monitor.png"/>
+                </div>
+                <div class="icon">
+                    <img id="btn_analytic" src="/onpoint_dashboard/static/src/img/icon_analytic.png"/>
+                </div>
+                <div class="icon">
+                    <img id="btn_work_order" src="/onpoint_dashboard/static/src/img/icon_work_order.png"/>
+                </div>
+            </div>
+            <div id="map"/>
+        </div>
+
+        <script>
+            var rpc = require('web.rpc');
+            var map;
+
+            function addMarker(props) {
+
+                var iconBase = '/onpoint_dashboard/static/src/img/markers/'
+
+                var icons = {
+                          pointorange: {
+                            icon: iconBase + 'marker_pointorange.png'
+                          },
+                          seba: {
+                            icon: iconBase + 'marker_seba.png'
+                          },
+                        };
+
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    icon: icons[props.brand_owner].icon,
+                    map: map
+                })
+
+            };
+
+            function initMap() {
+                var indonesia = {lat: -0.510370, lng: 117.172094};
+                var map_options = {
+                    zoom: 13,
+                    center: indonesia,
+                    disableDefaultUI: true};
+                map = new google.maps.Map(document.getElementById('map'), map_options);
+            
+                var markers = self.logger['markers'];
+
+                var positions = [];
+                <t t-foreach="map_data['markers']" t-as="marker">
+
+
+
+                </t>
+
+            }
+            
+            
+        </script>
+        <script src="/onpoint_dashboard/static/src/js/main.js"/>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,104 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_alarm_threshold_tree" model="ir.ui.view">
+	        <field name="name">onpoint.alarm.threshold.tree</field>
+	        <field name="model">onpoint.alarm.threshold</field>
+	        <field name="arch" type="xml">
+	            <tree string="Alarm Threshold">
+	                <field name="alarm_type" />
+	            </tree>
+	        </field>
+	    </record>
+
+	     <record id="view_onpoint_alarm_threshold_form" model="ir.ui.view">
+	        <field name="name">onpoint.alarm.threshold.form</field>
+	        <field name="model">onpoint.alarm.threshold</field>
+	        <field name="arch" type="xml">
+	            <form string="Alarm Threshold">
+	            	<sheet>
+						<group>
+							<group>
+								<field name="alarm_type" />
+							</group>
+						</group>
+						<group attrs="{'invisible': [('alarm_type', '=', 'submerged')]}">
+							<table class="o_list_view table table-condensed table-striped o_list_view_ungrouped" width="60%">
+								<thead>
+									<tr>
+										<th class="o_column_sortable" width="15%">Level</th>
+										<th class="o_column_sortable" width="50%">Min</th>
+										<th class="o_column_sortable" width="35%">Max</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="o_data_row">
+										<td>Normal</td>
+										<td><field name="normal_min" nolabel="1"/></td>
+										<td><field name="normal_max" nolabel="1"/></td>
+									</tr>
+									<tr class="o_data_row">
+										<td>Medium</td>
+										<td><field name="medium_min" nolabel="1"/></td>
+										<td><field name="medium_max" nolabel="1"/></td>
+									</tr>
+									<tr class="o_data_row">
+										<td>Danger</td>
+										<td><field name="danger_min" nolabel="1"/></td>
+										<td><field name="danger_max" nolabel="1"/></td>
+									</tr>
+								</tbody>
+							</table>
+
+						</group>
+						<group attrs="{'invisible': [('alarm_type', '!=', 'submerged')]}">
+							<table class="o_list_view table table-condensed table-striped o_list_view_ungrouped" width="60%">
+								<thead>
+									<tr>
+										<th class="o_column_sortable" width="15%">Level</th>
+										<th class="o_column_sortable" width="50%">Min Days</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="o_data_row">
+										<td>Normal</td>
+										<td><field name="normal_submerged" nolabel="1"/></td>
+									</tr>
+									<tr class="o_data_row">
+										<td>Medium</td>
+										<td><field name="medium_submerged" nolabel="1"/></td>
+									</tr>
+									<tr class="o_data_row">
+										<td>Danger</td>
+										<td><field name="danger_submerged" nolabel="1"/></td>
+									</tr>
+								</tbody>
+							</table>
+						</group>
+		            </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_alarm_threshold_search" model="ir.ui.view">
+	        <field name="name">onpoint.alarm.threshold.search</field>
+	        <field name="model">onpoint.alarm.threshold</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Logger Brand">
+	               <field name="alarm_type"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_alarm_threshold">
+			<field name="name">Alarm Threshold</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.alarm.threshold</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_alarm_threshold_search"/>
+		</record>
+
+    </data>
+</odoo>

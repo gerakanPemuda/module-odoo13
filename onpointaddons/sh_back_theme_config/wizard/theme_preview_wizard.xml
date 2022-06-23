@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="sh_back_theme_config_theme_preview_wizard_form" model="ir.ui.view">
+		<field name="name">sh.back.theme.config.theme.preview.wizard.form</field>
+		<field name="model">sh.theme.preview.wizard</field>
+		<field name="arch" type="xml">
+			<form string="Theme Preview">
+						<img alt="preview image" id="js_id_theme_preview_image" src="" style="width:100%;height:100%;"/>
+
+			
+						<field style="display:none;" name="img_src"/>
+
+				
+                    <footer>
+
+                    </footer>				
+				
+				<script type="text/javascript">
+					$( document ).ready(function() {
+    var img_src = $("input[name=img_src]").val();
+    $("#js_id_theme_preview_image").attr('src', img_src);
+});
+				</script>
+			</form>
+		</field>
+	</record>
+</odoo>

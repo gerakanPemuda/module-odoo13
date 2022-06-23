@@ -1,0 +1,76 @@
+<odoo>
+
+    <data>
+
+        <record id="view_onpoint_dma_billing_tree" model="ir.ui.view">
+            <field name="name">onpoint.dma.billing.tree</field>
+            <field name="model">onpoint.dma.billing</field>
+            <field name="arch" type="xml">
+                <tree string="Logger">
+                    <field name="years"/>
+                    <field name="months"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_dma_billing_form" model="ir.ui.view">
+            <field name="name">onpoint.dma.billing.form</field>
+            <field name="model">onpoint.dma.billing</field>
+            <field name="arch" type="xml">
+                <form string="Logger">
+                    <header style="padding-left:30px">
+                        <button class="oe_highlight" string="Get DMA" type="object" name="act_get_dmas"/>
+                    </header>
+
+                    <div style="padding-left:10px; padding-right:10px">
+
+                        <group>
+                            <group>
+                                <field name="years"/>
+                                <field name="months"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Details">
+                                <group>
+                                    <field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+                                        <tree editable="bottom">
+                                            <field name="dma_id"/>
+                                            <field name="customer_count"/>
+                                            <field name="consumption"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+
+
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_onpoint_dma_billing_search" model="ir.ui.view">
+            <field name="name">onpoint.dma.billing.search</field>
+            <field name="model">onpoint.dma.billing</field>
+            <field name="arch" type="xml">
+                <search string="Search DMA Billing">
+                    <field name="years"/>
+                    <field name="months"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_dma_billing">
+            <field name="name">DMA Billing</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.dma.billing</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_onpoint_dma_billing_search"/>
+        </record>
+
+    </data>
+</odoo>

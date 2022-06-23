@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<template id="report_template_style">
+			<style>
+				table.report-table {
+				    border: 1px solid black;
+				    font-size: 11px;
+				}
+
+				table.report-table th {
+				    border: 1px solid black;
+				    padding: 5px;
+				    background-color: gainsboro;
+				}
+
+				table.report-table td {
+				    border: 1px solid black;
+				    padding: 5px;
+				}
+
+				.number-cell {
+				    text-align: right;
+				}
+
+				.percentage-cell {
+				    text-align: center;
+				}
+
+
+				.total-cell {
+				    background-color: rgb(202, 200, 200);
+				    font-weight: bold;
+				}
+
+				img {
+					height: 100px;
+					width: 10%;
+					}
+			</style>
+		</template>
+    </data>
+</odoo>

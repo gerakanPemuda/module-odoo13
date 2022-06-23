@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="OnpointDashboardMain">
+        <div class="o_dashboards">
+            <div class="container-fluid o_hr_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="OnpointDashboardContent">
+
+        <div id="map" name="map" style="width:100%; height:750px !important"></div>
+
+    </t>
+
+
+
+    <t t-name="OnpointDashboardWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

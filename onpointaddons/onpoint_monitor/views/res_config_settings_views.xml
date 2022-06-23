@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.monitor</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="OnPoint Settings" string="OnPoint Settings" data-key="onpoint_monitor">
+                    <h2>OnPoint Settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-12 o_setting_box" title="Set default host">
+                            <div class="o_setting_right_pane">
+                                <label for="ftp_pointorange_host" string="Indonesian Time Zone"/>
+                                <div class="text-muted">
+                                    Set Time Zone Settings for OnPoint Monitor
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <group>
+                                            <field name="time_zone" string="Time Zone"/>
+                                            <field name="inactive_days" string="Inactive Days Warning"/>
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="onpoint_monitor_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'onpoint_monitor'}</field>
+    </record>
+
+    <menuitem id="onpoint_monitor_menu_configuration"
+        name="Settings"
+        parent="onpoint_monitor.menu_onpoint_config"
+        sequence="1"
+        action="onpoint_monitor_config_settings_action"
+        groups="base.group_system"/>
+</odoo>

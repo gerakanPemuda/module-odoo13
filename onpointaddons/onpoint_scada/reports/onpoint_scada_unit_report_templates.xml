@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_onpoint_scada_unit_report">
+            <field name="name">paperformat.onpoint.scada.unit.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">35</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">15</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report id="act_onpoint_scada_unit_report1"
+                string="Unit Report"
+                model="onpoint.scada.unit.report"
+                report_type="qweb-pdf"
+                name="onpoint_scada.onpoint_scada_unit_report_template"
+                file="onpoint_scada.onpoint_scada_unit_report_template"
+                print_report_name="Report"
+                paperformat="paperformat_onpoint_scada_unit_report"
+                menu="False"/>
+
+        <template id="onpoint_scada_unit_report_template">
+            <t t-call="web.basic_layout">
+                <link rel="stylesheet" href="/onpoint_monitor/static/src/css/onpoint_logger_report.css"/>
+
+                <div class="header">
+                    <div class="row col-12">
+                        <div class="col-3">
+                            <!--                            <img src="/onpoint_scada/static/src/img/logo-onpoint.jpg" width="20%" class="float-start"/>-->
+                        </div>
+                        <div class="col-9 text-right">
+                            <h4>
+                                <strong>
+                                    <t t-esc="unit['unit_name']"/>
+                                </strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="page">
+
+                    <!--Page 1-->
+                    <p style="page-break-after:always;"/>
+                    <div class="report-title">
+                        <div class="row">
+                            <div class="col-6">Results</div>
+                            <div class="col-6 text-right">
+                                <t t-esc="unit['report_period']"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <img t-attf-src="{{ image_base64 }}"
+                             width="800px"
+                             style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto;"/>
+
+                    </div>
+                    <div class="container">
+                        <div class="row col-12">
+                            <t t-foreach="unit['stats']" t-as="row">
+                                <div class="col-4 logger-info-cell">
+                                    <table width="100%">
+                                        <tr>
+                                            <td colspan="2" align="center" style="font-size: 12pt">
+                                                <b>
+                                                    <t t-esc="row['name']"/>
+                                                </b>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Last Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <t t-if="row['last_date'] != ''">
+                                                    <span class="text-value">
+                                                        <t t-esc="row['last_value']"/>
+                                                        <t t-esc="row['sensor_type_uom']"/>
+                                                    </span>
+                                                    <br/>
+                                                    <t t-esc="row['last_date']"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="text-value">
+                                                        -
+                                                    </span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Min Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <t t-if="row['min_date'] != ''">
+                                                    <span class="text-value">
+                                                        <t t-esc="row['min_value']"/>
+                                                        <t t-esc="row['sensor_type_uom']"/>
+                                                    </span>
+                                                    <br/>
+                                                    <t t-esc="row['min_date']"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="text-value">
+                                                        -
+                                                    </span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="40%" class="value-info-cell">Max Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <t t-if="row['max_date'] != ''">
+                                                    <span class="text-value">
+                                                        <t t-esc="row['max_value']"/>
+                                                        <t t-esc="row['sensor_type_uom']"/>
+                                                    </span>
+                                                    <br/>
+                                                    <t t-esc="row['max_date']"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="text-value">
+                                                        -
+                                                    </span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+
+                    <!--Page 2-->
+                    <t t-if="unit['html_data'] != ''">
+                        <p style="page-break-after:always;"/>
+                        <div class="report-title">
+                            <div class="row">
+                                <div class="col-6">Results</div>
+                                <div class="col-6 text-right">
+                                    <t t-esc="unit['report_period']"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="container">
+                                <t t-raw="unit['html_data']"/>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div class="footer">
+                    <div class="row col-xs-12 text-center" style="border-top: 1px solid black;font-size: 8pt">
+                        <div class="col-6 text-left">
+                            Created by
+                            <t t-esc="user.name"/>
+                            at
+                            <t t-esc="timestamp"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            <div name="pager">
+                                Page:
+                                <span class="page"/>
+                                /
+                                <span class="topage"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

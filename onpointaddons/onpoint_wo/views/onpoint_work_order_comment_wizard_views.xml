@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_onpoint_wo_comment_wizard_form" model="ir.ui.view">
+            <field name="name">onpoint.wo.comment.wizard.form</field>
+            <field name="model">onpoint.work.order.detail</field>
+            <field name="arch" type="xml">
+                <form string="Work Order">
+                    <sheet>
+                        <group>
+                            <field name="comment"/>
+                            <field name="wo_line_id" invisible="1"/>
+                        </group>
+                        <footer>
+                            <button string="Confirm" class="btn-primary" special="save"/>
+                            <button string="Cancel" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_wo_comment_wizard">
+            <field name="name">Work Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.work.order.detail</field>
+            <field name="view_mode">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

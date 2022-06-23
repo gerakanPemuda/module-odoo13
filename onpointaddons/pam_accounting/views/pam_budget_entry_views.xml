@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_budget_entry_tree" model="ir.ui.view">
+	        <field name="name">pam.budget.entry.tree</field>
+	        <field name="model">pam.budget.entry</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="years" />
+					<field name="budget_type"/>
+					<field name="department_id"/>
+					<field name="manager_name" string="Manager"/>
+					<field name="job_id"/>
+	                <field name="state" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_budget_entry_form" model="ir.ui.view">
+	        <field name="name">pam.budget.entry.form</field>
+	        <field name="model">pam.budget.entry</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<header>
+						<button class="oe_highlight" 
+							string="Submit" 
+							type="object" 
+							name="submit" 
+							attrs="{'invisible': [('state', 'in', ('submit', 'approved'))]}"/>
+
+						<button class="oe_highlight" 
+							string="Approve" 
+							type="object" 
+							name="approve"
+							attrs="{'invisible': ['|', ('state', 'in', ('draft', 'approved')), ('is_approver', '=', False)]}" />
+
+
+						<field name="state" widget="statusbar" statusbar_visible="draft,setup,submit,approved" />
+					</header>				
+
+					<group>
+						<group col="4" colspan="2">
+							<field name="years" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+							<field name="budget_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+							<field name="department_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+							<field name="manager_name" string="Manager" readonly="True"/>
+							<field name="job_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+							<field name="is_approver" invisible="True" />
+						</group>
+
+						<notebook colspan="4">
+							<page string="Akun">
+								<group>
+									<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom">
+											<field name="coa_id" />
+											<field name="coa_id_name" readonly="1" force_save="1"/>
+											<field name="remark" />
+											<field name="month_1_entry" sum="Total 1"/>
+											<field name="month_2_entry" sum="Total 2"/>
+											<field name="month_3_entry" sum="Total 3"/>
+											<field name="month_4_entry" sum="Total 4"/>
+											<field name="month_5_entry" sum="Total 5"/>
+											<field name="month_6_entry" sum="Total 6"/>
+											<field name="month_7_entry" sum="Total 7"/>
+											<field name="month_8_entry" sum="Total 8"/>
+											<field name="month_9_entry" sum="Total 9"/>
+											<field name="month_10_entry" sum="Total 10"/>
+											<field name="month_11_entry" sum="Total 11"/>
+											<field name="month_12_entry" sum="Total 12"/>
+										</tree>
+
+										<form>
+											<group>
+												<field name="coa_id" />
+												<field name="remark" />
+											</group>
+											<group>
+												<table class="o_list_view table table-condensed table-striped o_list_view_ungrouped">
+													<thead>
+														<tr>
+															<th style="text-align: right;">I</th>
+															<th style="text-align: right;">II</th>
+															<th style="text-align: right;">III</th>
+															<th style="text-align: right;">IV</th>
+															<th style="text-align: right;">V</th>
+															<th style="text-align: right;">VI</th>
+															<th style="text-align: right;">VII</th>
+															<th style="text-align: right;">VIII</th>
+															<th style="text-align: right;">IX</th>
+															<th style="text-align: right;">X</th>
+															<th style="text-align: right;">XI</th>
+															<th style="text-align: right;">XII</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr class="o_data_row">
+															<td class="o_data_cell o_list_number"><field name="month_1_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_2_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_3_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_4_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_5_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_6_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_7_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_8_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_9_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_10_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_11_entry"/></td>
+															<td class="o_data_cell o_list_number"><field name="month_12_entry"/></td>
+														</tr>
+													</tbody>
+												</table>
+											</group>
+										</form>
+
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_budget_entry_search" model="ir.ui.view">
+	        <field name="name">pam.budget.entry.search</field>
+	        <field name="model">pam.budget.entry</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Jurnal Umum">
+	               <field name="years"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_budget_entry">
+			<field name="name">Anggaran</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.budget.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_budget_entry_search"/>
+		</record>
+
+
+    </data>
+</odoo>

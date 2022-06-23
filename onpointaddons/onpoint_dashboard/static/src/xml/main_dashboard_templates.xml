@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="OnpointDashboardMain">
+        <div class="o_dashboard"/>
+    </t>
+
+    <t t-name="OnpointDashboardMainContent">
+        <div id="map" class="container-map"/>
+        <input type="text" id="marker_type" value="logger_type" style="display:none"/>
+        <input type="text" id="logger_type_id" value="0" style="display:none"/>
+
+        <div class="row dashboard-header">
+            <div class="col-md-12 dashboard-header">
+<!--                    <img id="btn_logo" class="logo" src="/onpoint_dashboard/static/src/img/icon_logo.png"/>-->
+                <img id="btn_logo" class="logo" t-attf-src="data:image/*;base64, {{ widget.logger['company_logo'] }}"/>
+                <img id="icon_filter_logger_type" class="icons"
+                     src="/onpoint_dashboard/static/src/img/icon_select_all.png"/>
+                <img id="icon_filter_brand_type" class="icons"
+                     src="/onpoint_dashboard/static/src/img/icon_pointorange.png"/>
+                <img id="icon_filter_logger" class="icons"
+                     src="/onpoint_dashboard/static/src/img/icon_search.png"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-logger-search">
+                <input id="logger_keyword" type="text" value="" placeholder="search..."/>
+            </div>
+            <div class="container-logger-type">
+                <ul>
+                    <li>
+                        <span>All</span>
+                        <img class="icons icon-logger-type"
+                             src="/onpoint_dashboard/static/src/img/icon_select_all.png"
+                             data-logger_type_id="0"
+                        />
+                    </li>
+                    <t t-foreach="widget.logger_type" t-as="logger_type">
+                        <t t-if="logger_type.icon != false">
+                            <li>
+                                <span><t t-esc="logger_type.name"/></span>
+                                <img class="icons icon-logger-type"
+                                     t-att-src="'data:image/png;base64,'+logger_type.icon"
+                                     t-att-data-logger_type_id="logger_type.id"/>
+                            </li>
+                        </t>
+                    </t>
+
+                </ul>
+            </div>
+        </div>
+
+
+<!--        <div id="dock-marker-type">-->
+<!--            <img src="/onpoint_dashboard/static/src/img/markers/marker_pointorange.png"/>-->
+<!--        </div>-->
+
+        <div id="dock-container">
+            <div id="dock">
+           <ul>
+              <li>
+                <span>Monitoring</span>
+                  <a href="#"><img id="btn_monitor" src="/onpoint_dashboard/static/src/img/icon_monitor.png"/></a>
+              </li>
+               <li>
+                <span>Mimic</span>
+                   <a href="#"><img id="btn_mimic" src="/onpoint_dashboard/static/src/img/icon_mimic.png"/></a>
+              </li>
+               <li>
+                 <span>Work Order</span>
+                   <a href="#"><img id="btn_work_order" src="/onpoint_dashboard/static/src/img/icon_work_order.png"/></a>
+              </li>
+           </ul>
+         </div>
+        </div>
+    </t>
+
+
+    <t t-name="OnpointDashboardMainWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

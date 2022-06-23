@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_budget_departmenttree" model="ir.ui.view">
+	        <field name="name">pam.budget.department.tree</field>
+	        <field name="model">pam.budget.department</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="budget_id" />
+					<field name="department_id"/>
+	                <field name="state" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_budget_department_form" model="ir.ui.view">
+	        <field name="name">pam.budget.department.form</field>
+	        <field name="model">pam.budget.department</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<header>
+						<button class="oe_highlight" 
+							string="Submit" 
+							type="object" 
+							name="submit" 
+							attrs="{'invisible': [('state', '!=', 'draft')]}" />
+
+						<button class="oe_highlight" 
+							string="Approve" 
+							type="object" 
+							name="approve" 
+							confirm="Apakah anda yakin akan menyetujui anggaran ini ?"							
+							attrs="{'invisible': [('state', '!=', 'submit')]}"
+							groups="pam_accounting.group_pam_accounting_admin" />
+
+						<field name="state" widget="statusbar" statusbar_visible="draft,submit,approved" />
+					</header>
+
+					<group>
+						<group>
+							<field name="budget_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+							<field name="department_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+						</group>
+
+						<notebook colspan="4">
+							<page string="Akun">
+								<group>
+									<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom">
+											<field name="coa_id" />
+											<field name="remarks" />
+											<field name="month_1" sum="Total 1"/>
+											<field name="month_2" sum="Total 2"/>
+											<field name="month_3" sum="Total 3"/>
+											<field name="month_4" sum="Total 4"/>
+											<field name="month_5" sum="Total 5"/>
+											<field name="month_6" sum="Total 6"/>
+											<field name="month_7" sum="Total 7"/>
+											<field name="month_8" sum="Total 8"/>
+											<field name="month_9" sum="Total 9"/>
+											<field name="month_10" sum="Total 10"/>
+											<field name="month_11" sum="Total 11"/>
+											<field name="month_12" sum="Total 12"/>
+											<field name="total" sum="Total"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+
+					<div class="oe_chatter">
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_budget_department_search" model="ir.ui.view">
+	        <field name="name">pam.budget.department.search</field>
+	        <field name="model">pam.budget.department</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Jurnal Umum">
+	               <field name="budget_id"/>
+	               <field name="department_id"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_budget_department">
+			<field name="name">Anggaran per Departemen</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.budget.department</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_budget_department_search"/>
+		</record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_network_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.network.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='network']" position="inside">
+                    <group>
+                        <group string="Distribution and Transmission Mains">
+                            <field name="network_distribution_lines">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="length"/>
+                                </tree>
+                            </field>
+                            <field name="network_distribution_total"/>
+                            <field name="network_distribution_underestimation"/>
+                            <field name="network_distribution_length_minimum"/>
+                            <field name="network_distribution_length_maximum"/>
+                            <field name="network_distribution_length_best_estimate"/>
+                        </group>
+                        <group string="Service Connections">
+                            <div>
+                                <div class="row">
+                                    <div class="col-4"><span>Description</span></div>
+                                    <div class="col-2"><span>Number</span></div>
+                                    <div class="col-2"><span>Error Margin [+/-]</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <span>Number of Connections of Registered Customer</span><br/>
+                                        <span>Note: this figure is most likely (a little bit) less than the number of customers</span>
+                                    </div>
+                                    <div class="col-2"><field name="network_service_connection_register_number"/></div>
+                                    <div class="col-2"><field name="network_service_connection_register_error_margin" widget="percentage"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4"><span>Number of inactive accounts with existing service connection</span></div>
+                                    <div class="col-2"><field name="network_service_connection_inactive_number"/></div>
+                                    <div class="col-2"><field name="network_service_connection_inactive_error_margin" widget="percentage"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4"><span>Estimated Number of Illegal Connections</span></div>
+                                    <div class="col-2"><field name="network_service_connection_illegal_estimate"/></div>
+                                    <div class="col-2"><field name="network_service_connection_illegal_error_margin" widget="percentage"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Error Margin [+/-]</div>
+                                    <div class="offset-4 col-2"><field name="network_service_connection_error_margin" widget="percentage"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Minimum</div>
+                                    <div class="col-2"><field name="network_service_connection_minimum"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Maximum</div>
+                                    <div class="col-2"><field name="network_service_connection_maximum"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Best Estimate</div>
+                                    <div class="col-4"><field name="network_service_connection_best_estimate"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4"><span>Average Length of Service Connection from Property Boundary to Customer Meter [meter]</span></div>
+                                    <div class="col-2"><field name="network_service_connection_property_number"/></div>
+                                    <div class="col-2"><field name="network_service_connection_property_error_margin" widget="percentage"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Total Length of Service Connections from Property Boundary to Customer Meter [kilometer]</div>
+                                    <div class="col-2"><field name="network_service_connection_property_total_number"/></div>
+                                    <div class="col-2"><field name="network_service_connection_property_total_error_margin" widget="percentage"/></div>
+                                </div>
+                            </div>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

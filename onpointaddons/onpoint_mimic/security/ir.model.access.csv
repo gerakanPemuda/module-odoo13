@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_style_sheet_user,onpoint_mimic.onpoint.style.sheet user,onpoint_mimic.model_onpoint_style_sheet,onpoint_monitor.group_onpoint_monitor_user,1,0,0,0
+access_onpoint_mimic_user,onpoint_mimic.onpoint.mimic user,onpoint_mimic.model_onpoint_mimic,onpoint_monitor.group_onpoint_monitor_user,1,0,0,0
+access_onpoint_mimic_line_user,onpoint_mimic.onpoint.mimic.line user,onpoint_mimic.model_onpoint_mimic_line,onpoint_monitor.group_onpoint_monitor_user,1,0,0,0
+access_onpoint_mimic_style_user,onpoint_mimic.onpoint.mimic.style user,onpoint_mimic.model_onpoint_mimic_style,onpoint_monitor.group_onpoint_monitor_user,1,0,0,0
+,,,,,,,
+access_onpoint_style_sheet_admin,onpoint_mimic.onpoint.style.sheet admin,onpoint_mimic.model_onpoint_style_sheet,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,0
+access_onpoint_mimic_admin,onpoint_mimic.onpoint.mimic admin,onpoint_mimic.model_onpoint_mimic,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,1
+access_onpoint_mimic_line_admin,onpoint_mimic.onpoint.mimic.line admin,onpoint_mimic.model_onpoint_mimic_line,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,1
+access_onpoint_mimic_style_admin,onpoint_mimic.onpoint.mimic.style admin,onpoint_mimic.model_onpoint_mimic_style,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,1
+,,,,,,,
+access_onpoint_style_sheet_superadmin,onpoint_mimic.onpoint.style.sheet superadmin,onpoint_mimic.model_onpoint_style_sheet,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1
+access_onpoint_mimic_superadmin,onpoint_mimic.onpoint.mimic superadmin,onpoint_mimic.model_onpoint_mimic,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1
+access_onpoint_mimic_line_superadmin,onpoint_mimic.onpoint.mimic.line superadmin,onpoint_mimic.model_onpoint_mimic_line,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1
+access_onpoint_mimic_style_superadmin,onpoint_mimic.onpoint.mimic.style superadmin,onpoint_mimic.model_onpoint_mimic_style,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1
+,,,,,,,

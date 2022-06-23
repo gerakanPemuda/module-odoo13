@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="unit_asset_backend_top">
+        <link rel="stylesheet" href="/onpoint_scada/static/src/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/onpoint_scada/static/src/css/onpoint-scada.css"/>
+        <link rel="stylesheet" href="/onpoint_scada/static/lib/fontawesome/css/all.css"/>
+        <link rel="stylesheet" href="/onpoint_scada/static/lib/highcharts-7.1.1/css/highcharts.css"/>
+        <!-- LightPick  -->
+        <link rel="stylesheet" type="text/css" href="/onpoint_scada/static/lib/lightpick/lightpick.css"/>
+
+
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="/onpoint_scada/static/src/js/jquery-3.5.1.min.js"/>
+
+
+        <!-- JavaScript -->
+        <!-- LightPick -->
+        <script type="text/javascript" src="/onpoint_scada/static/lib/lightpick/moment.min.js"/>
+        <script type="text/javascript" src="/onpoint_scada/static/lib/lightpick/lightpick.js"/>
+        <script type="text/javascript" src="/onpoint_scada/static/src/js/bootstrap.min.js"/>
+
+        <!-- Highchart -->
+        <script type="text/javascript" src="/onpoint_scada/static/lib/highcharts-7.1.1/highcharts.js"/>
+        <script type="text/javascript" src="/onpoint_scada/static/lib/highcharts-7.1.1/highcharts-more.js"/>
+        <script type="text/javascript"
+                src="/onpoint_scada/static/lib/highcharts-7.1.1/modules/exporting.src.js"/>
+        <script type="text/javascript" src="/onpoint_scada/static/lib/highcharts-7.1.1/modules/export-data.js"/>
+
+    </template>
+
+    <template id="unit_asset_backend_bottom">
+        <!-- Path to Framework7 Library Bundle JS-->
+        <script type="text/javascript" src="/onpoint_scada/static/src/js/onpoint_unit.js"/>
+    </template>
+
+    <template id="unit_layout">
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"/>
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <!-- Your app title -->
+            <title>unit</title>
+            <t t-call="onpoint_scada.unit_asset_backend_top"/>
+        </head>
+
+        <body>
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-onpoint">
+                    <div class="container-fluid">
+                        <a class="navbar-brand navbar-onpoint" t-attf-href="/location/{{ unit.location_id.id }}">
+                            <i class="fas fa-arrow-left"/>
+                        </a>
+                    </div>
+                </nav>
+
+                <input type="text" id="unit_id" t-att-value="unit.id"
+                       style="display:none"/>
+                <input type="text" id="unit_action_id" t-att-value="unit_action_id"
+                       style="display:none"/>
+
+
+                <!--                <div class="d-flex p-2 header-onpoint">-->
+<!--                    <div class="container-fluid">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-10">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-4">-->
+<!--                                        <div class="float-start">-->
+<!--                                            <p class="fs-3">-->
+<!--                                                <t t-esc="unit.location_id.name"/>-->
+<!--                                                /-->
+<!--                                                <t t-esc="unit.name"/>-->
+<!--                                            </p>-->
+<!--                                            <input type="text" id="unit_id" t-att-value="unit.id"-->
+<!--                                                   style="display:none"/>-->
+<!--                                            <input type="text" id="unit_action_id" t-att-value="unit_action_id"-->
+<!--                                                   style="display:none"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-8">-->
+<!--                                        <div class="float-start" style="padding-right: 10px; text-align: center;">-->
+<!--                                            <select id="select_period" class="form-select">-->
+<!--                                                <option value="1d">1 Day-->
+<!--                                                </option>-->
+<!--                                                <option value="3d">3-->
+<!--                                                    Days-->
+<!--                                                </option>-->
+<!--                                                <option value="1w">1-->
+<!--                                                    Week-->
+<!--                                                </option>-->
+<!--                                                <option value="2w">2 Weeks-->
+<!--                                                </option>-->
+<!--                                                <option value="1m">1 Month-->
+<!--                                                </option>-->
+<!--                                                <option value="2m">2 Months-->
+<!--                                                </option>-->
+<!--                                                <option value="custom">Custom-->
+<!--                                                </option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                        <div class="float-start" style="padding-right: 10px; text-align: center;">-->
+<!--                                            <select id="select_hour" class="form-select">-->
+<!--                                                <option value="00">00:00-->
+<!--                                                </option>-->
+<!--                                                <option value="01">01:00-->
+<!--                                                </option>-->
+<!--                                                <option value="02">02:00-->
+<!--                                                </option>-->
+<!--                                                <option value="03">03:00-->
+<!--                                                </option>-->
+<!--                                                <option value="04">04:00-->
+<!--                                                </option>-->
+<!--                                                <option value="05">05:00-->
+<!--                                                </option>-->
+<!--                                                <option value="06">06:00-->
+<!--                                                </option>-->
+<!--                                                <option value="07">07:00-->
+<!--                                                </option>-->
+<!--                                                <option value="08">08:00-->
+<!--                                                </option>-->
+<!--                                                <option value="09">09:00-->
+<!--                                                </option>-->
+<!--                                                <option value="10">10:00-->
+<!--                                                </option>-->
+<!--                                                <option value="11">11:00-->
+<!--                                                </option>-->
+<!--                                                <option value="12">12:00-->
+<!--                                                </option>-->
+<!--                                                <option value="13">13:00-->
+<!--                                                </option>-->
+<!--                                                <option value="14">14:00-->
+<!--                                                </option>-->
+<!--                                                <option value="15">15:00-->
+<!--                                                </option>-->
+<!--                                                <option value="16">16:00-->
+<!--                                                </option>-->
+<!--                                                <option value="17">17:00-->
+<!--                                                </option>-->
+<!--                                                <option value="18">18:00-->
+<!--                                                </option>-->
+<!--                                                <option value="19">19:00-->
+<!--                                                </option>-->
+<!--                                                <option value="20">20:00-->
+<!--                                                </option>-->
+<!--                                                <option value="21">21:00-->
+<!--                                                </option>-->
+<!--                                                <option value="22">22:00-->
+<!--                                                </option>-->
+<!--                                                <option value="23">23:00-->
+<!--                                                </option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                        <div class="float-start" style="padding-right: 10px; text-align: center;">-->
+<!--                                            <input type="text" id="rangeDate" class="form-control"/>-->
+<!--                                            &lt;!&ndash;                                               t-attf-value="{{ widget.logger.period_start }} - {{ widget.logger.period_end }}"/>&ndash;&gt;-->
+<!--                                        </div>-->
+<!--                                        <div class="float-start" style="padding-right: 10px; text-align: center;">-->
+<!--                                            <select id="select_interval" class="form-select">-->
+<!--                                                <option value="1">1 second</option>-->
+<!--                                                <option value="60">1 minute</option>-->
+<!--                                                <option value="300" selected="selected">5 minutes</option>-->
+<!--                                                <option value="900">15 minutes</option>-->
+<!--                                                <option value="3600">1 hour</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="float-end"-->
+<!--                                             style="padding-right: 10px; text-align: center;">-->
+<!--                                            <button id="btn_refresh" type="button"-->
+<!--                                                    class="btn btn-pill btn-primary-onpoint">Refresh-->
+<!--                                            </button>-->
+<!--                                            <button id="btn_generate_image" type="button"-->
+<!--                                                    class="btn btn-pill btn-primary-onpoint" style="display: none">-->
+<!--                                                Generate Image-->
+<!--                                            </button>-->
+<!--                                            <button id="btn_print" type="button"-->
+<!--                                                    class="btn btn-pill btn-primary-onpoint">Print Result-->
+<!--                                            </button>-->
+<!--                                            <button id="btn_printx"-->
+<!--                                                    type="button"-->
+<!--                                                    class="btn btn-pill btn-primary-onpoint"-->
+<!--                                                    data-bs-toggle="modal"-->
+<!--                                                    data-bs-target="#modal_print">Popup-->
+<!--                                            </button>-->
+
+<!--                                            <div class="modal fade" id="modal_print" tabindex="-1"-->
+<!--                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                                                <div class="modal-dialog modal-lg">-->
+<!--                                                    <div class="modal-content" style="height: 400">-->
+<!--                                                        <div class="modal-header">-->
+<!--                                                            <h5 class="modal-title" id="exampleModalLabel">Print Results-->
+<!--                                                            </h5>-->
+<!--                                                            <button type="button" class="btn-close"-->
+<!--                                                                    data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="modal-body" style="text-align: left">-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-3"><b>Period</b></div>-->
+<!--                                                                <div class="col-9">01/01/2022 - 31/01/2022</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-3"><b>Chart</b></div>-->
+<!--                                                                <div class="col-9"><textarea id="img_chart_text"/></div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="row">-->
+<!--                                                                <div class="col-12"><b>Remarks</b></div>-->
+<!--                                                                <div class="col-12"><textarea id="remarks" style="width: 100%; height: 130"/></div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="modal-footer">-->
+<!--                                                            <button type="button" class="btn btn-secondary"-->
+<!--                                                                    data-bs-dismiss="modal">Close-->
+<!--                                                            </button>-->
+<!--                                                            <button type="button" class="btn btn-primary">Save changes-->
+<!--                                                            </button>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row">-->
+<!--                                    <div class="bs-component">-->
+<!--                                        <t t-foreach="unit.location_id.unit_ids" t-as="units">-->
+<!--                                            <button class="btn btn-pill btn-primary-onpoint btn-unit"-->
+<!--                                                    t-attf-data-unit-id="{{units.id}}">-->
+<!--                                                <t t-esc="units.name"/>-->
+<!--                                            </button>-->
+<!--                                        </t>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row mt-2">-->
+<!--                                    <div class="bs-component">-->
+<!--                                        <t t-foreach="loggers" t-as="logger">-->
+<!--                                            <a class="btn btn-pill btn-primary-onpoint"-->
+<!--                                               aria-current="page"-->
+<!--                                               t-attf-href="/web#action={{ action_logger_chart_id }}&#38;active_id={{ logger.id }}&#38;cids=1&#38;menu_id={{ menu_monitor_id }}">-->
+<!--                                                <t t-esc="logger.name"/>-->
+<!--                                            </a>-->
+<!--                                        </t>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-2" style="text-align: end">-->
+<!--                                <img src="/onpoint_scada/static/src/img/logo-onpoint.jpg" style="width: 70%"/>-->
+<!--                                <div class="float-end mt-2">-->
+<!--                                    <label class="toggle float-right" for="auto_refresh">-->
+<!--                                        Auto Refresh-->
+<!--                                        <t t-if="unit.auto_refresh">-->
+<!--                                            <input type="checkbox" class="toggle__input" id="auto_refresh"-->
+<!--                                                   checked="checked"/>-->
+<!--                                        </t>-->
+<!--                                        <t t-else="">-->
+<!--                                            <input type="checkbox" class="toggle__input" id="auto_refresh"/>-->
+<!--                                        </t>-->
+<!--                                        <span class="toggle-track" style="margin-left: 10px;">-->
+<!--                                            <span class="toggle-indicator">-->
+<!--                                                &lt;!&ndash; 	This check mark is optional	 &ndash;&gt;-->
+<!--                                                <span class="checkMark">-->
+<!--                                                    <svg viewBox="0 0 24 24" id="ghq-svg-check" role="presentation"-->
+<!--                                                         aria-hidden="false">-->
+<!--                                                        <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>-->
+<!--                                                    </svg>-->
+<!--                                                </span>-->
+<!--                                            </span>-->
+<!--                                        </span>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="container-fluid" style="padding: 20px">-->
+<!--                    <div id="div_alarm" class="col-md-12" style="margin-top:10px">-->
+<!--                        <div id="container_unit_chart"/>-->
+<!--                    </div>-->
+
+<!--                    <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-md-center">-->
+<!--                        <t t-foreach="unit.line_ids" t-as="unit_line">-->
+<!--                            <div class="col">-->
+<!--                                <div class="card shadow p-1 bg-body rounded">-->
+<!--                                    <div class="card-body card-unit" t-attf-data-unit-id="{{ unit.id }}"-->
+<!--                                         style="cursor: pointer">-->
+<!--                                        <p class="card-title">-->
+<!--                                            <div class="fs-4 fw-bold text-center">-->
+<!--                                                <t t-esc="unit_line.sensor_type_id.name"/>-->
+<!--                                            </div>-->
+<!--                                        </p>-->
+
+<!--                                    </div>-->
+<!--                                    <ul class="list-group list-group-flush">-->
+<!--                                        <li class="list-group-item">-->
+<!--                                            <div class="float-start">Last Value</div>-->
+<!--                                            <div class="float-end">-->
+<!--                                                <div class="row">-->
+<!--                                                    <div class="float-end fw-bold">-->
+<!--                                                        <span t-attf-id="last_value_{{ unit_line.id }}">0</span>-->
+<!--                                                        <t t-esc="unit_line.sensor_type_uom"/>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="row">-->
+<!--                                                    <span t-attf-id="last_date_{{ unit_line.id }}"-->
+<!--                                                          style="font-size: smaller">0-->
+<!--                                                    </span>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li class="list-group-item">-->
+<!--                                            <div class="float-start">Min Value</div>-->
+<!--                                            <div class="float-end">-->
+<!--                                                <div class="row">-->
+<!--                                                    <div class="float-end fw-bold">-->
+<!--                                                        <span t-attf-id="min_value_{{ unit_line.id }}">0</span>-->
+<!--                                                        <t t-esc="unit_line.sensor_type_uom"/>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="row">-->
+<!--                                                    <span t-attf-id="min_date_{{ unit_line.id }}"-->
+<!--                                                          style="font-size: smaller">0-->
+<!--                                                    </span>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li class="list-group-item">-->
+<!--                                            <div class="float-start">Max Value</div>-->
+<!--                                            <div class="float-end">-->
+<!--                                                <div class="row">-->
+<!--                                                    <div class="float-end fw-bold">-->
+<!--                                                        <span t-attf-id="max_value_{{ unit_line.id }}">0</span>-->
+<!--                                                        <t t-esc="unit_line.sensor_type_uom"/>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="row">-->
+<!--                                                    <span t-attf-id="max_date_{{ unit_line.id }}"-->
+<!--                                                          style="font-size: smaller">0-->
+<!--                                                    </span>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li class="list-group-item">-->
+<!--                                            <div class="float-start">Avg Value</div>-->
+<!--                                            <div class="float-end">-->
+<!--                                                <div class="row">-->
+<!--                                                    <div class="float-end fw-bold">-->
+<!--                                                        <span t-attf-id="avg_value_{{ unit_line.id }}">0</span>-->
+<!--                                                        <t t-esc="unit_line.sensor_type_uom"/>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="row">-->
+<!--                                                    <span t-attf-id="avg_date_{{ unit_line.id }}"-->
+<!--                                                          style="font-size: smaller;color: #fff">01-01-2021 00:00:00-->
+<!--                                                    </span>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </t>-->
+<!--                    </div>-->
+
+<!--                    <textarea id="infile"/>-->
+<!--                    <div id="img_chart"/>-->
+<!--                </div>-->
+
+
+            </div>
+
+            <t t-call="onpoint_scada.unit_asset_backend_bottom"/>
+
+        </body>
+    </template>
+
+
+</odoo>

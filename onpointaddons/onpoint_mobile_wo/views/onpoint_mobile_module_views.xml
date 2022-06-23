@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_mobile_module_tree" model="ir.ui.view">
+	        <field name="name">onpoint.mobile.module.tree</field>
+	        <field name="model">onpoint.mobile.module</field>
+	        <field name="arch" type="xml">
+	            <tree string="DMA" editable="top">
+	                <field name="name" />
+	                <field name="link" />
+	                <field name="menu_icon" widget="image"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_mobile_module_search" model="ir.ui.view">
+	        <field name="name">onpoint.mobile.module.search</field>
+	        <field name="model">onpoint.mobile.module</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Module">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_mobile_module">
+			<field name="name">Onpoint  Mobile Module</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.mobile.module</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_mobile_module_search"/>
+		</record>
+
+    </data>
+</odoo>

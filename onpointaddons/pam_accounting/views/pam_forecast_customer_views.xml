@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_forecast_customer_tree" model="ir.ui.view">
+	        <field name="name">pam.forecast.customer.tree</field>
+	        <field name="model">pam.forecast.customer</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="years" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_forecast_customer_form" model="ir.ui.view">
+	        <field name="name">pam.forecast.customer.form</field>
+	        <field name="model">pam.forecast.customer</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<group>
+						<group>
+							<field name="years" />
+							<field name="water_usage"/>
+							<field name="rate_increase"/>
+							<field name="rate_increase_month"/>
+							<button class="oe_highlight" 
+								string="Isi Klasifikasi Pelanggan" 
+								type="object" 
+								name="get_classifications" />
+						</group>
+
+						<notebook colspan="4">
+							<page string="PSL">
+								<group>
+									<h4>Rencana Jumlah Sambungan Langganan (PSL)</h4>
+									<field name="new_customer_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom">
+											<field name="customer_classification_id" />
+											<field name="month_1_new" />
+											<field name="month_2_new" />
+											<field name="month_3_new" />
+											<field name="month_4_new" />
+											<field name="month_5_new" />
+											<field name="month_6_new" />
+											<field name="month_7_new" />
+											<field name="month_8_new" />
+											<field name="month_9_new" />
+											<field name="month_10_new" />
+											<field name="month_11_new" />
+											<field name="month_12_new" />
+										</tree>
+									</field>
+								</group>
+							</page>
+
+							<page string="Ex Pelanggan dan APS">
+								<group>
+									<h4>Rencana Ex Pelanggan dan APS</h4>
+									<field name="lost_customer_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom" create="false" delete="false">
+											<field name="customer_classification_id" readonly="True"/>
+											<field name="month_1_lost" />
+											<field name="month_2_lost" />
+											<field name="month_3_lost" />
+											<field name="month_4_lost" />
+											<field name="month_5_lost" />
+											<field name="month_6_lost" />
+											<field name="month_7_lost" />
+											<field name="month_8_lost" />
+											<field name="month_9_lost" />
+											<field name="month_10_lost" />
+											<field name="month_11_lost" />
+											<field name="month_12_lost" />
+										</tree>
+									</field>
+								</group>
+							</page>								
+							<page string="RJP">
+								<group>
+									<h4>Rencana Jumlah Pelanggan Berdasarkan Klasifikasi tarif dan Golongan Sambungan (RJP)</h4>
+									<field name="total_customer_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom" create="false" delete="false">
+											<field name="customer_classification_id"  readonly="True"/>
+											<field name="total_last_year" />
+											<field name="month_1_total" />
+											<field name="month_2_total" />
+											<field name="month_3_total" />
+											<field name="month_4_total" />
+											<field name="month_5_total" />
+											<field name="month_6_total" />
+											<field name="month_7_total" />
+											<field name="month_8_total" />
+											<field name="month_9_total" />
+											<field name="month_10_total" />
+											<field name="month_11_total" />
+											<field name="month_12_total" />
+										</tree>
+									</field>
+								</group>
+							</page>								
+
+							<page string="Abonemen Pelanggan Baru">
+								<group>
+									<h4>Rencana Pendapatan Abonemen Pelanggan Baru</h4>
+									<field name="subscription_customer_new_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom" create="false" delete="false">
+											<field name="customer_classification_id"  readonly="True"/>
+											<field name="subscription_fee_amount" />
+											<field name="month_1_subscription_amount_new" />
+											<field name="month_2_subscription_amount_new" />
+											<field name="month_3_subscription_amount_new" />
+											<field name="month_4_subscription_amount_new" />
+											<field name="month_5_subscription_amount_new" />
+											<field name="month_6_subscription_amount_new" />
+											<field name="month_7_subscription_amount_new" />
+											<field name="month_8_subscription_amount_new" />
+											<field name="month_9_subscription_amount_new" />
+											<field name="month_10_subscription_amount_new" />
+											<field name="month_11_subscription_amount_new" />
+											<field name="month_12_subscription_amount_new" />
+										</tree>
+									</field>
+								</group>
+							</page>								
+
+							<page string="Abonemen Pelanggan">
+								<group>
+									<h4>Rencana Pendapatan Abonemen</h4>
+									<field name="subscription_customer_total_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom" create="false" delete="false">
+											<field name="customer_classification_id"  readonly="True"/>
+											<field name="subscription_fee_amount" readonly="True" />
+											<field name="month_1_subscription_amount_total" />
+											<field name="month_2_subscription_amount_total" />
+											<field name="month_3_subscription_amount_total" />
+											<field name="month_4_subscription_amount_total" />
+											<field name="month_5_subscription_amount_total" />
+											<field name="month_6_subscription_amount_total" />
+											<field name="month_7_subscription_amount_total" />
+											<field name="month_8_subscription_amount_total" />
+											<field name="month_9_subscription_amount_total" />
+											<field name="month_10_subscription_amount_total" />
+											<field name="month_11_subscription_amount_total" />
+											<field name="month_12_subscription_amount_total" />
+										</tree>
+									</field>
+								</group>
+							</page>								
+
+							<page string="PSL">
+								<group>
+									<h4>Rencana Pendapatan Sambungan Langganan</h4>
+									<field name="installment_customer_new_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom" create="false" delete="false">
+											<field name="customer_classification_id"  readonly="True"/>
+											<field name="installment_fee_amount" />
+											<field name="month_1_installment_amount_new" />
+											<field name="month_2_installment_amount_new" />
+											<field name="month_3_installment_amount_new" />
+											<field name="month_4_installment_amount_new" />
+											<field name="month_5_installment_amount_new" />
+											<field name="month_6_installment_amount_new" />
+											<field name="month_7_installment_amount_new" />
+											<field name="month_8_installment_amount_new" />
+											<field name="month_9_installment_amount_new" />
+											<field name="month_10_installment_amount_new" />
+											<field name="month_11_installment_amount_new" />
+											<field name="month_12_installment_amount_new" />
+										</tree>
+									</field>
+								</group>
+							</page>								
+
+
+
+							<page string="Jumlah Air dijual (m3)">
+								<group>
+									<h4>Rencana Penjualan Air Berdasarkan Klasifikasi tarif dan Golongan Pelanggan [ R P A ]</h4>
+									<h5>(dalam m3)</h5>
+									<field name="amount_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom" create="false" delete="false">
+											<field name="customer_classification_id" readonly="True"/>
+											<field name="water_usage" />
+											<field name="month_1_amount" />
+											<field name="month_2_amount" />
+											<field name="month_3_amount" />
+											<field name="month_4_amount" />
+											<field name="month_5_amount" />
+											<field name="month_6_amount" />
+											<field name="month_7_amount" />
+											<field name="month_8_amount" />
+											<field name="month_9_amount" />
+											<field name="month_10_amount" />
+											<field name="month_11_amount" />
+											<field name="month_12_amount" />
+										</tree>
+									</field>
+								</group>
+							</page>								
+
+							<page string="Jumlah Air dijual (ribuan rupiah)">
+								<group>
+									<h4>Rencana Penjualan Air Berdasarkan Klasifikasi tarif dan Golongan Pelanggan [ R P A ]</h4>
+									<h5>(dalam ribuan rupiah)</h5>
+									<field name="sales_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom" create="false" delete="false">
+											<field name="customer_classification_id" readonly="True"/>
+											<field name="price_average" />
+											<field name="month_1_sales" />
+											<field name="month_2_sales" />
+											<field name="month_3_sales" />
+											<field name="month_4_sales" />
+											<field name="month_5_sales" />
+											<field name="month_6_sales" />
+											<field name="month_7_sales" />
+											<field name="month_8_sales" />
+											<field name="month_9_sales" />
+											<field name="month_10_sales" />
+											<field name="month_11_sales" />
+											<field name="month_12_sales" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+					<div class="oe_chatter">
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_forecast_customer_search" model="ir.ui.view">
+	        <field name="name">pam.forecast.customer.search</field>
+	        <field name="model">pam.forecast.customer</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Rencana Penjualan Air">
+	               <field name="years"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_forecast_customer">
+			<field name="name">Rencana Pendapatan</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.forecast.customer</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_forecast_customer_search"/>
+		</record>
+    </data>
+</odoo>

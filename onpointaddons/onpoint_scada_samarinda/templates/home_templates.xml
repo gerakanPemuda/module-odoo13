@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="home_layout" name="Home Layout">
+        <t t-call="onpoint_scada_samarinda.head_layout">
+            <div id="info-1" class="info-1">100</div>
+            <script src="/onpoint_scada_samarinda/static/src/js/onpoint_scada_home.js"/>
+        </t>
+    </template>
+
+
+</odoo>

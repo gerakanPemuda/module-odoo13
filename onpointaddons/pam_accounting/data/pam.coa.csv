@@ -1,0 +1,581 @@
+id,code,name,coa_type_id,parent_id/id,transactional
+__export__.pam_coa_2625_7797dea1,11110000,Kas dan Setara Kas,Aset Lancar,,FALSE
+__export__.pam_coa_2626_97d4b160,11111000,Kas,Aset Lancar,__export__.pam_coa_2625_7797dea1,FALSE
+__export__.pam_coa_2627_9ace001f,11111110,Kas,Aset Lancar,__export__.pam_coa_2626_97d4b160,TRUE
+__export__.pam_coa_2628_32700ccf,11111120,Kas di Tangan,Aset Lancar,__export__.pam_coa_2626_97d4b160,TRUE
+__export__.pam_coa_2629_dc96a7d8,11112000,Bank,Aset Lancar,__export__.pam_coa_2625_7797dea1,FALSE
+__export__.pam_coa_2630_8b92cee2,11112110,Rekening Giro BJB,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2631_72883a15,11112120,Rekening Giro BNI,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2632_90c08041,11112130,Rekening Giro CIMB Niaga,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2633_2025dc71,11112140,Rekening Giro Bank Syari'ah Mandiri,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2634_c22c595c,11112150,Rekening Giro BCA,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2635_11ef3836,11112160,Rekening Giro Duta,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2636_950b102e,11112170,Rekening Giro BDN/Mandiri,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2637_5b2108fd,11112180,Rekening Giro BTN,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2638_1ebbbbef,11112190,Rekening Giro Bank OCBC NISP,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2639_fa5c24d7,11112210,Rekening Giro BTPN,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2640_43d4b312,11112220,Rekening Bank PANIN,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2641_cb441c23,11112230,Rekening Giro Bukopin,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2642_937a60a8,11112240,Rekening Giro Bank Pasar,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2643_0cd3db7b,11112250,Rekening Giro BRI,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2644_953a0396,11112260,BPRS Al-Salaam,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2645_3ad5322e,11112270,BPD Syariah,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2646_60f2c73f,11112280,Rekening Giro PT.Pos Indonesia,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2647_87c83b3e,11112290,Rekening Giro BNI 46/ PB,Aset Lancar,__export__.pam_coa_2629_dc96a7d8,TRUE
+__export__.pam_coa_2648_35d196e0,11113000,Kas Kecil,Aset Lancar,__export__.pam_coa_2625_7797dea1,FALSE
+__export__.pam_coa_2649_c872d42c,11113110,Kas Kecil,Aset Lancar,__export__.pam_coa_2648_35d196e0,TRUE
+__export__.pam_coa_2650_fb3c912a,11114000,Beda Kas,Aset Lancar,__export__.pam_coa_2625_7797dea1,FALSE
+__export__.pam_coa_2651_c7564c01,11114110,Beda Kas,Aset Lancar,__export__.pam_coa_2650_fb3c912a,TRUE
+__export__.pam_coa_2652_2ef1cdae,11121000,Deposito,Aset Lancar,__export__.pam_coa_2625_7797dea1,FALSE
+__export__.pam_coa_2653_3a4f8b15,11121110,Deposito BPD,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2654_9dd83f47,11121120,Deposito BNI,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2655_e4c8c5b2,11121130,Deposito ASPAC,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2656_4614893f,11121140,Deposito BANK PASAR,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2657_bdcc8ba8,11121150,Deposito BDN,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2658_c6f0e606,11121160,Deposito BBD,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2659_c72acdf0,11121170,Deposito LIPPO,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2660_7cc840a4,11121180,Deposito BCA,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2661_98d0b032,11121190,Deposito Bank Duta,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2662_2d1abf56,11121210,Deposito BTN,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2663_4e5f49e0,11121220,Deposito Bank Bukopin,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2664_1e6b9387,11121230,Deposito Bank Muamalat,Aset Lancar,__export__.pam_coa_2652_2ef1cdae,TRUE
+__export__.pam_coa_2665_90b3af8b,11130000,Piutang Usaha,Aset Lancar,,FALSE
+__export__.pam_coa_2666_25fbf57c,11131000,Piutang Rekening Air,Aset Lancar,__export__.pam_coa_2665_90b3af8b,FALSE
+__export__.pam_coa_2667_0c5251fe,11131110,Piutang Rekening Air,Aset Lancar,__export__.pam_coa_2666_25fbf57c,TRUE
+__export__.pam_coa_2668_b067b764,11131120,Piutang Air Instansi,Aset Lancar,__export__.pam_coa_2666_25fbf57c,TRUE
+__export__.pam_coa_2669_3164d556,11131130,Piutang Air ABRI,Aset Lancar,__export__.pam_coa_2666_25fbf57c,TRUE
+__export__.pam_coa_2670_d755ae2b,11132000,Piutang Rekening Non Air,Aset Lancar,__export__.pam_coa_2665_90b3af8b,FALSE
+__export__.pam_coa_2671_4c83264e,11132110,Piutang Sambungan Baru,Aset Lancar,__export__.pam_coa_2670_d755ae2b,TRUE
+__export__.pam_coa_2672_a8fabfbb,11132120,Piutang Non Air Lainnya,Aset Lancar,__export__.pam_coa_2670_d755ae2b,TRUE
+__export__.pam_coa_2673_643fcac3,11132140,Piutang Retikulasi/PNPB,Aset Lancar,__export__.pam_coa_2670_d755ae2b,TRUE
+__export__.pam_coa_2674_0ab2534a,11133000,Piutang Ragu-Ragu,Aset Lancar,__export__.pam_coa_2666_25fbf57c,FALSE
+__export__.pam_coa_2675_5f4c8834,11133110,Piutang Ragu-ragu Air,Aset Lancar,__export__.pam_coa_2674_0ab2534a,TRUE
+__export__.pam_coa_2676_3d22ee06,11133120,Piutang Ragu-ragu PB,Aset Lancar,__export__.pam_coa_2674_0ab2534a,TRUE
+__export__.pam_coa_2677_cea3a7cb,11133130,Piutang Ragu-ragu Non Air Lainya,Aset Lancar,__export__.pam_coa_2674_0ab2534a,TRUE
+__export__.pam_coa_2678_77fcde4b,11134000,Penyisihan Piutang Usaha,Aset Lancar,__export__.pam_coa_2665_90b3af8b,FALSE
+__export__.pam_coa_2679_aca29a7c,11134110,Penyisihan Piutang Usaha,Aset Lancar,__export__.pam_coa_2678_77fcde4b,TRUE
+__export__.pam_coa_2680_e807931f,11134120,Kerugian Penyisihan Piutang,Aset Lancar,__export__.pam_coa_2678_77fcde4b,TRUE
+__export__.pam_coa_2681_d51acd67,11140000,Piutang Non Usaha,Aset Lancar,,FALSE
+__export__.pam_coa_2682_f92d378a,11141000,Piutang Pajak,Aset Lancar,__export__.pam_coa_2681_d51acd67,FALSE
+__export__.pam_coa_2683_a5d1f872,11141120,Piutang PPh Pasal 23,Aset Lancar,__export__.pam_coa_2682_f92d378a,TRUE
+__export__.pam_coa_2684_d177e66a,11141140,Piutang PPh Pasal 25,Aset Lancar,__export__.pam_coa_2682_f92d378a,TRUE
+__export__.pam_coa_2685_f00f11c1,11141150,Piutang PPh Pasal 29,Aset Lancar,__export__.pam_coa_2682_f92d378a,TRUE
+__export__.pam_coa_2686_9f699d0e,11141180,Piutang PPh Pasal 21,Aset Lancar,__export__.pam_coa_2682_f92d378a,TRUE
+__export__.pam_coa_2687_cbfa358e,11141190,Piutang PPn,Aset Lancar,__export__.pam_coa_2682_f92d378a,TRUE
+__export__.pam_coa_2688_22f9ad90,11150000,Piutang Lain-Lain,Aset Lancar,,FALSE
+__export__.pam_coa_2689_5f7a05a7,11151000,Piutang Pegawai,Aset Lancar,__export__.pam_coa_2688_22f9ad90,FALSE
+__export__.pam_coa_2690_8c529f41,11151110,Piutang Pegawai,Aset Lancar,__export__.pam_coa_2689_5f7a05a7,TRUE
+__export__.pam_coa_2691_5dfb1dcc,11152000,Pendapatan yang akan diterima,Aset Lancar,__export__.pam_coa_2688_22f9ad90,FALSE
+__export__.pam_coa_2692_6aeda377,11152110,Pendapatan bunga yang akan diterima,Aset Lancar,__export__.pam_coa_2691_5dfb1dcc,TRUE
+__export__.pam_coa_2693_97f85e02,11152120,Pendapatan yang akan diterima lain-lain,Aset Lancar,__export__.pam_coa_2691_5dfb1dcc,TRUE
+__export__.pam_coa_2694_884a4fbe,11152130,Pendapatan Sewa yang akan diterima,Aset Lancar,__export__.pam_coa_2691_5dfb1dcc,TRUE
+__export__.pam_coa_2695_2a6537e7,11156000,Piutang Lain-Lain,Aset Lancar,__export__.pam_coa_2688_22f9ad90,FALSE
+__export__.pam_coa_2696_cb73ee0c,11156110,Piutang Dinas,Aset Lancar,__export__.pam_coa_2695_2a6537e7,TRUE
+__export__.pam_coa_2697_67bed95f,11156120,Piutang Lain2 (u.m operasioanl PIU UWSSP),Aset Lancar,__export__.pam_coa_2695_2a6537e7,TRUE
+__export__.pam_coa_2698_fd2e3d14,11157110,Clearing Gaji,Aset Lancar,__export__.pam_coa_2695_2a6537e7,TRUE
+__export__.pam_coa_2699_3eb54844,11159110,Rupa-rupa Piutang Lainnya,Aset Lancar,__export__.pam_coa_2695_2a6537e7,TRUE
+__export__.pam_coa_2700_ec686857,11160000,Persediaan,Aset Lancar,,FALSE
+__export__.pam_coa_2701_2ac575b5,11161000,Persediaan Bahan Kimia,Aset Lancar,__export__.pam_coa_2700_ec686857,FALSE
+__export__.pam_coa_2702_369028f4,11161110,Persediaan Bahan Kimia,Aset Lancar,__export__.pam_coa_2701_2ac575b5,TRUE
+__export__.pam_coa_2703_2d177f0b,11162000,Persediaan Lainnya dan Bahan Instalasi,Aset Lancar,__export__.pam_coa_2700_ec686857,FALSE
+__export__.pam_coa_2704_0d21903a,11162110,Persediaan Bahan Pembantu,Aset Lancar,__export__.pam_coa_2703_2d177f0b,TRUE
+__export__.pam_coa_2705_1f8455a3,11162120,Persediaan Bahan Bakar,Aset Lancar,__export__.pam_coa_2703_2d177f0b,TRUE
+__export__.pam_coa_2706_b1de826f,11162130,Persediaan Suku Cadang,Aset Lancar,__export__.pam_coa_2703_2d177f0b,TRUE
+__export__.pam_coa_2707_72e201ce,11162140,Persediaan Pipa Pesil,Aset Lancar,__export__.pam_coa_2703_2d177f0b,TRUE
+__export__.pam_coa_2708_b4f7a071,11162150,Persediaan ATK & Cetakan,Aset Lancar,__export__.pam_coa_2703_2d177f0b,TRUE
+__export__.pam_coa_2709_fdc029b9,11162160,Rupa-rupa Persediaan Bahan Operasi,Aset Lancar,__export__.pam_coa_2703_2d177f0b,TRUE
+__export__.pam_coa_2710_3ea731d3,11162170,Persediaan Meter Air Bekas,Aset Lancar,__export__.pam_coa_2703_2d177f0b,TRUE
+__export__.pam_coa_2711_41dd5b29,11170000,Biaya Dibayar Dimuka,Aset Lancar,,FALSE
+__export__.pam_coa_2712_6de21fab,11171000,Biaya Dibayar Dimuka Iuran Asuransi dan Sewa,Aset Lancar,__export__.pam_coa_2711_41dd5b29,FALSE
+__export__.pam_coa_2713_70361fd1,11171120,Asuransi Kendaraan,Aset Lancar,__export__.pam_coa_2712_6de21fab,TRUE
+__export__.pam_coa_2714_7358b176,11171190,Iuran Majalah Komputer,Aset Lancar,__export__.pam_coa_2712_6de21fab,TRUE
+__export__.pam_coa_2715_31cc306d,11171240,Uang Muka Lain-lain,Aset Lancar,__export__.pam_coa_2712_6de21fab,TRUE
+__export__.pam_coa_2716_cafbc19e,11171250,Asuransi Pegawai,Aset Lancar,__export__.pam_coa_2712_6de21fab,TRUE
+__export__.pam_coa_2717_e5bb4e6a,11171260,Asuransi Bangunan,Aset Lancar,__export__.pam_coa_2712_6de21fab,TRUE
+__export__.pam_coa_2718_732ecf8b,11171280,Uang muka Sewa Pengharum Ruangan,Aset Lancar,__export__.pam_coa_2712_6de21fab,TRUE
+__export__.pam_coa_2719_31ad69e6,11171290,Uang muka Sewa Bangunan,Aset Lancar,__export__.pam_coa_2712_6de21fab,TRUE
+__export__.pam_coa_2720_b977d6f8,11172000,Biaya Dibayar Dimuka Pembelian,Aset Lancar,__export__.pam_coa_2711_41dd5b29,FALSE
+__export__.pam_coa_2721_cdc5da26,11172110,Pembelian Bahan Pembantu,Aset Lancar,__export__.pam_coa_2720_b977d6f8,TRUE
+__export__.pam_coa_2722_2895eaa6,11172120,Pembelian Bahan Bakar,Aset Lancar,__export__.pam_coa_2720_b977d6f8,TRUE
+__export__.pam_coa_2723_744f5314,11172130,Pembelian Suku Cadang,Aset Lancar,__export__.pam_coa_2720_b977d6f8,TRUE
+__export__.pam_coa_2724_194a665f,11172140,Pembelian Pipa Persil,Aset Lancar,__export__.pam_coa_2720_b977d6f8,TRUE
+__export__.pam_coa_2725_8c747f2a,11172150,Pembelian ATK & Cetakan,Aset Lancar,__export__.pam_coa_2720_b977d6f8,TRUE
+__export__.pam_coa_2726_f3396846,11172160,Pembelian Rupa-rupa Persediaan Bahan  Operasi,Aset Lancar,__export__.pam_coa_2720_b977d6f8,TRUE
+__export__.pam_coa_2727_094e5a77,11181120,R/C  UWSSP,Aset Lancar,,TRUE
+__export__.pam_coa_2728_6409f34e,12110000,Aset Tetap,Aset Tetap,,FALSE
+__export__.pam_coa_2729_0c0f6d30,12111000,Tanah,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2730_eb6be5ae,12111110,Tanah/Hak Atas Tanah,Aset Tetap,__export__.pam_coa_2729_0c0f6d30,TRUE
+__export__.pam_coa_2731_db759886,12112000,Instalasi Sumber Air,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2732_9977adca,12112110,Bangunan Pabrik,Aset Tetap,__export__.pam_coa_2731_db759886,TRUE
+__export__.pam_coa_2733_4529d1f8,12112120,Mata Air dan Terowongan,Aset Tetap,__export__.pam_coa_2731_db759886,TRUE
+__export__.pam_coa_2734_5f87b5a8,12112130,Alat - Alat Sumber Air,Aset Tetap,__export__.pam_coa_2731_db759886,TRUE
+__export__.pam_coa_2735_9961c7b4,12112190,Instalasi Sumber Lainnya,Aset Tetap,__export__.pam_coa_2731_db759886,TRUE
+__export__.pam_coa_2736_cf4b2aa2,12113000,Instalasi Pompa,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2737_617dec56,12113110,Bangunan Perompaan,Aset Tetap,__export__.pam_coa_2736_cf4b2aa2,TRUE
+__export__.pam_coa_2738_70804e54,12113120,Pembangkit Tenaga Listrik,Aset Tetap,__export__.pam_coa_2736_cf4b2aa2,TRUE
+__export__.pam_coa_2739_aa37631f,12113130,Peralatan Pompa,Aset Tetap,__export__.pam_coa_2736_cf4b2aa2,TRUE
+__export__.pam_coa_2740_073d0108,12113190,Peralatan Pompa Lainnya,Aset Tetap,__export__.pam_coa_2736_cf4b2aa2,TRUE
+__export__.pam_coa_2741_43475c1f,12114000,Instalasi Pengolahan Air,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2742_dd403186,12114110,Bangunan Instalasi Pengolahan,Aset Tetap,__export__.pam_coa_2741_43475c1f,TRUE
+__export__.pam_coa_2743_ed6a4f00,12114120,Alat-Alat Pengolahan Air,Aset Tetap,__export__.pam_coa_2741_43475c1f,TRUE
+__export__.pam_coa_2744_da0c8d4e,12114130,Reservoir/Penampung Air,Aset Tetap,__export__.pam_coa_2741_43475c1f,TRUE
+__export__.pam_coa_2745_dffee225,12114140,Perlengkapan Kerja Pengolahan Air,Aset Tetap,__export__.pam_coa_2741_43475c1f,TRUE
+__export__.pam_coa_2746_1c52063c,12114190,Instalasi Pengolahan Lainnya,Aset Tetap,__export__.pam_coa_2741_43475c1f,TRUE
+__export__.pam_coa_2747_260fb78f,12115000,Instalasi Transmisi dan Distribusi,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2748_d5779425,12115110,Bangunan Instalasi Trans & Distribusi,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2749_db3ad586,12115120,Reservoir & Tangki,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2750_f7c3498c,12115130,Saluran Trans & Distribusi,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2751_78087ac8,12115140,Pipa Dinas,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2752_3fecb3e7,12115150,Meter Air,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2753_c39599f6,12115160,Kran Umum,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2754_a8c2c4c5,12115170,Hydrant/Pemadam Kebakaran,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2755_7f7f6013,12115180,Jembatan Pipa,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2756_f95feb62,12115190,Instalasi Trans & Distribusi Lainnya,Aset Tetap,__export__.pam_coa_2747_260fb78f,TRUE
+__export__.pam_coa_2757_88349973,12116000,Bangunan,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2758_85570bca,12116110,Bangunan Kantor,Aset Tetap,__export__.pam_coa_2757_88349973,TRUE
+__export__.pam_coa_2759_2a21d593,12116120,Bangunan Laboratorium,Aset Tetap,__export__.pam_coa_2757_88349973,TRUE
+__export__.pam_coa_2760_7c0d9768,12116130,Bangunan Gedung Peralatan,Aset Tetap,__export__.pam_coa_2757_88349973,TRUE
+__export__.pam_coa_2761_afcbe75b,12116140,Bangunan Bengkel,Aset Tetap,__export__.pam_coa_2757_88349973,TRUE
+__export__.pam_coa_2762_23e72dff,12116150,Bangunan Garasi,Aset Tetap,__export__.pam_coa_2757_88349973,TRUE
+__export__.pam_coa_2763_6a221a71,12116160,Bangunan Rumah Dinas,Aset Tetap,__export__.pam_coa_2757_88349973,TRUE
+__export__.pam_coa_2764_5e47f82d,12117000,Alat-Alat,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2765_727cec9c,12117110,Alat - Alat Pegudangan,Aset Tetap,__export__.pam_coa_2764_5e47f82d,TRUE
+__export__.pam_coa_2766_856fd269,12117120,Alat - Alat Laboratorium,Aset Tetap,__export__.pam_coa_2764_5e47f82d,TRUE
+__export__.pam_coa_2767_e2574761,12117130,Alat - Alat Telekomunikasi,Aset Tetap,__export__.pam_coa_2764_5e47f82d,TRUE
+__export__.pam_coa_2768_ec66ea9c,12117140,Alat - Alat Bengkel,Aset Tetap,__export__.pam_coa_2764_5e47f82d,TRUE
+__export__.pam_coa_2769_82767054,12117150,Rupa - Rupa Alat - Alat dan Perlengkapan,Aset Tetap,__export__.pam_coa_2764_5e47f82d,TRUE
+__export__.pam_coa_2770_bd9fcdb3,12118100,Kendaraan,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2771_126d22ea,12118110,Kendaraan Penumpang,Aset Tetap,__export__.pam_coa_2770_bd9fcdb3,TRUE
+__export__.pam_coa_2772_275975b7,12118120,Kendaraan Angkutan Barang/Material,Aset Tetap,__export__.pam_coa_2770_bd9fcdb3,TRUE
+__export__.pam_coa_2773_8e1fdc91,12118130,Kendaraan Tangki Air,Aset Tetap,__export__.pam_coa_2770_bd9fcdb3,TRUE
+__export__.pam_coa_2774_efa5aabc,12118140,Kendaraan Roda Dua,Aset Tetap,__export__.pam_coa_2770_bd9fcdb3,TRUE
+__export__.pam_coa_2775_f6779aac,12119100,Inventaris,Aset Tetap,__export__.pam_coa_2728_6409f34e,FALSE
+__export__.pam_coa_2776_d9faa8a5,12119110,Meubelair Kantor,Aset Tetap,__export__.pam_coa_2775_f6779aac,TRUE
+__export__.pam_coa_2777_6a5dd5ee,12119120,Mesin - Mesin Kantor,Aset Tetap,__export__.pam_coa_2775_f6779aac,TRUE
+__export__.pam_coa_2778_58eb54b0,12119190,Rupa-Rupa Inventaris/Perabot Kantor Lainnya,Aset Tetap,__export__.pam_coa_2775_f6779aac,TRUE
+__export__.pam_coa_2779_23022a75,12120000,Akumulasi Penyusutan,Aset Tetap,,FALSE
+__export__.pam_coa_2780_3e94e30e,12121110,Akumulasi Penyusutan Sumber Air,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2781_419ae1f1,12121120,Akumulasi Penyusutan Pompa,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2782_8db07ba1,12121130,Akumulasi Penyusutan Pengolahan Air,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2783_8152b969,12121140,Akumulasi Penyusutan Trans & Distribusi,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2784_74837a0d,12121150,Akumulasi Penyusutan Bangunan,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2785_6560083b,12121160,Akumulasi Penyusutan Peralatan & Perlengkapan,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2786_1d3ab3bf,12121170,Akumulasi Penyusutan Kendaraan dan Alat Angkut,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2787_bcd2cda7,12121180,Akumulasi Penyusutan Inventaris dan Perabot Kantor,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2788_c63031ae,12121190,Amortisasi Beban Tangguhan Hak Atas Tanah,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2789_89896abf,12121210,Akumulasi Amortisasi Hak Tanah,Aset Tetap,__export__.pam_coa_2779_23022a75,TRUE
+__export__.pam_coa_2790_62576788,12210000,Aset Dalam Penyelesaian,Aset Lain-lain,,FALSE
+__export__.pam_coa_2791_e7a266cd,12215110,Instalasi Trans & Distibusi Dalam Penyelesaian,Aset Lain-lain,__export__.pam_coa_2790_62576788,TRUE
+__export__.pam_coa_2792_61168cdd,12215120,Front End Fee UWSSP Dlm Penyelesaian,Aset Lain-lain,__export__.pam_coa_2790_62576788,TRUE
+__export__.pam_coa_2793_59035a2f,12215130,PIU UWSSP Dlm Pelaksanaan (By Umum),Aset Lain-lain,__export__.pam_coa_2790_62576788,TRUE
+__export__.pam_coa_2794_16fdb15b,12215140,Lain-lain dalam Penyelesaian u/ Ganti Meter,Aset Lain-lain,__export__.pam_coa_2790_62576788,TRUE
+__export__.pam_coa_2795_76e349cf,12217110,Lain - Lain Dalam Penyelesaian,Aset Lain-lain,__export__.pam_coa_2790_62576788,TRUE
+__export__.pam_coa_2796_e0f7c20a,13110000,Bahan Instalasi,Aset Lain-lain,,FALSE
+__export__.pam_coa_2797_365e1297,13111110,Bahan Instalasi Pipa,Aset Lain-lain,__export__.pam_coa_2796_e0f7c20a,TRUE
+__export__.pam_coa_2798_baff4d7f,13111120,Bahan Instalasi Meter Air,Aset Lain-lain,__export__.pam_coa_2796_e0f7c20a,TRUE
+__export__.pam_coa_2799_674f8572,13111130,Rupa - Rupa Bahan Lainnya,Aset Lain-lain,__export__.pam_coa_2796_e0f7c20a,TRUE
+__export__.pam_coa_2800_6dfcd66f,13112110,Cadangan Penurunan Nilai Bahan Instalasi,Aset Lain-lain,__export__.pam_coa_2796_e0f7c20a,TRUE
+__export__.pam_coa_2801_78731559,1312000,Uang Muka Sewa Tanah,Unknown,,FALSE
+__export__.pam_coa_2802_da44c53d,13121110,Sewa Tanah PJKA,Unknown,__export__.pam_coa_2801_78731559,TRUE
+__export__.pam_coa_2803_da0c36d4,13121120,Uang Muka Sewa Tanah,Unknown,__export__.pam_coa_2801_78731559,TRUE
+__export__.pam_coa_2804_7874d80f,13130000,Uang Jaminan,Unknown,,FALSE
+__export__.pam_coa_2805_d9ad282e,13131110,Uang Jaminan Listrik,Unknown,__export__.pam_coa_2804_7874d80f,TRUE
+__export__.pam_coa_2806_62a58467,13132110,Uang Jaminan Pos dan Giro,Unknown,__export__.pam_coa_2804_7874d80f,TRUE
+__export__.pam_coa_2807_c21bdb35,13133110,Uang Jaminan Telepon,Unknown,__export__.pam_coa_2804_7874d80f,TRUE
+__export__.pam_coa_2808_69751f48,13150000,Uang Muka Bagian Laba,Unknown,,FALSE
+__export__.pam_coa_2809_1716b658,13151110,Uang Muka Bagian Laba Pemda,Unknown,__export__.pam_coa_2808_69751f48,TRUE
+__export__.pam_coa_2810_642d61d9,13160000,Akumulasi Penyusutan Aset Tidak Berfungsi,Unknown,,FALSE
+__export__.pam_coa_2811_42b9e5dd,13162110,Akumulasi Penyusutan Aktiva yg Tidak Digunakan,Unknown,__export__.pam_coa_2810_642d61d9,TRUE
+__export__.pam_coa_2812_b5cbd0d8,13170000,Aktiva Pajak Tangguhan,Unknown,,FALSE
+__export__.pam_coa_2813_75ff6c25,13171110,Aktiva Pajak Tangguhan,Unknown,__export__.pam_coa_2812_b5cbd0d8,TRUE
+__export__.pam_coa_2814_728ffced,13171120,Beban Ditangguhkan,Unknown,__export__.pam_coa_2812_b5cbd0d8,TRUE
+__export__.pam_coa_2815_503842f4,13171130,Biaya ditangguhkan (R/C PIU UWSSP),Unknown,__export__.pam_coa_2812_b5cbd0d8,TRUE
+__export__.pam_coa_2816_37487ed1,13180000,Investasi Jangka Pendek,Unknown,,FALSE
+__export__.pam_coa_2817_864ce74e,13181110,Investasi Jangka Pendek,Unknown,__export__.pam_coa_2816_37487ed1,TRUE
+__export__.pam_coa_2818_21147cdf,14110000,Properti Investasi,Unknown,,FALSE
+__export__.pam_coa_2819_97125634,14111110,Bangunan Properti Investasi,Unknown,__export__.pam_coa_2818_21147cdf,TRUE
+__export__.pam_coa_2820_9ebb23f6,14121110,Akumulasi Penyusutan Properti Investasi,Unknown,__export__.pam_coa_2818_21147cdf,TRUE
+__export__.pam_coa_2821_511c1bae,21110000,Hutang Usaha,Kewajiban Jangka Pendek,,FALSE
+__export__.pam_coa_2822_aaa01aac,21111110,Hutang Usaha,Kewajiban Jangka Pendek,__export__.pam_coa_2821_511c1bae,TRUE
+__export__.pam_coa_2823_4b4adfa3,21120000,Hutang Non Usaha,Kewajiban Jangka Pendek,,FALSE
+__export__.pam_coa_2824_f60a3983,21121110,Hutang Lainnya,Kewajiban Jangka Pendek,__export__.pam_coa_2823_4b4adfa3,TRUE
+__export__.pam_coa_2825_0e3a76fe,21121120,Hutang Biaya Komitmen Bank (ADB),Kewajiban Jangka Pendek,__export__.pam_coa_2823_4b4adfa3,TRUE
+__export__.pam_coa_2826_0d3cdb53,21121130,Hutang Bunga Pinjaman (ADB),Kewajiban Jangka Pendek,__export__.pam_coa_2823_4b4adfa3,TRUE
+__export__.pam_coa_2827_05cd632c,21121160,Hutang Jasa Bank,Kewajiban Jangka Pendek,__export__.pam_coa_2823_4b4adfa3,TRUE
+__export__.pam_coa_2828_4b9f4017,21121170,Hutang Setoran Bagian Laba Pemda,Kewajiban Jangka Pendek,__export__.pam_coa_2823_4b4adfa3,TRUE
+__export__.pam_coa_2829_aace7165,21121180,Hutang Lain-lain Front End Fee UWSSP,Kewajiban Jangka Pendek,__export__.pam_coa_2823_4b4adfa3,TRUE
+__export__.pam_coa_2830_2f3d91ee,21121190,Hutang Bunga Bank UWSSP(World Bank),Kewajiban Jangka Pendek,__export__.pam_coa_2823_4b4adfa3,TRUE
+__export__.pam_coa_2831_309cd2ef,21121210,Hutang Jasa World Bank (UWSSP),Kewajiban Jangka Pendek,__export__.pam_coa_2823_4b4adfa3,TRUE
+__export__.pam_coa_2832_eb4da3a0,21130000,Biaya yang Masih Harus Dibayar,Kewajiban Jangka Pendek,,FALSE
+__export__.pam_coa_2833_841ac0b0,21131110,Biaya yang Masih Harus Dibayar,Kewajiban Jangka Pendek,__export__.pam_coa_2832_eb4da3a0,TRUE
+__export__.pam_coa_2834_16559509,21131120,Premi Asuransi,Kewajiban Jangka Pendek,__export__.pam_coa_2832_eb4da3a0,TRUE
+__export__.pam_coa_2835_10d3b3b6,21131130,Hutang Masa Pemeliharaan,Kewajiban Jangka Pendek,__export__.pam_coa_2832_eb4da3a0,TRUE
+__export__.pam_coa_2836_ed3fe117,21131140,Lain - Lain,Kewajiban Jangka Pendek,__export__.pam_coa_2832_eb4da3a0,TRUE
+__export__.pam_coa_2837_aaf9b2f7,21131150,Premi Asuransi BPJS,Kewajiban Jangka Pendek,__export__.pam_coa_2832_eb4da3a0,TRUE
+__export__.pam_coa_2838_25dbc8c2,21140000,Pendapatan Diterima Dimuka,Kewajiban Jangka Pendek,,FALSE
+__export__.pam_coa_2839_8adcfb3e,21141110,Uang Muka HANKAM,Kewajiban Jangka Pendek,__export__.pam_coa_2838_25dbc8c2,TRUE
+__export__.pam_coa_2840_f0dfae09,21141130,Uang Muka Lainnya,Kewajiban Jangka Pendek,__export__.pam_coa_2838_25dbc8c2,TRUE
+__export__.pam_coa_2841_80bab844,21141140,Uang Muka Sewa Tnh PT Bali Telkom,Kewajiban Jangka Pendek,__export__.pam_coa_2838_25dbc8c2,TRUE
+__export__.pam_coa_2842_d01bfd34,21150000,Hutang Pajak,Kewajiban Jangka Pendek,,FALSE
+__export__.pam_coa_2843_0f01543e,21151110,Hutang Pajak Pasal 21,Kewajiban Jangka Pendek,__export__.pam_coa_2842_d01bfd34,TRUE
+__export__.pam_coa_2844_786e090b,21151120,Hutang Pajak Pasal 23,Kewajiban Jangka Pendek,__export__.pam_coa_2842_d01bfd34,TRUE
+__export__.pam_coa_2845_1e0bb339,21151140,Hutang Pph Pasal 29,Kewajiban Jangka Pendek,__export__.pam_coa_2842_d01bfd34,TRUE
+__export__.pam_coa_2846_4959289d,21151160,Ppn Keluaran,Kewajiban Jangka Pendek,__export__.pam_coa_2842_d01bfd34,TRUE
+__export__.pam_coa_2847_07289869,21151170,Pph Badan yang Terhutang,Kewajiban Jangka Pendek,__export__.pam_coa_2842_d01bfd34,TRUE
+__export__.pam_coa_2848_dac7a347,21151180,PPh Pasal 4 Ayat 2,Kewajiban Jangka Pendek,__export__.pam_coa_2842_d01bfd34,TRUE
+__export__.pam_coa_2849_5cabb1f0,21160000,Titipan Retribusi,Kewajiban Jangka Pendek,,FALSE
+__export__.pam_coa_2850_a7cd8605,21161110,Titipan Retribusi,Kewajiban Jangka Pendek,__export__.pam_coa_2849_5cabb1f0,TRUE
+__export__.pam_coa_2851_ce019877,21170000,Kewajiban Jangka Pendek Lainnya,Kewajiban Jangka Pendek,,FALSE
+__export__.pam_coa_2852_79d217e6,21171120,Sambungan Baru ymh Dipasang,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2853_f8f9b27d,21171130,Titipan Rekening Air,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2854_84927001,21171140,Hutang Jangka Pendek (WFI),Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2855_eefd6452,21171150,Hutang Jangka Pendek (PB),Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2856_4041d93d,21171160,Hutang Bunga,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2857_71bc3704,21171170,Hutang Bunga Koperasi,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2858_29c20f07,21171190,Titipan Cicilan PB,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2859_2769f42e,21171210,Titipan Cicilan PB  BPRS,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2860_80cd1f2f,21171220,Hutang Jk Pendek PT.Area Bangun Putra Sejati,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2861_f9b893d3,21171230,Hutang PT.Jasuka Bangun P,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2862_43c0adc9,21171240,Hutang PT.Promits,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2863_07b7bab3,21171250,Impalan Paska Kerja Jk. Pendek,Kewajiban Jangka Pendek,__export__.pam_coa_2851_ce019877,TRUE
+__export__.pam_coa_2864_e06e1ed8,21180000,Hutang Jangka Panjang Yang Akan Jatuh Tempo,Kewajiban Jangka Pendek,,FALSE
+__export__.pam_coa_2865_3957ce2b,21181110,Hutang Jangka Panjang Yg Akan JT,Kewajiban Jangka Pendek,__export__.pam_coa_2864_e06e1ed8,TRUE
+__export__.pam_coa_2866_199b7564,21181120,Hutang ,Kewajiban Jangka Pendek,__export__.pam_coa_2864_e06e1ed8,TRUE
+__export__.pam_coa_2867_9e0a016a,22110000,Uang Jaminan Langganan,Kewajiban Jangka Panjang dan Lain-lain,,FALSE
+__export__.pam_coa_2868_6d7972c5,22111110,Uang Jaminan Langganan,Kewajiban Jangka Panjang dan Lain-lain,__export__.pam_coa_2867_9e0a016a,TRUE
+__export__.pam_coa_2869_10090014,22130000,Cadangan Dana Jasa Produksi,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2870_7b7d1ec9,22131110,Cadangan Dana Jasa Produksi,Modal dan Cadangan,__export__.pam_coa_2869_10090014,TRUE
+__export__.pam_coa_2871_5aaa7e80,22140000,Cadangan Dana Sosial dan Pendidikan,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2872_6ab170c3,22141110,Cadangan Dana Sosial dan Pendidikan,Modal dan Cadangan,__export__.pam_coa_2871_5aaa7e80,TRUE
+__export__.pam_coa_2873_32a7a0c3,22150000,Cadangan Dana Pensiun dan Sokongan,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2874_86c29393,22151110,Cadangan Dana Pensiun dan Sokongan,Modal dan Cadangan,__export__.pam_coa_2873_32a7a0c3,TRUE
+__export__.pam_coa_2875_76d64755,22151120,KEWAJIABAN IMBALAN PASKA KERJA,Modal dan Cadangan,__export__.pam_coa_2873_32a7a0c3,TRUE
+__export__.pam_coa_2876_59529bb9,22160000,Cadangan Dana Meter,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2877_59b71520,22161110,Cadangan Dana Meter,Modal dan Cadangan,__export__.pam_coa_2876_59529bb9,TRUE
+__export__.pam_coa_2878_24bcb421,23110000,Pinjaman Luar Negeri,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2879_40928248,23111110,Pinjaman Luar Negeri (ADB),Modal dan Cadangan,__export__.pam_coa_2878_24bcb421,TRUE
+__export__.pam_coa_2880_4ce2f594,23111130,Hutang Pinjaman LN IBRD (World Bank),Modal dan Cadangan,__export__.pam_coa_2878_24bcb421,TRUE
+__export__.pam_coa_2881_3b0b26a2,23210000,Pinjaman Dalam Negeri,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2882_e9f9102f,23211120,Pinjaman Bank Jabar,Modal dan Cadangan,__export__.pam_coa_2881_3b0b26a2,TRUE
+__export__.pam_coa_2883_cb83388d,23211170,Hutang PT Area Bangun Putra Sejati,Modal dan Cadangan,__export__.pam_coa_2881_3b0b26a2,TRUE
+__export__.pam_coa_2884_57c4cce9,24110000,Modal PEMDA,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2885_d1e33784,24111110,Modal PEMDA Kodya Dati II Bogor,Modal dan Cadangan,__export__.pam_coa_2884_57c4cce9,TRUE
+__export__.pam_coa_2886_00bf52d6,24120000,Penyertaan Yang Belum Ditetapkan Statusnya,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2887_33cd6baa,24121110,Penyertaan Pemerintah Pusat,Modal dan Cadangan,__export__.pam_coa_2886_00bf52d6,TRUE
+__export__.pam_coa_2888_b5f605ee,24130000,Bantuan,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2889_6db6fdd0,24131110,Bantuan Colombo Plan,Modal dan Cadangan,__export__.pam_coa_2888_b5f605ee,TRUE
+__export__.pam_coa_2890_b579b150,24140000,Hibah,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2891_ec883a20,24141110,Hibah Perumnas Bantarjati,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2892_dab63955,24141120,Hibah dari Negeri Belanda,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2893_5ec7e7ef,24141130,Hibah PT Bumi Lestari,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2894_ffec6103,24141140,Hibah PT Pionee Tred Comp,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2895_b007b4ac,24141150,Hibah PT Aliah Panca Hafat,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2896_44fe5125,24141160,Hibah Aspac Group,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2897_bc0769b9,24141170,Hibah PT Bogorindo Mulia Sejati,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2898_99903614,24141180,Hibah PT Sejahtera Eka Graha,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2899_ee37f09c,24141190,Hibah PT Taman Kuling Raya,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2900_43d27fce,24141210,Hibah PT Inti Innovaco,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2901_10a179a5,24141220,Hibah CV Paramida,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2902_ebf4cd9e,24141230,Hibah PT Intan Pakuan,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2903_e4c5146d,24141240,Hibah PT Sari Mustika,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2904_2e8cfa99,24141250,Hibah PT Graha Andrasenta Property,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2905_55d1ca91,24141260,Hibah PT Badilani Party,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2906_65e159c2,24141270,Hibah Cipta Gemilang Reksana,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2907_5d324557,24141280,Hibah PT Sembada Penisula,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2908_bf774493,24141290,Hibah Rupa - Rupa,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2909_16022f13,24141310,Hibah PT Wijaya Kusuma,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2910_caa2f1a0,24141320,Hibah PT Propindo Mulia Utama,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2911_43ae7caa,24141330,Hibah PT Thryosa Mustika,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2912_41306d3e,24141340,Hibah PDP SE-AB,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2913_cad347d5,24141350,Hibah/Donasi Pelanggan,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2914_44b03e27,24141360,Hibah PT Wika Reality,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2915_d0340d1d,24141370,Hibah PT Anugrah Agung Alam Semesta,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2916_a12b9600,24141380,Hibah PT.Semangat Panca Besaudara,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2917_fad79766,24141390,Hibah PT.Asia Pasific Permai,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2918_71a27172,24141410,Hibah PT.Cipta Graha Sentosa,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2919_6235d804,24141420,PT Indah Pesona Bogor,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2920_1dabc185,24141430,PT Kendaga Kencana,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2921_26c7f5f4,24141440,PT Eka Graha Radja Cipta,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2922_361cac62,24141450,PT Mulia Bakti,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2923_f1e6cd04,24141460,PT Wanajaya Tri Agung,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2924_ee7ea0bb,24141470,PT Sarana Kilap Mas,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2925_86c35bb9,24141480,PT Villa Permata,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2926_581a2d67,24141490,Rumah Dinas Aspol,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2927_7ad1cdc9,24141510,PT Graha Agung Wibawa,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2928_c40b4b2e,24141520,PT Septindo P.,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2929_c82e976b,24141530,Retikulasi lain-lain,Modal dan Cadangan,__export__.pam_coa_2890_b579b150,TRUE
+__export__.pam_coa_2930_e57aa76b,24150000,Modal PDAM DATI II,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2931_d524fca0,24151110,Modal PDAM KOTAMADYA DATI II BOGOR,Modal dan Cadangan,__export__.pam_coa_2930_e57aa76b,TRUE
+__export__.pam_coa_2932_4b33aa9d,24160000,Modal PEMDA DATI II Dan Pusat,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2933_41fed089,24161110,Modal PEMDA DATI I JABAR,Modal dan Cadangan,__export__.pam_coa_2932_4b33aa9d,TRUE
+__export__.pam_coa_2934_14294c5b,24161120,Pemerintah Pusat/Prasarana,Modal dan Cadangan,__export__.pam_coa_2932_4b33aa9d,TRUE
+__export__.pam_coa_2935_dd10673e,24170000,Cadangan,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2936_84026519,24171110,Cadangan Umum,Modal dan Cadangan,__export__.pam_coa_2935_dd10673e,TRUE
+__export__.pam_coa_2937_c8ff37c6,24171120,Cadangan,Modal dan Cadangan,__export__.pam_coa_2935_dd10673e,TRUE
+__export__.pam_coa_2938_6df2f808,24180000,Laba Ditahan / Akumulasi Kerugian,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2939_3a4bcf45,24181110,Laba/Rugi Tahun Lalu,Modal dan Cadangan,__export__.pam_coa_2938_6df2f808,TRUE
+__export__.pam_coa_2940_f26df3ef,24181130,Laba Ditahan,Modal dan Cadangan,__export__.pam_coa_2938_6df2f808,TRUE
+__export__.pam_coa_2941_efde916b,24190000,Laba/Rugi Tahun Berjalan,Modal dan Cadangan,,FALSE
+__export__.pam_coa_2942_c4c02d0b,24191120,Laba/Rugi Tahun Berjalan Com,Modal dan Cadangan,__export__.pam_coa_2941_efde916b,TRUE
+__export__.pam_coa_2943_8fe79a5b,31110000,Pendapatan Air,Pendapatan Usaha,,FALSE
+__export__.pam_coa_2944_ddfd3888,31111110,Harga Air,Pendapatan Usaha,__export__.pam_coa_2943_8fe79a5b,TRUE
+__export__.pam_coa_2945_fb6c0bd6,31111120,Jasa Administrasi,Pendapatan Usaha,__export__.pam_coa_2943_8fe79a5b,TRUE
+__export__.pam_coa_2946_afa63cd5,31111130,Sewa Meter,Pendapatan Usaha,__export__.pam_coa_2943_8fe79a5b,TRUE
+__export__.pam_coa_2947_72ddeed9,31111140,Lain - Lain Penjualan Air,Pendapatan Usaha,__export__.pam_coa_2943_8fe79a5b,TRUE
+__export__.pam_coa_2948_215ea82d,31111150,Pendapatan Pemeliharaan Meter Air,Pendapatan Usaha,__export__.pam_coa_2943_8fe79a5b,TRUE
+__export__.pam_coa_2949_e4e6342d,31120000,Pendapatan Non Air,Pendapatan Usaha,,FALSE
+__export__.pam_coa_2950_df04172a,31121110,Pendapatan Sambungan Baru,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2951_4a83f16c,31121120,Pendapatan Biaya Bukaan Kembali,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2952_778c6ebf,31121130,Pendapatan Denda,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2953_10255f3a,31121140,Pendapatan Biaya Pengawasan,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2954_f70c08ef,31121160,Pendapatan reparasi Ganti Meter,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2955_0394cb09,31121170,Pendapatan Reparasi Pipa Persil,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2956_726029e5,31121180,Pendapatan Biaya Balik Nama,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2957_5141ba87,31121220,Pendapatan Non Air Lainnya,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2958_52249c0c,31121230,Pendapatan Pemeliharaan Meter Air,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2959_ae5ff6ba,31121240,Pendapatan Administrasi Retikulasi,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2960_3d2389ff,31121290,Materai UJPA,Pendapatan Usaha,__export__.pam_coa_2949_e4e6342d,TRUE
+__export__.pam_coa_2961_cd2be154,41110000,Beban Sumber Air,Beban Usaha,,FALSE
+__export__.pam_coa_2962_b8e71438,41111000,Beban Gaji Sumber Air,Beban Usaha,__export__.pam_coa_2961_cd2be154,FALSE
+__export__.pam_coa_2963_96715f9b,41111110,Gaji & Honor,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2964_c91df7e4,41111120,Tunjangan Jabatan,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2965_fa41cd4d,41111130,Uang Lembur,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2966_7522c4f5,41111140,Tunjangan Pangan/Perumahan,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2967_23add838,41111150,Tunjangan Natura/Sandang,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2968_abf5b6e7,41111160,Tunjangan Tirtawarsa,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2969_7ac04d6e,41111170,Tunjangan Pengobatan,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2970_86719bb7,41111180,Tunjangan Istri/Suami/Anak,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2971_b7b02669,41111190,Tunjangan Pelaksana,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2972_46e76de5,41111210,Tunjangan Perusahaan,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2973_9d155ee1,41111220,Tunjangan Kemahalan,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2974_d92c6077,41111230,Tunjangan Jasa Telekomunikasi,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2975_e5ddc28c,41111240,Tunjangan Koordinasi,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2976_71ba4ffb,41111250,Tunjangan Imbalan Kerja,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2977_da700135,41111260,Tunjangan Produktivitas,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2978_dae76c15,41111270,Uang Penghargaan Masa Kerja Pegawai,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2979_7274840b,41111280,Jasa Produksi,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2980_eae78152,41113110,Biaya Listrik/PLN,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2981_c4efacf5,41114110,Biaya Bahan Kimia,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2982_8965f98a,41115110,Biaya Operasi Lainnya,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2983_ffdfdd21,41116110,Pajak Pemanfaatan Air,Beban Usaha,__export__.pam_coa_2962_b8e71438,TRUE
+__export__.pam_coa_2984_cce8fd08,41120000,Beban Pemeliharaan Sumber Air,Beban Usaha,,FALSE
+__export__.pam_coa_2985_c238ad20,41121110,Biaya Pemeliharaan,Beban Usaha,__export__.pam_coa_2984_cce8fd08,TRUE
+__export__.pam_coa_2986_117e7b7e,41130000,Biaya Penyusutan Sumber Air,Beban Usaha,,FALSE
+__export__.pam_coa_2987_57aea1b1,41131110,Biaya Penyusutan,Beban Usaha,__export__.pam_coa_2986_117e7b7e,TRUE
+__export__.pam_coa_2988_683e9e42,41210000,Beban Pengolahan Air,Beban Usaha,,FALSE
+__export__.pam_coa_2989_8e87fc40,41211000,Beban Gaji Pengolahan,Beban Usaha,__export__.pam_coa_2988_683e9e42,FALSE
+__export__.pam_coa_2990_eb915082,41211110,Gaji & Honor,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2991_127a7206,41211120,Tunjangan Jabatan,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2992_112a68b8,41211130,Uang Lembur,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2993_f1b1ac90,41211140,Tunjangan Pangan/Perumahan,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2994_ecb599a6,41211150,Tunjangan Natura/Sandang,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2995_43035140,41211160,Tunjangan Tirtawarsa,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2996_56741a68,41211170,Tunjangan Pengobatan,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2997_83a39bfa,41211180,Tunjangan Istri/Suami/Anak,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2998_20898bfb,41211190,Tunjangan Pelaksana,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_2999_e10787c4,41211210,Tunjangan Perusahaan,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3000_b06ded04,41211220,Tunjangan Kemahalan,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3001_a68ec009,41211230,Tunjangan Jasa Telekomunikasi,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3002_63b64352,41211240,Tunjangan Koordinasi,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3003_5cf196d5,41211250,Tunjangan Imbalan Kerja,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3004_db545003,41211260,Tunjangan Produktivitas,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3005_a257cca4,41211270,Uang Penghargaan Masa Kerja Pegawai,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3006_caa3e3a5,41211280,Jasa Produksi,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3007_ef3faba0,41213110,Biaya Listrik/PLN,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3008_e7e35f73,41214110,Biaya Bahan Kimia,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3009_5d227577,41215110,Biaya Operasi Lainnya,Beban Usaha,__export__.pam_coa_2989_8e87fc40,TRUE
+__export__.pam_coa_3010_43326342,41220000,Beban Pemeliharaan Pengolahan,Beban Usaha,,FALSE
+__export__.pam_coa_3011_8460c6bb,41221110,Biaya Pemeliharaan,Beban Usaha,__export__.pam_coa_3010_43326342,TRUE
+__export__.pam_coa_3012_99a99356,41230000,Beban Penyusutan Pengolahan,Beban Usaha,,FALSE
+__export__.pam_coa_3013_6487ad52,41231110,Biaya Penyusutan,Beban Usaha,__export__.pam_coa_3012_99a99356,TRUE
+__export__.pam_coa_3014_1837841d,41310000,Beban Transmisi dan Distribusi,Beban Usaha,,FALSE
+__export__.pam_coa_3015_279c3d7e,41311000,Beban Gaji Transmisi dan Distribusi,Beban Usaha,__export__.pam_coa_3014_1837841d,FALSE
+__export__.pam_coa_3016_fe186771,41311110,Gaji & Honor,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3017_a217c96f,41311120,Tunjangan Jabatan,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3018_3c28eff2,41311130,Uang Lembur,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3019_5b223088,41311140,Tunjangan Pangan / Perumahan,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3020_8acba659,41311150,Tunjangan Natura/Sandang,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3021_9c679a0a,41311160,Tunjangan Tirtawarsa,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3022_69f77bf8,41311170,Tunjangan Pengobatan,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3023_b3f09491,41311180,Tunjangan Istri/Suami/Anak,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3024_ba0219d4,41311190,Tunjangan Pelaksana,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3025_f41053c3,41311210,Tunjangan Perusahaan,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3026_0c4014a7,41311220,Tunjangan Kemahalan,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3027_d384fb2a,41311230,Tunjangan Jasa Telekomunikasi,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3028_bd10dff0,41311240,Tunjangan Koordinasi,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3029_592ada8f,41311250,Tunjangan Imbalan Kerja,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3030_6b33c0fa,41311260,Tunjangan Produktivitas,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3031_9716e100,41311270,Uang Penghargaan Masa Kerja Pegawai,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3032_cc087f11,41311280,Jasa Produksi,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3033_c21ee56b,41312110,Biaya Bahan Perlengkapan Lapangan,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3034_b04a945a,41312120,Biaya Pemasangan Baru,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3035_ebef4c9f,41314110,Biaya Pemakaian Pipa Persil,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3036_076cd85d,41315110,Biaya Bukaan Tutupan,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3037_ca863d3b,41316110,Biaya Operasi Lainnya,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3038_67bb3c7c,41317110,Biaya Listrik u/Distribusi,Beban Usaha,__export__.pam_coa_3015_279c3d7e,TRUE
+__export__.pam_coa_3039_a2748508,41320000,Beban Pemeliharaan Transmisi dan Distribusi,Beban Usaha,,FALSE
+__export__.pam_coa_3040_07ea6da3,41321110,Biaya Pemeliharaan,Beban Usaha,__export__.pam_coa_3039_a2748508,TRUE
+__export__.pam_coa_3041_9ffb7a7d,41330000,Biaya Penyusutan Transmisi dan Distribusi,Beban Usaha,,FALSE
+__export__.pam_coa_3042_fc385fad,41331110,Biaya Penyusutan,Beban Usaha,__export__.pam_coa_3041_9ffb7a7d,TRUE
+__export__.pam_coa_3043_aeb6f7c0,41410000,Beban Perpompaan,Beban Usaha,,FALSE
+__export__.pam_coa_3044_3cb2ec82,41411000,Beban Operasi Perpompaan,Beban Usaha,__export__.pam_coa_3043_aeb6f7c0,FALSE
+__export__.pam_coa_3045_a27f8f9d,41411110,Biaya Bahan Bakar,Beban Usaha,__export__.pam_coa_3044_3cb2ec82,TRUE
+__export__.pam_coa_3046_499eedcf,41412110,Biaya Listrik/PLN,Beban Usaha,__export__.pam_coa_3044_3cb2ec82,TRUE
+__export__.pam_coa_3047_ba6da2a0,41413110,Biaya Operasi Lainnya,Beban Usaha,__export__.pam_coa_3044_3cb2ec82,TRUE
+__export__.pam_coa_3048_93fac401,41420000,Beban Pemeliharaan Perpompaan,Beban Usaha,,FALSE
+__export__.pam_coa_3049_c872e55b,41421110,Biaya Pemeliharaan,Beban Usaha,__export__.pam_coa_3048_93fac401,TRUE
+__export__.pam_coa_3050_af732d66,41430000,Biaya Penyusutan Perpompaan,Beban Usaha,,FALSE
+__export__.pam_coa_3051_bf4d61c2,41431110,Biaya Penyusutan,Beban Usaha,__export__.pam_coa_3050_af732d66,TRUE
+__export__.pam_coa_3052_5862bf88,41510000,Biaya Perencanaan Teknik,Beban Usaha,,FALSE
+__export__.pam_coa_3053_7883fbfb,41511110,Gaji & Honor,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3054_e87aaa36,41511120,Tunjangan Jabatan,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3055_f12ede94,41511130,Uang Lembur,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3056_4855d2da,41511140,Tunjangan Pangan/Perumahan,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3057_a227b41b,41511150,Tunjangan Natura/Sandang,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3058_57c7345e,41511160,Tunjangan Tirtawarsa,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3059_524b000d,41511170,Tunjangan Pengobatan ,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3060_55f790d5,41511180,Tunjangan Suami/Istri/Anak,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3061_a9029bda,41511190,Tunjangan Pelaksana,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3062_96462342,41511210,Tunjangan Perusahaan,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3063_9a2fe38b,41511220,Tunjangan Kemahalan,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3064_41793d1c,41511230,Tunjangan Jasa Telekomunikasi,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3065_f1b87620,41511240,Tunjangan Koordinasi,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3066_cb3275ff,41511250,Tunjangan Imbalan Kerja,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3067_244894b3,41511260,Tunjangan Produktivitas,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3068_d27e682e,41511270,Uang Penghargaan Masa Kerja Pegawai,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3069_4dda881d,41511280,Jasa Produksi,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3070_09f78902,41512110,Biaya Rupa - Rupa Operasi,Beban Usaha,__export__.pam_coa_3052_5862bf88,TRUE
+__export__.pam_coa_3071_d2186a9b,42600000,Beban Umum,Beban Usaha,,FALSE
+__export__.pam_coa_3072_521956d3,42610000,Beban Gaji,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3073_187fa372,42611110,Gaji & Honor,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3074_3078f0a9,42611120,Tunjangan Jabatan,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3075_0ddca929,42611130,Uang Lembur ,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3076_6a28f7c3,42611140,Tunjangan Pangan/Perumahan,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3077_1f7672cf,42611150,Tunjangan Natura/Sandang ,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3078_e0696aa2,42611160,Tunjangan Tirtawarsa,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3079_95aebba7,42611170,Tunjangan Pengobatan,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3080_03bb21eb,42611180,Tunjangan Intri/Suami /Anak,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3081_952696f2,42611190,Tunjangan Pealaksana,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3082_29a485c5,42611210,Tunjangan Perusahaan,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3083_89e1ed1e,42611220,Tunjangan Kemahalan,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3084_a7851fa2,42611230,Tunjangan Jasa Telekomunikasi,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3085_5b16369f,42611240,Tunjangan Koordinasi,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3086_e0980260,42611250,Tunjangan Imbalan Kerja,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3087_8d7d9537,42611260,Tunjangan Produktivitas,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3088_f064fd95,42611270,Uang penghargaan masa kerja pegawai,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3089_1f4c8cc0,42611280,Jasa Produksi,Beban Usaha,__export__.pam_coa_3072_521956d3,TRUE
+__export__.pam_coa_3090_f45a5e2c,42620000,Beban Kantor,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3091_17e29775,42621110,Biaya Alat Tulis Kantor,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3092_01403fbf,42622110,Biaya Foto Copy & Cetakan,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3093_8a803edb,42623110,Biaya Perlengkapan Komputer,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3094_a3815302,42624110,Biaya Telepon,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3095_4cffe135,42624120,Biaya Jastel Sirkit Langganan/LC,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3096_fb6479e5,42625110,Biaya Jamuan Tamu,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3097_abe0dc48,42626110,Biaya Meterai Pos,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3098_ef45e2f9,42627110,Biaya Listrik/PLN,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3099_4419c5bd,42628110,Biaya Air,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3100_023adb39,42629110,Biaya Cleaning Service,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3101_ff139834,42629120,Biaya Jasa Pengamanan & Sekretariat,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3102_88db052e,42629130,Biaya Jasa Penagihan,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3103_a3e3ea19,4262A110,Biaya Rupa - Rupa Kantor,Beban Usaha,__export__.pam_coa_3090_f45a5e2c,TRUE
+__export__.pam_coa_3104_eb9fa671,42630000,Beban Pemeliharaan,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3105_2353b01b,42631110,Biaya Pemeliharaan Inventaris,Beban Usaha,__export__.pam_coa_3104_eb9fa671,TRUE
+__export__.pam_coa_3106_d440f501,42632110,Biaya Pemeliharaan Kendaraan,Beban Usaha,__export__.pam_coa_3104_eb9fa671,TRUE
+__export__.pam_coa_3107_98524c44,42633110,Biaya Pembelian Bahan Bakar & Pelumas,Beban Usaha,__export__.pam_coa_3104_eb9fa671,TRUE
+__export__.pam_coa_3108_4a07adda,42634110,Biaya Pemeliharaan Bangunan,Beban Usaha,__export__.pam_coa_3104_eb9fa671,TRUE
+__export__.pam_coa_3109_50b39fdc,42635110,Biaya Pemeliharaan Instalasi,Beban Usaha,__export__.pam_coa_3104_eb9fa671,TRUE
+__export__.pam_coa_3110_d1c95f8c,42636110,Biaya Pemeliharaan Taman & Lapangan,Beban Usaha,__export__.pam_coa_3104_eb9fa671,TRUE
+__export__.pam_coa_3111_6c5aa3e4,42637110,Biaya Pemeliharaan Lainnya,Beban Usaha,__export__.pam_coa_3104_eb9fa671,TRUE
+__export__.pam_coa_3112_2e0cee64,42640000,Biaya Penyisihan Piutang,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3113_8fe682cc,42641110,Biaya Penyisihan Piutang,Beban Usaha,__export__.pam_coa_3112_2e0cee64,TRUE
+__export__.pam_coa_3114_3872578e,42650000,Beban Gaji,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3115_006af0c5,42651110,Gaji & Honor,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3116_ad672efc,42651120,Tunjangan Jabatan ,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3117_394b2e3f,42651130,Tunjangan Pangan/ Perumahan,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3118_a6ce9cb6,42651140,Tunjangan Natura/Sandang,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3119_2d6c57da,42651150,Tunjangan Tirtawarsa,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3120_e70d3f70,42651160,Tunjangan Perusahaan,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3121_57b0e02f,42651170,Tunjangan Pengobatan,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3122_e6f7e4cd,42651180,Tunjangan Makan,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3123_86e48b96,42651190,Tunjangan Lain-Lain,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3124_2403362c,42651210,Tunjangan Jasa Telekomunikasi,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3125_1371d872,42651220,Tunjangan Imbalan Kerja,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3126_be2bc3bb,42651230,Uang Penghargaan Masa Kerja Pegawai,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3127_74c83baa,42651240,Jasa Produksi,Beban Usaha,__export__.pam_coa_3114_3872578e,TRUE
+__export__.pam_coa_3149_1b98246d,42660000,Beban Lain-Lain,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3128_9b6eb6cc,42660000,Beban Dewan Pengawas,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3129_afb5126f,42661110,Biaya Iuran Berlangganan,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3130_d654a162,42661120,Biaya Iuran Benchmarking,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3131_04d65e39,42662110,Honor Dewan Pengawas,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3132_6d4d852e,42662120,Rupa - Rupa Dewan Pengawas,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3133_e3ef5e81,42662130,Jasa Produksi Dewan Pengawas,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3134_c349d8a1,42663110,Biaya Perjalanan Dinas,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3135_37f33cee,42664110,Biaya Profesional,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3136_5d304e97,42665110,Biaya Sewa,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3137_6759f906,42666110,Biaya Asuransi Kendaraan,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3138_b0b9b605,42666120,Iuran Dana Pensiun,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3139_6aaaea0c,42666130,Biaya Asuransi Bangunan,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3140_90757e39,42666140,Beban Imbalan Paska Kerja,Beban Usaha,__export__.pam_coa_3128_9b6eb6cc,TRUE
+__export__.pam_coa_3141_b7cece6c,42667000,Beban PBB,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3142_1ee312b6,42667110,Biaya PBB,Beban Usaha,__export__.pam_coa_3141_b7cece6c,TRUE
+__export__.pam_coa_3143_6322acb0,42668000,Biaya Retribusi,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3144_1d8b7247,42668110,Biaya Retribusi Pemakaian Tanah,Beban Usaha,__export__.pam_coa_3143_6322acb0,TRUE
+__export__.pam_coa_3145_664a7ac8,42669000,Beban Kesejahteraan,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3146_7cef4f2d,42669110,Kesejahteraan Karyawan Olah Raga,Beban Usaha,__export__.pam_coa_3145_664a7ac8,TRUE
+__export__.pam_coa_3147_b18a0bd1,42669120,Kesejahteraan Karyawan Kesenian,Beban Usaha,__export__.pam_coa_3145_664a7ac8,TRUE
+__export__.pam_coa_3148_84180378,42669130,Kesejahteraan Karyawan Lain - Lain,Beban Usaha,__export__.pam_coa_3145_664a7ac8,TRUE
+__export__.pam_coa_3150_79293d51,4266A110,Biaya Pos Pimpinan,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3151_cced2b14,4266B110,Biaya Umum Lainnya,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3152_e478f649,4266B130,Biaya Pendidikan & Diklat,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3153_256ddd26,4266B140,Biaya Katineung Karyawan/ti-Pensiun & Sokongan,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3154_591cc7dc,4266B150,Bantuan Sosial & Kesejahteraan,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3155_95c51dac,4266C110,Biaya Sumbangan,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3156_36545a23,4266D110,Biaya Zakat Perusahaan,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3157_fe90dc13,4266E116,Biaya STNK & KIR kendaraan,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3158_5935e5ef,4266F110,Honor-honor tim PDAM,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3159_489a0e34,4266G110,Honor-honor tenaga kerja/Staff Ahli & Outsourcing,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3160_0b41e98b,4266H110,Biaya rapat & Koordinasi,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3161_81447855,4266I110,Biaya peringatan HUT & keagamaan,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3162_0442ae28,4266J110,Rupa-rupa,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3163_8d5c4704,4266K110,Beban PPh Final Psl 4 Ayat 2,Beban Usaha,__export__.pam_coa_3149_1b98246d,TRUE
+__export__.pam_coa_3164_6f43ee06,42670000,Beban Penyusutan,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3165_6b606d92,42671110,Biaya Penyusutan,Beban Usaha,__export__.pam_coa_3164_6f43ee06,TRUE
+__export__.pam_coa_3166_eacc4e31,42671130,Biaya Penyusutan Properti Investasi,Beban Usaha,__export__.pam_coa_3164_6f43ee06,TRUE
+__export__.pam_coa_3167_8fd48956,42680000,Beban Keuangan,Beban Usaha,__export__.pam_coa_3071_d2186a9b,FALSE
+__export__.pam_coa_3168_0c070b53,42681110,Biaya Keuangan,Beban Usaha,__export__.pam_coa_3167_8fd48956,TRUE
+__export__.pam_coa_3169_f9b4d936,42682110,Biaya Bunga,Beban Usaha,__export__.pam_coa_3167_8fd48956,TRUE
+__export__.pam_coa_3170_1b894934,42710000,Beban Humas,Pendapatan dan Beban Non Usaha,,FALSE
+__export__.pam_coa_3171_489a3292,42711110,Gaji & Honor,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3172_46cc5e75,42711120,Tunjangan Jabatan,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3173_1e2a7172,42711130,Uang Lembur,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3174_149a0a44,42711140,Tunjangan Pangan/Perumahan,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3175_2208f9e7,42711150,Tunjangan Natura/Sandang,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3176_538a0561,42711160,Tunjangan Tirtawarsa,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3177_bea16b08,42711170,Tunjangan Pengobatan,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3178_b30fac42,42711180,Tunjangan Isteri/Suami/Anak,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3179_af15ea69,42711190,Tunjangan Pelaksana,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3180_33e1c760,42711210,Tunjangan Perusahaan,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3181_9bb9a87a,42711220,Tunjangan Kemahalan,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3182_2b8a82e6,42711230,Tunjangan Jasa Telekomunikasi,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3183_176d74d9,42711240,Tunjangan Koordinasi,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3184_2142ecbe,42711250,Tunjangan Imbalan Kerja,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3185_9f23f29b,42711260,Tunjangan Produktivitas,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3186_736aff7b,42711270,Uang Penghargaan Masa Kerja Pegawai,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3187_cd2beedc,42711280,Jasa Produksi,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3188_10329614,42712110,Rupa - Rupa Operasi,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3189_867c0522,42712120,Discount Pemasangan Baru,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3170_1b894934,TRUE
+__export__.pam_coa_3190_b12503ef,51110000,Pendapatan Non Operasi,Pendapatan dan Beban Non Usaha,,FALSE
+__export__.pam_coa_3191_32e91e69,51111110,Pendapatan Bunga Deposito,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3192_1af8f34d,51111120,Pendapatan Jasa Giro,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3193_4388bf0f,51111130,Pendapatan Keuntungan Penjualan Aktiva Tetap,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3194_6f5e10fd,51111150,Pendapatan Piutang Yang Dihapuskan ,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3195_8008a62e,51111170,Rupa - Rupa Pendapatan Lainnya,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3196_038b93db,51111180,Pend/Beban Pajak yang Ditangguhkan,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3197_941d27db,51111190,Keuntungan Pemulihan Nilai Piutang,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3198_3166bcc1,51112110,Fee pemungutan retribusi sampah,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3199_45fe44a4,51121110,Biaya Bank,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3200_12dab9f8,51121120,Selisih Kurang Opname,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3201_e961b1d6,51121160,Pengurangan Pendapatan,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3202_54c6e79b,51121170,Kerugian Lainnya,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3203_e8fa995b,51121180,Kerugian Luar Biasa,Pendapatan dan Beban Non Usaha,__export__.pam_coa_3190_b12503ef,TRUE
+__export__.pam_coa_3204_dcaacc85,71111110,Pemindahan Saldo R/L Tahun Lalu,Unknown,,FALSE

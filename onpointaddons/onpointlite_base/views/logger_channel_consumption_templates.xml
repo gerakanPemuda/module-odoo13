@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>    
+    <template id="logger_channel_consumption_page">
+
+        <div class="page" data-name="logger_channel_consumption_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        <t t-esc="logger_channel_consumption['logger_name']"/>
+                    </div>
+                    <div class="right" style="margin-right: 10px">
+                        <i id="act-download" class="fas fa-download" style="color: #fff; display: none"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="block-title" style="font-size: 1.6em; font-weight: bolder">Consumption</div>
+                <input id="logger_id" type="text" t-attf-value="{{logger_id}}" style="display: none"/>
+                <input id="channel_id" type="text" t-attf-value="{{channel_id}}" style="display: none"/>
+                <input id="interval" type="text" value="default" style="display: none"/>
+                <input id="chart_image_url" type="text" value="" style="display: none"/>
+                <input id="report_period" type="text" value="" style="display: none"/>
+                <div class="block text-align-center">
+                    <span id="button-consumption-default"
+                          class="badge color-green btn_consumption_intervals"
+                          style="min-width: 60px; padding: 15px"
+                          data-interval="default">Default</span>
+                    <span id="button-consumption-hour"
+                          class="badge btn_consumption_intervals"
+                          style="min-width: 60px; padding: 15px"
+                          data-interval="hour">Hourly</span>
+                    <span id="button-consumption-day"
+                          class="badge btn_consumption_intervals"
+                          style="min-width: 60px; padding: 15px"
+                          data-interval="day">Daily</span>
+                    <span id="button-consumption-month"
+                          class="badge btn_consumption_intervals"
+                          style="min-width: 60px; padding: 15px"
+                          data-interval="month">Monthly</span>
+                </div>
+                <div id="consumption-chart-container"/>
+                <div class="list" style="margin-top: 5px">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="">
+                                        Last Value
+                                        <br/>
+                                        <span style="font-size: smaller">
+                                            <t t-esc="logger_channel_consumption['last_date']"/>
+                                        </span>
+                                    </div>
+                                    <div class="item-after" style="font-weight: bolder">
+                                        <t t-esc="logger_channel_consumption['last_value']"/>
+                                        m3
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="">
+                                        Min Value
+                                        <br/>
+                                        <span style="font-size: smaller">
+                                            <t t-esc="logger_channel_consumption['min_date']"/>
+                                        </span>
+                                    </div>
+                                    <div class="item-after" style="font-weight: bolder">
+                                        <t t-esc="logger_channel_consumption['min_value']"/>
+                                        m3
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="">
+                                        Max Value
+                                        <br/>
+                                        <span style="font-size: smaller">
+                                            <t t-esc="logger_channel_consumption['max_date']"/>
+                                        </span>
+                                    </div>
+                                    <div class="item-after" style="font-weight: bolder">
+                                        <t t-esc="logger_channel_consumption['max_value']"/>
+                                        m3
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="">
+                                        Meter Index
+                                    </div>
+                                    <div class="item-after" style="font-weight: bolder">
+                                        <t t-esc="logger_channel_consumption['last_totalizer']"/>
+                                        m3
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </template>
+</odoo>

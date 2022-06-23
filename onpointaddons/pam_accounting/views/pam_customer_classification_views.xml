@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_customer_classification_tree" model="ir.ui.view">
+	        <field name="name">pam.customer.classification.tree</field>
+	        <field name="model">pam.customer.classification</field>
+	        <field name="arch" type="xml">
+	            <tree string="Klasifikasi Pelanggan" editable="top">
+	                <field name="name" />
+	                <field name="subscription_fee" />
+	                <field name="installation_fee" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_customer_classification_search" model="ir.ui.view">
+	        <field name="name">pam.customer.classification.search</field>
+	        <field name="model">pam.customer.classification</field>
+	        <field name="arch" type="xml">
+	            <search string="Search Klasifikasi Pelanggan">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_customer_classification">
+			<field name="name">Klasifikasi Pelanggan</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.customer.classification</field>
+<!--			<field name="view_classification">form</field>-->
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_customer_classification_search"/>
+		</record>
+
+    </data>
+</odoo>

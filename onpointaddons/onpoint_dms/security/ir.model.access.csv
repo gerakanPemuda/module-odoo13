@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_dms_document_category_user,onpoint_dms.onpoint.document.category user,onpoint_dms.model_onpoint_document_category,group_onpoint_dms_user,1,0,0,0
+access_onpoint_dms_document_user,onpoint_dms.onpoint.document user,onpoint_dms.model_onpoint_document,group_onpoint_dms_user,1,0,0,0
+,,,,,,,
+access_onpoint_dms_document_category_admin,onpoint_dms.onpoint.document.category admin,onpoint_dms.model_onpoint_document_category,group_onpoint_dms_admin,1,0,0,0
+access_onpoint_dms_document_admin,onpoint_dms.onpoint.document admin,onpoint_dms.model_onpoint_document,group_onpoint_dms_admin,1,0,0,0
+,,,,,,,
+access_onpoint_dms_document_category_superadmin,onpoint_dms.onpoint.document.category superadmin,onpoint_dms.model_onpoint_document_category,group_onpoint_dms_superadmin,1,1,1,1
+access_onpoint_dms_document_superadmin,onpoint_dms.onpoint.document superadmin,onpoint_dms.model_onpoint_document,group_onpoint_dms_superadmin,1,1,1,1

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pam_asset_depreciation_wizard" model="ir.ui.view">
+        <field name="name">pam.asset.depreciation.wizard.form</field>
+        <field name="model">pam.asset.depreciation.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" invisible="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="generate_depreciation" string="Kalkulasi Penyusutan" colspan="1" type="object" class="oe_highlight"/> or
+               </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_asset_depreciation_wizard"
+        name="Kalkulasi Penyusutan"
+        res_model="pam.asset.depreciation.wizard"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

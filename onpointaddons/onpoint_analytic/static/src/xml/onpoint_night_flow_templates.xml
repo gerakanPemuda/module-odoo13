@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="NightFlowMain">
+        <style>
+            div.scroll {
+                margin:0px, 0px;
+                padding:0px;
+				width: 100%;
+				height: 100%;
+                overflow-x: hidden;
+                overflow-x: auto;
+            }
+        </style>
+        <div class="o_charts scroll" style="background:#FFFFFF">
+            <div class="o_action o_view_controller">
+                <div class="o_cp_controller">
+                    <div class="o_control_panel">
+                        <div>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item-active">
+                                    <h2>Night Flow - <span id="name"/></h2>
+                                </li>
+                            </ol>
+                        </div>
+                        <div>
+                            <input id="night_flow_id"
+                                   type="text"
+                                   style="display:none"/>
+                            <input id="source_selection"
+                                   type="text"
+                                   style="display:none"/>
+                            <input id="logger_id"
+                                   type="text"
+                                   style="display:none"/>
+                            <input id="logger_compare_id"
+                                   type="text"
+                                   style="display:none"/>
+                            <input id="channel_id"
+                                   type="text"
+                                   style="display:none"/>
+                            <div class="o_cp_left">
+                                <div class="o_cp_buttons" role="toolbar">
+                                    <div>
+                                        <button id="btn_new" type="button"
+                                                class="btn btn-pill btn-primary">New</button>
+                                        <button id="btn_print" type="button"
+                                                class="btn btn-pill btn-primary">Print Result</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="o_hr_chart">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="NightFlowContent">
+        <div class="o_content">
+            <div class="container-fluid">
+                <div class="row col-md-12" style="margin-top:10px">
+                    <div class="mx-auto input-title" style="width: 100%">
+                        <h1>
+                            <input id="input_title"
+                                   class="o_field_char o_field_widget o_input"
+                                   style="text-align: center"
+                                   type="text"
+                                   placeholder="Title"/>
+                        </h1>
+                    </div>
+                    <div class="mx-auto mt-2" style="width: 90%">
+                        <h3>
+                            <input id="input_sub_title"
+                                   class="o_field_char o_field_widget o_input"
+                                   style="text-align: center"
+                                   type="text"
+                                   placeholder="Sub Title"/>
+                        </h3>
+                    </div>
+
+                    <div class="mx-auto mt-2" style="width: 90%">
+                        <div class="col-md-6 mx-auto text-center">
+                            <h5>Time</h5>
+                        </div>
+                        <div class="col-md-6 mx-auto">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="float-right col-md-12">
+                                        <select id="input_start_hour" class="float-left text-center m-1"
+                                                style="width:45%">
+                                            <option value="00">00</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="21">21</option>
+                                            <option value="21">22</option>
+                                            <option value="21">23</option>
+                                        </select>
+                                        <select id="input_start_minute" class="float-right text-center m-1"
+                                                style="width:45%">
+                                            <option value="00">00</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                            <option value="45">45</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center"><h4>-</h4></div>
+                                <div class="col-md-5">
+                                    <div class="float-right col-md-12">
+                                        <select id="input_end_hour" class="float-left text-center m-1"
+                                                style="width:45%">
+                                            <option value="00">00</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="21">21</option>
+                                            <option value="21">22</option>
+                                            <option value="21">23</option>
+                                        </select>
+                                        <select id="input_end_minute" class="float-right text-center m-1"
+                                                style="width:45%">
+                                            <option value="00">00</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                            <option value="45">45</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-3 p-2">
+                        <div class="row">
+                            <div class="col-md-8"><h4>Before</h4></div>
+                            <div class="col-md-4">
+                                <div class="col-md-2 float-right">
+                                    <button id="btn_refresh_before_chart"
+                                            type="button"
+                                            class="btn btn-pill btn-primary btn-sm float-right">Refresh</button>
+                                </div>
+                                <div class="col-md-8 float-right">
+                                    <input type="text" id="first_period"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="container_before_chart"/>
+                                <div id="container_before_stats"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-3 p-2">
+                        <div class="row">
+                            <div class="col-md-8"><h4>After</h4></div>
+                            <div class="col-md-4">
+                                <div class="col-md-2 float-right">
+                                    <a id="btn_refresh_after_chart"
+                                       href="javascript:void(0)"
+                                       class="btn btn-pill btn-primary btn-sm float-right">Refresh</a>
+                                </div>
+                                <div class="col-md-8 float-right">
+                                    <input type="text" id="second_period"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="container_after_chart"/>
+                                <div id="container_after_stats"/>
+                                <div style="height: 100px"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </t>
+
+    <t t-name="NightFlowStats">
+        <div id="logger_channel_info" class="container">
+            <div class="row justify-content-md-center">
+                <t t-foreach="widget.logger.night_flow_loggers" t-as="logger">
+                    <div class="col-sm-5 col-lg-5 logger-info-cell">
+                        <table width="100%">
+                            <tr>
+                                <td colspan="2" align="center" style="font-size: 12pt"><b><t t-esc="logger.logger_name"/></b></td>
+                            </tr>
+                            <tr class="border-bottom" style="font-size: 11pt">
+                                <td colspan="2" align="center"
+                                    style="border: 0px 0px 1px 0px; border-color: #000"><b><t t-esc="logger.channel_name"/></b></td>
+                            </tr>
+                            <tr class="border-bottom">
+                                <td width="40%" class="value-info-cell">Min Value</td>
+                                <td width="60%" class="value-info-cell"><span class="text-value"><t t-esc="logger.min_value"/> <t t-esc="logger.unit_value_name"/></span>
+                                    <br/>
+                                    <t t-esc="logger.min_date"/></td>
+                            </tr>
+                            <tr>
+                                <td width="40%" class="value-info-cell">Max Value</td>
+                                <td width="60%" class="value-info-cell"><span class="text-value"><t t-esc="logger.max_value"/> <t t-esc="logger.unit_value_name"/></span>
+                                    <br/>
+                                    <t t-esc="logger.max_date"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="NightFlowWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

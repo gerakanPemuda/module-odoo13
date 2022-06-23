@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+
+        <record id="view_onpoint_telegram_group_tree" model="ir.ui.view">
+            <field name="name">onpoint.telegram.group.tree</field>
+            <field name="model">onpoint.telegram.group</field>
+            <field name="arch" type="xml">
+                <tree string="Outbox" editable="top">
+                    <field name="name"/>
+                    <field name="chat_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_telegram_group_search" model="ir.ui.view">
+            <field name="name">onpoint.telegram.group.search</field>
+            <field name="model">onpoint.telegram.group</field>
+            <field name="arch" type="xml">
+                <search string="Search Telegram Group">
+                    <field name="name"/>
+                    <field name="chat_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_telegram_group">
+            <field name="name">Telegram Group</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.telegram.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_onpoint_telegram_group_search"/>
+        </record>
+
+    </data>
+</odoo>

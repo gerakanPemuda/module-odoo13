@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+	<!-- ASSETS -->
+    <template id="asset_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+			<link href="/sh_backmate_theme/static/src/scss/theme.scss" rel="stylesheet" type="text/scss"/>				
+			<link href="/sh_backmate_theme/static/src/scss/font.scss" rel="stylesheet" type="text/scss"/>
+			<link href="/sh_backmate_theme/static/src/scss/buttons.scss" rel="stylesheet" type="text/scss"/>
+			<link href="/sh_backmate_theme/static/src/scss/background-img.scss" rel="stylesheet" type="text/scss"/>
+			<link href="/sh_backmate_theme/static/src/scss/background-color.scss" rel="stylesheet" type="text/scss"/>
+			
+			
+			<link href="/sh_backmate_theme/static/src/scss/saidbar.scss" rel="stylesheet" type="text/scss"/>
+			<link href="/sh_backmate_theme/static/src/scss/separtor.scss" rel="stylesheet" type="text/scss"/>
+			<link href="/sh_backmate_theme/static/src/scss/navbar.scss" rel="stylesheet" type="text/scss"/>	
+			<!-- form view -->
+			<link href="/sh_backmate_theme/static/src/scss/form_view.scss" rel="stylesheet" type="text/scss"/>	
+			
+			<!-- button with icon and text style -->
+			<link href="/sh_backmate_theme/static/src/scss/button_icon.scss" rel="stylesheet" type="text/scss"/>
+			<!-- siadbar bg style -->
+			<link href="/sh_backmate_theme/static/src/scss/sidebar_bg.scss" rel="stylesheet" type="text/scss"/>				
+			
+			<link href="/sh_backmate_theme/static/src/scss/theme_style_4.scss" rel="stylesheet" type="text/scss"/>				
+			
+		
+
+<!--  Sticky  -->
+<link href="/sh_backmate_theme/static/src/scss/sticky_chatter.scss" rel="stylesheet" type="text/scss"/>
+<link href="/sh_backmate_theme/static/src/scss/sticky_form.scss" rel="stylesheet" type="text/scss"/>
+<link href="/sh_backmate_theme/static/src/scss/sticky_list_inside_form.scss" rel="stylesheet" type="text/scss"/>
+<link href="/sh_backmate_theme/static/src/scss/sticky_list.scss" rel="stylesheet" type="text/scss"/>
+
+
+			
+			<script type="text/javascript" src="/sh_backmate_theme/static/src/js/menu.js"></script>		
+			<script type="text/javascript" src="/sh_backmate_theme/static/src/js/status_bar.js"></script>	
+					
+			
+								
+        </xpath>
+    </template>
+    
+    
+    <template id="backmate_assets_bootstrap" inherit_id="web.assets_frontend">
+           <xpath expr="." position="inside">
+    			<link href="/sh_backmate_theme/static/src/scss/login_style_1.scss" rel="stylesheet" type="text/scss"/>	
+    </xpath>
+    </template>
+
+</odoo>
+

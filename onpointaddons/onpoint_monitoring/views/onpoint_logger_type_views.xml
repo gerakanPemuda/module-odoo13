@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_logger_type_tree" model="ir.ui.view">
+	        <field name="name">onpoint.logger.type.tree</field>
+	        <field name="model">onpoint.logger.type</field>
+	        <field name="arch" type="xml">
+	            <tree string="Logger Type" editable="top">
+	                <field name="name" />
+	                <field name="is_threshold_hourly" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_logger_type_search" model="ir.ui.view">
+	        <field name="name">onpoint.logger.type.search</field>
+	        <field name="model">onpoint.logger.type</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari DMA">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_logger_type">
+			<field name="name">Logger Type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.logger.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_logger_type_search"/>
+		</record>
+
+    </data>
+</odoo>

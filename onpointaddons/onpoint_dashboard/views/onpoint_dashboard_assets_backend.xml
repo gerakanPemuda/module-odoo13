@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+<!--        <template id="onpoint_dashboard.assets_gmaps">-->
+<!--            <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"/>-->
+<!--            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkHfTXiNxGoZ9raTp6GS0AK7nlKjiINDc&amp;callback=initMap"-->
+<!--                    t-att-async="'async'" t-att-defer="'defer'"/>-->
+<!--        </template>-->
+
+        <template id="webclient_bootstrap" name="webclient_bootstrap gmaps" inherit_id="web.webclient_bootstrap">
+            <xpath expr="//t[@t-call-assets='web.assets_common']" position="before">
+<!--                <t t-call="onpoint_dashboard.assets_gmaps"/>-->
+<!--                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkHfTXiNxGoZ9raTp6GS0AK7nlKjiINDc&amp;libraries=&amp;v=weekly"-->
+<!--                        defer=""/>-->
+            </xpath>
+        </template>
+
+        <template id="onpoint_dashboard_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/onpoint_dashboard/static/src/css/dashboard.css"/>
+                <script type="text/javascript" src="/onpoint_dashboard/static/src/js/main.js"/>
+                <script type="text/javascript" src="/onpoint_dashboard/static/src/js/mimic.js"/>
+            </xpath>
+        </template>
+
+        <record id="act_view_onpoint_main_dashboard" model="ir.actions.client">
+            <field name="name">View Onpoint Main Dashboard</field>
+            <field name="tag">onpoint_dashboard_main_dashboard</field>
+            <field name="context">{}</field>
+            <field name="target">fullscreen</field>
+        </record>
+
+        <record id="act_view_onpoint_mimic_dashboard" model="ir.actions.client">
+            <field name="name">View Onpoint Mimic Dashboard</field>
+            <field name="tag">onpoint_dashboard_mimic_dashboard</field>
+            <field name="context">{}</field>
+            <field name="target">fullscreen</field>
+        </record>
+
+    </data>
+</odoo>

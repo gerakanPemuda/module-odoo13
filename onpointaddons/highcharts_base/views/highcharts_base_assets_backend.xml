@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="highcharts_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+
+                <!-- Stylesheet -->
+
+                <!-- Highchart -->
+                <link rel="stylesheet" href="/highcharts_base/static/lib/highcharts-7.1.1/css/highcharts.css"/>
+
+                <!-- LightPick  -->
+                <link rel="stylesheet" type="text/css" href="/highcharts_base/static/lib/lightpick/lightpick.css"/>
+
+
+                <!-- JavaScript -->
+
+                <!-- LightPick -->
+                <script type="text/javascript" src="/highcharts_base/static/lib/lightpick/moment.min.js"/>
+                <script type="text/javascript" src="/highcharts_base/static/lib/lightpick/lightpick.js"/>
+
+                <!-- Highchart -->
+                <script type="text/javascript" src="/highcharts_base/static/lib/highcharts-7.1.1/highcharts.js"/>
+                <script type="text/javascript" src="/highcharts_base/static/lib/highcharts-7.1.1/highcharts-more.js"/>
+                <script type="text/javascript"
+                        src="/highcharts_base/static/lib/highcharts-7.1.1/modules/exporting.src.js"/>
+                <script type="text/javascript" src="/highcharts_base/static/lib/highcharts-7.1.1/modules/export-data.js"/>
+
+
+            </xpath>
+        </template>
+    </data>
+</odoo>

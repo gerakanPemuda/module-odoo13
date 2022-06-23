@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="mobile_asset_backend_top">
+        <link rel="stylesheet" href="/onpoint_mobile_wo/static/src/css/onpoint-app.css"/>
+    </template>
+
+    <template id="mobile_asset_backend_bottom">
+        <!-- Path to Framework7 Library Bundle JS-->
+        <script type="text/javascript" src="/onpoint_mobile_wo/static/framework7/js/framework7.bundle.min.js"/>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="/onpoint_mobile_wo/static/src/js/onpoint-app.js"/>
+    </template>
+
+    <template id="main_layout">
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"/>
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <!-- Color theme for statusbar (Android only) -->
+            <meta name="theme-color" content="#2196f3"/>
+            <!-- Your app title -->
+            <title>BPKMI</title>
+            <!-- Path to Framework7 Library Bundle CSS -->
+            <link rel="stylesheet" href="/onpoint_mobile_wo/static/framework7/css/framework7.bundle.min.css"/>
+            <link rel="stylesheet" href="/onpoint_mobile_wo/static/fontawesome/css/all.css"/>
+            <script type="text/javascript" src="/onpoint_mobile_wo/static/src/js/cordova.js"/>
+            <!-- Path to your custom app styles-->
+            <t t-call="onpoint_mobile_wo.mobile_asset_backend_top"/>
+        </head>
+
+        <body class="color-theme-red">
+            <div id="app">
+                <div class="views">
+                    <div id="view-main" class="view view-main view-init safe-areas">
+                        <div data-name="index" class="page">
+
+                            <!-- Top Navbar -->
+                            <div class="navbar">
+                                <div class="navbar-bg"/>
+                                <div class="navbar-inner">
+                                    <div class="title">Work Order [ <t t-esc="employee.name"/> ]</div>
+                                    <div class="right">
+                                        <a href="/web/session/logout?redirect=/mobile/wo/index"
+                                           class="link external">
+                                            <i class="fas fa-sign-out-alt fa-2x"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="toolbar tabbar toolbar-top">
+                                <div class="toolbar-inner">
+                                    <a href="#tab-1" class="tab-link tab-link-active">Active</a>
+                                    <a href="#tab-2" class="tab-link">Complete</a>
+                                </div>
+                            </div>
+
+                            <div class="tabs-swipeable-wrap">
+                                <div class="tabs">
+                                    <div id="tab-1" class="page-content tab tab-active ptr-content"
+                                         data-ptr-distance="55"
+                                         data-ptr-mousewheel="true"
+                                         style="background: whitesmoke">
+                                        <!-- Default pull to refresh preloader-->
+                                        <div class="ptr-preloader">
+                                            <div class="preloader"></div>
+                                            <div class="ptr-arrow"></div>
+                                        </div>
+
+                                        <div class="block">
+                                            <div class="row">
+                                                <t t-foreach="work_orders" t-as="work_order">
+
+                                                    <div class="card elevation-4"
+                                                         style="width: 100%"
+                                                         t-attf-data-wo_id="{{ work_order.id }}">
+                                                        <div class="card-header">
+                                                            <b>
+                                                                <t t-esc="work_order.name"/>
+                                                            </b>
+                                                            <div class="right">
+                                                                <b>
+                                                                    <t t-esc="work_order.state"/>
+                                                                </b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-content card-content-padding">
+                                                            <p>
+                                                                <b>
+                                                                    <t t-esc="work_order.wo_type.name"/>
+                                                                </b>
+                                                            </p>
+                                                            <p>
+                                                                <t t-esc="work_order.create_date"/>
+                                                            </p>
+                                                            <p>
+                                                                <t t-esc="work_order.task"/>
+                                                            </p>
+
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="tab-2"
+                                         class="page-content tab"
+                                         style="background: whitesmoke">
+                                        <div class="ptr-preloader">
+                                            <div class="preloader"></div>
+                                            <div class="ptr-arrow"></div>
+                                        </div>
+
+                                        <div class="block">
+                                            <div class="row">
+                                                <t t-foreach="complete_work_orders" t-as="complete_work_order">
+
+                                                    <div class="card elevation-4"
+                                                         style="width: 100%"
+                                                         t-attf-data-wo_id="{{ complete_work_order.id }}">
+                                                        <div class="card-header">
+                                                            <b>
+                                                                <t t-esc="complete_work_order.name"/>
+                                                            </b>
+                                                            <div class="right">
+                                                                <b>
+                                                                    <t t-esc="complete_work_order.state"/>
+                                                                </b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-content card-content-padding">
+                                                            <p>
+                                                                <b>
+                                                                    <t t-esc="complete_work_order.wo_type.name"/>
+                                                                </b>
+                                                            </p>
+                                                            <p>
+                                                                <t t-esc="complete_work_order.create_date"/>
+                                                            </p>
+                                                            <p>
+                                                                <t t-esc="complete_work_order.task"/>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Scrollable page content -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <t t-call="onpoint_mobile_wo.mobile_asset_backend_bottom"/>
+        </body>
+
+    </template>
+</odoo>

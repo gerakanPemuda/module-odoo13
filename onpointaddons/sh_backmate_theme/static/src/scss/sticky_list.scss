@@ -1,0 +1,55 @@
+/*
+=======================================================================
+				List Sticky Start
+=======================================================================
+*/
+
+@if $is_sticky_list == True{
+
+
+// Sticky Header & Footer in List View
+.o_list_view {
+    .table-responsive  {
+        overflow-x: initial;
+
+        .o_list_table {
+            // th & td are here for compatibility with chrome
+            thead, thead tr:nth-child(1) th {
+                position: sticky;
+                top: 0;
+            }
+            thead tr:nth-child(1) th {
+                background-color: $o-list-footer-bg-color;
+            }
+          
+        }
+    }
+}
+
+
+
+// Sticky Header & Footer in List View
+.o_list_view {
+    .table-responsive  {
+        overflow-x: initial;
+        .o_list_table {
+            tfoot, tfoot tr:nth-child(1) td {
+                position: sticky;
+                bottom: 0;
+            }
+            tfoot tr:nth-child(1) td {
+                background-color: $o-list-footer-bg-color;
+            }
+        }
+    }
+}
+
+
+
+}
+
+/*
+=======================================================================
+				List Sticky End
+=======================================================================
+*/

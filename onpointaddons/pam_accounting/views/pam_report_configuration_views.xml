@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_report_configuration_tree" model="ir.ui.view">
+	        <field name="name">pam.report.configuration.tree</field>
+	        <field name="model">pam.report.configuration</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="report_type_id"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_report_configuration_form" model="ir.ui.view">
+	        <field name="name">pam.report.configuration.form</field>
+	        <field name="model">pam.report.configuration</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<sheet>
+						<group col="4" colspan="2">
+							<field name="report_type_id"/>
+
+							<notebook colspan="4">
+								<page string="Detail">
+									<group>
+										<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+											<tree default_order="sequence asc">
+												<field name="group_id" />
+												<field name="name" />
+												<field name="sequence"/>
+											</tree>
+											<form>
+												<group col="4" colspan="2">
+													<field name="group_id"/>
+													<field name="name"/>
+													<field name="sequence"/>
+
+													<notebook colspan="4">
+														<page string="Detail">
+															<group>
+																<field name="detail_ids" nolabel="1" colspan="4" widget="one2many_list">
+																	<tree editable="bottom">
+																		<field name="coa_id"/>
+																		<field name="coa_name" string="Nama"/>
+																		<field name="coa_type"/>
+																	</tree>
+																</field>
+															</group>
+														</page>
+													</notebook>
+												</group>
+											</form>
+										</field>
+									</group>
+								</page>
+							</notebook>
+						</group>
+		            </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_report_configuration_search" model="ir.ui.view">
+	        <field name="name">pam.report.configuration.search</field>
+	        <field name="model">pam.report.configuration</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Konfigurasi Laporan">
+					<field name="report_type_id" />
+				</search>
+			</field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_report_configuration">
+			<field name="name">Konfigurasi Laporan</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.report.configuration</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_report_configuration_search"/>
+		</record>
+
+    </data>
+</odoo>

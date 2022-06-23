@@ -1,0 +1,39 @@
+<odoo>
+
+    <record id="view_onpoint_gunung_ulin_report_form" model="ir.ui.view">
+        <field name="name">onpoint.gunung.ulin.report.form</field>
+        <field name="model">onpoint.gunung.ulin.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <separator string="Gunung Ulin Report" colspan="4"/>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="interval"/>
+                        </group>
+                    </group>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" icon="fa-external-link fa-2x" name="get_data"
+                                    string="Get Data"/>
+                            <button type="object" class="btn-default" icon="fa-external-link fa-2x" name="generate_pdf_report"
+                                    string="Generate PDF Report"/>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="report_html" nolabel="1" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_onpoint_gunung_ulin_report"
+                name="Rekap Gunung Ulin"
+                res_model="onpoint.gunung.ulin.report"
+                view_mode="form"
+                target="inline"/>
+
+</odoo>

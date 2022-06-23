@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_co_daily_report" model="ir.ui.view">
+        <field name="name">pam.co.daily.report.form</field>
+        <field name="model">pam.co.daily.report</field>
+        <field name="arch" type="xml">
+            <form string="Daftar Pengeluaran Harian (DPH)">
+                <sheet>
+                    <separator string="Daftar Pengeluaran Harian (DPH)" colspan="4"/>
+                    <group>
+                        <field name="payment_date" />
+                        <field name="file_bin" readonly="1" filename="file_name"/>
+                        <field name="file_name" invisible="1"/> 
+                        <field name="count_lines" invisible="1"/>
+                    </group>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" icon="fa-external-link" name="get_data" string="Get Data"/>
+                            <button type="object" class="btn-default" solid_icon="fa-file-excel" string="Export Excel" style="margin-left:10px" name="export_report_xls" attrs="{'invisible': [('count_lines', '&lt;=', 0)]}"/>
+                            <button type="object" class="btn-default" solid_icon="fa-file-pdf" name="export_report_pdf" string="Export to PDF" attrs="{'invisible': [('count_lines', '&lt;=', 0)]}"/>
+                        </div>
+
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" readonly="True">
+                                <tree create="false" delete="false" default_order="sequence asc">
+                                    <field name="remark" />
+                                    <field name="coh_number" />
+                                    <field name="voucher_number"/>
+                                    <field name="cheque_number"/>
+                                    <field name="amount"/>
+                                    <field name="sequence"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_co_daily_report"
+        name="Daftar Pengeluaran Harian (DPH)"
+        res_model="pam.co.daily.report"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

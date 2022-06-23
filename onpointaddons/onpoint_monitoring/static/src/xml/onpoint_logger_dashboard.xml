@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="LoggerDashboardMain">
+        <div class="o_dashboards" style="background:#000000" >
+            <div class="container-fluid o_hr_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="LoggerDashboardContent">
+
+        <div class="row main-section" style="padding-left:30px;background:#FFFFFF">
+            <div class="row main-section">
+                <div class="col-sm-9 col-lg-9 logger_graph_view">
+                    <div class="card text-color">
+                        <div class="card-body pb-0">
+                            <h4 class="mb-0">
+                            </h4>
+                            <p class="stat-head" style="padding : 0px;"><b>Logger Chart - <t t-esc="widget.logger.name"/></b></p>
+                        </div>
+
+                        <div class="row" style="padding-left: 10px">
+                            <div class="col-md-11">
+                                <div class="col-md-1">Period : </div>
+                                <div class="col-md-3"><input type="text" id="rangeDate"/></div>
+                                <div class="col-md-3 div_option" style='display:none'>
+                                    <select id="option">
+                                        <option value="all">All</option>
+                                        <option value="avg">Average</option>
+                                        <option value="sum">Total</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-5 div_period" >
+                                    <select id="period" class="col-md-4" style="margin-right: 10px; display:none">
+                                        <!-- <option value="all">All</option> -->
+                                        <option value="hour">Hourly</option>
+                                        <option value="day">Daily</option>
+                                        <option value="month">Monthly</option>
+                                    </select>
+                                    <button id="btn_refresh" type="button" class="btn btn-pill btn-primary btn-sm">Refresh</button>
+                                </div>                                
+                            </div>
+                        </div>
+
+                        <br/>
+                        <br/>
+
+                        <div id="container_logger_chart"/>
+
+                        <br/>
+                        <br/>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-3 col-lg-3" style="padding:10px;background: #FFFFFF">
+                
+                    <h3>Last Data</h3>
+                    <div id="div_last_data">
+                        <table width="90%">
+                            <t t-foreach="widget.logger.events" t-as="event">
+                                <tr>
+                                    <td width="30%" class="info-left-cell"><t t-esc="event.name"/></td>
+                                    <td width="70%" class="info-right-cell-odd"><b><t t-esc="event.last_value"/> <t t-esc="event.unit_name"/></b><br/><t t-esc="event.last_date"/></td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+
+                    <h3>Events</h3>
+                    <div id="div_events">
+                        <table width="90%">
+                            <t t-foreach="widget.logger.events" t-as="event">
+                                <tr>
+                                    <td width="30%" class="info-left-cell"><t t-esc="event.name"/></td>
+                                    <td width="70%" class="info-right-cell-odd">
+                                        <t t-set="idx" t-value="0"/>
+                                        <t t-set="output_str" t-value="event.threshold_event.split('\n')"/>
+                                        <t t-foreach="output_str" t-as="str_line">
+                                            <t t-if="idx > 0"><br/></t>
+                                            <t t-esc="str_line"/>
+                                            <t t-set="idx" t-value="idx+1"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+
+                    <br/>
+                    <button id="btn_config" type="button" class="btn btn-pill btn-primary btn-sm">View Configuration</button>                    
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </t>
+
+
+
+    <t t-name="LoggerDashboardWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

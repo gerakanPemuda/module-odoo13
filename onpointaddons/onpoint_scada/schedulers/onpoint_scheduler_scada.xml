@@ -1,0 +1,46 @@
+<openerp>     
+    <data noupdate="1">
+        <record id="ir_cron_scheduler_scada_action" model="ir.cron">
+            <field name="name">Scheduler SCADA Alarm</field>
+            <field name="active" eval="False" />
+            <field name="user_id" ref="base.user_root"/>            
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall">2021-12-12 00:00:00</field>
+            <field name="doall" eval="False" />
+            <field name="model_id" ref="model_onpoint_scheduler_scada" />
+            <field name="state">code</field>
+            <field name="code">model.send_alarm()</field>
+        </record>
+
+        <record id="ir_cron_scheduler_scada_notification_action" model="ir.cron">
+            <field name="name">Scheduler SCADA Notification</field>
+            <field name="active" eval="False" />
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall">2021-12-12 00:00:00</field>
+            <field name="doall" eval="False" />
+            <field name="model_id" ref="model_onpoint_scheduler_scada" />
+            <field name="state">code</field>
+            <field name="code">model.send_notification()</field>
+        </record>
+
+        <record id="ir_cron_scheduler_scada_logger_notification_action" model="ir.cron">
+            <field name="name">Scheduler SCADA Logger Notification</field>
+            <field name="active" eval="False" />
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall">2022-02-21 00:00:00</field>
+            <field name="doall" eval="False" />
+            <field name="model_id" ref="model_onpoint_scheduler_scada" />
+            <field name="state">code</field>
+            <field name="code">model.send_notification_relly()</field>
+        </record>
+
+    </data>
+</openerp>

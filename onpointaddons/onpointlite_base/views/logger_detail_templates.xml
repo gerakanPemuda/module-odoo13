@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="logger_detail_page">
+
+        <div class="page" data-name="logger_detail_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        <t t-esc="logger_profile['name']"/>
+                    </div>
+                    <div class="right" style="padding-right: 5px">
+                        <i id="icon-disable"
+                           class="fas fa-times-circle"
+                           style="margin: 10px"/>
+                        <i id="icon-download"
+                           class="fas fa-download"
+                           style="margin: 10px"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolbar tabbar toolbar-top">
+                <div class="toolbar-inner" style="font-size: smaller">
+                    <a href="#tab-profile" class="tab-link">Profile</a>
+                    <a href="#tab-channels" class="tab-link tab-link-active">Channels</a>
+                    <a href="#tab-chart" class="tab-link">Chart</a>
+                </div>
+            </div>
+
+            <div class="tabs-swipeable-wrap">
+                <div class="tabs">
+                    <div id="tab-profile" class="page-content tab">
+                        <!-- <t t-esc="logger_profile"/> -->
+
+                        <div class="list">
+                            <ul>
+                                <li class="list-group-title">General Info</li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Name</div>
+                                                <t t-esc="logger_profile['name']"/>
+                                                <input type="hidden" id="logger_id" t-attf-value="{{logger_profile['id']}}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Identifier</div>
+                                                <t t-esc="logger_profile['identifier']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Type</div>
+                                                <t t-esc="logger_profile['logger_type_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Department</div>
+                                                <t t-esc="logger_profile['department_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">WTP</div>
+                                                <t t-esc="logger_profile['wtp_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Zone</div>
+                                                <t t-esc="logger_profile['zone_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">DMA</div>
+                                                <t t-esc="logger_profile['dma_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-title">Location and Communication</li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">SIM Card</div>
+                                                <t t-esc="logger_profile['simcard']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Address</div>
+                                                <t t-esc="logger_profile['address']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Latitude</div>
+                                                <t t-esc="logger_profile['latitude']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Longitude</div>
+                                                <t t-esc="logger_profile['longitude']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-title">Profile</li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Meter Type</div>
+                                                <t t-esc="logger_profile['meter_type_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Meter Brand</div>
+                                                <t t-esc="logger_profile['meter_brand_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Meter Size</div>
+                                                <t t-esc="logger_profile['meter_size_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Pipe Material</div>
+                                                <t t-esc="logger_profile['pipe_material_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Pipe Size</div>
+                                                <t t-esc="logger_profile['pipe_size_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Valve Control</div>
+                                                <t t-esc="logger_profile['valve_control_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="tab-channels" class="page-content ptr-content ptr-content-logger ptr-content-logger tab tab-active" data-ptr-distance="55" data-ptr-mousewheel="true">
+                        <!-- <t t-esc="logger_channels"/> -->
+
+                        <div class="ptr-preloader">
+                            <div class="preloader"/>
+                            <div class="ptr-arrow"/>
+                        </div>
+
+                        <!-- <a href="#" id="link-refresh">Refresh</a> -->
+
+                        <t t-foreach="logger_channels" t-as="logger_channel">
+                            <div class="card elevation-4">
+                                <div class="card-header">
+                                    <div class="strong-text channel-form-link"
+                                         t-attf-data-id="{{logger_channel['id']}}">
+                                        <i class="fas fa-edit"/>
+                                        <t t-esc="logger_channel['name']"/>
+                                    </div>
+                                    <span>
+                                        <t t-esc="logger_channel['last_date']"/>
+                                    </span>
+                                </div>
+                                <div class="card-content card-content-padding"
+                                     t-attf-style="text-align: center; font-size: 3em; font-weight: bold; color: {{logger_channel['color']}};">
+                                    <t t-esc="logger_channel['last_value']"/>
+                                    <t t-esc="logger_channel['unit_name']"/>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="list" style="width:100%">
+                                        <ul>
+                                            <t t-if="logger_channel['need_totalizer'] and logger_channel['show_consumption']">
+                                                <li>
+                                                    <a t-attf-href="/logger/channel/consumption/{{ logger_profile['id'] }}/{{ logger_channel['id'] }}"
+                                                       class="item-link item-content"
+                                                       data-force="true"
+                                                       data-ignore-cache="true"
+                                                       data-reload="true">
+                                                        <div class="card_project item-inner">
+                                                            <div class="item-title-row" style="width: 100%">
+                                                                <div class="item-title">Consumption</div>
+                                                                <div class="item-after">
+                                                                    <t t-esc="logger_channel['last_totalizer']"/>
+                                                                    m3
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </t>
+
+                                            <li>
+                                                <a t-attf-href="/logger/threshold/{{ logger_profile['id'] }}/{{ logger_channel['id'] }}"
+                                                   class="item-link item-content"
+                                                   data-force="true"
+                                                   data-ignore-cache="true"
+                                                   data-reload="true">
+                                                    <div class="card_project item-inner">
+                                                        <div class="item-title-row" style="width: 100%">
+                                                            <div class="item-title">Threshold</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+
+                    <div id="tab-chart" class="page-content tab">
+                        <div id="chart-container"/>
+                        <br/>
+                        <t t-foreach="logger_chart['events']" t-as="logger_chart_event">
+                            <div class="card elevation-4">
+                                <div class="card-header">
+                                    <div class="strong-text">
+                                        <t t-esc="logger_chart_event['name']"/>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="list" style="width:100%">
+                                        <ul>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div>
+                                                            Last Value
+                                                            <br/>
+                                                            <span style="font-size: smaller">
+                                                                <t t-esc="logger_chart_event['last_date']"/>
+                                                            </span>
+                                                        </div>
+                                                        <div class="item-after">
+                                                            <t t-esc="logger_chart_event['last_value']"/>
+                                                            <t t-esc="logger_chart_event['unit_name']"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div>
+                                                            Min Value
+                                                            <br/>
+                                                            <span style="font-size: smaller">
+                                                                <t t-esc="logger_chart_event['min_date']"/>
+                                                            </span>
+                                                        </div>
+                                                        <div class="item-after">
+                                                            <t t-esc="logger_chart_event['min_value']"/>
+                                                            <t t-esc="logger_chart_event['unit_name']"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div>
+                                                            Max Value
+                                                            <br/>
+                                                            <span style="font-size: smaller">
+                                                                <t t-esc="logger_chart_event['max_date']"/>
+                                                            </span>
+                                                        </div>
+                                                        <div class="item-after">
+                                                            <t t-esc="logger_chart_event['max_value']"/>
+                                                            <t t-esc="logger_chart_event['unit_name']"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div>
+                                                            Avg Value
+                                                        </div>
+                                                        <div class="item-after">
+                                                            <t t-esc="logger_chart_event['avg_value']"/>
+                                                            <t t-esc="logger_chart_event['unit_name']"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </template>
+
+</odoo>

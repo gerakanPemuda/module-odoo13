@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="onpoint_base_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/onpoint_base/static/src/js/onpoint_copyright_dashboard.js"/>
+            </xpath>
+        </template>
+
+        <record id="act_view_copyright_dashboard" model="ir.actions.client">
+            <field name="name">View Copyright</field>
+            <field name="tag">onpoint_base_copyright_dashboard</field>
+            <field name="context">{}</field>
+        </record>
+
+    </data>
+</odoo>

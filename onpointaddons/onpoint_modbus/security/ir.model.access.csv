@@ -1,0 +1,19 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_modbus_comm_user,onpoint_modbus.onpoint.modbus.comm user,onpoint_modbus.model_onpoint_modbus_comm,onpoint_monitor.group_onpoint_monitor_user,1,1,1,0
+access_onpoint_mmim_user,onpoint_modbus.onpoint.mmim user,onpoint_modbus.model_onpoint_mmim,onpoint_monitor.group_onpoint_monitor_user,1,1,1,0
+access_onpoint_mmim_line_user,onpoint_modbus.onpoint.mmim.line user,onpoint_modbus.model_onpoint_mmim_line,onpoint_monitor.group_onpoint_monitor_user,1,1,1,0
+access_onpoint_mmim_detail_user,onpoint_modbus.onpoint.mmim.detail user,onpoint_modbus.model_onpoint_mmim_detail,onpoint_monitor.group_onpoint_monitor_user,1,1,1,0
+access_onpoint_mmim_value_user,onpoint_modbus.onpoint.mmim.value user,onpoint_modbus.model_onpoint_mmim_value,onpoint_monitor.group_onpoint_monitor_user,1,1,1,0
+,,,,,,,
+access_onpoint_modbus_comm_admin,onpoint_modbus.onpoint.modbus.comm admin,onpoint_modbus.model_onpoint_modbus_comm,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,0
+access_onpoint_mmim_admin,onpoint_modbus.onpoint.mmim admin,onpoint_modbus.model_onpoint_mmim,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,1
+access_onpoint_mmim_line_admin,onpoint_modbus.onpoint.mmim.line admin,onpoint_modbus.model_onpoint_mmim_line,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,1
+access_onpoint_mmim_detail_admin,onpoint_modbus.onpoint.mmim.detail admin,onpoint_modbus.model_onpoint_mmim_detail,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,0
+access_onpoint_mmim_value_admin,onpoint_modbus.onpoint.mmim.value admin,onpoint_modbus.model_onpoint_mmim_value,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,0
+,,,,,,,
+access_onpoint_modbus_comm_superadmin,onpoint_modbus.onpoint.modbus.comm superadmin,onpoint_modbus.model_onpoint_modbus_comm,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,0
+access_onpoint_mmim_superadmin,onpoint_modbus.onpoint.mmim superadmin,onpoint_modbus.model_onpoint_mmim,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1
+access_onpoint_mmim_line_superadmin,onpoint_modbus.onpoint.mmim.line superadmin,onpoint_modbus.model_onpoint_mmim_line,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1
+access_onpoint_mmim_detail_superadmin,onpoint_modbus.onpoint.mmim.detail superadmin,onpoint_modbus.model_onpoint_mmim_detail,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,0
+access_onpoint_mmim_value_superadmin,onpoint_modbus.onpoint.mmim.value superadmin,onpoint_modbus.model_onpoint_mmim_value,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,0
+,,,,,,,

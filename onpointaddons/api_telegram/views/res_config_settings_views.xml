@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_telegram_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.api.telegram</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Telegram" string="Telegram Configuration" data-key="wt">
+                    <h2>Telegram Configuration</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-12 o_setting_box" title="Setup Telegram Chat Group">
+                            <div class="o_setting_right_pane">
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <group>
+                                            <field name="telegram_token"/>
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+<!--    <record id="telegram_config_settings_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Settings</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">res.config.settings</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">inline</field>-->
+<!--        <field name="context">{'module' : 'api_telegram'}</field>-->
+<!--    </record>-->
+
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_vendor_tree" model="ir.ui.view">
+	        <field name="name">pam.vendor.tree</field>
+	        <field name="model">pam.vendor</field>
+	        <field name="arch" type="xml">
+	            <tree string="Vendor">
+	                <field name="name" />
+	                <field name="address" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_vendor_form" model="ir.ui.view">
+	        <field name="name">pam.vendor.form</field>
+	        <field name="model">pam.vendor</field>
+	        <field name="arch" type="xml">
+	            <form string="Vendor">
+	            	<sheet>
+						<group>
+							<field name="name" colspan="4"/>
+							<field name="address" colspan="4"/>
+							<field name="phone"/>
+							<field name="notes" />
+						</group>
+		            </sheet>
+
+	            </form>
+	        </field>
+	    </record>
+
+
+	    <record id="view_pam_vendor_search" model="ir.ui.view">
+	        <field name="name">pam.vendor.search</field>
+	        <field name="model">pam.vendor</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Vendor">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_vendor">
+			<field name="name">Vendor</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.vendor</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_vendor_search"/>
+		</record>
+
+    </data>
+</odoo>

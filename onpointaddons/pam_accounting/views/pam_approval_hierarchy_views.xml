@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_approval_hierarchy_tree" model="ir.ui.view">
+	        <field name="name">pam.approval.hierarchy.tree</field>
+	        <field name="model">pam.approval.hierarchy</field>
+	        <field name="arch" type="xml">
+	            <tree string="Persetujuan Hirarki">
+	                <field name="approval_type" options="{'no_create': True, 'no_create_edit': True}"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_approval_hierarchy_form" model="ir.ui.view">
+	        <field name="name">pam.approval.hierarchy.form</field>
+	        <field name="model">pam.approval.hierarchy</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<group>
+						<field name="approval_type" options="{'no_create': True, 'no_create_edit': True}"/>
+					</group>
+
+					<notebook colspan="4">
+						<page string="Detail">
+							<group>
+								<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+									<tree editable="bottom" default_order="sequence asc">
+										<field name="department_id" options="{'no_create': True, 'no_create_edit': True}"/>
+										<field name="job_id" options="{'no_create': True, 'no_create_edit': True}"/>
+										<field name="sequence" options="{'no_create': True, 'no_create_edit': True}"/>
+									</tree>
+								</field>
+							</group>
+						</page>
+					</notebook>
+	            
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_approval_hierarchy_search" model="ir.ui.view">
+	        <field name="name">pam.approval.hierarchy.search</field>
+	        <field name="model">pam.approval.hierarchy</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Persetujuan">
+	               <field name="approval_type"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_approval_hierarchy">
+			<field name="name">Persetujuan Hirarki</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.approval.hierarchy</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_approval_hierarchy_search"/>
+		</record>
+
+    </data>
+</odoo>

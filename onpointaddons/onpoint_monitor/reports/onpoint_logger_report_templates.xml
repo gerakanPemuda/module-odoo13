@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_onpoint_logger_report">
+            <field name="name">paperformat.onpoint.logger.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">35</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">15</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report id="act_onpoint_logger_report"
+                string="Logger Report"
+                model="onpoint.logger.report"
+                report_type="qweb-pdf"
+                name="onpoint_monitor.onpoint_logger_report_template"
+                file="onpoint_monitor.onpoint_logger_report_template"
+                print_report_name="Report"
+                paperformat="paperformat_onpoint_logger_report"
+                menu="False"/>
+
+        <template id="onpoint_logger_report_template">
+            <t t-call="web.basic_layout">
+                <link rel="stylesheet" href="/onpoint_monitor/static/src/css/onpoint_logger_report.css"/>
+
+                <div class="header">
+                    <div class="row col-12">
+                        <div class="col-3">
+<!--                            <img src="/onpoint_monitor/static/img/logo_wtccloud.png" width="80%" class="float-start"/>-->
+                        </div>
+                        <div class="col-9 text-right">
+                            <h4>
+                                <strong>
+                                    <t t-esc="logger['name']"/>
+                                </strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="page">
+
+                    <!--Page 1-->
+                    <div class="report-title">
+                        Logger Profile
+                    </div>
+                    <div class="container">
+                        <div class="row col-xs-12">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4">Identifier</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['identifier']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Brand</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['brand']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Logger Type</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['logger_type']"/>
+                                        </b>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">Meter Type</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['meter_type']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Meter Brand</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['meter_brand']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Meter Size</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['meter_size']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Pipe Material</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['pipe_material']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Pipe Size</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['pipe_size']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Valve Control</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['valve_control']"/>
+                                        </b>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4">Department</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['department']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">WTP</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['wtp']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Zone</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['zone']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">DMA</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['dma']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">SIM Card</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['simcard']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Address</div>
+                                    <div class="col-7">:
+                                        <b>
+                                            <t t-esc="logger['address']"/>
+                                        </b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <t t-if="logger['remarks'] != ''">
+                        <div class="report-title">
+                            <div class="row">
+                                <div class="col-6">Remarks</div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="text-remarks">
+                                <t t-esc="logger['remarks']"/>
+                            </div>
+                        </div>
+                    </t>
+
+                    <!--Page 2-->
+                    <p style="page-break-after:always;"/>
+                    <div class="report-title">
+                        <div class="row">
+                            <div class="col-6">Results</div>
+                            <div class="col-6 text-right">
+                                <t t-esc="logger['report_period']"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="icon-big icon-warning text-center">
+                                                    <img t-attf-src="/onpoint_monitor/static/src/img/{{ logger['power_image'] }}"
+                                                         width="40px"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="numbers">
+                                                    <p class="report-title-card">Power</p>
+                                                    <p class="report-subtitle-card">
+                                                        <t t-esc="logger['power_value']"/>
+                                                        V
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="icon-big icon-warning text-center">
+                                                    <img t-attf-src="/onpoint_monitor/static/src/img/{{ logger['signal_image'] }}"
+                                                         width="40px"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="numbers">
+                                                    <p class="report-title-card">Signal</p>
+                                                    <p class="report-subtitle-card">
+                                                        <t t-esc="logger['signal_value']"/>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="icon-big icon-warning text-center">
+                                                    <img t-attf-src="/onpoint_monitor/static/src/img/{{ logger['temperature_image'] }}"
+                                                         width="40px"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="numbers">
+                                                    <p class="report-title-card">Temperature</p>
+                                                    <p class="report-subtitle-card">
+                                                        <t t-esc="logger['temperature_value']"/> &#8451;
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="icon-big icon-warning text-center">
+                                                    <img t-attf-src="/onpoint_monitor/static/src/img/icon_over_water.png"
+                                                         width="40px"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="numbers">
+                                                    <p class="report-title-card">Submersion</p>
+                                                    <p class="report-subtitle-card" style="font-size: 12px !important">
+                                                        Unsubmerged
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <img t-attf-src="{{ image_url }}"
+                             width="800px"
+                             style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto;"/>
+
+                        <div class="container">
+                            <t t-if="logger['is_flow']">
+                                <div class="row col-xs-12">
+                                <div class="col-4 logger-info-cell">
+                                    <table width="100%">
+                                        <tr>
+                                            <td colspan="2" align="center" style="font-size: 12pt">
+                                                <b>Consumption</b>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Last Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <t t-if="logger['consumption_last_date'] != ''">
+                                                    <span class="text-value">
+                                                        <t t-esc="logger['consumption_last_value']"/> m3
+                                                    </span>
+                                                    <br/>
+                                                    <t t-esc="logger['consumption_last_date']"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="text-value">
+                                                        -
+                                                    </span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Min Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <t t-if="logger['consumption_min_date'] != ''">
+                                                    <span class="text-value">
+                                                        <t t-esc="logger['consumption_min_value']"/> m3
+                                                    </span>
+                                                    <br/>
+                                                    <t t-esc="logger['consumption_min_date']"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="text-value">
+                                                        -
+                                                    </span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Max Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <t t-if="logger['consumption_max_date'] != ''">
+                                                    <span class="text-value">
+                                                        <t t-esc="logger['consumption_max_value']"/> m3
+                                                    </span>
+                                                    <br/>
+                                                    <t t-esc="logger['consumption_max_date']"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="text-value">
+                                                        -
+                                                    </span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Meter Index</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <span class="text-value">
+                                                    <t t-esc="logger['consumption_meter_index']"/> m3
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            </t>
+                            <t t-else="">
+                                <t t-foreach="logger['channels']" t-as="rows">
+                                    <div class="row col-xs-12">
+                                    <t t-foreach="rows" t-as="row">
+                                        <div class="col-4 logger-info-cell">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td colspan="2" align="center" style="font-size: 12pt">
+                                                        <b>
+                                                            <t t-esc="row['name']"/>
+                                                        </b>
+                                                    </td>
+                                                </tr>
+                                                <tr class="border-bottom">
+                                                    <td width="40%" class="value-info-cell">Last Value</td>
+                                                    <td width="60%" class="value-info-cell">
+                                                        <t t-if="row['last_date'] != ''">
+                                                            <span class="text-value">
+                                                                <t t-esc="row['last_value']"/>
+                                                                <t t-esc="row['value_unit_name']"/>
+                                                            </span>
+                                                            <br/>
+                                                            <t t-esc="row['last_date']"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span class="text-value">
+                                                                -
+                                                            </span>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                                <tr class="border-bottom">
+                                                    <td width="40%" class="value-info-cell">Min Value</td>
+                                                    <td width="60%" class="value-info-cell">
+                                                        <t t-if="row['min_date'] != ''">
+                                                            <span class="text-value">
+                                                                <t t-esc="row['min_value']"/>
+                                                                <t t-esc="row['value_unit_name']"/>
+                                                            </span>
+                                                            <br/>
+                                                            <t t-esc="row['min_date']"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span class="text-value">
+                                                                -
+                                                            </span>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%" class="value-info-cell">Max Value</td>
+                                                    <td width="60%" class="value-info-cell">
+                                                        <t t-if="row['max_date'] != ''">
+                                                            <span class="text-value">
+                                                                <t t-esc="row['max_value']"/>
+                                                                <t t-esc="row['value_unit_name']"/>
+                                                            </span>
+                                                            <br/>
+                                                            <t t-esc="row['max_date']"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span class="text-value">
+                                                                -
+                                                            </span>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                                <!--                                        <t t-if="event.need_totalizer">-->
+                                                <!--                                            <tr>-->
+                                                <!--                                                <td width="40%" class="value-info-cell">Consumption</td>-->
+                                                <!--                                                <td width="60%" class="value-info-cell">-->
+                                                <!--                                                    <span class="text-value"><t t-esc="event.last_totalizer"/>-->
+                                                <!--                                                        m3</span>-->
+                                                <!--                                                </td>-->
+                                                <!--                                            </tr>-->
+                                                <!--                                        </t>-->
+                                            </table>
+                                        </div>
+                                    </t>
+                                </div>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+
+                    <!--Page 3-->
+                    <t t-if="logger['show_data']">
+                        <p style="page-break-after:always;"/>
+                        <div class="report-title">
+                            <div class="row">
+                                <div class="col-6">Results</div>
+                                <div class="col-6 text-right">
+                                    <t t-esc="logger['report_period']"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="container">
+                                <t t-if="logger['is_flow']">
+                                    <table width="90%">
+                                        <tr>
+                                            <td width="30%" style="border: 1px solid #000;text-align: center"><b>Date</b></td>
+                                            <td width="35%" style="border: 1px solid #000;text-align: center"><b>Consumption</b></td>
+                                            <td width="35%" style="border: 1px solid #000;text-align: center"><b>Meter Index</b></td>
+                                        </tr>
+                                        <t t-foreach="logger['flow_data']" t-as="flow_data">
+                                            <tr>
+                                                <td style="border: 1px solid #000"><t t-esc="flow_data['dates']"/></td>
+                                                <td style="border: 1px solid #000;text-align: right"><t t-esc="flow_data['channel_value']"/> m3</td>
+                                                <td style="border: 1px solid #000;text-align: right"><t t-esc="flow_data['totalizer_value']"/> m3</td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </t>
+                                <t t-else="">
+                                    <t t-raw="logger['html_data']"/>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div class="footer">
+                    <div class="row col-xs-12 text-center" style="border-top: 1px solid black;font-size: 8pt">
+                        <div class="col-6 text-left">
+                            Created by
+                            <t t-esc="user.name"/>
+                            at
+                            <t t-esc="timestamp"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            <div name="pager">
+                                Page:
+                                <span class="page"/>
+                                /
+                                <span class="topage"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

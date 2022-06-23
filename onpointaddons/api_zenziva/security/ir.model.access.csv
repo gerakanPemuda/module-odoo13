@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zenziva_outbox_super_admin,api_zenziva.zenziva.outbox super_admin,api_zenziva.model_zenziva_outbox,group_zenziva_super_admin,1,1,1,1
+access_api_message_super_admin,api_zenziva.api.message super_admin,api_zenziva.model_api_message,group_zenziva_super_admin,1,1,1,1
+,,,,,,,
+,,,,,,,
+,,,,,,,

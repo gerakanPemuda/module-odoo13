@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_onpoint_work_order_wizard_form" model="ir.ui.view">
+            <field name="name">onpoint.work.order.wizard.form</field>
+            <field name="model">onpoint.work.order.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator string="Work Order" colspan="4"/>
+                        <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}' attrs="{'invisible': [('state_to', '=', 'submit')]}"/>
+                        <group>
+                            <field name="remark" required="1"/>
+                            <field name="wo_id" invisible="1"/>
+                            <field name="state_from" invisible="1"/>
+                            <field name="state_to" invisible="1"/>
+                        </group>
+                        <footer>
+                            <button string="Confirm" class="btn-primary" special="save"/>
+                            <button string="Cancel" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_work_order_wizard">
+            <field name="name">Work Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.work.order.line</field>
+            <field name="view_mode">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

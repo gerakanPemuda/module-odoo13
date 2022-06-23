@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_balance_sheet_report" model="ir.ui.view">
+        <field name="name">pam.balance.sheet.report.form</field>
+        <field name="model">pam.balance.sheet.report</field>
+        <field name="arch" type="xml">
+            <form string="Neraca">
+                <separator string="Neraca" colspan="4"/>
+                <group>
+                    <label string="Periode" for="months"/>
+                    <div>
+                        <field name="months" nolabel="1" class="oe_inline" />
+                        <field name="years" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                    </div>
+                <field name="period" invisible="1" readonly="1"/>
+                <field name="start_date" invisible="1" readonly="1"/>
+                <field name="end_date" invisible="1" readonly="1"/>
+                <field name="last_posted_period" invisible="1" readonly="1"/>
+                <field name="range_start_date" invisible="0" readonly="1"/>
+                <field name="range_end_date" invisible="0" readonly="1"/>
+                <field name="file_bin" readonly="1" filename="file_name"/>
+                <field name="file_name" invisible="1"/>
+                <field name="tf" invisible="1"/>
+                </group>
+                <group col="4" colspan="4">
+                    <div>
+                        <button type="object" class="btn-default" icon="fa-external-link" name="get_data" string="Get Data"/>
+
+                        <button type="object" class="btn-default" solid_icon="fa-file-pdf fa-2x" name="export_report_pdf" string="Export to PDF" style="margin-left:10px" attrs="{'invisible': [('tf', '=', False)]}"/>
+                        <button type="object" class="btn-default" solid_icon="fa-file-excel fa-2x" name="export_report_xls" string="Export Excel" style="margin-left:10px" attrs="{'invisible': [('tf', '=', False)]}"/>
+                    </div>
+                </group>
+
+                <notebook>
+                    <page string="Laporan">
+                        <group>
+                            <field name="report_html" nolabel="1" readonly="1"/>
+                        </group>
+                    </page>
+                </notebook>                    
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_balance_sheet_report"
+        name="Neraca"
+        res_model="pam.balance.sheet.report"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

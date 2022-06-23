@@ -1,0 +1,330 @@
+<odoo>
+    <data>
+        <record id="view_onpoint_work_order_tree" model="ir.ui.view">
+            <field name="name">onpoint.work.order.tree</field>
+            <field name="model">onpoint.work.order</field>
+            <field name="arch" type="xml">
+                <tree string="Onpoint WO">
+                    <field name="name"/>
+                    <field name="wo_type"/>
+                    <!--                    <field name="assign_to"/>-->
+                    <field name="work_time"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_work_order_form" model="ir.ui.view">
+            <field name="name">onpoint.work.order.form</field>
+            <field name="model">onpoint.work.order</field>
+            <field name="arch" type="xml">
+                <form string="Onpoint Work Order">
+                    <header>
+                        <button class="btn-default oe_highlight" string="Submit" type="object" name="act_submit"
+                                states="draft" confirm="Are you sure to Submit?"/>
+                        <button class="btn-default oe_highlight" string="Confirm" type="object" name="act_confirm"
+                                attrs="{'invisible': ['|',('user_to_confirm_id', '=', False), ('state', '!=', 'submit')]}"/>
+                        <button class="btn-default oe_highlight" string="Accept" type="object" name="act_accept"
+                                attrs="{'invisible': ['|',('user_to_accept_id', '=', False), ('state', '!=', 'confirm')]}"/>
+                        <button class="btn-default oe_highlight" string="Reject" type="object" name="act_reject"
+                                attrs="{'invisible': ['|',('user_to_accept_id', '=', False), ('state', '!=', 'confirm')]}"/>
+                        <button class="btn-default oe_highlight" string="Start" type="object" name="act_progress"
+                                attrs="{'invisible': ['|',('user_to_accept_id', '=', False), ('state', '!=', 'en_route')]}"/>
+                        <button class="btn-default oe_highlight" string="Start" type="object" name="act_progress"
+                                attrs="{'invisible': ['|',('user_to_accept_id', '=', False), ('state', '!=', 'pending')]}"/>
+                        <button class="btn-default oe_highlight" string="Pending" type="object" name="act_pending"
+                                attrs="{'invisible': ['|',('user_to_accept_id', '=', False), ('state', '!=', 'in_progress')]}"/>
+                        <button class="btn-default oe_highlight" string="Finish" type="object" name="act_complete"
+                                attrs="{'invisible': ['|',('user_to_accept_id', '=', False), ('state', '!=', 'in_progress')]}"/>
+                        <field name="state"
+                               widget="statusbar"
+                               statusbar_visible="draft, submit, in_progress, pending, complete"/>
+                    </header>
+                    <div style="padding-left:10px; padding-right:10px">
+                        <div class="oe_title">
+                            <label for="name" string="No. Work Order"/>
+                            <h2>
+                                <field name="name" position="attributes" class="oe_inline" readonly="1">
+                                    <attribute name="widget">gplaces_autocomplete</attribute>
+                                    <attribute name="options">{
+                                        'fillfields': {
+                                        'geolocation': {
+                                        'latitude': 'latitude',
+                                        'longitude': 'longitude'
+                                        }
+                                        }
+                                        }
+                                    </attribute>
+                                </field>
+                            </h2>
+                        </div>
+                        <group>
+                            <!--                                <separator string="Address" colspan="2" style="margin-bottom:10px"/>-->
+                            <!--                                <field name="country_id"/>-->
+                            <!--                                <field name="state_id"/>-->
+                            <!--                                <field name="city"/>-->
+                            <!--                                <field name="street" position="attributes" class="o_address_street">-->
+                            <!--                                    <attribute name="widget">gplaces_address_autocomplete</attribute>-->
+                            <!--                                    <attribute name="options">{'lat': 'latitude', 'lng': 'longitude'}</attribute>-->
+                            <!--                                </field>-->
+                            <!--                                <field name="street_name" placeholder="Street Name..." readonly="1" class="oe_read_only"/>-->
+                            <!--                                <div class="o_row">-->
+                            <!--                                    <label for="street_number" class="oe_edit_only"/>-->
+                            <!--                                    <field name="street_number" readonly="1"/>-->
+                            <!--                                </div>-->
+                            <!--        	            		<button class="btn-default oe_highlight" string="Geolocate" type="object" name="geo_localize"/>-->
+
+                            <group>
+                                <separator string="Work Order" colspan="2" style="margin-bottom:10px"/>
+                                <!--                                <field name="latitude" readonly="1" force_save="1"/>-->
+                                <!--                                <field name="longitude" readonly="1" force_save="1"/>-->
+                                <field name="logger_id" attrs="{'readonly': [('state', 'not in', 'draft')]}"
+                                       force_save="1"/>
+                                <field name="wo_type" options="{'no_create': True, 'no_edit': True}"
+                                       attrs="{'readonly': [('state', 'not in', 'draft')]}" force_save="1"/>
+                                <field name="wo_type_pic_id"/>
+                                <field name="wo_type_pic_uid"/>
+                                <!--                                <field name="assign_to" options="{'no_create': True, 'no_edit': True}" domain="[('id', 'in', wo_type_employee_ids)]" attrs="{'invisible': [('state', '=', 'draft')], 'required': [('state', 'not in', 'draft')], 'readonly': [('state', 'not in', ('draft', 'submit'))]}" force_save="1"/>-->
+                                <field name="create_date" string="Date"/>
+                                <field name="task" attrs="{'readonly': [('state', 'not in', 'draft')]}"
+                                       force_save="1"/>
+                                <field name="user_to_confirm_id" invisible="1"/>
+                                <field name="user_to_accept_id" invisible="1"/>
+                                <field name="wo_type_employee_ids" invisible="1"/>
+
+                            </group>
+
+                            <group>
+                                <separator string="Work Time" colspan="2" style="margin-bottom:10px"/>
+                                <label for="work_time" string="Duration"/>
+                                <div>
+                                    <field name="work_time"/><![CDATA[&nbsp;]]>
+                                    <field name="work_time_uom"/>
+                                </div>
+                                <label for="wo_type_work_time" string="Target"/>
+                                <div class="oe_title">
+                                    <field name="wo_type_work_time"/><![CDATA[&nbsp;]]>
+                                    <field name="wo_type_work_time_uom"/>
+                                </div>
+                                <label for="work_time_difference" string="Difference"/>
+                                <div>
+                                    <field name="work_time_difference"/><![CDATA[&nbsp;]]>
+                                    <field name="work_time_difference_uom"/>
+                                </div>
+                            </group>
+<!--                            <group>-->
+<!--                                <field name="image_1920" nolabel="1" widget='image' style="width: 100%;height: auto;"-->
+<!--                                       options='{"preview_image": "image_128"}'/>-->
+<!--                            </group>-->
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Detail">
+                                <group>
+                                    <field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" mode="kanban">
+                                        <kanban create="false" class="o_kanban_mobile" default_order="create_date desc">
+                                            <field name="id"/>
+                                            <field name="state_from"/>
+                                            <field name="state_to"/>
+                                            <field name="create_date"/>
+                                            <field name="duration"/>
+                                            <field name="image_1920"/>
+                                            <field name="remark"/>
+                                            <templates>
+                                                <t t-name="kanban-box">
+                                                    <div t-att-class="oe_kanban_card"
+                                                         style="border-radius:10px 10px;box-shadow: 3px 3px #888888;width: 90%;">
+                                                        <div class="oe_kanban_details"
+                                                             style="margin-left:5px;margin-right:5px;">
+                                                            <div class="o_kanban_image" style="margin-right:20px;">
+                                                                <img t-att-src="kanban_image('onpoint.work.order.line', 'image_1920', record.id.raw_value)"
+                                                                     role="img" t-att-title="record.id.value"
+                                                                     t-att-alt="record.id.value"
+                                                                     options="{'zoom': true, 'background': true, 'preventClicks': false}"
+                                                                     widget="image"/>
+                                                            </div>
+                                                            <div>
+                                                                <b class="float-right" style="margin-right:10px;">
+                                                                    <field name="state_to"/>
+                                                                </b>
+                                                                <div class="oe_module_name">
+                                                                    <span>
+                                                                        <field name="create_date"/>
+                                                                        --
+                                                                        <b>Duration :</b>
+                                                                        <field name="duration"/>
+                                                                    </span>
+                                                                </div>
+                                                                <p/>
+                                                                <field name="remark"/>
+                                                                <p/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="o_kanban_record_bottom float-right"
+                                                             style="margin-right:10px">
+                                                            <button class="btn btn-primary" type="object"
+                                                                    name="open_form" string="View">View
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </templates>
+                                        </kanban>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_onpoint_work_order_kanban" model="ir.ui.view">
+            <field name="name">onpoint.work.order.kanban</field>
+            <field name="model">onpoint.work.order</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban string="Work Order" class="o_kanban_mobile">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="wo_type"/>
+                    <field name="assign_to"/>
+                    <field name="work_time"/>
+                    <field name="wo_type_work_time"/>
+                    <field name="work_time_difference"/>
+                    <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click"
+                                 style="border-radius:10px 10px;box-shadow: 3px 3px #888888;">
+                                <div class="oe_kanban_details" style="margin-left:10px">
+                                    <div>
+                                        <b class="float-right" style="margin-right:10px;">
+                                            <t t-esc="record.state.value"/>
+                                        </b>
+                                        <div class="o_kanban_image" style="margin-right:20px;">
+                                            <img t-att-src="kanban_image('onpoint.work.order', 'image_128', record.id.raw_value)"
+                                                 role="img" t-att-title="record.id.value" t-att-alt="record.id.value"
+                                                 options="{'zoom': true, 'background': true, 'preventClicks': false}"
+                                                 widget="image"/>
+                                        </div>
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                        <div>
+                                            <span>
+                                                <b>WO Type:</b>
+                                                <t t-esc="record.wo_type.value"/>
+                                                <br/>
+                                                <b>Assign To:</b>
+                                                <t t-esc="record.assign_to.value"/>
+                                            </span>
+                                        </div>
+                                        <div class="oe_module_name" style="margin-top:5px;">
+                                            <span>
+                                                <b>Duration:</b>
+                                                <t t-esc="record.work_time.value"/><![CDATA[ &nbsp; ]]>
+                                                <b>Difference:</b>
+                                                <t t-esc="record.work_time_difference.value"/>
+                                                <p/>
+                                            </span>
+                                        </div>
+                                        <strong class="o_kanban_record_title">
+                                            <div class="float-right" style="margin-right:10px">
+                                                <span class="fa fa-circle text-danger"
+                                                      t-if="record.work_time_difference.value != 0"
+                                                      style="width:25px;height:25px;" role="img" title="Warning"/>
+                                                <span class="fa fa-circle text-success" t-else=""
+                                                      style="width:25px;height:25px;" role="img" title="Success"/>
+                                            </div>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!--        <record id="view_onpoint_work_order_map" model="ir.ui.view">-->
+        <!--			<field name="name">onpoint.work.order.map</field>-->
+        <!--			<field name="model">onpoint.work.order</field>-->
+        <!--			<field name="arch" type="xml">-->
+        <!--				<google_map class="oe_kanban_global_click o_res_partner_map" library="geometry" string="Map" lat="latitude" lng="longitude">-->
+        <!--					<field name="id"/>-->
+        <!--					<field name="latitude"/>-->
+        <!--					<field name="longitude"/>-->
+        <!--                    <field name="name"/>-->
+        <!--                    <field name="wo_type"/>-->
+        <!--                    <field name="assign_to"/>-->
+        <!--                    <field name="work_time"/>-->
+        <!--                    <field name="work_time_difference"/>-->
+        <!--                    <field name="state"/>-->
+        <!--					<templates>-->
+        <!--						<t t-name="kanban-box">-->
+        <!--                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">-->
+        <!--								<div class="oe_kanban_details" style="margin-left:10px">-->
+        <!--                                    <div>-->
+        <!--                                        <div class="o_kanban_image" style="margin-right:20px;">-->
+        <!--                                            <img t-att-src="kanban_image('onpoint.work.order', 'image_128', record.id.raw_value)"-->
+        <!--                                                 role="img" t-att-title="record.id.value" t-att-alt="record.id.value"-->
+        <!--                                                 options="{'zoom': true, 'background': true, 'preventClicks': false}"-->
+        <!--                                                 widget="image"/>-->
+        <!--                                        </div>-->
+        <!--                                        <strong><field name="name"/></strong>-->
+        <!--                                        <div>-->
+        <!--                                            <span>-->
+        <!--                                                <b>WO Type: </b><t t-esc="record.wo_type.value" />-->
+        <!--                                                <br/>-->
+        <!--                                                <b>Assign To: </b><t t-esc="record.assign_to.value"/>-->
+        <!--                                            </span>-->
+        <!--                                        </div>-->
+        <!--                                        <div class="oe_module_name" style="margin-top:10px;">-->
+        <!--                                            <span>-->
+        <!--                                                <b>Work Time: </b><t t-esc="record.work_time.value"/><![CDATA[ &nbsp; ]]>-->
+        <!--                                                <b>Difference: </b><t t-esc="record.work_time_difference.value"/>-->
+        <!--                                                <p/>-->
+        <!--                                                <b style="margin-right:10px;"><t t-esc="record.state.value"/></b>-->
+        <!--                                            </span>-->
+        <!--                                        </div>-->
+        <!--&lt;!&ndash;                                        <p style="margin-right:10px;">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                            <t t-esc="record.task.value"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                        </p>&ndash;&gt;-->
+        <!--									</div>-->
+        <!--								</div>-->
+        <!--							</div>-->
+        <!--						</t>-->
+        <!--					</templates>-->
+        <!--				</google_map>-->
+        <!--			</field>-->
+        <!--		</record>-->
+
+        <record id="view_onpoint_work_order_search" model="ir.ui.view">
+            <field name="name">onpoint.work.order.search</field>
+            <field name="model">onpoint.work.order</field>
+            <field name="arch" type="xml">
+                <search string="Cari Work Order">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_work_order">
+            <field name="name">Work Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.work.order</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_onpoint_work_order_search"/>
+        </record>
+
+        <!--		<record id="action_onpoint_work_order_map" model="ir.actions.act_window.view">-->
+        <!--			<field eval="3" name="sequence"/>-->
+        <!--			<field name="view_mode">google_map</field>-->
+        <!--			<field name="view_id" ref="view_onpoint_work_order_map"/>-->
+        <!--			<field name="act_window_id" ref="act_onpoint_work_order"/>-->
+        <!--		</record>-->
+
+    </data>
+</odoo>

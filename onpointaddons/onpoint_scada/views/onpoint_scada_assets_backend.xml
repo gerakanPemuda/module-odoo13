@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="onpoint_monitor_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/onpoint_scada/static/src/css/onpoint-scada.css"/>
+                <script type="text/javascript" src="/onpoint_scada/static/src/js/onpoint_scada_unit_chart.js"/>
+            </xpath>
+        </template>
+
+        <record id="act_view_unit_chart" model="ir.actions.client">
+            <field name="name">View Unit Chart</field>
+            <field name="tag">onpoint_scada_unit_chart</field>
+            <field name="context">{'unit_id': context.get('active_id') }</field>
+        </record>
+
+    </data>
+</odoo>

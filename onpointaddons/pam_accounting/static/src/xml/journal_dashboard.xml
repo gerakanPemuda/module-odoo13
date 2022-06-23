@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="JournalDashboardMain">
+        <div class="o_dashboards">
+            <div class="container-fluid o_hr_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="JournalDashboardContent">
+
+        <div style="text-align:center" class="col-md-3">
+            <div class="dashboard_item dashboard_item_border_blue col-md-10" id="link-ju">
+                <div class="dashboard_icon col-md-3" style="background-color:rgba(20, 33, 97, 1);">
+                    <span style="font-size: 2em; color: White;">
+                        <i class="fas fa-file"></i>
+                    </span>
+                </div>
+                <div class="dashboard_item_name_l2">
+                    Jurnal Umum<br/><small>(JU)</small>
+                </div>
+            </div>
+            <div class="dashboard_item dashboard_item_border_black col-md-10" id="link-ap">
+                <div class="dashboard_icon col-md-3" style="background-color:rgba(38, 38, 38, 1)">
+                    <span style="font-size: 2em; color: White;">
+                        <i class="fas fa-receipt"></i>
+                    </span>
+                </div>
+                <div class="dashboard_item_name_l2">
+                    Voucher<br/><small>(AP)</small>
+                </div>
+            </div>
+            <div class="dashboard_item dashboard_item_border_cream col-md-10" id="link-co">
+                <div class="dashboard_icon col-md-3" style="background-color:rgba(210, 152, 45, 1)">
+                    <span style="font-size: 2em; color: White;">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </span>
+                </div>
+                <div class="dashboard_item_name_l2">
+                    Bayar Kas<br/><small>(CO)</small>
+                </div>
+            </div>
+            <div class="dashboard_item dashboard_item_border_green col-md-10" id="link-ci">
+                <div class="dashboard_icon col-md-3" style="background-color:rgba(77, 137, 62, 1)">
+                    <span style="font-size: 2em; color: White;">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </span>
+                </div>
+                <div class="dashboard_item_name_l2">
+                    Penerimaan Kas<br/><small>(CI)</small>
+                </div>
+            </div>
+            <div class="dashboard_item dashboard_item_border_tosca col-md-10" id="link-bl">
+                <div class="dashboard_icon col-md-3" style="background-color:rgba(43, 70, 49, 1)">
+                    <span style="font-size: 2em; color: White;">
+                        <i class="fas fa-book"></i>
+                    </span>
+                </div>
+                <div class="dashboard_item_name_l2">
+                    Rekening<br/><small>(BL)</small>
+                </div>
+            </div>
+            <div class="dashboard_item dashboard_item_border_purple col-md-10" id="link-in">
+                <div class="dashboard_icon col-md-3" style="background-color:rgba(63, 43, 70, 1)">
+                    <span style="font-size: 2em; color: White;">
+                        <i class="fas fa-truck-loading"></i>
+                    </span>
+                </div>
+                <div class="dashboard_item_name_l2">
+                    Instalasi dan Kimia<br/><small>(IN)</small>
+                </div>
+            </div>
+            <div class="dashboard_item dashboard_item_border_maroon col-md-10" id="link-aj">
+                <div class="dashboard_icon col-md-3" style="background-color:rgba(145, 8, 8, 1)">
+                    <span style="font-size: 2em; color: White;">
+                        <i class="fas fa-adjust"></i>
+                    </span>
+                </div>
+                <div class="dashboard_item_name_l2">
+                    Penyesuaian<br/><small>(AJ)</small>
+                </div>
+            </div>
+        </div>        
+
+        <div class="col-md-9" style="padding-top:10px">
+            <div id="container_journal_chart"/>
+        </div>
+
+    </t>
+</templates>

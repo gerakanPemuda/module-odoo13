@@ -1,0 +1,40 @@
+.box {
+
+    width: 100%;
+    overflow: hidden;
+}
+
+.box img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+
+.box .text {
+    position: absolute;
+    z-index: 999;
+    bottom: 100px;
+    color: white;
+    width: 100%;
+    background: #0000005e;
+    padding: 5px 10px 5px 10px;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.timeline-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-header-pic .card-header {
+  height: 60vw;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.card-header-pic .card-content-padding .date{
+  color: #8e8e93;
+}
+

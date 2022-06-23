@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_water_balance_tree" model="ir.ui.view">
+	        <field name="name">onpoint.water.balance.tree</field>
+	        <field name="model">onpoint.water.balance</field>
+	        <field name="arch" type="xml">
+	            <tree string="Critical Point Recap">
+	                <field name="name" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_water_balance_form" model="ir.ui.view">
+	        <field name="name">onpoint.water.balance.form</field>
+	        <field name="model">onpoint.water.balance</field>
+	        <field name="arch" type="xml">
+	            <form string="Critical Point Recap">
+					<group>
+						<label for="monthly" string="Periode"/>
+						<div>
+							<field name="months" nolabel="1" class="oe_inline"/>
+							<field name="years" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+						</div>
+					</group>
+
+					<notebook>
+						<page string="Loggers" >
+							<group>
+								<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" >
+									<tree editable="bottom" decoration-success="nrw_state == 'normal'" decoration-danger="nrw_state == 'danger'" decoration-bf="nrw_state == 'danger'" decoration-warning="nrw_state == 'warning'">
+										<field name="logger_id"/>
+										<field name="logger_dma_name" string="DMA"/>
+										<field name="diameter"/>
+										<field name="q_inlet"/>
+										<field name="q_outlet"/>
+										<field name="customer"/>
+										<field name="nrw"/>
+										<field name="nrw_percentage"/>
+										<field name="level_follow_up"/>
+										<field name="mnf"/>
+										<field name="dma_verification"/>
+										<field name="pipe_rehab"/>
+										<field name="dma_meter_verification"/>
+										<field name="alc"/>
+										<field name="nrw_state" invisible="True"/>
+									</tree>
+								</field>
+							</group>
+						</page>
+					</notebook>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_water_balance_search" model="ir.ui.view">
+	        <field name="name">onpoint.water.balance.search</field>
+	        <field name="model">onpoint.water.balance</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari DMA">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_water_balance">
+			<field name="name">Critical Point Recap DMA</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.water.balance</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_water_balance_search"/>
+		</record>
+    </data>
+</odoo>

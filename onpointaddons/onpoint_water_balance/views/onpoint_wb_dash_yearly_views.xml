@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_dash_yearly_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.dash.yearly.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='wb_dash_yearly']" position="inside">
+                    <group>
+                        <group string="System Input Volume" colspan="4">
+                            <field name="wb_system_input_yearly"/>
+                            <field name="wb_system_input_yearly_error_margin"/>
+                        </group>
+                        <group string="Authorized Consumption">
+                            <group colspan="2">
+                                <field name="wb_authorized_consumption_yearly"/>
+                                <field name="wb_authorized_consumption_yearly_error_margin"/>
+                            </group>
+                            <group string="Billed Authorized Consumption">
+                                <group colspan="2">
+                                    <field name="wb_billed_authorized_consumption_yearly"/>
+                                </group>
+                                <group string="Billed Metered Consumption">
+                                    <field name="wb_billed_meter_consumption_yearly"/>
+                                </group>
+                                <group string="Billed Unmetered Consumption">
+                                    <field name="wb_billed_unmeter_consumption_yearly"/>
+                                </group>
+                            </group>
+                            <group string="Unbilled Authorized Consumption">
+                                <group colspan="2">
+                                    <field name="wb_unbilled_authorized_consumption_yearly"/>
+                                    <field name="wb_unbilled_authorized_consumption_yearly_error_margin"/>
+                                </group>
+                                <group string="Unbilled Metered Consumption">
+                                    <field name="wb_unbilled_meter_consumption_yearly"/>
+                                </group>
+                                <group string="Unbilled Unmetered Consumption">
+                                    <field name="wb_unbilled_unmeter_consumption_yearly"/>
+                                    <field name="wb_unbilled_unmeter_consumption_yearly_error_margin"/>
+                                </group>
+                            </group>
+                        </group>
+                        <group string="Water Losses">
+                            <group colspan="4">
+                                <field name="wb_water_losses_yearly"/>
+                                <field name="wb_water_losses_yearly_error_margin"/>
+                            </group>
+                            <group string="Commercial Losses">
+                                <group colspan="2">
+                                    <field name="wb_commercial_losses_yearly"/>
+                                    <field name="wb_commercial_losses_yearly_error_margin"/>
+                                </group>
+                                <group string="Unauthorized Consumption">
+                                    <field name="wb_unauthorized_consumption_yearly"/>
+                                    <field name="wb_unauthorized_consumption_yearly_error_margin"/>
+                                </group>
+                                <group string="Customer Meter Inaccuracies and Data Handling Errors">
+                                    <field name="wb_meter_error_yearly"/>
+                                    <field name="wb_meter_error_yearly_error_margin"/>
+                                </group>
+                            </group>
+                            <group string="Physical Losses">
+                                <field name="wb_physical_losses_yearly"/>
+                                <field name="wb_physical_losses_yearly_error_margin"/>
+                            </group>
+                        </group>
+                    </group>
+                    <group colspan="4">
+                        <group string="Revenue Water">
+                            <field name="wb_revenue_water_yearly"/>
+                        </group>
+                        <group string="Non-Revenue Water">
+                            <field name="wb_non_revenue_water_yearly"/>
+                            <field name="wb_non_revenue_water_yearly_error_margin"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

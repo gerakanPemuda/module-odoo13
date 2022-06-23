@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_co_recap_report" model="ir.ui.view">
+        <field name="name">pam.co.recap.report.form</field>
+        <field name="model">pam.co.recap.report</field>
+        <field name="arch" type="xml">
+            <form string="Daftar Jurnal Bayar Kas">
+                <sheet>
+                    <separator string="Daftar Jurnal Bayar Kas" colspan="4"/>
+                    <group>
+                        <label for="start_date" string="Periode Tanggal"/>
+                        <div>
+                            <field name="start_date" nolabel="1" class="oe_inline" />
+                            <field name="end_date" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                        </div>
+                        <field name="file_bin" readonly="1" filename="file_name"/>
+                        <field name="count_lines" invisible="1"/>
+                        <field name="file_name" invisible="1"/>
+                    </group>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" icon="fa-external-link" name="get_data" string="Get Data"/>
+                            <button type="object" class="btn-default" solid_icon="fa-file-pdf" name="export_report_pdf" string="Export to PDF" attrs="{'invisible': [('count_lines', '&lt;=', 0)]}"/>
+                            <button type="object" class="btn-default" solid_icon="fa-file-excel" name="export_report_xls" string="Export Excel" attrs="{'invisible': [('count_lines', '&lt;=', 0)]}"/>
+                        </div>
+
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" readonly="True">
+                                <tree create="false" delete="false">
+                                    <field name="co_number" />
+                                    <field name="co_date" />
+                                    <field name="ap_number"/>
+                                    <field name="cheque_number"/>
+                                    <field name="bank_name"/>
+                                    <field name="amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_co_recap_report"
+        name="Daftar Jurnal Bayar Kas"
+        res_model="pam.co.recap.report"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

@@ -1,0 +1,297 @@
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title">Messages</div>
+      </div>
+    </div>
+    <div class="toolbar messagebar" @messagebar:attachmentdelete=${deleteAttachment}>
+      <div class="toolbar-inner">
+        <a class="link icon-only" @click=${sheetToggle}>
+          <i class="icon f7-icons if-not-md">camera_fill</i>
+          <i class="icon material-icons md-only">camera_alt</i>
+        </a>
+        <div class="messagebar-area">
+          <textarea class="resizable" placeholder="Message"></textarea>
+        </div>
+        <a class="link icon-only demo-send-message-link" @click=${sendMessage}>
+          <i class="icon f7-icons if-not-md">arrow_up_circle_fill</i>
+          <i class="icon material-icons md-only">send</i>
+        </a>
+      </div>
+      <div class="messagebar-sheet">
+        ${images.map((image) => $h`
+        <label class="checkbox messagebar-sheet-image" style="background-image:url(${image})"
+          @change=${handleAttachment}>
+          <input type="checkbox" />
+          <i class="icon icon-checkbox"></i>
+        </label>
+        `)}
+      </div>
+    </div>
+    <div class="page-content messages-content">
+      <div class="messages">
+        <div class="messages-title"><b>Sunday, Feb 9,</b> 12:58</div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">Hi, Kate</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">How are you?</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-received">
+          <div class="message-avatar"
+            style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-9.jpg)"></div>
+          <div class="message-content">
+            <div class="message-name">Kate</div>
+            <div class="message-bubble">
+              <div class="message-text">Hi, I am good!</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-received">
+          <div class="message-avatar"
+            style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-7.jpg)"></div>
+          <div class="message-content">
+            <div class="message-name">Blue Ninja</div>
+            <div class="message-bubble">
+              <div class="message-text">Hi there, I am also fine, thanks! And how are you?</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">Hey, Blue Ninja! Glad to see you ;)</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-text">Hey, look, cutest kitten ever!</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-sent">
+          <div class="message-content">
+            <div class="message-bubble">
+              <div class="message-image">
+                <img src="https://cdn.framework7.io/placeholder/cats-200x260-4.jpg"
+                  style="width:200px; height: 260px" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-received">
+          <div class="message-avatar"
+            style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-9.jpg)"></div>
+          <div class="message-content">
+            <div class="message-name">Kate</div>
+            <div class="message-bubble">
+              <div class="message-text">Nice!</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-received">
+          <div class="message-avatar"
+            style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-9.jpg)"></div>
+          <div class="message-content">
+            <div class="message-name">Kate</div>
+            <div class="message-bubble">
+              <div class="message-text">Like it very much!</div>
+            </div>
+          </div>
+        </div>
+        <div class="message message-received">
+          <div class="message-avatar"
+            style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-7.jpg)"></div>
+          <div class="message-content">
+            <div class="message-name">Blue Ninja</div>
+            <div class="message-bubble">
+              <div class="message-text">Awesome!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $f7, $el, $on, $ }) => {
+    const images = [
+      'https://cdn.framework7.io/placeholder/cats-300x300-1.jpg',
+      'https://cdn.framework7.io/placeholder/cats-200x300-2.jpg',
+      'https://cdn.framework7.io/placeholder/cats-400x300-3.jpg',
+      'https://cdn.framework7.io/placeholder/cats-300x150-4.jpg',
+      'https://cdn.framework7.io/placeholder/cats-150x300-5.jpg',
+      'https://cdn.framework7.io/placeholder/cats-300x300-6.jpg',
+      'https://cdn.framework7.io/placeholder/cats-300x300-7.jpg',
+      'https://cdn.framework7.io/placeholder/cats-200x300-8.jpg',
+      'https://cdn.framework7.io/placeholder/cats-400x300-9.jpg',
+      'https://cdn.framework7.io/placeholder/cats-300x150-10.jpg'
+    ];
+    const people = [
+      {
+        name: 'Kate Johnson',
+        avatar: 'https://cdn.framework7.io/placeholder/people-100x100-9.jpg'
+      },
+      {
+        name: 'Blue Ninja',
+        avatar: 'https://cdn.framework7.io/placeholder/people-100x100-7.jpg'
+      },
+    ];
+    const answers = [
+      'Yes!',
+      'No',
+      'Hm...',
+      'I am not sure',
+      'And what about you?',
+      'May be ;)',
+      'Lorem ipsum dolor sit amet, consectetur',
+      'What?',
+      'Are you sure?',
+      'Of course',
+      'Need to think about it',
+      'Amazing!!!',
+    ];
+
+    let responseInProgress = false;
+    let messagebar;
+    let messages;
+
+    const sheetToggle = () => {
+      messagebar.sheetToggle();
+    }
+    const deleteAttachment = (e, index) => {
+      var image = messagebar.attachments.splice(index, 1)[0];
+      messagebar.renderAttachments();
+      checkAttachments();
+      // Uncheck in sheet
+      var imageIndex = images.indexOf(image);
+      $el.value.find('.messagebar-sheet .checkbox').eq(imageIndex).find('input').prop('checked', false);
+    }
+    const handleAttachment = (e) => {
+      var index = $(e.target).parents('label.checkbox').index();
+      var image = images[index];
+      if (e.target.checked) {
+        // Add to attachments
+        messagebar.attachments.unshift(image)
+      } else {
+        // Remove from attachments
+        messagebar.attachments.splice(messagebar.attachments.indexOf(image), 1);
+      }
+      messagebar.renderAttachments();
+      checkAttachments();
+    }
+    const checkAttachments = () => {
+      if (messagebar.attachments.length > 0) {
+        messagebar.attachmentsShow();
+        messagebar.setPlaceholder('Add comment or Send');
+      } else {
+        messagebar.attachmentsHide();
+        messagebar.setPlaceholder('Message');
+      }
+    }
+    const sendMessage = () => {
+      var text = messagebar.getValue().replace(/\n/g, '<br />').trim();
+      var messagesToSend = [];
+      messagebar.attachments.forEach(function (attachment) {
+        var size = attachment.split('placeholder/cats-')[1].split('-')[0].split('x');
+        messagesToSend.push({
+          image: '<img src="' + attachment + '" style="width: ' + (size[0] / 2) + 'px; height: ' + (size[1] / 2) + 'px">'
+        });
+      });
+      if (text.trim().length) {
+        messagesToSend.push({
+          text: text
+        });
+      }
+      // Reset attachments
+      messagebar.attachments = [];
+      checkAttachments();
+      // Hide sheet
+      messagebar.sheetHide();
+      // Uncheck selected images in sheet
+      messagebar.$sheetEl.find('input').prop('checked', false);
+      // Clear area
+      messagebar.clear();
+      // Focus area
+      if (text.length) messagebar.focus();
+      // Exit when nothing to send
+      if (!messagesToSend.length) return;
+      // Send message
+      messages.addMessages(messagesToSend);
+
+      // Mock response
+      if (responseInProgress) return;
+      responseInProgress = true;
+      setTimeout(function () {
+        var answer = answers[Math.floor(Math.random() * answers.length)];
+        var person = people[Math.floor(Math.random() * people.length)];
+        messages.showTyping({
+          header: person.name + ' is typing',
+          avatar: person.avatar
+        });
+        setTimeout(function () {
+          messages.addMessage({
+            text: answer,
+            type: 'received',
+            name: person.name,
+            avatar: person.avatar
+          });
+          messages.hideTyping();
+          responseInProgress = false;
+        }, 4000);
+      }, 1000);
+    }
+
+    $on('pageInit', () => {
+      messagebar = $f7.messagebar.create({
+        el: $el.value.find('.messagebar'),
+        attachments: []
+      });
+      messages = $f7.messages.create({
+        el: $el.value.find('.messages'),
+        firstMessageRule: function (message, previousMessage, nextMessage) {
+          if (message.isTitle) return false;
+          if (!previousMessage || previousMessage.type !== message.type || previousMessage.name !== message.name) return true;
+          return false;
+        },
+        lastMessageRule: function (message, previousMessage, nextMessage) {
+          if (message.isTitle) return false;
+          if (!nextMessage || nextMessage.type !== message.type || nextMessage.name !== message.name) return true;
+          return false;
+        },
+        tailMessageRule: function (message, previousMessage, nextMessage) {
+          if (message.isTitle) return false;
+          if (!nextMessage || nextMessage.type !== message.type || nextMessage.name !== message.name) return true;
+          return false;
+        }
+      });
+    })
+    $on('pageBeforeRemove', () => {
+      messagebar.destroy()
+      messages.destroy()
+    })
+
+
+
+    return $render;
+  };
+
+</script>

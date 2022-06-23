@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_financial_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.financial.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='financial']" position="inside">
+
+                    <group>
+                        <group string="Average Tariff">
+                            <field name="finance_tariff_average"/>
+                            <field name="finance_tariff_currency"/>
+                        </group>
+                        <group string="Variable Production and Distribution Cost">
+                            <field name="finance_variable_cost"/>
+                        </group>
+                    </group>
+                    <group string="NRW Component">
+                        <div>
+                            <div class="row">
+                                <div class="col-4"><span class="o_form_label font-weight-bold">Component</span></div>
+                                <div class="offset-1 col-2"><div class="o_form_label font-weight-bold">Annual Value</div></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Unbilled Metered Consumption</div>
+                                <div class="col-1"><field name="finance_unbilled_meter_consumption_is_variable"/></div>
+                                <div class="col-2"><field name="finance_unbilled_meter_consumption"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Unbilled Unmetered Consumption</div>
+                                <div class="col-1"><field name="finance_unbilled_unmeter_consumption_is_variable"/></div>
+                                <div class="col-2"><field name="finance_unbilled_unmeter_consumption"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Commercial Losses</div>
+                                <div class="col-1"><field name="finance_unbilled_commercial_losses_is_variable"/></div>
+                                <div class="col-2"><field name="finance_unbilled_commercial_losses"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Physical Losses</div>
+                                <div class="col-1"><field name="finance_unbilled_physical_losses_is_variable"/></div>
+                                <div class="col-2"><field name="finance_unbilled_physical_losses"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Total Value of NRW</div>
+                                <div class="offset-1 col-2"><field name="finance_total_value" string="Total Value of NRW"/></div>
+                            </div>
+                        </div>
+                    </group>
+                    <group string="Annual Operation Cost (withouth Depreciation)">
+                        <field name="finance_annual_operating_cost"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

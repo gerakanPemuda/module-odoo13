@@ -1,0 +1,122 @@
+id,name,code,code_source,is_sensor,is_alarm,need_totalizer,function_name,function_name_display,alarm_type,owner
+onpoint_logger_point_1,AI0,AI0,AI0,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_2,AI1,AI1,AI1,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_3,AI2,AI2,AI2,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_4,AI3,AI3,AI3,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_5,Temperature,AI5,AI5,FALSE,TRUE,,,,temperature,pointorange
+onpoint_logger_point_6,Battery Voltage,AI6,AI6,FALSE,TRUE,,,,battery,pointorange
+onpoint_logger_point_7,External Voltage,AI7,AI7,FALSE,TRUE,,,,external,pointorange
+onpoint_logger_point_8,Sensor Supply Voltage,AI8,AI8,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_9,Submersion,AI9,AI9,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_10,Modem Signal Strength,AI10,AI10,FALSE,TRUE,,,modem_signal_strength,signal,pointorange
+onpoint_logger_point_11,Modem Signal Quality,AI11,AI11,FALSE,TRUE,,,modem_signal_quality,,pointorange
+onpoint_logger_point_12,Modem Fail Code,AI12,AI12,FALSE,TRUE,,,modem_fail_code,,pointorange
+onpoint_logger_point_13,Registration Code,AI13,AI13,FALSE,TRUE,,,registration_code,,pointorange
+onpoint_logger_point_14,Connection Seconds,AI14,AI14,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_15,Configuration Version,AI15,AI15,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_16,MCC,AI16,AI16,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_17,MNC,AI17,AI17,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_18,Radio Bands,AI18,AI18,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_19,External Signal Strength,AI19,AI19,FALSE,TRUE,,,modem_signal_strength,,pointorange
+onpoint_logger_point_20,Internal Signal Strength,AI20,AI20,FALSE,TRUE,,,modem_signal_strength,,pointorange
+onpoint_logger_point_21,DNP3 IIN Bits,AI21,AI21,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_22,Configuration Error Code,AI22,AI22,FALSE,FALSE,,,configuration_error_code,,pointorange
+onpoint_logger_point_23,Modem Type,AI23,AI23,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_24,Trend Delta CI0,AI24,,FALSE,FALSE,,process_trend_delta,process_trend_delta,,pointorange
+onpoint_logger_point_25,Trend Delta CI1,AI25,,FALSE,FALSE,,process_trend_delta,process_trend_delta,,pointorange
+onpoint_logger_point_26,Trend Delta CI2,AI26,,FALSE,FALSE,,process_trend_delta,process_trend_delta,,pointorange
+onpoint_logger_point_27,Trend Delta CI3,AI27,,FALSE,FALSE,,process_trend_delta,process_trend_delta,,pointorange
+onpoint_logger_point_28,Serial Error Code,AI28,AI28,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_29,Serial Analogue AI0,AI29,AI29,TRUE,FALSE,TRUE,,,,pointorange
+onpoint_logger_point_30,Serial Analogue AI1,AI30,AI30,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_31,Serial Analogue AI2,AI31,AI31,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_32,Serial Analogue AI3,AI32,AI32,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_33,Serial Analogue AI4,AI33,AI33,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_34,Serial Analogue AI5,AI34,AI34,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_35,Serial Analogue AI6,AI35,AI35,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_36,Serial Analogue AI7,AI36,AI36,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_37,Serial Analogue AI8,AI37,AI37,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_38,Serial Analogue AI9,AI38,AI38,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_39,Battery Monitor,AI39,AI39,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_40,RAM Used,AI40,AI40,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_41,Trend Delta DI0,AI41,,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_42,Trend Delta DI1,AI42,,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_43,Trend Delta DI2,AI43,,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_44,Trend Delta DI3,AI44,,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_45,Trend Delta DI4,AI45,,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_46,SDI-12 Response Time,AI46,AI46,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_47,XLP Version,AI47,AI47,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_48,LVD Reset Count,AI48,AI48,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_49,Network Technology,AI49,AI49,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_50,Serial Analogue AI10,AI50,AI50,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_51,Serial Analogue AI11,AI51,AI51,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_52,Serial Analogue AI12,AI52,AI52,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_53,Serial Analogue AI13,AI53,AI53,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_54,Serial Analogue AI14,AI54,AI54,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_55,Serial Analogue AI15,AI55,AI55,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_56,Serial Analogue AI16,AI56,AI56,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_57,Serial Analogue AI17,AI57,AI57,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_58,Serial Analogue AI18,AI58,AI58,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_59,Serial Analogue AI19,AI59,AI59,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_60,Serial Analogue AI20,AI60,AI60,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_61,Serial Analogue AI21,AI61,AI61,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_62,Serial Analogue AI22,AI62,AI62,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_63,Serial Analogue AI23,AI63,AI63,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_64,Serial Analogue AI24,AI64,AI64,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_65,Serial Analogue AI25,AI65,AI65,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_66,Serial Analogue AI26,AI66,AI66,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_67,Serial Analogue AI27,AI67,AI67,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_68,Serial Analogue AI28,AI68,AI68,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_69,Serial Analogue AI29,AI69,AI69,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_70,CI0,CI0,AI24,TRUE,FALSE,TRUE,process_counter,process_counter,,pointorange
+onpoint_logger_point_71,CI1,CI1,AI25,TRUE,FALSE,TRUE,process_counter,process_counter,,pointorange
+onpoint_logger_point_72,CI2,CI2,AI26,TRUE,FALSE,TRUE,process_counter,process_counter,,pointorange
+onpoint_logger_point_73,CI3,CI3,AI27,TRUE,FALSE,TRUE,process_counter,process_counter,,pointorange
+onpoint_logger_point_74,Last Contact Time,CI5,CI5,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_75,Successful Connections,CI6,CI6,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_76,Unseccessful Connections,CI7,CI7,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_77,Registration Failures,CI8,CI8,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_78,Awake Seconds,CI11,CI11,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_79,DNP3 Events,CI12,CI12,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_80,DNP3 Points,CI13,CI13,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_81,Modem Seconds,CI14,CI14,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_82,Number of Start bearer timeouts,CI15,CI15,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_83,Serial CI0,CI16,CI16,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_84,Serial CI1,CI17,CI17,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_85,Serial CI2,CI18,CI18,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_86,Serial CI3,CI19,CI19,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_87,Serial CI4,CI20,CI20,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_88,Serial CI5,CI21,CI21,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_89,Serial CI6,CI22,CI22,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_90,Serial CI7,CI23,CI23,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_91,Serial CI8,CI24,CI24,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_92,Serial CI9,CI25,CI25,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_93,DI0 Counter,CI26,CI26,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_94,DI1 Counter,CI27,CI27,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_95,DI2 Counter,CI28,CI28,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_96,DI3 Counter,CI29,CI29,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_97,DI4 Counter,CI30,CI30,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_98,DI0,DI0,AI41,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_99,DI1,DI1,AI42,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_100,DI2,DI2,AI43,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_101,DI3,DI3,AI44,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_102,DI4,DI4,AI45,TRUE,FALSE,,,,,pointorange
+onpoint_logger_point_103,External Power,DI5,DI5,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_104,Modem Power,DI6,DI6,FALSE,TRUE,,,,,pointorange
+onpoint_logger_point_105,Valid Config,DI9,DI9,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_106,Reed Switch,DI10,DI10,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_107,Antenna,DI11,DI11,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_108,Submerged,DI12,DI12,FALSE,TRUE,,,submerged,submerged,pointorange
+onpoint_logger_point_109,USB Connected,DI13,DI13,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_110,Network Technology,DI14,DI14,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_111,Loop On,DI15,DI15,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_112,Serial DI0,DI16,DI16,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_113,Serial DI1,DI17,DI17,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_114,Serial DI2,DI18,DI18,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_115,Serial DI3,DI19,DI19,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_116,Serial DI4,DI20,DI20,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_117,Serial DI5,DI21,DI21,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_118,Serial DI6,DI22,DI22,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_119,Serial DI7,DI23,DI23,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_120,Serial DI8,DI24,DI24,FALSE,FALSE,,,,,pointorange
+onpoint_logger_point_121,Serial DI9,DI25,DI25,FALSE,FALSE,,,,,pointorange

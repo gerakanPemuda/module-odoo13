@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+
+        <record id="view_onpoint_mmim_value_tree" model="ir.ui.view">
+            <field name="name">onpoint.mmim.value.tree</field>
+            <field name="model">onpoint.mmim.value</field>
+            <field name="arch" type="xml">
+                <tree string="Market Alert">
+                    <field name="mmim_line_id"/>
+                    <field name="create_date"/>
+                    <field name="mmim_value"/>
+                    <field name="coil_state"/>
+                    <field name="remarks"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_mmim_value_search" model="ir.ui.view">
+            <field name="name">onpoint.mmim.value.search</field>
+            <field name="model">onpoint.mmim.value</field>
+            <field name="arch" type="xml">
+                <search string="Cari Market">
+                    <field name="mmim_line_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_mmim_value">
+            <field name="name">MM-IM Data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.mmim.value</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{'default_mmim_detail_id': active_id}</field>
+            <field name="search_view_id" ref="view_onpoint_mmim_value_search"/>
+        </record>
+
+    </data>
+</odoo>

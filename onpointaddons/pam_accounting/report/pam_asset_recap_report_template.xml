@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="report.paperformat" id="paperformat_pam_asset_recap_report">
+	        <field name="name">paperformat.pam.asset.recap.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Landscape</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_asset_recap_report" 
+			string="Asset Tetap" 
+			model="pam.asset.recap.report" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_asset_recap_template" 
+			file="pam_accounting.print_asset_recap_template"
+			paperformat="paperformat_pam_asset_recap_report"
+            menu="False"/>
+
+		<template id="report_asset_recap_template">
+			<t t-call="web.html_container">
+				<div class="page">
+					<div class="article">
+ 						<div class="row">
+							<!-- START HEADER -->
+							<div class="row">
+								<div class="text-left col-xs-12"><img src="/web/binary/company_logo"/></div>
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><b>PERUSAHAAN DAERAH AIR MINUM</b></div>
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><b>AKUMULASI PENYUSUTAN ASET TETAP PER </b></div>
+								<div class="text-left col-xs-2" style="font-size:11px; font:Tahoma;">Saldo Per. </div>
+							</div>
+							<!-- END HEADER -->
+							<br/>
+							<div class="text-center col-xs-12" style="text-transform: uppercase;">
+								<t t-call="pam_accounting.report_template_style"/>
+								<span t-raw="html"/>
+							</div>
+						</div>
+ 						<div class="row">
+							<!-- START HEADER -->
+							<div class="row">
+								<div class="text-left col-xs-12"><img src="/web/binary/company_logo"/></div>
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><b>BIAYA AMORTISASI TANAH</b></div>
+								<div class="text-left col-xs-2" style="font-size:16px; font:Tahoma;">Saldo Per. </div>
+							</div>
+							<!-- END HEADER -->
+							<br/>
+							<div class="text-center col-xs-12" style="text-transform: uppercase;">
+								<t t-call="pam_accounting.report_template_style"/>
+								<span t-raw="html_land"/>
+							</div>
+						</div>
+ 						<div class="row">
+							<!-- START HEADER -->
+							<div class="row">\
+								<div class="text-left col-xs-12"><img src="/web/binary/company_logo"/></div>
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><b>BIAYA PENYUSUTAN PROPERTI INVESTASI</b></div>
+								<div class="text-left col-xs-2" style="font-size:16px; font:Tahoma;">Saldo Per. </div>
+							</div>
+							<!-- END HEADER -->
+							<br/>
+							<div class="text-center col-xs-12" style="text-transform: uppercase;">
+								<t t-call="pam_accounting.report_template_style"/>
+								<span t-raw="html_property"/>
+							</div>
+						</div>
+ 						<div class="row">
+							<!-- START HEADER -->
+							<div class="row">
+								<div class="text-left col-xs-12"><img src="/web/binary/company_logo"/></div>
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><b>BIAYA AMORTISASI AKTIVA TAK BERWUJUD</b></div>
+								<div class="text-left col-xs-2" style="font-size:16px; font:Tahoma;">Saldo Per. </div>
+							</div>
+							<!-- END HEADER -->
+							<br/>
+							<div class="text-center col-xs-12" style="text-transform: uppercase;">
+								<t t-call="pam_accounting.report_template_style"/>
+								<span t-raw="html_software"/>
+							</div>
+						</div>
+					</div>
+					<div class="footer">
+			            <div class="row text-center" style="border-top: 1px solid black;">
+			                <div class="col-xs-6 text-left">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>User:</li>
+			                        <li>
+			                            <span t-esc="user.name"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span t-esc="datetime_cetak"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="col-xs-6 text-right">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>Page:</li>
+			                        <li>
+			                            <span class="page"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span class="topage"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+    </data>
+</odoo>

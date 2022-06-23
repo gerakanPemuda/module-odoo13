@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_zone_tree" model="ir.ui.view">
+	        <field name="name">onpoint.zone.tree</field>
+	        <field name="model">onpoint.zone</field>
+	        <field name="arch" type="xml">
+	            <tree string="Zone" editable="top">
+	                <field name="name" />
+	                <field name="wtp_id" />
+	                <field name="remarks"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_zone_search" model="ir.ui.view">
+	        <field name="name">onpoint.zone.search</field>
+	        <field name="model">onpoint.zone</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Zone">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_zone">
+			<field name="name">Zone</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.zone</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_zone_search"/>
+		</record>
+
+    </data>
+</odoo>

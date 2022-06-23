@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="wo_detail_page">
+
+        <div class="page" data-name="wo_detail_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"/>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="/wo/index/"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        <t t-esc="work_order.name"/>
+                    </div>
+                </div>
+            </div>
+
+            <t t-if="work_order.state == 'submit'">
+                <t t-if="work_order.user_to_accept_id">
+                    <div class="fab fab-right-bottom color-teal fab_response"
+                         t-attf-data-wo_id="{{ work_order.id }}"
+                         data-response="accept">
+                        <a href="#">
+                            <i class="fas fa-check fa-2x"/>
+                        </a>
+                    </div>
+                </t>
+            </t>
+
+            <t t-if="work_order.state in ('in_progress', 'pending')">
+                <t t-if="work_order.user_to_accept_id">
+                    <div class="fab fab-right-bottom">
+                        <a href="#">
+                            <i class="fas fa-plus fa-2x"/>
+                            <i class="fas fa-times fa-2x"/>
+                        </a>
+
+                        <!-- FAB speed dial actions with labels -->
+                        <div class="fab-buttons fab-buttons-top">
+                            <a class="fab-label-button fab_add_picture"
+                               t-attf-data-wo_id="{{ work_order.id }}"
+                               data-state_to="in_progress">
+                                <span>
+                                    <i class="fas fa-file-medical"/>
+                                </span>
+                                <span class="fab-label">Report</span>
+                            </a>
+                            <a href="#"
+                               class="fab-label-button fab_add_picture"
+                               t-attf-data-wo_id="{{ work_order.id }}"
+                               data-state_to="pending">
+                                <span>
+                                    <i class="fas fa-ban"/>
+                                </span>
+                                <span class="fab-label">Pending</span>
+                            </a>
+                            <a href="#"
+                               class="fab-label-button fab_add_picture"
+                               t-attf-data-wo_id="{{ work_order.id }}"
+                               data-state_to="complete">
+                                <span>
+                                    <i class="far fa-thumbs-up"/>
+                                </span>
+                                <span class="fab-label">Complete</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </t>
+
+            </t>
+
+            <!-- Scrollable page content -->
+            <div class="page-content">
+
+                <div class="list">
+                    <div class="list-group">
+                        <ul>
+                            <li class="list-group-title">
+                                <h3>Work Order Detail</h3>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-title">
+                                    <div class="item-header">WO Type</div>
+                                    <t t-esc="work_order.wo_type.name"/>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-title">
+                                    <div class="item-header">Remarks</div>
+                                    <t t-esc="work_order.task"/>
+                                </div>
+                            </li>
+                            <li>
+                                <a t-attf-onclick="openGoogleMaps({{ work_order.logger_id.latitude }}, {{ work_order.logger_id.longitude }})"
+                                   class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">
+                                            <div class="item-header">Logger</div>
+                                            <t t-esc="work_order.logger_id.name"/>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <t t-if="work_order.wo_type.checklist_ids">
+                        <div class="list-group">
+                            <ul>
+                                <li class="list-group-title">
+                                    <h3>Checklist</h3>
+                                </li>
+                                <t t-foreach="work_order.wo_type.checklist_ids"
+                                   t-as="wo_type_checklist">
+                                    <li class="item-content">
+                                        <t t-esc="wo_type_checklist.name"/>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+
+                    <div class="list-group">
+                        <ul>
+                            <li class="list-group-title">
+                                <h3>Progress</h3>
+                            </li>
+                            <li class="item-content">
+                                <!-- Timeline -->
+                                <div class="timeline" style="width: 100%">
+                                    <!-- Timeline item -->
+                                    <t t-foreach="work_order.line_ids" t-as="work_order_line">
+                                        <div class="timeline-item">
+                                            <div class="timeline-item-date">
+                                                <t t-esc="work_order_line.created_date"/>
+                                            </div>
+                                            <div class="timeline-item-divider"/>
+                                            <div class="timeline-item-content elevation-4" style="width: 100%">
+                                                <div class="timeline-item-inner">
+                                                    <div class="timeline-item-time">
+                                                        <t t-esc="work_order_line.created_time"/>
+                                                        <div style="float:right">
+                                                            <b>
+                                                                <t t-esc="work_order_line.state_to"/>
+                                                            </b>
+                                                        </div>
+                                                    </div>
+                                                    <t t-if="work_order_line.image_1920">
+                                                        <div class="timeline-item-text">
+                                                            <img t-attf-src="data:image/*;base64,{{ work_order_line.image_1920 }}"
+                                                                 alt="image"
+                                                                 class="timeline-item-image"/>
+                                                            <t t-if="work_order_line.remark">
+                                                                <t t-esc="work_order_line.remark"/>
+                                                            </t>
+                                                        </div>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </template>
+
+    <template id="wo_picture_page">
+        <div class="page" data-name="wo_picture_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar navbar-transparent">
+                <div class="navbar-bg"/>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        <t t-esc="work_order.name"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fab fab-right-bottom">
+                <a href="#">
+                    <i id="btn_camera" class="fas fa-camera fa-2x"/>
+                </a>
+            </div>
+
+            <div class="fab fab-extended fab-center-bottom">
+                <a href="#" id="btn_submit_report">
+                    <i class="fas fa-plus fa-2x"/>
+                    <!-- Element with FAB text  -->
+                    <div class="fab-text">Submit</div>
+                </a>
+            </div>
+
+            <div class="box">
+
+                <img src="/onpoint_mobile_wo/static/img/no_pics.png"
+                     id="photo"/>
+
+                <div class="text">
+                    <div class="item-inner">
+                        <div class="item-input-wrap">
+                            <textarea id="txt_remark"
+                                      class="resizable"
+                                      placeholder="Notes"
+                                      style="width: 90%"/>
+                            <span class="input-clear-button"/>
+                        </div>
+                    </div>
+                </div>
+                <!--                <div class="item-inner text">-->
+                <!--                    &lt;!&ndash; "item-floating-label" class on item title &ndash;&gt;-->
+                <!--                    <div class="item-title item-floating-label">Notes</div>-->
+                <!--                    <div class="item-input-wrap">-->
+                <!--                        <input type="text" name="remark"/>-->
+                <!--                        <span class="input-clear-button"/>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+
+            </div>
+
+            <!-- Scrollable page content -->
+            <div class="page-content">
+                <div>
+                    <input type="hidden" id="wo_id" t-attf-value="{{work_order.id}}"/>
+                    <input type="hidden" id="state_to" t-attf-value="{{state_to}}"/>
+                    <textarea id="textPicture" name="textPicture" style="display:none"/>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+</odoo>

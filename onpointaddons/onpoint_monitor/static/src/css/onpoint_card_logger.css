@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+.card-logger {
+    position: relative;
+    padding: 0px !important;
+	border-radius: 10px;
+}
+
+.card-logger .card-header {
+	color: #fff;
+	padding: 10px;
+	border-radius: 10px 10px 0 0;
+}
+
+.card-logger .enabled {
+	background-color: #DF1429;
+}
+
+.card-logger .disabled {
+	background-color: gray;
+}
+
+.card-logger .card-header h6 {
+	opacity: 0.6;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: white !important;
+	overflow: clip;
+}
+
+.card-logger .card-header h2 {
+	letter-spacing: 1px;
+	margin: 5px 0;
+	color: white !important;
+	overflow: clip;
+}
+
+.logger-state {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.card-logger .card-content {
+	background-color: #fff;
+	padding: 10px;
+	min-height: 150px;
+}
+
+.card-logger .card-content h6 {
+	opacity: 0.6;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: grey !important;
+	font-size: inherit;
+	overflow: clip;
+}
+
+.card-logger .card-content h3 {
+	letter-spacing: 1px;
+	margin: 5px 0;
+	color: black !important;
+	font-size: inherit;
+	overflow: clip;
+}
+
+.card-logger .card-footer {
+    border: 0px;
+}
+
+.card-logger .card-footer .row {
+    bottom: 5px;
+}
+
+.card-logger .card-footer .btn {
+    border-radius: 10px;
+    width: 75px;
+    background-color: #DF1429;
+    border: 0px;
+}
+
+.action-button {
+    border-radius: 10px !important;
+    width: 75px;
+    background-color: #DF1429 !important;
+    border: 0px;
+    right: 5px;
+    bottom: 5px;
+    position: absolute;
+}
+
+
+.card-logger .card-footer .disabled {
+    background-color: gray !important;
+}

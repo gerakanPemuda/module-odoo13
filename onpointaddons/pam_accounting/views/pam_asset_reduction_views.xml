@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_asset_reduction_tree" model="ir.ui.view">
+	        <field name="name">pam.asset.reduction.tree</field>
+	        <field name="model">pam.asset.reduction</field>
+	        <field name="arch" type="xml">
+	            <tree>
+					<field name="coa_id"/>
+					<field name="category_id"/>
+	                <field name="depreciation_id"/>
+	                <field name="is_depreciation"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_reduction_form" model="ir.ui.view">
+	        <field name="name">pam.asset.reduction.form</field>
+	        <field name="model">pam.asset.reduction</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<sheet>
+						<group col="4" colspan="2">
+							<field name="coa_id"/>
+							<field name="category_id"/>
+			                <field name="depreciation_id"/>
+                			<field name="is_depreciation"/>
+			                <field name="depreciation_use_max" readonly="1"/>
+						</group>
+		            </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_reduction_search" model="ir.ui.view">
+	        <field name="name">pam.asset.reduction.search</field>
+	        <field name="model">pam.asset.reduction</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Asset reduction">
+	            	<field name="coa_id"/>
+        			<field name="is_depreciation"/>
+	            </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_asset_reduction">
+			<field name="name">Asset Reduction</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.asset.reduction</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_asset_reduction_search"/>
+		</record>
+
+
+
+    </data>
+</odoo>

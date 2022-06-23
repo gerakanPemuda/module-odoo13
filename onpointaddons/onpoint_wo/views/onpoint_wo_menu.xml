@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_wo_root"
+            name="WO"
+            sequence="1"
+            web_icon="onpoint_wo,static/img/icon_wo.png"/>
+
+        	<menuitem id="menu_onpoint_wo" name="Work Order" parent="menu_onpoint_wo_root" sequence="1" action="act_onpoint_work_order"/>
+        	<menuitem id="menu_onpoint_wo_type" name="Work Order Type" parent="menu_onpoint_wo_root" sequence="2" action="act_onpoint_wo_type"/>
+    </data>
+</odoo>

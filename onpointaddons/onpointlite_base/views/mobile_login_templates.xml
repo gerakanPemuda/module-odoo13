@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="mobile_login_layout" name="Mobile Login Layout">
+        <t t-call="web.frontend_layout">
+            <t t-set="html_data" t-value="{'style': 'height: 100%;'}"/>
+            <t t-set="body_classname" t-value="'bg-100'"/>
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+
+            <div class="container py-5">
+                <div t-attf-class="card border-0 mx-auto bg-100 {{login_card_classes}} o_database_list" style="max-width: 300px;">
+                    <div class="card-body">
+                        <div t-attf-class="text-center pb-3 border-bottom {{'mb-3' if form_small else 'mb-4'}}">
+                            <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}" alt="Logo" style="max-height:120px; max-width: 100%; width:auto"/>
+                        </div>
+                        <t t-raw="0"/>
+                        <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer">
+                            <t t-if="not disable_database_manager">
+                                <a class="border-right pr-2 mr-1" href="/web/database/manager">Manage Databases</a>
+                            </t>
+                            <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Odoo</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="mobile_login_page2" name="Mobile Login 2">
+        <t t-call="web.login_layout">
+            <form class="oe_login_form" role="form" t-attf-action="/mobile/login" method="post" onsubmit="this.action = this.action + location.hash">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                tes
+
+                <!-- <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
+                    <label for="db" class="col-form-label">Database</label>
+                    <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
+                        <input type="text" name="db" t-att-value="request.db" id="db" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" readonly="readonly"/>
+                        <span class="input-group-append">
+                            <a role="button" href="/web/database/selector" class="btn btn-secondary">Select <i class="fa fa-database" role="img" aria-label="Database" title="Database"></i></a>
+                        </span>
+                    </div>
+                </div> -->
+
+                <div class="form-group field-login">
+                    <label for="login">Email</label>
+                    <input type="text" placeholder="Email" name="login" t-att-value="login" id="login" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autofocus="autofocus" autocapitalize="off"/>
+                </div>
+
+                <div class="form-group field-password">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Password" name="password" id="password" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autocomplete="current-password" t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                </div>
+
+                <p class="alert alert-danger" t-if="error" role="alert">
+                    <t t-esc="error"/>
+                </p>
+                <p class="alert alert-success" t-if="message" role="status">
+                    <t t-esc="message"/>
+                </p>
+
+                <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
+                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                    <!-- <t t-if="debug">
+                        <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">Log in as superuser</button>
+                    </t> -->
+                    <div class="o_login_auth"/>
+                </div>
+
+                <input type="hidden" name="redirect" t-att-value="redirect"/>
+            </form>
+        </t>
+    </template>
+
+    <template id="mobile_login_page">
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"/>
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <!-- Color theme for statusbar (Android only) -->
+            <meta name="theme-color" content="#2196f3"/>
+            <!-- Your app title -->
+            <title>OnPointLite</title>
+            <!-- Path to Framework7 Library Bundle CSS -->
+            <!-- <link rel="stylesheet" href="/cordova_connector/static/framework7/framework7-bundle.min.css"/> -->
+            <!-- <link rel="stylesheet" href="/cordova_connector/static/fontawesome/css/all.min.css"/> -->
+            <!-- <script type="text/javascript" src="/cordova_connector/static/src/js/cordova.js"/> -->
+            <!-- Path to your custom app styles-->
+            <!-- <link rel="stylesheet" href="/cordova_connector/static/src/css/mobile-app.css"/> -->
+            <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        </head>
+
+        <body>
+        <!-- <body class="color-theme-green"> -->
+            <div id="app">
+                <form>
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3"/>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3"/>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+
+            <!-- Path to Framework7 Library Bundle JS-->
+            <!-- <script type="text/javascript" src="/cordova_connector/static/framework7/framework7-bundle.min.js"/> -->
+            <!-- <script type="text/javascript" src="/cordova_connector/static/src/js/mobile-app.js"/> -->
+        </body>
+
+    </template>
+
+    <template id="mobile_login_page3" name="Mobile Login 3">
+        <form>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form2Example1" class="form-control" />
+            <label class="form-label" for="form2Example1">Email address</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" class="form-control" />
+            <label class="form-label" for="form2Example2">Password</label>
+          </div>
+
+          <!-- 2 column grid layout for inline styling -->
+          <!-- <div class="row mb-4">
+            <div class="col d-flex justify-content-center"> -->
+              <!-- Checkbox -->
+              <!-- <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                <label class="form-check-label" for="form2Example31"> Remember me </label>
+              </div>
+            </div>
+
+            <div class="col"> -->
+              <!-- Simple link -->
+              <!-- <a href="#!">Forgot password?</a>
+            </div>
+          </div> -->
+
+          <!-- Submit button -->
+          <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+          <!-- Register buttons -->
+          <!-- <div class="text-center">
+            <p>Not a member? <a href="#!">Register</a></p>
+            <p>or sign up with:</p>
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-google"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-github"></i>
+            </button>
+          </div> -->
+        </form>
+    </template>
+</odoo>

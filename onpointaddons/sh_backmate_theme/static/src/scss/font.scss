@@ -1,0 +1,14 @@
+ h1{color:$h1_color;font-size:$h1_size;}
+ h2{color:$h2_color!important;font-size:$h2_size!important;}
+ h3{color:$h3_color;font-size:$h3_size;}
+ h4{color:$h4_color;font-size:$h4_size;}
+ h5{color:$h5_color;font-size:$h5_size;}
+ h6{color:$h6_color;font-size:$h6_size;}
+ p{color:$p_color;font-size:$p_size;}
+
+/*--font-family--*/
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 ,a ,label , b ,p{font-family: $body_font_family!important;}
+span{font-family: $body_font_family;}
+button{font-family:$body_font_family;}
+.fa{font: normal normal normal 14px/1 FontAwesome!important}
+ /*--font-family--*/

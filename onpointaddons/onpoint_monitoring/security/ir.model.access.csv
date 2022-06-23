@@ -1,0 +1,52 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_zone_admin,onpoint_zone onpoint_admin,model_onpoint_zone,group_onpoint_admin,1,1,1,1
+access_onpoint_zone_onpoint_user,onpoint_zone onpoint_user,model_onpoint_zone,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_dma_admin,onpoint_dma onpoint_admin,model_onpoint_dma,group_onpoint_admin,1,1,1,1
+access_onpoint_dma_onpoint_user,onpoint_dma onpoint_user,model_onpoint_dma,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_value_type_admin,onpoint_value_type onpoint_admin,model_onpoint_value_type,group_onpoint_admin,1,1,1,1
+access_onpoint_value_type_onpoint_user,onpoint_value_type onpoint_user,model_onpoint_value_type,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_value_unit_admin,onpoint_value_unit onpoint_admin,model_onpoint_value_unit,group_onpoint_admin,1,1,1,1
+access_onpoint_value_unit_onpoint_user,onpoint_value_unit onpoint_user,model_onpoint_value_unit,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_logger_brand_admin,onpoint_logger_brand onpoint_admin,model_onpoint_logger_brand,group_onpoint_admin,1,1,1,1
+access_onpoint_logger_brand_onpoint_user,onpoint_logger_brand onpoint_user,model_onpoint_logger_brand,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_logger_type_admin,onpoint_logger_type onpoint_admin,model_onpoint_logger_type,group_onpoint_admin,1,1,1,1
+access_onpoint_logger_type_onpoint_user,onpoint_logger_type onpoint_user,model_onpoint_logger_type,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_logger_admin,onpoint_logger onpoint_admin,model_onpoint_logger,group_onpoint_admin,1,1,1,1
+access_onpoint_logger_onpoint_user,onpoint_logger onpoint_user,model_onpoint_logger,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_logger_channel_admin,onpoint_logger_channel onpoint_admin,model_onpoint_logger_channel,group_onpoint_admin,1,1,1,1
+access_onpoint_logger_channel_onpoint_user,onpoint_logger_channel onpoint_user,model_onpoint_logger_channel,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_logger_threshold_hourly_admin,onpoint_logger_threshold_hourly onpoint_admin,model_onpoint_logger_threshold_hourly,group_onpoint_admin,1,1,1,1
+access_onpoint_logger_threshold_hourly_onpoint_user,onpoint_logger_threshold_hourly onpoint_user,model_onpoint_logger_threshold_hourly,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_logger_value_admin,onpoint_logger_value onpoint_admin,model_onpoint_logger_value,group_onpoint_admin,1,1,1,1
+access_onpoint_logger_value_onpoint_user,onpoint_logger_value onpoint_user,model_onpoint_logger_value,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_comparison_admin,onpoint_comparison onpoint_admin,model_onpoint_comparison,group_onpoint_admin,1,1,1,1
+access_onpoint_comparison_onpoint_user,onpoint_comparison onpoint_user,model_onpoint_comparison,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_comparison_line_admin,onpoint_comparison_line onpoint_admin,model_onpoint_comparison_line,group_onpoint_admin,1,1,1,1
+access_onpoint_comparison_line_onpoint_user,onpoint_comparison_line onpoint_user,model_onpoint_comparison_line,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_comparison_channel_admin,onpoint_comparison_channel onpoint_admin,model_onpoint_comparison_channel,group_onpoint_admin,1,1,1,1
+access_onpoint_comparison_channel_onpoint_user,onpoint_comparison_channel onpoint_user,model_onpoint_comparison_channel,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_mimic_admin,onpoint_mimic onpoint_admin,model_onpoint_mimic,group_onpoint_admin,1,1,1,1
+access_onpoint_mimic_onpoint_user,onpoint_mimic onpoint_user,model_onpoint_mimic,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_mimic_line_admin,onpoint_mimic_line onpoint_admin,model_onpoint_mimic_line,group_onpoint_admin,1,1,1,1
+access_onpoint_mimic_line_onpoint_user,onpoint_mimic_line onpoint_user,model_onpoint_mimic_line,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_water_balance_admin,onpoint_water_balance onpoint_admin,model_onpoint_water_balance,group_onpoint_admin,1,1,1,1
+access_onpoint_water_balance_onpoint_user,onpoint_water_balance onpoint_user,model_onpoint_water_balance,group_onpoint_user,1,0,0,0
+,,,,,,,
+access_onpoint_water_balance_line_admin,onpoint_water_balance_line onpoint_admin,model_onpoint_water_balance_line,group_onpoint_admin,1,1,1,1
+access_onpoint_water_balance_line_onpoint_user,onpoint_water_balance_line onpoint_user,model_onpoint_water_balance_line,group_onpoint_user,1,0,0,0
+,,,,,,,

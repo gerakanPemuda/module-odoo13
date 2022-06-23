@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+
+    	<record model="report.paperformat" id="paperformat_pam_cash_flow_indirect_report">
+	        <field name="name">paperformat.pam.cash.flow.indirect.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Landscape</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_cash_flow_indirect_report" 
+			string="Arus Kas (Tidak Langsung)" 
+			model="pam.cash.flow.indirect.report" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_cash_flow_indirect_template" 
+			file="pam_accounting.print_cash_flow_indirect_template"
+			paperformat="paperformat_pam_cash_flow_indirect_report"
+            menu="False"/>
+
+		<template id="report_cash_flow_indirect_template">
+			<t t-call="web.html_container">
+				<div class="page">
+					<div class="article">
+ 						<div class="row">
+							<!-- START HEADER -->
+							<div class="row">
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><strong>PDAM TIRTA PAKUAN KOTA BOGOR</strong></div>
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><strong>LAPORAN ARUS KAS (TIDAK LANGSUNG)</strong></div>
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><strong>Untuk Tahun Yang Berakhir Tanggal <span t-esc="end_date"/></strong></div>
+								<div class="text-center col-xs-12" style="font-size:16px; font:Tahoma;"><strong>(Dinyatakan Dalam Rupiah)</strong></div>
+							</div>
+							<!-- END HEADER -->
+							<br/>
+							<div class="text-center col-xs-12" style="text-transform: uppercase;">
+								<t t-call="pam_accounting.report_template_style"/>
+								<span t-raw="html"/>
+							</div>
+						</div>
+					</div>
+					<div class="footer">
+			            <div class="row text-center" style="border-top: 1px solid black;">
+			                <div class="col-xs-6 text-left">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>User:</li>
+			                        <li>
+			                            <span t-esc="user.name"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span t-esc="datetime_cetak"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="col-xs-6 text-right">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>Page:</li>
+			                        <li>
+			                            <span class="page"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span class="topage"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+
+    </data>
+</odoo>

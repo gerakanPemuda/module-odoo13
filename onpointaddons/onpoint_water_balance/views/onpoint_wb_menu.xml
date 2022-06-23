@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+	<menuitem name="Water Balance" id="base.onpoint_wb_menu_root"
+              web_icon="onpoint_water_balance,static/description/icon.png" sequence="50" />
+        <menuitem name="Water Balance" id="onpoint_wb_menu_water_balance" sequence="10"
+                  parent="base.onpoint_wb_menu_root" action="action_onpoint_water_balance"/>
+        <menuitem name="Configuration" id="onpoint_wb_menu_config" sequence="90"
+                  parent="base.onpoint_wb_menu_root"/>
+            <menuitem name="System Input Template" id="onpoint_wb_menu_config_system_input_template" sequence="10"
+                      parent="onpoint_wb_menu_config" action="action_onpoint_wb_config_system_input_template"/>
+    </data>
+</odoo>

@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+
+		<menuitem id="menu_pam_budget_root"
+                name="Anggaran"
+				web_icon="pam_accounting,static/src/img/icon-budget.png"
+                sequence="100"/>
+
+			<menuitem id="menu_pam_budget_entry_root"
+					parent="menu_pam_budget_root"
+					name="Perencanaan"
+					sequence="1"/>
+
+				<menuitem id="menu_pam_budget_entry"
+						parent="menu_pam_budget_entry_root"
+						name="Input Anggaran Biaya"
+						sequence="1"
+						action="act_pam_budget_entry"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"
+						/>
+
+				<menuitem id="menu_pam_forecast_customer"
+						parent="menu_pam_budget_entry_root"
+						name="Rencana Pendapatan"
+						sequence="2"
+						action="act_pam_forecast_customer"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"
+						/>
+
+				<menuitem id="menu_pam_forecast_other"
+						parent="menu_pam_budget_entry_root"
+						name="Rencana Pendapatan Lain"
+						sequence="3"
+						action="act_pam_forecast_other"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"
+						/>
+
+		<!--			<menuitem id="menu_pam_forecast_sales"
+							parent="menu_pam_budget_entry_root"
+							name="Rencana Penjualan Air"
+							sequence="2"
+							action="act_pam_forecast_sales"
+							groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"
+							/>
+ -->
+ 			<menuitem id="menu_pam_budgeting_root"
+					parent="menu_pam_budget_root"
+					name="Penetapan Anggaran"
+					sequence="2"/>
+
+ 				<menuitem id="menu_pam_budget_generate_wizard"
+						parent="menu_pam_budgeting_root"
+						name="Rekonsiliasi Anggaran"
+						sequence="2"
+						action="act_pam_budget_generate_wizard"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin"
+						/>
+
+				<menuitem id="menu_pam_budget"
+						parent="menu_pam_budgeting_root"
+						name="Anggaran"
+						sequence="3"
+						action="act_pam_budget"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin"
+						/>
+
+ 			<menuitem id="menu_pam_budgeting_change"
+					parent="menu_pam_budget_root"
+					name="Perubahan/Revisi"
+					sequence="3"/>
+
+				<menuitem id="menu_pam_budget_change"
+						parent="menu_pam_budgeting_change"
+						name="Perubahan Anggaran"
+						sequence="1"
+						action="act_pam_budget_change"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"
+						/>
+
+				<menuitem id="menu_pam_budget_revision"
+						parent="menu_pam_budgeting_change"
+						name="Revisi Anggaran"
+						sequence="2"
+						action="act_pam_budget_revision"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"
+						/>
+
+
+
+<!--			<menuitem id="menu_pam_budget_report"-->
+<!--					parent="menu_pam_budget_root"-->
+<!--					name="Laporan"-->
+<!--					sequence="4"/>-->
+
+<!--				<menuitem id="menu_pam_budget_income"-->
+<!--						parent="menu_pam_budget_report"-->
+<!--						name="Rencana Pendapatan Usaha dan Diluar Usaha"-->
+<!--						sequence="1"-->
+<!--						action="act_pam_budget_income_report"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"-->
+<!--						/>-->
+
+<!--				<menuitem id="menu_pam_budget_cost"-->
+<!--						parent="menu_pam_budget_report"-->
+<!--						name="Rencana Biaya Operasi dan Pemeliharaan"-->
+<!--						sequence="2"-->
+<!--						action="act_pam_budget_cost_report"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"-->
+<!--						/>-->
+
+<!--				<menuitem id="menu_pam_budget_appk"-->
+<!--						parent="menu_pam_budget_report"-->
+<!--						name="Anggaran Penerimaan dan Pengeluaran Kas (APPK)"-->
+<!--						sequence="3"-->
+<!--						action="act_pam_budget_appk_report"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"-->
+<!--						/>-->
+
+
+			<menuitem id="menu_pam_budget_configuration"
+					parent="menu_pam_budget_root"
+					name="Konfigurasi"
+					sequence="5"/>
+
+				<menuitem id="menu_pam_budget_customer_classification"
+						parent="menu_pam_budget_configuration"
+						name="Klasifikasi Pelanggan"
+						sequence="2"
+						action="act_pam_customer_classification"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_budget_admin,pam_accounting.group_pam_budget_user"
+						/>
+
+		<menuitem id="menu_pam_accounting_root"
+                name="Accounting"
+				web_icon="pam_accounting,static/src/img/icon-accounting.png"
+                sequence="200"/>
+
+
+<!--				<menuitem id="menu_pam_accounting_budget"
+						parent="menu_pam_accounting_budgets"
+						name="Anggaran"
+						sequence="1"
+						action="act_pam_budget"
+						groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"
+						/>
+
+				<menuitem id="menu_pam_accounting_budget_department"
+						parent="menu_pam_accounting_budgets"
+						name="Anggaran Per Departemen"
+						sequence="2"
+						action="act_pam_budget_department"
+						groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"
+						/>
+
+-->
+			<menuitem id="menu_journal_dashboard"
+					parent="menu_pam_accounting_root"
+					name="Dashboard"
+					sequence="1"
+					action="act_journal_dashboard"
+					groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"
+					/>
+
+			<menuitem id="menu_pam_accounting_journals"
+					parent="menu_pam_accounting_root"
+					name="Jurnal"
+					sequence="2"/>
+
+<!--				<menuitem id="menu_pam_accounting_journal_gl"-->
+<!--						parent="menu_pam_accounting_journals"-->
+<!--						name="Umum (JU)"-->
+<!--						sequence="1"-->
+<!--						action="act_pam_journal_gl"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--						/>-->
+
+<!--				<menuitem id="menu_pam_accounting_journal_ap"-->
+<!--						parent="menu_pam_accounting_journals"-->
+<!--						name="Voucher (AP)"-->
+<!--						sequence="2"-->
+<!--						action="act_pam_journal_voucher"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--						/>-->
+
+<!--				<menuitem id="menu_pam_accounting_journal_co"-->
+<!--						parent="menu_pam_accounting_journals"-->
+<!--						name="Bayar Kas (CO)"-->
+<!--						sequence="3"-->
+<!--						action="act_pam_journal_co"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--						/>-->
+
+<!--				<menuitem id="menu_pam_accounting_journal_ci"-->
+<!--						parent="menu_pam_accounting_journals"-->
+<!--						name="Penerimaan Kas (CI)"-->
+<!--						sequence="4"-->
+<!--						action="act_pam_journal_ci"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--						/>-->
+
+<!--				<menuitem id="menu_pam_accounting_journal_bl"-->
+<!--						parent="menu_pam_accounting_journals"-->
+<!--						name="Rekening (BL)"-->
+<!--						sequence="5"-->
+<!--						action="act_pam_journal_bl"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--						/>-->
+
+<!--				<menuitem id="menu_pam_accounting_journal_in"-->
+<!--						parent="menu_pam_accounting_journals"-->
+<!--						name="Instalasi dan Kimia (IN)"-->
+<!--						sequence="6"-->
+<!--						action="act_pam_journal_in"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--						/>-->
+
+<!--				<menuitem id="menu_pam_accounting_journal_aj"-->
+<!--						parent="menu_pam_accounting_journals"-->
+<!--						name="Penyesuaian (AJ)"-->
+<!--						sequence="7"-->
+<!--						action="act_pam_journal_aj"-->
+<!--						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--						/>-->
+
+
+			<menuitem id="menu_journal_water_account"
+					parent="menu_pam_accounting_root"
+					name="Data Manual Ringkasan Utama"
+					sequence="3"
+					action="act_pam_water_account"
+					groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"
+					/>
+
+
+
+			<menuitem id="menu_pam_accounting_assets"
+					parent="menu_pam_accounting_root"
+					name="Aset"
+					sequence="4"
+					/>
+
+				<menuitem id="menu_pam_asset"
+						parent="menu_pam_accounting_assets"
+						name="Daftar Aset"
+						sequence="1"
+						action="act_pam_asset"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_asset_subtraction"
+						parent="menu_pam_accounting_assets"
+						name="Pengurangan Aset"
+						sequence="2"
+						action="act_pam_asset_subtraction"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+			<menuitem id="menu_pam_accounting_process"
+					parent="menu_pam_accounting_root"
+					name="Proses"
+					sequence="5"/>
+
+				<menuitem id="menu_pam_accounting_closing"
+						parent="menu_pam_accounting_process"
+						name="Posting"
+						sequence="1"
+						action="act_pam_closing"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_accounting_open"
+						parent="menu_pam_accounting_process"
+						name="Unposting"
+						sequence="2"
+						action="act_pam_open"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<!-- <menuitem id="menu_pam_depreciation"
+						parent="menu_pam_accounting_process"
+						name="Penyusutan"
+						sequence="3"
+						action="act_pam_depreciation"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/> -->
+
+				<menuitem id="menu_pam_asset_journaling"
+						parent="menu_pam_accounting_process"
+						name="Penyusutan"
+						sequence="3"
+						action="act_pam_asset_journaling"
+						/>
+
+				<menuitem id="menu_pam_asset_depreciation"
+						parent="menu_pam_accounting_process"
+						name="Kalkulasi Penyusutan"
+						sequence="4"
+						action="act_pam_asset_depreciation_wizard"
+						/>
+
+<!--			<menuitem id="menu_pam_accounting_report"-->
+<!--					parent="menu_pam_accounting_root"-->
+<!--					name="Laporan"-->
+<!--					sequence="6"/>-->
+
+<!--				<menuitem id="menu_pam_accounting_journals_report"-->
+<!--						parent="menu_pam_accounting_report"-->
+<!--						name="Laporan Jurnal"-->
+<!--						sequence="1"/>-->
+
+<!--					<menuitem id="menu_pam_accounting_journal_recap_report"-->
+<!--							parent="menu_pam_accounting_journals_report"-->
+<!--							name="Rekapitulasi Jurnal"-->
+<!--							sequence="1"-->
+<!--							action="act_pam_journal_recap_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--							/>-->
+
+<!--					<menuitem id="menu_pam_accounting_journal_verification_report"-->
+<!--							parent="menu_pam_accounting_journals_report"-->
+<!--							name="Verifikasi Jurnal"-->
+<!--							sequence="2"-->
+<!--							action="act_pam_journal_verification_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--							/>-->
+
+<!--				<menuitem id="menu_pam_accounting_ledgers_report"-->
+<!--						parent="menu_pam_accounting_report"-->
+<!--						name="Laporan Buku Besar"-->
+<!--						sequence="2"/>-->
+
+
+<!--					<menuitem id="menu_pam_accounting_ledger_recap_report"-->
+<!--							parent="menu_pam_accounting_ledgers_report"-->
+<!--							name="Rekapitulasi Buku Besar"-->
+<!--							sequence="3"-->
+<!--							action="act_pam_ledger_recap_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--							/>-->
+
+<!--					<menuitem id="menu_pam_accounting_ledger_report"-->
+<!--							parent="menu_pam_accounting_ledgers_report"-->
+<!--							name="Laporan Buku Besar"-->
+<!--							sequence="4"-->
+<!--							action="act_pam_ledger_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user,pam_accounting.group_pam_budget_admin"-->
+<!--							/>-->
+
+<!--				<menuitem id="menu_pam_accounting_finances_report"-->
+<!--						parent="menu_pam_accounting_report"-->
+<!--						name="Laporan Keuangan"-->
+<!--						sequence="3"/>-->
+
+
+<!--					<menuitem id="menu_pam_accounting_balance_sheet_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="Neraca"-->
+<!--							sequence="4"-->
+<!--							action="act_pam_balance_sheet_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user,pam_accounting.group_pam_budget_admin"-->
+<!--							/>-->
+
+<!--					<menuitem id="menu_pam_accounting_profit_loss_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="Laba Rugi"-->
+<!--							sequence="5"-->
+<!--							action="act_pam_profit_loss_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user,pam_accounting.group_pam_budget_admin"-->
+<!--							/>-->
+
+<!--					<menuitem id="menu_pam_accounting_operational_summary_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="Ringkasan Kegiatan Utama"-->
+<!--							sequence="6"-->
+<!--							action="act_pam_operational_summary_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user,pam_accounting.group_pam_budget_admin"-->
+<!--							/>-->
+
+<!--					<menuitem id="menu_pam_accounting_sak_etap_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="SAK ETAP"-->
+<!--							sequence="7"-->
+<!--							action="act_pam_sak_etap_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user,pam_accounting.group_pam_budget_admin"-->
+<!--							/>-->
+
+
+<!--					<menuitem id="menu_pam_accounting_cost_breakdown_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="Perincian Biaya"-->
+<!--							sequence="10"-->
+<!--							action="act_pam_cost_breakdown_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"/>-->
+
+<!--					<menuitem id="menu_pam_accounting_financial_aspect_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="Aspek Keuangan"-->
+<!--							sequence="11"-->
+<!--							action="act_pam_financial_aspect_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"/>-->
+
+<!--					<menuitem id="menu_pam_accounting_cash_flow_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="Arus Kas"-->
+<!--							sequence="12"-->
+<!--							action="act_pam_cash_flow_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"/>-->
+
+<!--					<menuitem id="menu_pam_accounting_cash_flow_indirect_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="Arus Kas (Tidak Langsung)"-->
+<!--							sequence="13"-->
+<!--							action="act_pam_cash_flow_indirect_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"/>-->
+
+<!--					<menuitem id="menu_pam_accounting_cash_turnover_report"-->
+<!--							parent="menu_pam_accounting_finances_report"-->
+<!--							name="Perputaran Kas"-->
+<!--							sequence="14"-->
+<!--							action="act_pam_cash_turnover_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"/>-->
+
+
+
+<!--				<menuitem id="menu_pam_accounting_payments_report"-->
+<!--						parent="menu_pam_accounting_report"-->
+<!--						name="Laporan Kas"-->
+<!--						sequence="4"/>-->
+
+
+<!--					<menuitem id="menu_pam_accounting_co_report"-->
+<!--							parent="menu_pam_accounting_payments_report"-->
+<!--							name="Daftar Jurnal Pembayaran Kas"-->
+<!--							sequence="6"-->
+<!--							action="act_pam_co_recap_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--							/>-->
+
+<!--					<menuitem id="menu_pam_accounting_ap_open_report"-->
+<!--							parent="menu_pam_accounting_payments_report"-->
+<!--							name="DHHD Terbuka"-->
+<!--							sequence="8"-->
+<!--							action="act_pam_ap_open_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"/>-->
+
+<!--					<menuitem id="menu_pam_accounting_detail_dhhd_open_report"-->
+<!--							parent="menu_pam_accounting_payments_report"-->
+<!--							name="Detail DHHD Terbuka"-->
+<!--							sequence="9"-->
+<!--							action="act_pam_detail_dhhd_open_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--							/>-->
+
+<!--				<menuitem id="menu_pam_accounting_assets_report"-->
+<!--						parent="menu_pam_accounting_report"-->
+<!--						name="Laporan Aset"-->
+<!--						sequence="4"/>-->
+
+<!--					<menuitem id="menu_pam_accounting_asset_recap_report"-->
+<!--							parent="menu_pam_accounting_assets_report"-->
+<!--							name="Rekap Aset Per Bulan"-->
+<!--							sequence="1"-->
+<!--							action="act_pam_asset_recap_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--							/>-->
+
+<!--					<menuitem id="menu_pam_accounting_depreciation_report"-->
+<!--							parent="menu_pam_accounting_assets_report"-->
+<!--							name="Laporan Penyusutan"-->
+<!--							sequence="2"-->
+<!--							action="act_pam_depreciation_report"-->
+<!--							groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin,pam_accounting.group_pam_accounting_user"-->
+<!--							/>-->
+
+			<menuitem id="menu_pam_accounting_configuration"
+					parent="menu_pam_accounting_root"
+					name="Konfigurasi"
+					sequence="7"/>
+
+				<menuitem id="menu_pam_accounting_coa_type"
+						parent="menu_pam_accounting_configuration"
+						name="Tipe Akun"
+						sequence="1"
+						action="act_pam_coa_type"
+						groups="pam_accounting.group_pam_accounting_super_admin"
+						/>
+
+				<menuitem id="menu_pam_accounting_coa"
+						parent="menu_pam_accounting_configuration"
+						name="Kode Akun"
+						sequence="2"
+						action="act_pam_coa"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_accounting_coa_ref"
+						parent="menu_pam_accounting_configuration"
+						name="Referensi Kode Akun"
+						sequence="3"
+						action="act_pam_coa_ref"
+						groups="pam_accounting.group_pam_accounting_super_admin"
+						/>
+
+
+				<menuitem id="menu_pam_accounting_balance"
+						parent="menu_pam_accounting_configuration"
+						name="Saldo"
+						sequence="4"
+						action="act_pam_balance"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+
+				<!-- <menuitem id="menu_pam_accounting_bank"
+						parent="menu_pam_accounting_configuration"
+						name="Bank"
+						sequence="3"
+						action="act_pam_bank"
+						groups="pam_accounting.group_pam_accounting_admin"
+						/> -->
+
+				<menuitem id="menu_pam_accounting_vendor"
+						parent="menu_pam_accounting_configuration"
+						name="Vendor"
+						sequence="5"
+						action="act_pam_vendor"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_report_type"
+						parent="menu_pam_accounting_configuration"
+						name="Tipe Laporan"
+						sequence="6"
+						action="act_pam_report_type"
+						groups="pam_accounting.group_pam_accounting_super_admin"
+						/>
+
+				<menuitem id="menu_pam_report_configuration"
+						parent="menu_pam_accounting_configuration"
+						name="Konfigurasi Laporan"
+						sequence="7"
+						action="act_pam_report_configuration"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_accounting_approval_hierarchy"
+						parent="menu_pam_accounting_configuration"
+						name="Persetujuan Hirarki"
+						sequence="8"
+						action="act_pam_approval_hierarchy"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<!-- <menuitem id="menu_pam_accounting_asset_reduction"
+						parent="menu_pam_accounting_configuration"
+						name="Asset Reduction"
+						sequence="8"
+						action="act_pam_asset_reduction"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/> -->
+
+				<!-- <menuitem id="menu_pam_accounting_asset_depreciation"
+						parent="menu_pam_accounting_configuration"
+						name="Asset depreciation"
+						sequence="9"
+						action="act_pam_asset_depreciation"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/> -->
+
+				<menuitem id="menu_pam_accounting_asset_category"
+						parent="menu_pam_accounting_configuration"
+						name="Kategori Asset"
+						sequence="10"
+						action="act_pam_asset_category"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_accounting_asset_item"
+						parent="menu_pam_accounting_configuration"
+						name="Barang Asset"
+						sequence="11"
+						action="act_pam_asset_item"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_code_iso"
+						parent="menu_pam_accounting_configuration"
+						name="Kode ISO"
+						sequence="12"
+						action="act_pam_code_iso"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_report_month"
+						parent="menu_pam_accounting_configuration"
+						name="Data Tahun 2019"
+						sequence="13"
+						action="act_pam_report_month"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+				<menuitem id="menu_pam_report_log"
+						parent="menu_pam_accounting_configuration"
+						name="Log Laporan"
+						sequence="14"
+						action="act_pam_report_log"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_admin"
+						/>
+
+		<menuitem id="menu_pam_cashier_root"
+					web_icon="pam_accounting,static/src/img/icon-cashier.png"
+					name="Kasir"
+					sequence="300"/>
+
+				<menuitem id="menu_pam_accounting_journal_voucher_payment"
+						parent="menu_pam_cashier_root"
+						name="Pembayaran"
+						sequence="1"
+						action="act_pam_journal_voucher_payment"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_cashier"
+						/>
+
+				<menuitem id="menu_pam_accounting_journal_payment"
+						parent="menu_pam_cashier_root"
+						name="Cash On Hand"
+						sequence="2"
+						action="act_pam_journal_payment"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_cashier"
+						/>
+
+				<menuitem id="menu_pam_accounting_co_daily_report"
+						parent="menu_pam_cashier_root"
+						name="Daftar Pengeluaran Harian (DPH)"
+						sequence="3"
+						action="act_pam_co_daily_report"
+						groups="pam_accounting.group_pam_accounting_super_admin,pam_accounting.group_pam_accounting_cashier"
+						/>
+
+
+
+	</data>
+</openerp>

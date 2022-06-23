@@ -1,0 +1,21 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_work_order_user,onpoint_wo.onpoint.wo user,onpoint_wo.model_onpoint_work_order,group_onpoint_wo_user,1,1,1,0
+access_onpoint_work_order_line user,onpoint_wo.onpoint.work.order.line user,onpoint_wo.model_onpoint_work_order_line,group_onpoint_wo_user,1,1,1,0
+access_onpoint_work_order_detail user,onpoint_wo.onpoint.work.order.detail user,onpoint_wo.model_onpoint_work_order_detail,group_onpoint_wo_user,1,1,1,0
+access_onpoint_wo_type user,onpoint_wo.onpoint.wo.type user,onpoint_wo.model_onpoint_wo_type,group_onpoint_wo_user,1,1,1,0
+access_onpoint_wo_type_line user,onpoint_wo.onpoint.wo.type.line user,onpoint_wo.model_onpoint_wo_type_line,group_onpoint_wo_user,1,1,1,0
+access_onpoint_wo_type_checklist user,onpoint_wo.onpoint.wo.type.checklist user,onpoint_wo.model_onpoint_wo_type_checklist,group_onpoint_wo_user,1,1,1,0
+,,,,,,,
+access_onpoint_work_order_admin,onpoint_wo.onpoint.wo admin,onpoint_wo.model_onpoint_work_order,group_onpoint_wo_admin,1,1,1,1
+access_onpoint_work_order_line admin,onpoint_wo.onpoint.work.order.line admin,onpoint_wo.model_onpoint_work_order_line,group_onpoint_wo_admin,1,1,1,1
+access_onpoint_work_order_detail admin,onpoint_wo.onpoint.work.order.detail admin,onpoint_wo.model_onpoint_work_order_detail,group_onpoint_wo_admin,1,1,1,1
+access_onpoint_wo_type admin,onpoint_wo.onpoint.wo.type admin,onpoint_wo.model_onpoint_wo_type,group_onpoint_wo_admin,1,1,1,1
+access_onpoint_wo_type_line admin,onpoint_wo.onpoint.wo.type.line admin,onpoint_wo.model_onpoint_wo_type_line,group_onpoint_wo_admin,1,1,1,1
+access_onpoint_wo_type_checklist admin,onpoint_wo.onpoint.wo.type.checklist admin,onpoint_wo.model_onpoint_wo_type_checklist,group_onpoint_wo_admin,1,1,1,0
+,,,,,,,
+access_onpoint_work_order_superadmin,onpoint_wo.onpoint.wo superadmin,onpoint_wo.model_onpoint_work_order,group_onpoint_wo_superadmin,1,1,1,1
+access_onpoint_work_order_line superadmin,onpoint_wo.onpoint.work.order.line superadmin,onpoint_wo.model_onpoint_work_order_line,group_onpoint_wo_superadmin,1,1,1,1
+access_onpoint_work_order_detail superadmin,onpoint_wo.onpoint.work.order.detail superadmin,onpoint_wo.model_onpoint_work_order_detail,group_onpoint_wo_superadmin,1,1,1,1
+access_onpoint_wo_type superadmin,onpoint_wo.onpoint.wo.type superadmin,onpoint_wo.model_onpoint_wo_type,group_onpoint_wo_superadmin,1,1,1,1
+access_onpoint_wo_type_line superadmin,onpoint_wo.onpoint.wo.type.line superadmin,onpoint_wo.model_onpoint_wo_type_line,group_onpoint_wo_superadmin,1,1,1,1
+access_onpoint_wo_type_checklist superadmin,onpoint_wo.onpoint.wo.type.checklist superadmin,onpoint_wo.model_onpoint_wo_type_checklist,group_onpoint_wo_superadmin,1,1,1,0

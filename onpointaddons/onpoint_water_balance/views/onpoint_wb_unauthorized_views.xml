@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_unauthorized_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.unauthorized.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='unauthorized_consumption']" position="inside">
+                    <div>
+                        <div class="row font-weight-bold">
+                            <div class="col-4"><span>Description</span></div>
+                            <div class="col-1"><span>Estimated Number</span></div>
+                            <div class="col-1"><span>Error Margin</span></div>
+                            <div class="col-1"><span>Persons per House</span></div>
+                            <div class="col-2"><span>Consumption [liters/person/day]</span></div>
+                            <div class="col-1"><span>Total [m3]</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 font-weight-bold"><span>Illegal Connections - domestic</span></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_domestic_estimate"/></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_domestic_error_margin" widget="percentage"/></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_domestic_person_per_house"/></div>
+                            <div class="col-2"><field name="unauth_consumption_illegal_domestic_person_consumption"/></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_domestic_total"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-7 col-2 font-weight-bold"><span>Consumption [liters/connection/day]</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 font-weight-bold"><span>Illegal Connections - others</span></div>
+                            <div class="col-1 o_field_float o_field_number o_field_widget"><field name="unauth_consumption_illegal_other_estimate"/></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_other_error_margin" widget="percentage"/></div>
+                            <div class="offset-1 col-2"><field name="unauth_consumption_illegal_other_connection_consumption"/></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_other_total"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-7 col-2 font-weight-bold"><span>Consumption [liters/customer/day]</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 font-weight-bold"><span>Meter tampering, bypasses, etc. at registered customers</span></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_tamper_estimate"/></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_tamper_error_margin" widget="percentage"/></div>
+                            <div class="offset-1 col-2"><field name="unauth_consumption_illegal_tamper_customer_consumption"/></div>
+                            <div class="col-1"><field name="unauth_consumption_illegal_tamper_total"/></div>
+                        </div>
+                    </div>
+                    <group string="Consumption [m3/day]">
+                        <group colspan="2">
+                            <field name="unauth_consumption_illegal_lines_ids"
+                                   colspan="2" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="name" string="Description"/>
+                                    <field name="error_margin" widget="percentage"/>
+                                    <field name="consumption"/>
+                                    <field name="total"/>
+                                </tree>
+                            </field>
+                            <field name="unauth_consumption_illegal_lines_error_margin" widget="percentage"/>
+                        </group>
+                        <group string="Unauthorized Consumption [m3]" colspan="2">
+                            <field name="unauth_consumption_illegal_lines_minimum"/>
+                            <field name="unauth_consumption_illegal_lines_maximum"/>
+                            <field name="unauth_consumption_illegal_lines_estimate"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

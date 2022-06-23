@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_detail_dhhd_open_report" model="ir.ui.view">
+        <field name="name">pam.detail.dhhd.open.report.form</field>
+        <field name="model">pam.detail.dhhd.open.report</field>
+        <field name="arch" type="xml">
+            <form string="DHHD Terbuka">
+                <sheet>
+                    <separator string="Detail DHHD Terbuka" colspan="4"/>
+                    <group>
+                        <label string="Bulan" for="months"/>
+                        <div>
+                            <field name="months" nolabel="1" class="oe_inline" />
+                            <field name="years" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                        </div>
+
+                        <label for="start_date" string="Periode Tanggal" invisible="1"/>
+                        <div  invisible="1">
+                            <field name="start_date" nolabel="1" class="oe_inline" />
+                            <field name="end_date" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                        </div>
+
+                        <label for="start_date_last_month" string="Periode Tanggal" invisible="1"/>
+                        <div  invisible="1">
+                            <field name="start_date_last_month" nolabel="1" class="oe_inline" />
+                            <field name="end_date_last_month" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                        </div>
+
+
+                        <field name="total_jumlah"/>
+                        <field name="total_hutang_usaha"/>
+                        <field name="total_hutang_lainnya"/>
+                        <field name="total_by_ymh_dibayar"/>
+
+                        <field name="file_bin" readonly="1" filename="file_name"/>
+                        <field name="file_name" invisible="1"/>
+                        <field name="count_lines" invisible="1"/>
+                    </group>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" icon="fa-external-link" name="get_data" string="Get Data"/>
+                            <button type="object" class="btn-default" solid_icon="fa-file-excel" name="export_report_xls" string="Export Excel" attrs="{'invisible': [('count_lines', '&lt;=', 0)]}"/>
+                            <button type="object" class="btn-default" solid_icon="fa-file-pdf" name="export_report_pdf" string="Export to PDF" attrs="{'invisible': [('count_lines', '&lt;=', 0)]}"/>
+                        </div>
+
+                    </group>
+                    <notebook>
+                        <page string="Rekap">
+                            <group>
+                                <field name="report_html" nolabel="1" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Line">
+                            <field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" readonly="True">
+                                <tree create="false" delete="false">
+                                    <field name="period" invisible="1"/>
+                                    <field name="entry_date" />
+                                    <field name="name"/>
+                                    <field name="supplier_name"/>
+                                    <field name="code"/>
+                                    <field name="coa_name"/>
+                                    <field name="jumlah"/>
+                                    <field name="hutang_usaha"/>
+                                    <field name="hutang_lainnya"/>
+                                    <field name="by_ymh_dibayar"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Detail">
+                            <field name="detail_ids" nolabel="1" colspan="4" widget="one2many_list" readonly="True" domain="[('this_month','=',True)]">
+                                <tree create="false" delete="false">
+                                    <field name="this_month" invisible="1"/>
+                                    <field name="code"/>
+                                    <field name="remark"/>
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                    <field name="total"/>
+                                    <field name="open_dhhd"/>
+                                    <field name="paid_dhhd"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Detail 2">
+                            <field name="detail2_ids" nolabel="1" colspan="4" widget="one2many_list" readonly="True">
+                                <tree create="false" delete="false">
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                    <field name="remark"/>
+                                    <field name="sub_total"/>
+                                    <field name="total_this_month"/>
+                                    <field name="total_last_month"/>
+                                    <field name="total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_detail_dhhd_open_report"
+        name="Detail DHHD Terbuka"
+        res_model="pam.detail.dhhd.open.report"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

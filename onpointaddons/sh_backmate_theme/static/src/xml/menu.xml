@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+
+
+
+
+
+<t t-name="AppsMenu">
+    <li class="dropdown">
+        <a class="full" data-toggle="dropdown" href="#">
+            <i class="fa fa-bars"/>
+            
+        </a>
+        <div class="dropdown-menu sh_backmate_theme_appmenu_div" role="menu">
+            <t t-foreach="widget.getApps()" t-as="app">
+            <a role="menuitem"
+                class="dropdown-item o_app"
+                t-att-data-menu-id="app.menuID"
+                t-att-data-menu-xmlid="app.xmlID"
+                t-att-data-action-id="app.actionID">
+                
+ <img class="img" t-attf-src="/web/image?model=ir.ui.menu&amp;field=web_icon_data&amp;id=#{app.menuID}" t-att-title="app.name" t-att-alt="app.name"/>				
+				             
+                
+                    <t t-esc="app.name"/>
+                
+                </a>
+            </t>
+        </div>
+    </li>
+</t>
+
+
+
+	<!--
+	    @param {web.AppsMenu} widget
+	
+<t t-extend="AppsMenu">
+	<t t-jquery="li.dropdown" t-operation="replace">
+		<li class="dropdown">
+			<a class="full" data-toggle="dropdown" href="#">
+				<i class="fa fa-th"/>
+			</a>
+			<div class="dropdown-menu o_application_switcher" role="menu">
+				<div class="container o_application_switcher_scrollable">
+					<div  class="o_apps">
+						<t t-foreach="widget.getApps()" t-as="app">
+		            <a role="menuitem"
+		                class="col-md-2 col-2 o_app o_menuitem"
+		                t-att-data-menu-id="app.menuID"
+		                t-att-data-menu-xmlid="app.xmlID"
+		                t-att-data-action-id="app.actionID">
+		                <img t-attf-src="/web/image/ir.ui.menu/{{ app.menuID }}/web_icon_data" t-att-alt="app.name" class="o_app_icon" t-att-title="app.name"/>
+		            	<div class="o_caption"> <t t-esc="app.name"/></div>
+		            </a>
+		             
+		            </t>
+					</div>
+		            
+		       	</div>
+        </div>
+		</li>
+	</t>
+</t>
+-->
+</templates>
+
+
+
+<!-- 
+
+<div class="overlay" id="overlay">
+    <nav class="overlay-menu ">
+        <div class="container">
+            <div class="row">
+                <ul class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    
+
+                    <li class="col-md-2 col-sm-3 col-4">
+                        <a href="#">
+                            <img class="img" alt="Calendar" title="Calendar" src="https://iloveikebana.com/wp-content/uploads/photo-gallery/DSCF6467_(1).jpg">
+                            <p>Calendar</p>
+                        </a>
+                    </li>
+                   </ul>
+                   </div>
+                </div>
+              </nav>
+           </div>
+           
+
+
+
+
+
+
+
+
+
+
+muk
+===========================
+    <li class="dropdown">
+        <a class="full" data-toggle="dropdown" href="#">
+            <i class="fa fa-th-large"/>
+        </a>
+        <div class="dropdown-menu" role="menu">
+            <t t-foreach="widget.getApps()" t-as="app">
+            <a role="menuitem"
+                class="dropdown-item o_app"
+                t-att-data-menu-id="app.menuID"
+                t-att-data-menu-xmlid="app.xmlID"
+                t-att-data-action-id="app.actionID">
+                    <t t-esc="app.name"/>
+                </a>
+            </t>
+        </div>
+    </li>
+
+<t t-extend="AppsMenu">
+	<t t-jquery="li.dropdown" t-operation="replace">
+		<li class="dropdown">
+			<a class="full" data-toggle="dropdown" href="#">
+				<i class="fa fa-th"/>
+			</a>
+			<div class="dropdown-menu o_application_switcher" role="menu">
+				<div class="container o_application_switcher_scrollable">
+					<div  class="o_apps">
+						<t t-foreach="widget.getApps()" t-as="app">
+		            <a role="menuitem"
+		                class="o_app o_menuitem"
+		                t-att-data-menu-id="app.menuID"
+		                t-att-data-menu-xmlid="app.xmlID"
+		                t-att-data-action-id="app.actionID">
+		                <img t-attf-src="/web/image/ir.ui.menu/{{ app.menuID }}/web_icon_data" t-att-alt="app.name" class="o_app_icon" t-att-title="app.name"/>
+		            	<div class="o_caption"> <t t-esc="app.name"/></div>
+		            </a>
+		             
+		            </t>
+					</div>
+		            
+		       	</div>
+        </div>
+		</li>
+	</t>
+</t>
+
+
+ -->
+

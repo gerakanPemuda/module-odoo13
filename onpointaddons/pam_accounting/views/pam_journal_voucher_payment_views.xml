@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_journal_voucher_payment_tree" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.tree</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <tree default_order="name" create="false" >
+	                <field name="name" />
+					<field name="entry_date"/>
+					<field name="remark"/>
+					<field name="total_debit" string="Total"/>
+	                <field name="state" />
+	                <field name="create_uid" string="Dibuat oleh"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_journal_voucher_payment_form" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.form</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<header>
+						<button class="oe_highlight" 
+							string="Paid" 
+							type="object" 
+							name="paid" 
+							confirm="Apakah anda yakin akan melakukan pembayaran untu transaksi ini ?"							
+							attrs="{'invisible': [('state', 'in', ('draft', 'paid', 'submit', 'posted'))]}" />
+
+						<field name="state" widget="statusbar" statusbar_visible="payment,paid,submit,posted" />
+					</header>
+
+	            	<sheet>
+						<div class="oe_title col-sm-6" attrs="{'invisible': [('state', '=', 'draft')]}">
+							<label for="name"/>
+							<h1>
+								<field name="name" class="oe_inline" readonly='1'/>
+							</h1>
+						</div>
+
+						<group>
+							<group col="4" colspan="2">
+								<field name="entry_date" string="Tanggal" readonly="True"/>
+								<field name="vendor_id" required="True"  readonly="True"/>
+								<field name="remark" colspan="4"  readonly="True"/>
+								<field name="journal_type" invisible="True" />
+								<field name="total_debit" invisible="True"/>
+								<field name="total_credit" invisible="True"/>
+								<field name="total_diff" invisible="True" />
+							</group>
+
+
+							<group string="Pembayaran" col="4" colspan="2">
+								<field name="payment_type" attrs="{'readonly': [('state', '!=', 'payment')]}"/>
+								<field name="payment_date" string='Tgl. Pembayaran' required="1" attrs="{'readonly': [('state', '!=', 'payment')]}"/>
+								<field name="coh_id" coslpan="4" attrs="{'invisible': [('payment_type', '=', 'cheque')], 'required': [('payment_type', '=', 'cash')], 'readonly': [('state', '!=', 'payment')]}"/>
+								<field name="coh_date" string='Tgl. COH' readonly="True" attrs="{'invisible': [('payment_type', '=', 'cheque')]}"/>
+								<label for="coa_id" string="Kas/Bank" attrs="{'invisible': [('payment_type', '=', 'cheque')]}"/>
+								<div coslpan="4" readonly="True" attrs="{'invisible': [('payment_type', '=', 'cheque')]}">
+									<field name="coa_id" />
+									<label string=" " style="padding-left:5px" for="coa_id_name"/>
+									<field name="coa_id_name" />
+								</div>
+								<field name="cheque_number" coslpan="4" readonly="True" attrs="{'invisible': [('payment_type', '=', 'cheque')]}"/>
+								<field name="payment_ids" string="Kas/Bank" colspan="4" widget="one2many_list" attrs="{'invisible': [('payment_type', '=', 'cash')], 'required': [('payment_type', '=', 'cheque')], 'readonly': [('state', '!=', 'payment')]}" >
+									<tree editable="bottom">
+										<field name="coa_id" />
+										<field name="coa_id_name" readonly="1" force_save="1"/>
+										<field name="cheque_number"/>
+										<field name="amount" sum="Total"/>
+									</tree>
+								</field>
+								<field name="total_payment_diff" string="Selisih Pembayaran" coslpan="3" attrs="{'invisible': [('payment_type', '=', 'cash')]}"/>
+
+							</group>
+
+
+							<notebook colspan="4">
+								<page string="Akun">
+									<group>
+										<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" readonly="True">
+											<tree editable="bottom">
+												<field name="coa_id" />
+												<field name="coa_id_name" readonly="1" force_save="1"/>
+												<field name="debit" sum="Total Debit"/>
+												<field name="credit" sum="Total Kredit"/>
+											</tree>
+										</field>
+									</group>
+								</page>
+							</notebook>
+						</group>
+		            </sheet>
+
+					<div class="oe_chatter">
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_journal_voucher_payment_search" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.search</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Jurnal Voucher">
+	               <field name="name"/>
+	               <field name="remark"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_journal_voucher_payment">
+			<field name="name">Jurnal Voucher (AP)</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.journal.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('journal_type', '=', 'ap'), ('state', '!=', 'draft')]</field>
+			<field name="context">{"default_journal_type" : "ap"}</field>
+	        <field name="search_view_id" ref="view_pam_journal_voucher_payment_search"/>
+		</record>
+
+		<record model="ir.actions.act_window.view" id="act_pam_journal_voucher_payment_view_tree">
+			<field name="act_window_id" ref="act_pam_journal_voucher_payment" />
+			<field name="sequence" eval="10" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_pam_journal_voucher_payment_tree" />
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="act_pam_journal_voucher_payment_view_form">
+			<field name="act_window_id" ref="act_pam_journal_voucher_payment" />
+			<field name="sequence" eval="20" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_pam_journal_voucher_payment_form" />
+		</record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_asset_group_pay_tree" model="ir.ui.view">
+	        <field name="name">pam.asset.group.pay.tree</field>
+	        <field name="model">pam.asset.group.pay</field>
+	        <field name="arch" type="xml">
+	            <tree editable="bottom">
+					<field name="name"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_group_pay_search" model="ir.ui.view">
+	        <field name="name">pam.asset.group.pay.search</field>
+	        <field name="model">pam.asset.group.pay</field>
+	        <field name="arch" type="xml">
+	        	<search string="Cari Asset depreciation">
+	            	<field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+	    
+	    <record model="ir.actions.act_window" id="act_pam_asset_group_pay">
+			<field name="name">Asset depreciation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.asset.group.pay</field>
+
+			<field name="view_mode">tree</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_asset_group_pay_search"/>
+		</record>
+
+
+
+    </data>
+</odoo>

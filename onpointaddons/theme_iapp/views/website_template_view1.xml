@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="i_app_template_custom" model="ir.ui.view">
+		<field name="name">I App</field>
+		<field name="type">qweb</field>
+		<field name="inherit_id"
+			search="[('website_id', '=', 1), ('key', '=', 'website.homepage')]" />
+
+		<field name="arch" type="xml">
+			<xpath expr="//t/t/div[@id='wrap']" position="inside">
+				<!-- header section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_1" />
+				</div>
+				<!--end header section -->
+
+				<!-- About Us section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_2" />
+				</div>
+				<!--end About Us section -->
+
+				<!-- Video section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_3" />
+				</div>
+				<!--end Video section -->
+
+				<!-- Counter section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_4" />
+				</div>
+				<!--end Counter section -->
+
+				<!-- -Why Choose Area Start section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_5" />
+				</div>
+				<!--end Why Choose Area Start section -->
+
+				<!-- How It Works Area Start section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_6" />
+				</div>
+				<!--end How It Works Area Start section -->
+
+				<!-- Screenshort section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_7" />
+				</div>
+				<!--end Screenshort section -->
+
+				<!-- Testimonial section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_8" />
+				</div>
+				<!--end Testimonial section -->
+
+				<!-- Price Plan section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_9" />
+				</div>
+				<!--end Price Plan section -->
+				<!--Team Member section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_10" />
+				</div>
+				<!--end Team Member section -->
+				<!--Team Member 1 section -->
+				<div class="oe_structure">
+					<t t-call="theme_iapp.i_app_section_11" />
+				</div>
+				<!--end Team Member 1 section -->
+				<!-- Contact us section -->
+				<div class="oe_structure">
+					<section class="team-member-area" id="contact">
+						<div class="bg-shape-2">
+							<img src="/theme_iapp/static/src/img/bg/contact-map-bg.jpg" alt="" />
+						</div>
+						<div class="bg-shape-3 bg-new-shape-4">
+							<img src="/theme_iapp/static/src/img/bg/contact-mobile-bg.png"
+								alt="" />
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="contact-area-wrapper"><!-- contact area wrapper -->
+										<span class="subtitle">Contact us</span>
+										<h3 class="title">Get In Touch</h3>
+										<p>Consectetur adipiscing elit, sed do eiusmod tempor
+											incididunt ut labore et dolor tempor incididunt ut labore
+											dolore magna.
+										</p>
+										<form action="/contact_form/" id="contact_form_submit"
+											class="contact-form sec-margin s_website_form" method="post"
+											data-model_name="website.contact.info" data-success_page="/contactus-thank-you1"
+											enctype="multipart/form-data" data-editable-form="false">
+											<div class="row">
+												<div class="col-lg-6">
+													<div class="form-group form-field o_website_form_required_custom">
+														<input type="text" class="form-control o_website_form_input"
+															id="uname" name="name" placeholder="Your Name" required=""
+															t-att-value="request.params.get('name', '')" />
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="form-group form-field o_website_form_required_custom">
+														<input type="text" class="form-control o_website_form_input"
+															id="email" name="email" placeholder="Your Email"
+															required="" t-att-value="request.params.get('email', '')" />
+													</div>
+												</div>
+												<div class="col-lg-12">
+													<div
+														class="form-group textarea form-field o_website_form_required_custom">
+														<textarea name="question" id="message o_website_form_input"
+															class="form-control o_website_form_input" cols="30" rows="10"
+															placeholder="Message" required=""
+															t-att-value="request.params.get('question', '')"></textarea>
+													</div>
+													<button
+														class="submit-btn  btn-rounded gd-bg-1 o_website_form_send"
+														type="submit">Submit Now</button>
+													<span id="o_website_form_result"></span>
+												</div>
+											</div>
+										</form>
+									</div><!-- //. contact area wrapper -->
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- team member area end -->
+
+				</div>
+				<!-- End Contact us section -->
+			</xpath>
+		</field>
+	</record>
+	<!-- web site page -->
+	<record id="homepage_i_app_template_menu_custom" model="website.page">
+		<field name="name">I App</field>
+		<field name="website_published">True</field>
+		<field name="url">/</field>
+		<field name="is_homepage">True</field>
+		<field name="view_id" ref="i_app_template_custom" />
+	</record>
+
+	<!-- create web site menu -->
+	<record id="menu_i_app" model="website.menu">
+		<field name="name">I App</field>
+		<field name="url">/</field>
+		<field name="parent_id" ref="website.main_menu" />
+		<field name="sequence" type="int">10</field>
+		<field name="page_id" ref="homepage_i_app_template_menu_custom" />
+		<field name="website_id" ref="website.default_website" />
+	</record>
+
+	<!-- Blog -->
+	<record id="blog_i_app_page" model="website.page">
+		<field name="name">Blog
+		</field>
+		<field name="type">qweb</field>
+		<field name="url">/blog_01</field>
+		<field name="website_published">True</field>
+		<field name="is_published">True</field>
+		<field name="key">theme_iapp.blog_i_app_page
+		</field>
+		<field name="arch" type="xml">
+			<t name="Blog" t-name="theme_iapp.blog_i_app_page">
+				<t t-call="website.layout">
+					<div id="wrap">
+						<div class="oe_structure">
+							<!-- breadcrumb area start -->
+							<div class="breadcrumb-area breadcrumb-bg extra">
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="breadcrumb-inner">
+												<h1 class="page-title">Blog</h1>
+												<ul class="page-navigation">
+													<li>
+														<a href="/#home"> Home</a>
+													</li>
+													<li>Blog</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- breadcrumb area end -->
+
+							<div class="page-content-area padding-top-120 padding-bottom-120">
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<div class="row">
+												<t
+													t-foreach="request.env['blog.post'].sudo().search([('cover_blog','=',True)])"
+													t-as="blog_post">
+
+													<div class="col-lg-6 col-md-6">
+
+														<div class="single-blog-grid-item"><!-- single blog grid item -->
+
+															<div class="thumb">
+																<t t-set="_cp" t-value="json.loads(blog_post.cover_properties)" />
+																<img t-attf-style="background-image: #{_cp.get('background-image')};"
+																	height="245px" width="350px" />
+
+															</div>
+															<div class="content">
+																<ul class="post-meta">
+																	<li>
+																		<a href="#">
+																			<span t-field="blog_post.post_date" t-options='{"format": "d MMMM, yyyy"}' />
+																		</a>
+																	</li>
+																	<li>
+																		<a href="#">
+																			by
+																			<span t-field="blog_post.author_id.name" />
+																		</a>
+																	</li>
+																</ul>
+																<h4 class="title">
+																	<a href="#">
+																		<span t-field="blog_post.name" />
+																	</a>
+																</h4>
+																<a
+																	t-attf-href="/blog_01/#{slug(blog_post.blog_id)}/post/#{slug(blog_post)}"
+																	class="readmore">
+																	Read More
+																	<i class="fas fa-long-arrow-alt-right"></i>
+																</a>
+															</div>
+														</div><!-- //. single blog grid item -->
+													</div>
+												</t>
+												<div class="col-lg-12">
+													<div class="blog-pagination margin-top-10"><!-- blog pagination -->
+														<nav aria-label="Page navigation example">
+															<ul class="pagination">
+																<li class="page-item">
+																	<a class="page-link" href="#">1</a>
+																</li>
+																<li class="page-item active">
+																	<a class="page-link" href="#">2</a>
+																</li>
+																<li class="page-item">
+																	<a class="page-link" href="#" aria-label="Next">
+																		<i class="fas fa-chevron-right"></i>
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</div><!-- //. blog pagination -->
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="sidebar widget-area"><!-- widget area -->
+
+												<div class="widget widget_search"><!-- widget -->
+													<h4 class="widget-title">Search</h4>
+													<form action="/blog_01" class="search-form">
+														<div class="form-group">
+															<input type="text" class="form-control"
+																placeholder="Search" />
+														</div>
+														<button class="submit-btn" type="submit">
+															<i class="fas fa-search"></i>
+														</button>
+													</form>
+												</div><!-- //. widget -->
+
+												<div class="widget widget_categories"><!-- widget -->
+													<h4 class="widget-title">Categories</h4>
+													<t
+														t-foreach="request.env['blog.blog'].sudo().search([('show_category','=',True)])"
+														t-as="b">
+														<ul>
+															<li class="cat-item">
+																<a href="#">
+																	<t t-esc="b.name" />
+																</a>
+															</li>
+
+														</ul>
+													</t>
+												</div>
+												<div class="widget widget_popular_posts"><!-- widget -->
+													<h4 class="widget-title">Popular Posts</h4>
+													<ul>
+														<t
+															t-foreach="request.env['blog.post'].sudo().search([('popular_blog','=',True)])"
+															t-as="blog_post">
+															<li class="single-popular-post-item"><!-- single popular post item -->
+																<div class="thumb">
+																	<t t-set="_cp" t-value="json.loads(blog_post.cover_properties)" />
+																	<img
+																		t-attf-style="background-image: #{_cp.get('background-image')};"
+																		height="80px" width="70px" />
+																</div>
+																<div class="content">
+																	<span class="time" t-field="blog_post.post_date"
+																		t-options='{"format": "d MMMM, yyyy"}'></span>
+																	<h4 class="title">
+																		<a href="#">
+																			<span t-field="blog_post.name" />
+																		</a>
+																	</h4>
+																</div>
+															</li><!-- //. single popular post item -->
+
+														</t>
+													</ul>
+												</div>
+
+												<div class="widget widget_tag_cloud"><!-- widget -->
+													<h4 class="widget-title">Tags</h4>
+													<t
+														t-foreach="request.env['blog.tag'].sudo().search([('show_tag','=',True)])"
+														t-as="i">
+														<div class="tagcloud">
+															<a href="#">
+																<t t-esc="i.name" />
+															</a>
+
+														</div>
+													</t>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</t>
+			</t>
+		</field>
+	</record>
+	<!-- End Blog -->
+
+	<!-- Thank you -->
+	<record id="contactus-thank-you1" model="website.page">
+		<field name="name">Thank You</field>
+		<field name="type">qweb</field>
+		<field name="url">/contactus-thank-you1</field>
+		<field name="website_published">True</field>
+		<field name="is_published">True</field>
+		<field name="key">theme_iapp.contactus-thank-you1</field>
+		<field name="arch" type="xml">
+			<t name="Thank You" t-name="theme_iapp.contactus-thank-you1">
+				<t t-call="website.layout">
+					<div id="wrap">
+						<div class="oe_structure">
+							<div class="header-area header-bg-2 style-two">
+								
+									<div class="container">
+										<div class="row">
+											<div class="col-12 text-center">
+												<div class="section-title  mb-60">
+												</div>
+												<h1></h1>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="success text-center">
+													<strong>
+														<h2>
+															THANK YOU FOR CONTACTING US.
+															<br />
+															WE'LL BE IN TOUCH.
+														</h2>
+													</strong>
+													<h4>YOUR ENQUERY HAS BEEN RECEIVED AND ONE OF OUR TEAM WILL
+														BE
+														CONTACTING YOU SHORTLY.ALTERNATIVELY YOU CAN ALSO REACH
+														OUR
+														HOTLINE AT: +1234567890
+													</h4>
+												</div>
+											</div>
+										</div>
+									</div>
+							
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+		</field>
+	</record>
+	<!--end thank you -->
+</odoo>
+
+				
+				

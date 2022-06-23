@@ -1,0 +1,36 @@
+<odoo>
+
+    <data>
+
+        <record id="view_onpoint_night_flow_form" model="ir.ui.view">
+            <field name="name">onpoint.night.flow.form</field>
+            <field name="model">onpoint.night.flow</field>
+            <field name="arch" type="xml">
+                <form string="Logger">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="source_selection"/>
+                                <field name="logger_id" attrs="{'invisible': [('source_selection', '=', 'comparison')], 'required': [('source_selection', '=', 'logger')]}"/>
+                                <field name="logger_compare_id" attrs="{'invisible': [('source_selection', '=', 'logger')], 'required': [('source_selection', '=', 'comparison')]}"/>
+                                <field name="channel_id"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button name="act_view_chart" string="Get Data" type="object" class="btn-primary"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_night_flow">
+            <field name="name">Night Flow</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.night.flow</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

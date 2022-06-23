@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<!-- Screen short Slider form view -->
+	<record id="screen_short_section_form_view" model="ir.ui.view">
+		<field name="name">screen.short.form.view</field>
+		<field name="model">screen.short</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<group>
+							<field name="image" filename="filename" />
+							<field name="filename" invisible="1" />
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<!-- Screen short Slider Tree view -->
+	<record id="screen_short_section_tree_view" model="ir.ui.view">
+		<field name="name">screen.short.tree.view</field>
+		<field name="model">screen.short</field>
+		<field name="arch" type="xml">
+			<tree editable="bottom">
+				<field name="image" filename="filename" />
+				<field name="filename" invisible="1" />
+			</tree>
+		</field>
+	</record>
+	<!-- Screen short Slider Action -->
+	<record id="action_screen_short" model="ir.actions.act_window">
+		<field name="name">Screen Short</field>
+		<field name="res_model">screen.short</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="screen_short_section_tree_view" />
+		<field name="target">current</field>
+	</record>
+	<!-- Screen short Slider Menu -->
+	<menuitem id="menu_screen_short" parent="website.menu_website_global_configuration"
+		action="action_screen_short" sequence="46" />
+
+	<!-- Customer Review form view -->
+	<record id="i_app_testimonial_section_form_view" model="ir.ui.view">
+		<field name="name">customer.review.form.view</field>
+		<field name="model">customer.review</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<group>
+							<field name="partner_id" />
+							<field name="review" />
+							<field name="image" invisible="1"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- Customer Review Tree view -->
+	<record id="i_app_testimonial_section_tree_view" model="ir.ui.view">
+		<field name="name">customer.review.tree.view</field>
+		<field name="model">customer.review</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="partner_id" />
+				<field name="review" />
+			</tree>
+		</field>
+	</record>
+	<!-- Customer Review Action -->
+	<record id="action_i_app_testimonial" model="ir.actions.act_window">
+		<field name="name">Testimonial</field>
+		<field name="res_model">customer.review</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree,form</field>
+
+	</record>
+	<!-- Customer Review Menu -->
+	<menuitem id="menu_i_app_testimonial" parent="website.menu_website_global_configuration"
+		action="action_i_app_testimonial" sequence="47" />
+
+	<!-- product template form view -->
+	<record id="product_template_only_form_view_inherit" model="ir.ui.view">
+		<field name="name">product.template.product.form.inherit</field>
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="product.product_template_only_form_view" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='barcode']" position="after">
+				<field name="analyzer" />
+				<field name="support" />
+				<field name="session" />
+				<field name="no_risk" />
+				<field name="show_product" />
+				<field name="mo" />
+			</xpath>
+		</field>
+	</record>
+
+	<menuitem id="menu_product_variant_config" name="Products"
+		action="product.product_template_action" parent="website.menu_website_global_configuration"
+		sequence="48" />
+
+	<!-- Contact us form view -->
+	<record id="website_contact_info_form_view" model="ir.ui.view">
+		<field name="name">website.contact.info.form.view</field>
+		<field name="model">website.contact.info</field>
+		<field name="arch" type="xml">
+			<form create="false" edit="false">
+				<sheet>
+					<group>
+						<group>
+							<field name="name" />
+							<field name="email" widget="email" />
+						</group>
+						<group>
+							<field name="subject" invisible="1" />
+						</group>
+					</group>
+					<group>
+						<field name="question" />
+					</group>
+
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<!--Contact us tree view -->
+	<record id="website_contact_info_tree_view" model="ir.ui.view">
+		<field name="name">website.contact.info.tree.view</field>
+		<field name="model">website.contact.info</field>
+		<field name="arch" type="xml">
+			<tree create="false">
+				<field name="name" />
+				<field name="email" />
+				<field name="subject" invisible="1" />
+				<field name="question" />
+			</tree>
+		</field>
+	</record>
+
+	<!-- Contact us action -->
+	<record id="action_website_contact_info" model="ir.actions.act_window">
+		<field name="name">Contact Information</field>
+		<field name="res_model">website.contact.info</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree,form</field>
+
+	</record>
+
+	<!-- Contact us menu -->
+	<menuitem id="menu_website_contact_info" parent="website.menu_website_global_configuration"
+		action="action_website_contact_info" sequence="49" />
+
+	<!-- Blog Post form view -->
+	<record id="view_blog_post_form_inherit" model="ir.ui.view">
+		<field name="name">blog.post.form.inherit</field>
+		<field name="model">blog.post</field>
+		<field name="inherit_id" ref="website_blog.view_blog_post_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='website_id']" position="after">
+				<field name="cover_properties" />
+				<field name="cover_blog" />
+				<field name="popular_blog" />
+				<field name="blog_ids" widget="many2many_tags" />
+			</xpath>
+			<xpath expr="//field[@name='write_date']" position="after">
+				<field name='content' />
+			</xpath>
+		</field>
+	</record>
+	<!-- Blog category form view -->
+	<record id="view_blog_blog_form_inherit" model="ir.ui.view">
+		<field name="name">blog.blog.form.inherit</field>
+		<field name="model">blog.blog</field>
+		<field name="inherit_id" ref="website_blog.view_blog_blog_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='website_id']" position="after">
+				<field name="show_category" />
+
+			</xpath>
+		</field>
+	</record>
+	<!-- Blog Tag form view -->
+	<record id="blog_tag_form_inherit" model="ir.ui.view">
+		<field name="name">blog_tag_form.inherit</field>
+		<field name="model">blog.tag</field>
+		<field name="inherit_id" ref="website_blog.blog_tag_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='category_id']" position="after">
+				<field name="show_tag" />
+
+			</xpath>
+		</field>
+	</record>
+	<!-- Mail Message form view -->
+	<record id="view_message_form_inherit" model="ir.ui.view">
+		<field name="name">mail.message.form.inherit</field>
+		<field name="model">mail.message</field>
+		<field name="inherit_id" ref="mail.view_message_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='moderator_id']" position="after">
+				<field name="name" />
+				<field name="email_id" />
+			</xpath>
+		</field>
+	</record>
+
+
+	<!-- Load Custom Demo Data Form -->
+	<record model="ir.ui.view" id="load_demo_install_form">
+		<field name="name">ir.demo.form</field>
+		<field name="model">load.demo</field>
+		<field name="arch" type="xml">
+			<form>
+				<div class="row container">
+					<div class="col-12 text-center">
+						<p>Load Demo Data</p>
+					</div>
+				</div>
+
+				<footer>
+					<button special="cancel" string="Cancel" class="btn-primary" />
+					<button name="install_demo" string="Load Demo Data" type="object"
+						class="btn-secondary" />
+				</footer>
+			</form>
+		</field>
+	</record>
+	<!-- Load Custom Demo Data Action -->
+	<record model="ir.actions.act_window" id="load_demo_data_action">
+		<field name="name">Load Demo </field>
+		<field name="res_model">load.demo</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+	<!-- Load Custom Demo Data Menu -->
+	<menuitem id="load_demo_data_menu" parent="website.menu_website_global_configuration"
+		action="load_demo_data_action" sequence="50" />
+</odoo>

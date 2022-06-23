@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_asset_category_tree" model="ir.ui.view">
+	        <field name="name">pam.asset.category.tree</field>
+	        <field name="model">pam.asset.category</field>
+	        <field name="arch" type="xml">
+	            <tree default_order="sequence asc">
+	                <field name="group_pay"/>
+					<field name="name"/>
+	                <field name="coa_id_debit"/>
+	                <field name="coa_id_credit"/>
+					<field name="sequence"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_category_form" model="ir.ui.view">
+	        <field name="name">pam.asset.category.form</field>
+	        <field name="model">pam.asset.category</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<sheet>
+						<group col="4" colspan="2">
+							<field name="name"/>
+							<label for="coa_id_debit" string="Kode Akun Debit"/>
+							<div>
+				                <field name="coa_id_debit"/>
+								<label string=" " style="padding-left:5px" for="coa_id_d_name"/>
+				                <field name="coa_id_d_name" readonly="1"/>
+			           		</div>
+			                <field name="group_pay"/>
+			                <label for="coa_id_credit" string="Kode Akun Credit"/>
+			                <div>
+				                <field name="coa_id_credit"/>
+								<label string=" " style="padding-left:5px" for="coa_id_c_name"/>
+				                <field name="coa_id_c_name" readonly="1"/>
+			            	</div>
+							<field name="sequence"/>
+						</group>
+						<notebook>
+							<page string="Details">
+								<group>
+									<field name="reduction_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom">
+											<field name="coa_id"/>
+											<field name="coa_id_name"/>
+							                <field name="depreciation_id"/>
+							                <field name="depreciation_use_max" readonly="1"/>
+					            			<field name="is_depreciation"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_category_search" model="ir.ui.view">
+	        <field name="name">pam.asset.category.search</field>
+	        <field name="model">pam.asset.category</field>
+	        <field name="arch" type="xml">
+	        	<search string="Cari Kategori Aset">
+	            	<field name="name"/>
+	            	<field name="coa_id_debit"/>
+	            	<field name="coa_id_credit"/>
+	            	<field name="group_pay"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_asset_category">
+			<field name="name">Kategori Aset</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.asset.category</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_asset_category_search"/>
+		</record>
+
+
+
+    </data>
+</odoo>

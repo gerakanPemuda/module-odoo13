@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_intermittent_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.intermittent.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='intermittent']" position="inside">
+                    <group>
+                        <field name="intermittent_lines">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="connection_number"/>
+                                <field name="supply_days_per_week"/>
+                                <field name="supply_hours_per_day"/>
+                                <field name="supply_total"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field name="intermittent_error_margin" widget="percentage"/>
+                        <field name="intermittent_minimum"/>
+                        <field name="intermittent_maximum"/>
+                        <field name="intermittent_best_estimate"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

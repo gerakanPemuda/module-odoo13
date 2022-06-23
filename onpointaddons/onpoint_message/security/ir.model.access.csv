@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_logger_message_user,onpoint_message.onpoint.logger.message user,onpoint_message.model_onpoint_logger_message,onpoint_monitor.group_onpoint_monitor_user,1,0,0,0
+access_onpoint_logger_outbox_user,onpoint_message.onpoint.logger.outbox user,onpoint_message.model_onpoint_logger_outbox,onpoint_monitor.group_onpoint_monitor_user,1,0,0,0
+,,,,,,,
+access_onpoint_logger_message_admin,onpoint_message.onpoint.logger.message admin,onpoint_message.model_onpoint_logger_message,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,1
+access_onpoint_logger_outbox_admin,onpoint_message.onpoint.logger.outbox admin,onpoint_message.model_onpoint_logger_outbox,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,1
+,,,,,,,
+access_onpoint_logger_message_superadmin,onpoint_message.onpoint.logger.message superadmin,onpoint_message.model_onpoint_logger_message,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1
+access_onpoint_logger_outbox_superadmin,onpoint_message.onpoint.logger.outbox superadmin,onpoint_message.model_onpoint_logger_outbox,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1

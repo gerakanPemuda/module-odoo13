@@ -1,0 +1,5 @@
+id,name,need_totalizer
+Value_Type_1,Pressure,False
+Value_Type_2,Flow,True
+Value_Type_3,Clor,False
+Value_Type_4,Level,False

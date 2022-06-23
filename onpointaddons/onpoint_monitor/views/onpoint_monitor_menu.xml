@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+                id="mail.menu_root_discuss"
+                name="Discuss"
+                sequence="999"/>
+
+        <menuitem id="menu_onpoint_root"
+                  name="Monitor"
+                  sequence="2"
+                  web_icon="onpoint_monitor,static/img/icon_monitor.png"/>
+
+        <menuitem id="menu_onpoint_monitor_dashboard" name="Highlights" parent="menu_onpoint_root" sequence="1"
+                  action="act_view_monitor_dashboard"/>
+
+        <menuitem id="menu_onpoint_logger" name="Logger" parent="menu_onpoint_root" sequence="2"
+                  action="act_onpoint_logger"/>
+        <menuitem id="menu_onpoint_logger_compare" name="Chart Comparison" parent="menu_onpoint_root" sequence="3"
+                  action="act_onpoint_logger_compare"/>
+
+        <!-- <menuitem id="menu_onpoint_logger_value_views" name="Logger Value" parent="menu_onpoint_root" sequence="2" action="act_onpoint_logger_value" /> -->
+
+        <menuitem id="menu_onpoint_config" name="Configuration" parent="menu_onpoint_root" sequence="5"
+                  groups="onpoint_monitor.group_onpoint_monitor_admin,onpoint_monitor.group_onpoint_monitor_superadmin"/>
+        <menuitem id="menu_onpoint_logger_brand" parent="menu_onpoint_config" name="Logger Brand" sequence="1"
+                  action="act_onpoint_logger_brand"/>
+        <menuitem id="menu_onpoint_logger_point" parent="menu_onpoint_config" name="Logger Point" sequence="2"
+                  action="act_onpoint_logger_point"/>
+        <menuitem id="menu_onpoint_wtp" parent="menu_onpoint_config" name="WTP" sequence="2" action="act_onpoint_wtp"/>
+        <menuitem id="menu_onpoint_zone" parent="menu_onpoint_config" name="Zone" sequence="4"
+                  action="act_onpoint_zone"/>
+        <menuitem id="menu_onpoint_dma" parent="menu_onpoint_config" name="DMA" sequence="5" action="act_onpoint_dma"/>
+        <menuitem id="menu_onpoint_logger_type" parent="menu_onpoint_config" name="Logger Type" sequence="6"
+                  action="act_onpoint_logger_type"/>
+        <menuitem id="menu_onpoint_value_type" parent="menu_onpoint_config" name="Type" sequence="7"
+                  action="act_onpoint_value_type"/>
+        <menuitem id="menu_onpoint_value_unit" parent="menu_onpoint_config" name="Unit" sequence="8"
+                  action="act_onpoint_value_unit" groups=""/>
+        <menuitem id="menu_onpoint_alarm_threshold" parent="menu_onpoint_config" name="Alarm Threshold" sequence="9"
+                  action="act_onpoint_alarm_threshold"/>
+        <menuitem id="menu_onpoint_meter_type" parent="menu_onpoint_config" name="Meter Type" sequence="10"
+                  action="act_onpoint_meter_type"/>
+        <menuitem id="menu_onpoint_meter_brand" parent="menu_onpoint_config" name="Meter Brand" sequence="11"
+                  action="act_onpoint_meter_brand"/>
+        <menuitem id="menu_onpoint_meter_size" parent="menu_onpoint_config" name="Meter/Pipe Size" sequence="12"
+                  action="act_onpoint_meter_size"/>
+        <menuitem id="menu_onpoint_pipe_material" parent="menu_onpoint_config" name="Pipe Material" sequence="13"
+                  action="act_onpoint_pipe_material"/>
+        <menuitem id="menu_onpoint_valve_control" parent="menu_onpoint_config" name="Valve Control" sequence="14"
+                  action="act_onpoint_valve_control"/>
+    </data>
+</odoo>

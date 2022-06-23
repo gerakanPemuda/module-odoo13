@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_scada_root"
+                  name="SCADA"
+                  sequence="2"/>
+
+            <menuitem id="menu_onpoint_scada_location" name="Location" parent="menu_onpoint_scada_root" sequence="1"
+                    action="act_onpoint_scada_location"/>
+            <menuitem id="menu_onpoint_scada_sensor_parameter" name="Sensor Parameter" parent="menu_onpoint_scada_root" sequence="2"
+                    action="act_onpoint_scada_sensor_parameter"/>
+            <menuitem id="menu_onpoint_scada_unit_detail" name="Unit Detail" parent="menu_onpoint_scada_root" sequence="3"
+                    action="act_onpoint_scada_unit_detail"/>
+            <menuitem id="menu_onpoint_scada_alarm" name="Alarm" parent="menu_onpoint_scada_root" sequence="4"
+                    action="act_onpoint_scada_alarm"/>
+            <menuitem id="menu_onpoint_report_root"
+                    name="Report"
+                    parent="menu_onpoint_scada_root"
+                    sequence="5"/>
+                <menuitem id="menu_onpoint_gunung_ulin_report" name="Rekap Gunung Ulin" parent="menu_onpoint_report_root" sequence="1"
+                        action="act_onpoint_gunung_ulin_report"/>
+                <menuitem id="menu_onpoint_gunung_rely_report" name="Rekap Gunung Relly" parent="menu_onpoint_report_root" sequence="2"
+                        action="act_onpoint_gunung_rely_report"/>
+                <menuitem id="menu_onpoint_spam_ikk_report" name="Rekap SPAM IKK" parent="menu_onpoint_report_root" sequence="3"
+                        action="act_onpoint_spam_ikk_report"/>
+            <menuitem id="menu_onpoint_configuration_root"
+                    name="Configuration"
+                    parent="menu_onpoint_scada_root"
+                    sequence="6"/>
+                <menuitem id="menu_onpoint_scada_sensor_type" name="Sensor Type" parent="menu_onpoint_configuration_root" sequence="1"
+                        action="act_onpoint_scada_sensor_type"/>
+                <menuitem id="menu_onpoint_scada_parameter" name="Parameter" parent="menu_onpoint_configuration_root" sequence="2"
+                        action="act_onpoint_scada_parameter"/>
+
+
+    </data>
+</odoo>

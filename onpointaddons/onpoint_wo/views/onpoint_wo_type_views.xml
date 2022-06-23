@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+        <record id="view_onpoint_wo_type_tree" model="ir.ui.view">
+            <field name="name">onpoint.wo.type.tree</field>
+            <field name="model">onpoint.wo.type</field>
+            <field name="arch" type="xml">
+                <tree string="Onpoint WO Type">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="work_time"/>
+                    <field name="uom"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_wo_type_form" model="ir.ui.view">
+            <field name="name">onpoint.wo.type.form</field>
+            <field name="model">onpoint.wo.type</field>
+            <field name="arch" type="xml">
+                <form string="Onpoint WO Type">
+                    <div style="padding-left:10px; padding-right:10px">
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="department_id"/>
+                            <field name="pic_id"/>
+                            <label for="work_time" string="WO Durarion"/>
+                            <div>
+                                <field name="work_time" nolabel="1" class="oe_inline" style="width: 50px !important;margin-right: 5px"/>
+                                <field name="uom" nolabel="1" class="oe_inline"/>
+                            </div>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Checklist">
+                                <group>
+                                    <field name="checklist_ids" nolabel="1" colspan="4" widget="one2many_list">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+
+                            <page string="Detail">
+                                <group>
+                                    <field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+                                        <tree editable="bottom">
+                                            <field name="employee_id"/>
+                                            <field name="state" readonly="1" force_save="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+
+                        </notebook>
+                        <div class="oe_chatter">
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_onpoint_wo_type_search" model="ir.ui.view">
+            <field name="name">onpoint.wo.type.search</field>
+            <field name="model">onpoint.wo.type</field>
+            <field name="arch" type="xml">
+                <search string="Cari WO Type">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="work_time"/>
+                    <field name="uom"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_wo_type">
+            <field name="name">WO Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.wo.type</field>
+            <field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_wo_type_search"/>
+		</record>
+    </data>
+</odoo>

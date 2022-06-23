@@ -1,0 +1,80 @@
+$o-enterprise-color: #673AB7;
+$primaryColor:#673AB7;
+$primary_hover:#553098;
+$primary_active:#553098;
+$secondaryColor:#e6e6e6;
+$secondary_hover:#CDCDCD;
+$secondary_active:#CDCDCD;
+$list_td_th:0.75rem !important;
+
+$header_bg_color:#673AB7;
+$header_font_color:#FFF;
+$header_hover_color:#553098;
+$header_active_color:#553098;
+
+$h1_color:#4E4E4E;
+$h2_color:#4E4E4E;
+$h3_color:#4E4E4E;
+$h4_color:#4E4E4E;
+$h5_color:#4E4E4E;
+$h6_color:#4E4E4E;
+$p_color:#4E4E4E;
+
+$h1_size:28px;
+$h2_size:17px;
+$h3_size:18px;
+$h4_size:20px;
+$h5_size:13px;
+$h6_size:12px;
+$p_size:13px;
+
+$body_font_color:#4E4E4E;
+$body_background_type:bg_color;
+$body_background_color:#F8F8F8;
+$body_font_family:Roboto;
+
+$button_style:style_2;
+$o-mail-attachment-image-size: 100px !default;
+
+
+$sidebar_background_type:bg_color;
+$sidebar_bg_color:#FFF;
+$sidebar_font_color:#4E4E4E;
+$sidebar_font_hover_color:#FFF;
+$sidebar_font_hover_bg_color:#553098;
+$sidebar_style:style_2;
+
+$separator_style:style_2;
+$separator_color:#9C27B0;
+
+$o-community-color:#673AB7;
+$o-tooltip-background-color:#673AB7;
+$o-brand-secondary:#e6e6e6;
+$o-brand-odoo: $o-community-color;
+$o-brand-primary: $o-community-color;
+
+$is_button_with_icon_text:False;
+
+$body_google_font_family:False;
+$is_used_google_font:False;
+
+$list_view_border:without_border;
+$list_view_is_hover_row:True;
+$list_view_hover_bg_color:#7AD7FF;
+$list_view_even_row_color:#96CBFF;
+$list_view_odd_row_color:#C9FAFF;
+
+$login_page_style: style_1;
+$login_page_background_type: bg_img;
+$login_page_background_color:#B3FFB8;
+$login_page_box_color:False;
+
+$theme_style: style_1;
+
+$is_sticky_form:False;
+$is_sticky_chatter:False;
+$is_sticky_list:False;
+$is_sticky_list_inside_form:False;
+
+
+

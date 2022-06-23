@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Client Action For Dashboard -->
+        <record id="act_onpoint_logger_realtime_dashboard" model="ir.actions.client">
+            <field name="name">Logger Dashboard</field>
+            <field name="tag">onpoint_monitor.logger_realtime_dashboard</field>
+            
+            <!-- call from smart button -->
+            <!-- <field name="context">{'logger_id': context.get('default_id') }</field> -->
+            
+            <!-- call directly from kanban -->
+            <field name="context">{'logger_id': context.get('active_id') }</field>
+        </record>
+
+
+        <template id="onpoint_monitor_logger_realtime_dashboard_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+
+                <!-- Stylesheet -->
+
+                <!-- LoggerDashboard  -->
+                <link rel="stylesheet" href="/onpoint_monitor/static/src/css/logger_dashboard.css"/>
+
+                <!-- JavaScript -->
+
+                <!-- LoggerDashboard -->
+                <script type="text/javascript" src="/onpoint_monitor/static/src/js/onpoint_logger_realtime_dashboard.js"/>
+
+
+            </xpath>
+        </template>
+    </data>
+</odoo>

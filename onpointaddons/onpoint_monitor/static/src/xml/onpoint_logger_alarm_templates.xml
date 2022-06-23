@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="LoggerAlarmMain">
+        <style>
+            div.scroll {
+                margin:0px, 0px;
+                padding:0px;
+				width: 100%;
+				height: 100%;
+                overflow-x: hidden;
+                overflow-x: auto;
+            }
+        </style>
+        <div class="o_charts scroll" style="background:#FFFFFF">
+            <div class="container-fluid o_hr_chart">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="LoggerAlarmContent">
+
+        <div class="main-section" style="background:#FFFFFF">
+            <div class="o_action o_view_controller">
+                <div class="o_cp_controller">
+                    <div class="o_control_panel">
+                        <div>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item-active">
+                                    <h2><t t-esc="widget.logger.name"/></h2>
+                                </li>
+                            </ol>
+                            <div class="o_cp_searchview">
+                                <div class="col-md-2 float-right">
+                                    <button id="btn_refresh" type="button" class="btn btn-pill btn-primary btn-sm">Refresh</button>
+                                </div>
+                                <div class="col-md-4 float-right"><input type="text" id="rangeDate"/></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="o_cp_left">
+                                <div class="o_cp_buttons" role="toolbar">
+                                    <div>
+                                        <button id="btn_config" type="button" class="btn btn-pill btn-primary">View Configuration</button>
+                                        <button id="btn_report" type="button" class="btn btn-pill btn-primary">View Logger Data</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="o_content row">
+                    <div class="col-md-12" style="margin-top:10px">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- Battery Card-->
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_battery.src }}"
+                                                             width="60px"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="numbers">
+                                                        <p>Power</p>
+                                                        <t t-esc="widget.logger.state_battery.last_value"/>
+                                                        V
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                          <div class="stats">
+                                              <div class="row">
+                                                  <div class="float-left col-sm-4 text-left">
+                                                    <small><t t-esc="widget.logger.state_battery.alarm_events"/>
+                                                        alarms</small>
+                                                  </div>
+                                                  <div class="float-right col-sm-8 text-right">
+                                                    <small><t t-esc="widget.logger.state_battery.last_date"/></small>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Battery Card-->
+
+                                <!-- Signal Card-->
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_signal.src }}"
+                                                             width="60px"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="numbers">
+                                                        <p>Signal</p>
+                                                        <t t-esc="widget.logger.state_signal.last_value"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                          <div class="stats">
+                                              <div class="row">
+                                                  <div class="float-left col-sm-4 text-left">
+                                                    <small><t t-esc="widget.logger.state_signal.alarm_events"/>
+                                                        alarms</small>
+                                                  </div>
+                                                  <div class="float-right col-sm-8 text-right">
+                                                    <small><t t-esc="widget.logger.state_signal.last_date"/></small>
+                                                  </div>
+                                              </div>
+
+
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Signal Card-->
+
+                                <!-- Temperature Card-->
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_temperature.src }}"
+                                                             width="60px"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="numbers">
+                                                        <p>Temperature</p>
+                                                        <t t-esc="widget.logger.state_temperature.last_value"/> &#8451;
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                          <div class="stats">
+                                              <div class="row">
+                                                  <div class="float-left col-sm-4 text-left">
+                                                    <small><t t-esc="widget.logger.state_temperature.alarm_events"/>
+                                                        alarms</small>
+                                                  </div>
+                                                  <div class="float-right col-sm-8 text-right">
+                                                    <small><t t-esc="widget.logger.state_temperature.last_date"/></small>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Temperature Card-->
+
+                                <!--Submerged Card-->
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/icon_over_water.png"
+                                                             width="60px"/>
+                                                        <!--                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_submerged.src }}" width="60px"/>-->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="numbers">
+                                                        <p>Submersion</p>
+                                                        <label style="font-size:20px !important">Unsubmerged</label>
+                                                        <!--                                                        <label style="font-size:20px !important"><t t-esc="widget.logger.state_submerged.last_value"/></label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                          <div class="stats">
+                                              <div class="row">
+                                                  <div class="float-left col-sm-4 text-left">
+                                                    <small><t t-esc="widget.logger.state_submerged.alarm_events"/>
+                                                        alarms</small>
+                                                  </div>
+                                                  <div class="float-right col-sm-8 text-right">
+                                                    <small><t t-esc="widget.logger.state_submerged.last_date"/></small>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Submerged Card-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-6 float-right" style="text-align:right">
+                            Last Refresh <b><span id="last_update">10-10-2019 00:00:00</span></b>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="margin-top:10px">
+                        <div id="container_logger_chart"/>
+                    </div>
+
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <t t-foreach="widget.logger.events" t-as="event">
+                                <div class="col-sm-5 col-lg-5 logger-info-cell">
+                                    <table width="100%">
+                                        <tr>
+                                            <td colspan="2" align="center" style="font-size: 12pt"><b><t t-esc="event.name"/></b></td>
+                                        </tr>
+                                        <!--                                        <tr class="border-bottom" style="font-size: 11pt">-->
+                                        <!--                                            <td colspan="2" align="center"-->
+                                        <!--                                                style="border: 0px 0px 1px 0px; border-color: #000"><b><t t-esc="logger.channel_name"/></b></td>-->
+                                        <!--                                        </tr>-->
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Last Value</td>
+                                            <td width="60%" class="value-info-cell"><span class="text-value"><t t-esc="event.last_value"/> <t
+                                                    t-esc="event.unit_name"/></span>
+                                                <br/>
+                                                <t t-esc="event.last_date"/></td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Min Value</td>
+                                            <td width="60%" class="value-info-cell"><span class="text-value"><t t-esc="event.min_value"/> <t
+                                                    t-esc="event.unit_name"/></span>
+                                                <br/>
+                                                <t t-esc="event.min_date"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="40%" class="value-info-cell">Max Value</td>
+                                            <td width="60%" class="value-info-cell"><span class="text-value"><t t-esc="event.max_value"/> <t
+                                                    t-esc="event.unit_name"/></span>
+                                                <br/>
+                                                <t t-esc="event.max_date"/></td>
+                                        </tr>
+                                        <t t-if="event.need_totalizer">
+                                            <tr>
+                                                <td width="40%" class="value-info-cell">Consumption</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <span class="text-value"><t t-esc="event.last_totalizer"/>
+                                                        m3</span>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                    <!--                    <div class="col-sm-4 col-lg-4" style="padding:10px;background: #FFFFFF">-->
+                    <!--                        <div class="row">-->
+                    <!--                            <div class="col-sm-6">-->
+                    <!--                                <h3 style="height:30px; vertical-align:middle; display: table-cell">Last Data</h3></div>-->
+                    <!--                            <div class="col-sm-6" style="text-align:right">-->
+                    <!--                                <button id="btn_act_view_data_channels" type="button" class="btn btn-link">view data</button></div>-->
+                    <!--                        </div>-->
+
+                    <!--                        &lt;!&ndash; Last Data&ndash;&gt;-->
+                    <!--                        <div id="div_last_data">-->
+                    <!--                            <table width="100%">-->
+                    <!--                                <t t-foreach="widget.logger.events" t-as="event">-->
+                    <!--                                    <tr>-->
+                    <!--                                        <td width="30%" class="info-left-cell"><t t-esc="event.name"/></td>-->
+                    <!--                                        <td width="70%" class="info-right-cell-odd"><b><t t-esc="event.last_value"/> <t t-esc="event.unit_name"/></b><br/><t t-esc="event.last_date"/></td>-->
+                    <!--                                    </tr>-->
+                    <!--                                </t>-->
+                    <!--                            </table>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+                    <!--  Event -->
+                    <!--                    <div class="col-sm-4 col-lg-4" style="padding:10px;background: #FFFFFF">-->
+                    <!--                        <div class="row">-->
+                    <!--                            <div class="col-sm-6">-->
+                    <!--                                <h3 style="height:30px; vertical-align:middle; display: table-cell">Events</h3></div>-->
+                    <!--                        </div>-->
+
+                    <!--                        <div id="div_events">-->
+                    <!--                            <table width="100%">-->
+                    <!--                                <t t-foreach="widget.logger.events" t-as="event">-->
+                    <!--                                    <tr>-->
+                    <!--                                        <td width="30%" class="info-left-cell"><t t-esc="event.name"/></td>-->
+                    <!--                                        <td width="70%" class="info-right-cell-odd">-->
+                    <!--                                            <t t-esc="event.alarm_events"/> alarm events-->
+                    <!--                                        </td>-->
+                    <!--                                    </tr>-->
+                    <!--                                </t>-->
+                    <!--                            </table>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="col-sm-4 col-lg-4" style="padding:10px;background: #FFFFFF">-->
+                    <!--                        <t t-if="widget.logger.is_totalizer">-->
+                    <!--                            <h3>Consumption</h3>-->
+                    <!--                            <div id="div_totalizers">-->
+                    <!--                                <table width="100%">-->
+                    <!--                                    <t t-foreach="widget.logger.totalizers" t-as="totalizer">-->
+                    <!--                                        <tr>-->
+                    <!--                                            <td colspan="2" class="info-left-cell" style="text-align:center !important"><t t-esc="totalizer.channel_name"/></td>-->
+                    <!--                                        </tr>-->
+                    <!--                                        <tr>-->
+                    <!--                                            <td width="30%" class="info-left-cell">Initial</td>-->
+                    <!--                                            <td width="70%" class="info-right-cell-odd">-->
+                    <!--                                                <b><t t-esc="totalizer.initial_value"/></b>-->
+                    <!--                                                <br/>-->
+                    <!--                                                <t t-esc="totalizer.initial_date"/>-->
+                    <!--                                            </td>-->
+                    <!--                                        </tr>-->
+                    <!--                                        <tr>-->
+                    <!--                                            <td width="30%" class="info-left-cell">Totalizer</td>-->
+                    <!--                                            <td width="70%" class="info-right-cell-odd">-->
+                    <!--                                                <b><t t-esc="totalizer.last_totalizer"/></b>-->
+                    <!--                                                <br/>-->
+                    <!--                                                <t t-esc="totalizer.last_date"/>-->
+                    <!--                                            </td>-->
+                    <!--                                        </tr>-->
+                    <!--                                    </t>-->
+                    <!--                                </table>-->
+                    <!--                            </div>-->
+                    <!--                        </t>-->
+
+                    <!--                    </div>-->
+                </div>
+            </div>
+            <!--            <div class="row main-section" style="padding-top: 15px">-->
+            <!--                <div>-->
+            <!--                    <div class="breadcrumb">-->
+
+            <!--                    </div>-->
+            <!--                    <div class="o_cp_searchview">-->
+            <!--                        <div>-->
+            <!--                            <div class="col-md-1" style="float:left">Period</div>-->
+            <!--                            <div class="col-md-3" style="float:left"></div>-->
+            <!--                            <div class="col-md-3 div_option" style='display:none; float:left"' >-->
+            <!--                                <select id="option">-->
+            <!--                                    <option value="all">All</option>-->
+            <!--                                    <option value="avg">Average</option>-->
+            <!--                                    <option value="sum">Total</option>-->
+            <!--                                </select>-->
+            <!--                            </div>-->
+            <!--                            <div class="col-md-5 div_period" style="float:left">-->
+            <!--                                <select id="period" class="col-md-4" style="margin-right: 10px; display:none">-->
+            <!--                                    &lt;!&ndash; <option value="all">All</option> &ndash;&gt;-->
+            <!--                                    <option value="hour">Hourly</option>-->
+            <!--                                    <option value="day">Daily</option>-->
+            <!--                                    <option value="month">Monthly</option>-->
+            <!--                                </select>-->
+
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+
+
+
+    </t>
+
+
+    <t t-name="LoggerAlarmWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

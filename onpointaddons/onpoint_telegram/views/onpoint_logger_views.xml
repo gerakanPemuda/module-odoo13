@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_onpoint_telegram_logger_form">
+            <field name="name">onpoint.telegram.logger.form</field>
+            <field name="model">onpoint.logger</field>
+            <field name="inherit_id" ref="onpoint_monitor.view_onpoint_logger_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page[@name='profile']" position="after">
+                        <page name="telegram" string="Telegram Settings">
+                            <group>
+                                <group>
+                                    <field name="telegram_group_id" attrs="{'required': ['|', ('telegram_send_alarm', '=', True), ('telegram_send_info', '=', True)]}"/>
+                                    <field name="telegram_alarm_group_id"/>
+                                    <field name="telegram_send_alarm"/>
+                                    <field name="telegram_send_info"/>
+                                    <field name="telegram_info_interval"/>
+                                    <field name="telegram_next_send"/>
+                                </group>
+                            </group>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,290 @@
+.info-left-cell {
+
+  background-color: #918e8e;
+  color: #ffffff;
+  padding: 5px;
+  text-align: right;
+  border: solid 1px #757171;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.info-right-cell-odd {
+
+  background-color: #f0ecec;
+  color: rgb(49, 48, 48);
+  padding: 5px;
+  text-align: left;
+  border: solid 1px #757171;
+  font-size: 12px;
+  font-weight: normal;
+
+}
+
+.info-right-cell-even {
+
+  background-color: #b6b3b3;
+  color: rgb(49, 48, 48);
+  padding: 5px;
+  text-align: left;
+  border: solid 1px #757171;
+  font-size: 12px;
+  font-weight: normal;
+
+}
+
+.card {
+    border-radius: 6px;
+    box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+    background-color: #FFFFFF;
+    color: #252422;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.card .card-title,
+.card .stats,
+.card .category,
+.card .description,
+.card .social-line,
+.card .actions,
+.card .card-content,
+.card .card-footer,
+.card small,
+.card a {
+    position: relative;
+}
+
+.card .card-link {
+    color: #444444;
+}
+
+.card .card-link:hover, .card .card-link:focus {
+    color: #333333;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card .card-header {
+    padding: 20px 15px 0px;
+    position: relative;
+    border-radius: 3px 3px 0 0;
+    z-index: 3;
+}
+
+.card .card-header.header-with-icon {
+    height: 150px;
+}
+
+.card .card-header img {
+    width: 100%;
+}
+
+.card .card-header .category {
+    padding: 5px 0px;
+}
+
+.card .actions {
+    padding: 10px 15px;
+}
+
+.card .more {
+    float: right;
+    z-index: 4;
+    display: block;
+    padding-top: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+
+.card .alert {
+    border-radius: 4px;
+}
+
+.card .category {
+    font-size: 14px;
+    font-weight: 400;
+    color: #9A9A9A;
+    margin-bottom: 0px;
+}
+
+.card .category i {
+    font-size: 16px;
+}
+
+.card .category.error {
+    color: #EB5E28;
+    font-size: 12px;
+}
+
+.card .card-title {
+    margin: 0;
+    color: #252422;
+    font-weight: 300;
+}
+
+.card .card-content {
+    padding: 5px 10px 5px 10px;
+}
+
+.card .card-content .card-title {
+    margin: 15px 0 10px 0;
+}
+
+.card .card-content .big-title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card .card-content .category ~ .card-title {
+    margin-top: 10px;
+}
+
+.card .card-content .description ~ .card-title {
+    margin-top: -10px;
+}
+
+.card .description {
+    font-size: 16px;
+    color: #66615b;
+}
+
+.card h6 {
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.card .card-footer {
+    padding: 10px 10px 10px;
+}
+
+.card .card-footer .social-line .btn:first-child {
+    border-radius: 0 0 0 6px;
+}
+
+.card .card-footer .social-line .btn:last-child {
+    border-radius: 0 0 6px 0;
+}
+
+.card .card-footer hr {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.card .card-footer > .form-group {
+    margin-bottom: 0;
+}
+
+.card .card-footer .footer-title {
+    padding-top: 5px;
+    display: inline-block;
+}
+
+.card .map {
+    height: 280px;
+    border-radius: 4px;
+}
+
+.card .map.map-big {
+    height: 420px;
+}
+
+.card.card-separator:after {
+    height: 100%;
+    right: -15px;
+    top: 0;
+    width: 1px;
+    background-color: #cfcfca;
+    content: "";
+    position: absolute;
+}
+
+.card .icon {
+    display: block;
+    margin: 0 auto;
+    top: 60%;
+    position: relative;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    text-align: center;
+}
+
+.card .icon i {
+    font-size: 60px;
+    padding: 18px;
+    width: 110px;
+    border: 2px solid #ccc5b9;
+    border-radius: 50%;
+    height: 110px;
+}
+
+.card .icon-big {
+    font-size: 3em;
+}
+
+.card .numbers {
+    text-align: right;
+    font-size: 1.5em;
+    font-weight:
+}
+
+.card .numbers p {
+    margin: 0;
+}
+
+.card .pull-right .label {
+    margin-top: 7px;
+}
+
+.card ul.team-members li {
+    padding: 10px 0px;
+}
+
+.card ul.team-members li:not(:last-child) {
+    border-bottom: 1px solid #F1EAE0;
+}
+
+.report-title {
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 2px solid #9E9D9D;
+    margin: 10px 0 10px 0;
+}
+
+.report-title-card {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.report-subtitle-card {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.logger-info-cell {
+    padding:5px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid #000;
+    margin: 3px;
+    /*box-shadow: 10px 10px 8px #888888;*/
+}
+
+td.value-info-cell {
+    font-size:10pt;
+    padding: 2px;
+}
+
+.text-value {
+    font-size:10pt;
+    font-weight: bold;
+}
+
+.text-remarks {
+    text-align: justify;
+    font-size: 10pt;
+    white-space: pre-line;
+}

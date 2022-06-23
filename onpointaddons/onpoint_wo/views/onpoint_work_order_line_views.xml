@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <record id="view_onpoint_work_order_line_form" model="ir.ui.view">
+            <field name="name">onpoint.work.order.line.form</field>
+            <field name="model">onpoint.work.order.line</field>
+            <field name="arch" type="xml">
+                <form string="Onpoint Work Order">
+                    <div style="padding-left:10px; padding-right:10px">
+                        <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}' readonly="1"/>
+                        <group>
+                            <group>
+                                <field name="remark" readonly="1"/>
+                                <field name="create_date"/>
+                                <field name="wo_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="duration" readonly="1"/>
+                                <field name="state_from" invisible="1"/>
+                                <field name="state_to" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Comment">
+                                <group>
+                                    <div class="o_kanban_record_bottom float-right" style="margin-right:10px">
+                                        <button class="btn btn-primary" type="object" name="add_comment" string="Add"/>
+                                    </div>
+                                    <field name="detail_ids" nolabel="1" colspan="4" widget="one2many_list">
+                                        <kanban create="false" class="oe_kanban_mobile">
+                                            <field name="comment"/>
+                                            <templates>
+                                                <t t-name="kanban-box">
+                                                    <div t-att-class="'oe_kanban_global_click'" style="border-radius:10px 10px;box-shadow: 3px 3px #888888;">
+                                                        <div class="oe_kanban_details" style="margin-left:5px;margin-right:5px;">
+                                                            <span>
+                                                                <span class="oe_module_name float-right" style="margin-right:10px;"><field name="create_date"/></span>
+                                                                <b class="oe_module_name"><field name="user_id"/></b>
+                                                                <p><field name="comment"/></p>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </templates>
+                                        </kanban>
+                                        <form>
+                                            <div>
+                                                <group colspan="4">
+                                                    <field name="comment"/>
+                                                </group>
+                                            </div>
+                                        </form>
+                                    </field>
+                                </group>
+                            </page>
+                    </notebook>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_work_order_line">
+            <field name="name">Work Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.work.order.line</field>
+            <field name="view_mode">form</field>
+            <field name="target">current</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+		</record>
+    </data>
+</odoo>

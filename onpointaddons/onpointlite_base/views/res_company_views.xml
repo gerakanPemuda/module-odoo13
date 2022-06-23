@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_company_view_form" model="ir.ui.view">
+        <field name="name">res.company.view.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='favicon']" position="after">
+                <field name="api_login"/>
+                <field name="api_password" password="True"/>
+            </xpath>
+
+            <!-- <xpath expr="//div[hasclass('settings')]" position="after">
+                <field name="app_url" string="Application" widget="url" placeholder="e.g. https://www.odoo.com"/>
+            </xpath> -->
+        </field>
+    </record>
+
+    <!-- <record id="onpoint_monitor_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'onpoint_monitor'}</field>
+    </record>
+
+    <menuitem id="onpoint_monitor_menu_configuration"
+        name="Settings"
+        parent="onpoint_monitor.menu_onpoint_config"
+        sequence="1"
+        action="onpoint_monitor_config_settings_action"
+        groups="base.group_system"/> -->
+</odoo>

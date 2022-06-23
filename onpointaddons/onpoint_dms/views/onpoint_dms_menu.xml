@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_dms_root"
+            name="Documents"
+            sequence="1"
+            web_icon="onpoint_dms,static/img/icon_dms.png"/>
+
+        	<menuitem id="menu_onpoint_dms_document" name="Document" parent="menu_onpoint_dms_root" sequence="1" action="act_onpoint_document" />
+        	<menuitem id="menu_onpoint_dms_document_category" name="Document Category" parent="menu_onpoint_dms_root" sequence="2" action="act_onpoint_document_category" />
+    </data>
+</odoo>

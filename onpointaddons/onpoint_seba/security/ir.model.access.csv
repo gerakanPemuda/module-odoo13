@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_seba_spec_user,onpoint_seba.onpoint.seba.spec user,onpoint_seba.model_onpoint_seba_spec,onpoint_monitor.group_onpoint_monitor_user,1,0,0,0
+,,,,,,,
+access_onpoint_seba_spec_admin,onpoint_seba.onpoint.seba.spec admin,onpoint_seba.model_onpoint_seba_spec,onpoint_monitor.group_onpoint_monitor_admin,1,0,0,0
+,,,,,,,
+access_onpoint_seba_spec_superadmin,onpoint_seba.onpoint.seba.spec superadmin,onpoint_seba.model_onpoint_seba_spec,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,0
+,,,,,,,

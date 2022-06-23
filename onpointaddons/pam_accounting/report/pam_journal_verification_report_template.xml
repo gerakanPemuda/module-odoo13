@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="report.paperformat" id="paperformat_pam_journal_verification_report">
+	        <field name="name">paperformat.pam.journal.verification.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Portrait</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_journal_verification_report" 
+			string="DAFTAR VERIFIKASI JURNAL" 
+			model="pam.journal.verification.report" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_journal_verification_template" 
+			file="pam_accounting.print_journal_verification_template"
+			paperformat="paperformat_pam_journal_verification_report"
+            menu="False"/>
+
+		<template id="report_journal_verification_template">
+			<t t-call="web.html_container">
+				<div class="page">
+					<div class="article">
+						<div class="row">
+							<div class="text-left col-xs-12"><strong>DAFTAR VERIFIKASI JURNAL</strong></div>
+							<div class="text-left col-xs-12" style="text-transform: uppercase;">
+								<strong>ENTRI JURNAL VOUCHER (<span t-esc="journal_type"/>)</strong></div>
+							<div class="text-left col-xs-12"><strong>Periode Tanggal : <span t-esc="start_date"/> s/d <span t-esc="end_date"/></strong></div>
+						</div>
+
+						<div class="row">
+							<div class="text-left col-xs-12"><strong>Tanggal Cetak : <span t-esc="(datetime.datetime.now() + relativedelta(hours=7)).strftime('%d/%m/%Y %H:%M:%S')"/></strong></div>
+							<div class="text-left col-xs-6"><strong>Telah Diperiksa Oleh : . . . . . . . . . . . . . . </strong></div>
+							<div class="text-left col-xs-6"><strong>Tanggal : . . . . . . . . . . . . . . . </strong></div>
+						</div>
+
+						<br/>
+						<div class="rows">
+							<!-- <div class="text-left col-xs-2" style="border-top:1px solid black;"><strong>Pembuat</strong></div> -->
+							<div class="text-left col-xs-2" style="border-top:1px solid black;"><strong>Pembuat</strong></div>
+							<div class="text-left col-xs-6" style="border-top:1px solid black;"><strong>Keterangan</strong></div>
+							<div class="text-right col-xs-2" style="border-top:1px solid black;"><strong>Debit</strong></div>
+							<div class="text-right col-xs-2" style="border-top:1px solid black;"><strong>Credit</strong></div>
+						</div>
+
+						<div class="rows">
+							<!-- <div class="text-left col-xs-2" style="border-bottom:1px solid black;"><![CDATA[&nbsp;]]></div> -->
+							<div class="text-left col-xs-2" ><strong>No. TRANSAKSI</strong></div>
+							<div class="text-left col-xs-6" ><strong>KODE NAMA PERKIRAAN</strong></div>
+							<div class="text-right col-xs-2" ><![CDATA[&nbsp;]]></div>
+							<div class="text-right col-xs-2" ><![CDATA[&nbsp;]]></div>
+						</div>
+						<div>
+							<div class="text-left col-xs-2" style="border-bottom:1px solid black;"><strong>TANGGAL</strong></div>
+							<div class="text-left col-xs-6" style="border-bottom:1px solid black;"><![CDATA[&nbsp;]]></div>
+							<div class="text-right col-xs-2" style="border-bottom:1px solid black;"><![CDATA[&nbsp;]]></div>
+							<div class="text-right col-xs-2" style="border-bottom:1px solid black;"><![CDATA[&nbsp;]]></div>
+						</div>
+						
+						<t t-set="subtotal_debit" t-value="0"/>
+						<t t-set="subtotal_credit" t-value="0"/>
+						<t t-set="total_debit" t-value="0"/>
+						<t t-set="total_credit" t-value="0"/>
+						<t t-set="before_no" t-value="0"/>
+						
+						<t t-foreach="verifs" t-as="verif">
+							<t t-if="verif[4] == 'Sub Transaksi'">
+								<div class="rows">
+									<!-- <div class="text-right col-xs-2" ><![CDATA[&nbsp;]]></div> -->
+									<!-- <div class="text-right col-xs-2" ><![CDATA[&nbsp;]]></div> -->
+									<div class="text-right col-xs-8" ><strong>SUB TRANSAKSI :</strong></div>
+									<div class="text-right col-xs-2" style="border-top:1px solid black;"><strong><t t-esc="'{0:,.2f}'.format(verif[5])"/></strong></div>
+									<div class="text-right col-xs-2" style="border-top:1px solid black;"><strong><t t-esc="'{0:,.2f}'.format(verif[6])"/></strong></div>
+								</div>
+							</t>
+							<t t-elif="verif[4] == 'Total Transaksi'">
+								<div class="rows">
+									<!-- <div class="text-right col-xs-2" ><![CDATA[&nbsp;]]></div> -->
+									<!-- <div class="text-right col-xs-2" ><![CDATA[&nbsp;]]></div> -->
+									<div class="text-right col-xs-8" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>TOTAL TRANSAKSI :</strong></div>
+									<div class="text-right col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><strong><t t-esc="'{0:,.2f}'.format(verif[5])"/></strong></div>
+									<div class="text-right col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><strong><t t-esc="'{0:,.2f}'.format(verif[6])"/></strong></div>
+								</div>
+							</t>
+							<t t-else="">
+								<t t-if="verif[0]">
+									<div class="rows">
+										<div class="text-left col-xs-2"><t t-esc="verif[7]"/></div>
+										<!-- <div class="text-left col-xs-2"><t t-esc="verif[0]"/></div> -->
+										<div class="text-left col-xs-6"><![CDATA[&nbsp;]]></div>
+										<div class="text-right col-xs-2"><![CDATA[&nbsp;]]></div>
+										<div class="text-right col-xs-2"><![CDATA[&nbsp;]]></div>
+									</div>
+									<div class="rows">
+										<!-- <div class="text-left col-xs-2"><t t-esc="verif[7]"/></div> -->
+										<div class="text-left col-xs-2"><t t-esc="verif[0]"/></div>
+										<div class="text-left col-xs-6"><t t-esc="verif[2]"/></div>
+										<div class="text-right col-xs-2"><![CDATA[&nbsp;]]></div>
+										<div class="text-right col-xs-2"><![CDATA[&nbsp;]]></div>
+									</div>
+								</t>
+								<div class="rows">
+									<!-- <div class="text-left col-xs-2"><![CDATA[&nbsp;]]></div> -->
+									<div class="text-left col-xs-2"><t t-esc="verif[1]"/></div>
+									<div class="text-left col-xs-6"><t t-esc="verif[3]"/> <t t-esc="verif[4]"/></div> 
+									<div class="text-right col-xs-2"><t t-esc="'{0:,.2f}'.format(verif[5])"/></div>
+									<div class="text-right col-xs-2"><t t-esc="'{0:,.2f}'.format(verif[6])"/></div>
+								</div>
+							</t>
+						</t>
+						
+						<br/>
+						<div class="rows">
+							<div class="text-center col-xs-6"><span t-esc="name1"/></div>
+							<div class="text-center col-xs-6">Bogor, <span t-esc="(datetime.datetime.now() + relativedelta(hours=7)).strftime('%d %B %Y')"/></div>
+						</div>
+						<div class="rows">
+							<div class="text-center col-xs-6"><span t-esc="position1"/></div>
+							<div class="text-center col-xs-6"><span t-esc="name2"/></div>
+						</div>
+						<br/>
+						<div class="rows">
+							<div class="text-center col-xs-6"><span t-esc="name_ttd1"/></div>
+							<div class="text-center col-xs-6"><span t-esc="name_ttd2"/></div>
+						</div>  
+
+					</div>
+					<div class="footer">
+			            <div class="row text-center" style="border-top: 1px solid black;">
+			                <div class="col-xs-6 text-left">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>User:</li>
+			                        <li>
+			                            <span t-esc="user.name"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span t-esc="datetime_cetak"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="col-xs-6 text-right">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>Page:</li>
+			                        <li>
+			                            <span class="page"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span class="topage"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+
+    </data>
+</odoo>

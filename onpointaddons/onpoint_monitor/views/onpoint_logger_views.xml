@@ -1,0 +1,721 @@
+<odoo>
+
+    <data>
+
+        <record id="view_onpoint_logger_tree" model="ir.ui.view">
+            <field name="name">onpoint.logger.tree</field>
+            <field name="model">onpoint.logger</field>
+            <field name="arch" type="xml">
+                <tree string="Logger">
+                    <field name="name"/>
+                    <field name="identifier"/>
+                    <field name="logger_type_id"/>
+                    <field name="dma_id"/>
+                    <field name="brand_id"/>
+                    <field name="last_data_date"/>
+                    <field name="is_still_active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_logger_form" model="ir.ui.view">
+            <field name="name">onpoint.logger.form</field>
+            <field name="model">onpoint.logger</field>
+            <field name="arch" type="xml">
+                <form string="Logger">
+                    <header style="padding:5px">
+                        <button
+                                class="oe_highlight"
+                                string="Add to Highlights"
+                                type="object"
+                                name="act_add_to_dashboard"
+                                style="margin-left:20px"
+                                attrs="{'invisible': [('is_on_dashboard', '=', True)]}"
+                        />
+
+                        <button
+                                class="oe_highlight"
+                                string="Remove from Highlights"
+                                type="object"
+                                name="act_remove_from_dashboard"
+                                style="margin-left:20px"
+                                attrs="{'invisible': [('is_on_dashboard', '=', False)]}"
+                        />
+
+                        <button
+                                class="btn btn-success"
+                                string="Enable Logger"
+                                type="object"
+                                name="act_enable_logger"
+                                style="margin-left:20px"
+                                attrs="{'invisible': [('state', '=', 'enabled')]}"
+                        />
+
+                        <button
+                                class="btn btn-danger"
+                                string="Disable Logger"
+                                type="object"
+                                name="act_disable_logger"
+                                style="margin-left:20px"
+                                attrs="{'invisible': [('state', '=', 'disabled')]}"
+                        />
+
+                        <field name="state" widget="statusbar"/>
+
+                    </header>
+
+                    <div style="padding-left:10px; padding-right:10px">
+
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="action_to_logger_value" type="object" icon="fa-pencil">
+                                <field name="count_logger_value" string="Logger Value" widget="statinfo"/>
+                            </button>
+
+                            <button
+                                    class="oe_stat_button o_res_partner_tip_opp"
+                                    name="%(act_view_logger_chart)d"
+                                    context="{'default_id': id}"
+                                    type="action"
+                                    icon="fa-chart-line">
+                                Chart
+                            </button>
+
+                        </div>
+
+                        <field name="is_on_dashboard" invisible="1"/>
+                        <field name="image_1920" widget='image' class="oe_avatar"
+                               options='{"preview_image": "image_128"}'/>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <separator string="Logger Information" colspan="2" style="margin-bottom:10px"/>
+                                <field name="identifier"/>
+                                <field name="brand_id" options="{'no_create': True, 'no_create_edit': True}"
+                                       widget="selection"/>
+                                <field name="logger_type_id"/>
+                                <field name="department_id"/>
+                                <field name="wtp_id"/>
+                                <field name="zone_id"/>
+                                <field name="dma_id"/>
+                            </group>
+                            <group>
+                                <separator string="Location and Communication" colspan="2" style="margin-bottom:10px"/>
+                                <field name="brand_owner" invisible="1"/>
+                                <field name="simcard"/>
+                                <field name="address" colspan="4"/>
+                                <field name="latitude"/>
+                                <field name="longitude"/>
+                                <field name="elevation"/>
+                                <field name="is_threshold_hourly" invisible="True"/>
+                                <field name="show_all_channels" groups="onpoint_monitor.group_onpoint_monitor_superadmin"/>
+                            </group>
+
+                        </group>
+
+                        <group col="2" colspan="4">
+                            <field name="remarks" colspan="4"/>
+                        </group>
+
+                        <notebook>
+                            <page name="channel" string="Channel">
+                                <button
+                                        class="oe_highlight oe_read_only"
+                                        string="Toggle Channels"
+                                        type="object"
+                                        name="act_toggle_channels"
+                                        style="margin-top:10px; float: right"
+                                        groups="onpoint_monitor.group_onpoint_monitor_superadmin"
+                                />
+
+                                <group>
+                                    <field name="channel_ids"
+                                           nolabel="1"
+                                           colspan="4"
+                                           widget="one2many_list"
+                                           mode="kanban"
+                                           context="{'default_brand_owner': brand_owner}">
+
+                                        <kanban>
+                                            <field name="id"/>
+                                            <field name="color"/>
+                                            <field name="name"/>
+                                            <field name="value_type_id"/>
+                                            <field name="value_unit_id"/>
+                                            <field name="value_unit_name"/>
+                                            <field name="point_id"/>
+                                            <field name="point_is_sensor"/>
+                                            <field name="last_date"/>
+                                            <field name="last_value"/>
+                                            <field name="last_value_type"/>
+                                            <field name="show_channel"/>
+                                            <templates>
+                                                <t t-if="record.show_channel.raw_value" t-name="kanban-box">
+                                                    <t t-set="color"
+                                                       t-value="kanban_color(record.color.raw_value)"/>
+<!--                                                    <t t-if="record.value_unit_id.raw_value">-->
+                                                        <div t-att-class="'oe_kanban_global_click'">
+                                                            <div class="oe_kanban_details">
+                                                                <div class="clearfix">
+                                                                    <strong class="float-left"
+                                                                            t-attf-style="color: {{ record.color.raw_value }}">
+                                                                        <field name="name"/>
+                                                                    </strong>
+                                                                    <strong class="float-right">
+                                                                        <field name="value_type_id"/>
+                                                                        <!--                                                                    <field name="point_id"/>-->
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="d-flex justify-content-center"
+                                                                     t-if="record.last_value.raw_value">
+                                                                    <span class="display-4">
+                                                                        <field name="last_value"/>
+                                                                        <field name="value_unit_id"/>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="d-flex justify-content-center"
+                                                                     t-if="record.last_value.raw_value">
+                                                                    <h2>
+                                                                        <small>
+                                                                            <field name="last_date"/>
+                                                                        </small>
+                                                                    </h2>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+<!--                                                    </t>-->
+                                                </t>
+                                            </templates>
+                                        </kanban>
+
+                                        <form>
+                                            <header>
+
+                                            </header>
+                                            <group>
+                                                <group name="bio">
+                                                    <field name="value_type_name" invisible="1"/>
+                                                    <field name="brand_owner" invisible="1"/>
+                                                    <field name="name"/>
+                                                    <field name="point_id"
+                                                           options="{'no_create': True, 'no_create_edit': True}"
+                                                           widget="selection"/>
+                                                    <field name="value_type_id"/>
+                                                    <field name="value_unit_id"
+                                                           context="{'form_view_ref': 'onpoint_monitor.view_onpoint_value_unit_popup_form', 'default_value_type_id': value_type_id}"/>
+                                                    <field name="color" widget="color"/>
+                                                    <field name="display_on_chart"/>
+                                                    <field name="show_channel" groups="onpoint_monitor.group_onpoint_monitor_superadmin"/>
+                                                    <field name="show_consumption"/>
+                                                </group>
+
+                                                <group name="bio2">
+                                                    <label for="interval_minutes"/>
+                                                    <div>
+                                                        <field name="interval_minutes" nolabel="1" widget="integer"
+                                                               class="oe_inline" style="width:50px !important"/>
+                                                        minutes
+                                                    </div>
+                                                    <field name="interval" invisible="1"/>
+                                                </group>
+                                            </group>
+
+                                            <notebook>
+                                                <page string="Threshold">
+                                                    <group name="threshold" colspan="4">
+                                                        <table class="o_list_view table table-condensed table-striped o_list_view_ungrouped"
+                                                               width="80%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="o_column_sortable" width="15%">Enabled
+                                                                    </th>
+                                                                    <th class="o_column_sortable" width="50%">Level</th>
+                                                                    <th class="o_column_sortable" width="35%">Value</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="o_data_row">
+                                                                    <td style="text-align:center">
+                                                                        <field name="overrange_enabled" nolabel="1"/>
+                                                                    </td>
+                                                                    <td>Overrange</td>
+                                                                    <td>
+                                                                        <field name="overrange_threshold" nolabel="1"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="o_data_row">
+                                                                    <td style="text-align:center">
+                                                                        <field name="hi_hi_enabled" nolabel="1"/>
+                                                                    </td>
+                                                                    <td>Hi Hi</td>
+                                                                    <td>
+                                                                        <field name="hi_hi_threshold" nolabel="1"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="o_data_row">
+                                                                    <td style="text-align:center">
+                                                                        <field name="hi_enabled" nolabel="1"/>
+                                                                    </td>
+                                                                    <td>Hi</td>
+                                                                    <td>
+                                                                        <field name="hi_threshold" nolabel="1"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="o_data_row">
+                                                                    <td style="text-align:center">
+                                                                        <field name="lo_enabled" nolabel="1"/>
+                                                                    </td>
+                                                                    <td>Lo</td>
+                                                                    <td>
+                                                                        <field name="lo_threshold" nolabel="1"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="o_data_row">
+                                                                    <td style="text-align:center">
+                                                                        <field name="lo_lo_enabled" nolabel="1"/>
+                                                                    </td>
+                                                                    <td>Lo Lo</td>
+                                                                    <td>
+                                                                        <field name="lo_lo_threshold" nolabel="1"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="o_data_row">
+                                                                    <td style="text-align:center">
+                                                                        <field name="underrange_enabled" nolabel="1"/>
+                                                                    </td>
+                                                                    <td>Underrange</td>
+                                                                    <td>
+                                                                        <field name="underrange_threshold" nolabel="1"/>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </group>
+                                                </page>
+                                                <page string="Field Verification"
+                                                      attrs="{'invisible': [('value_type_name', 'not in', ('Flow'))]}">
+                                                    <group>
+                                                        <field name="initial_ids" nolabel="1" colspan="4"
+                                                               widget="one2many_list">
+                                                            <tree editable="bottom">
+                                                                <field name="dates"/>
+                                                                <field name="initial" string="Meter Index"/>
+                                                            </tree>
+                                                        </field>
+                                                    </group>
+                                                </page>
+                                            </notebook>
+
+                                        </form>
+                                    </field>
+                                </group>
+
+                            </page>
+                            <page name="profile" string="Profile">
+                                <group>
+                                    <group>
+                                        <field name="meter_type_id"/>
+                                        <field name="meter_brand_id"/>
+                                        <field name="meter_size_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="pipe_material_id"/>
+                                        <field name="pipe_size_id"/>
+                                        <field name="valve_control_id"/>
+                                    </group>
+                                </group>
+
+                            </page>
+                            <page name="other" string="Other">
+
+                            </page>
+
+                            <!-- <page string="Threshold">
+                                <group>
+
+                                    <group>
+                                        <div class="col-md-11">
+                                            <field name="threshold_ids" nolabel="1" colspan="4" widget="one2many_list" >
+                                                <tree string="Logger" editable="bottom">
+                                                    <field name="value_type_id"/>
+                                                    <field name="min_value" />
+                                                    <field name="max_value" />
+                                                </tree>
+                                            </field>
+                                        </div>
+                                    </group>
+
+                                    <group string="Leakage">
+                                        <field name="leakage" />
+                                        <field name="leakage_interval_minutes" />
+                                        <field name="leakage_interval_days" />
+                                    </group>
+                                </group>
+                            </page> -->
+
+                            <page string="Threshold Hourly"
+                                  attrs="{'invisible': [('is_threshold_hourly', '=', False)]}">
+                                <group>
+                                    <field name="threshold_hourly_ids" nolabel="1" colspan="4" widget="one2many_list">
+                                        <tree string="Logger" editable="bottom" create="false" delete="false">
+                                            <field name="hours"/>
+                                            <field name="min_value"/>
+                                            <field name="max_value"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <!-- <div class="col-sm-3">
+                                <separator string="Channel 1"/>
+                                <group>
+                                    <field name="ch1_active" string="Active"/>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch1_active', '=', False)]}">
+                                        <label for="ch1_value_type_id" style="font-weight:bold !important"/>
+                                        <h5><field name="ch1_value_type_id" class="oe_inline" attrs="{'required': [('ch1_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch1_active', '=', False)]}">
+                                        <label for="ch1_value_unit_id" style="font-weight:bold !important" />
+                                        <h5><field name="ch1_value_unit_id" class="oe_inline" attrs="{'required': [('ch1_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch1_active', '=', False)]}">
+                                        <label for="ch1_color" style="font-weight:bold !important"/>
+                                        <h5><field name="ch1_color" widget="color" class="oe_inline" attrs="{'required': [('ch1_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                </group>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <separator string="Channel 2"/>
+                                <group>
+                                    <field name="ch2_active" string="Active"/>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch2_active', '=', False)]}">
+                                        <label for="ch2_value_type_id" style="font-weight:bold !important"/>
+                                        <h5><field name="ch2_value_type_id" class="oe_inline" attrs="{'required': [('ch2_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch2_active', '=', False)]}">
+                                        <label for="ch2_value_unit_id" style="font-weight:bold !important" />
+                                        <h5><field name="ch2_value_unit_id" class="oe_inline" attrs="{'required': [('ch2_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch2_active', '=', False)]}">
+                                        <label for="ch2_color" style="font-weight:bold !important"/>
+                                        <h5><field name="ch2_color" widget="color" class="oe_inline" attrs="{'required': [('ch2_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                </group>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <separator string="Channel 3"/>
+                                <group>
+                                    <field name="ch3_active" string="Active"/>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch3_active', '=', False)]}">
+                                        <label for="ch3_value_type_id" style="font-weight:bold !important"/>
+                                        <h5><field name="ch3_value_type_id" class="oe_inline" attrs="{'required': [('ch3_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch3_active', '=', False)]}">
+                                        <label for="ch3_value_unit_id" style="font-weight:bold !important" />
+                                        <h5><field name="ch3_value_unit_id" class="oe_inline" attrs="{'required': [('ch3_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch3_active', '=', False)]}">
+                                        <label for="ch3_color" style="font-weight:bold !important"/>
+                                        <h5><field name="ch3_color" widget="color" class="oe_inline" attrs="{'required': [('ch3_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                </group>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <separator string="Channel 4"/>
+                                <group>
+                                    <field name="ch4_active" string="Active"/>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch4_active', '=', False)]}">
+                                        <label for="ch4_value_type_id" style="font-weight:bold !important"/>
+                                        <h5><field name="ch4_value_type_id" class="oe_inline" attrs="{'required': [('ch4_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch4_active', '=', False)]}">
+                                        <label for="ch4_value_unit_id" style="font-weight:bold !important" />
+                                        <h5><field name="ch4_value_unit_id" class="oe_inline" attrs="{'required': [('ch4_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                    <div class="oe_title" colspan="4" attrs="{'invisible': [('ch4_active', '=', False)]}">
+                                        <label for="ch4_color" style="font-weight:bold !important"/>
+                                        <h5><field name="ch4_color" widget="color" class="oe_inline" attrs="{'required': [('ch4_active', '=', True)]}"/></h5>
+                                    </div>
+
+                                </group>
+                            </div>
+
+
+-->
+
+                        </notebook>
+
+
+                    </div>
+
+                    <div class="oe_chatter">
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_channel_values_form" model="ir.ui.view">
+            <field name="name">onpoint.logger.channel.form</field>
+            <field name="model">onpoint.logger.channel</field>
+            <field name="arch" type="xml">
+                <form create="false" delete="false">
+                    <group>
+                        <group>
+                            <field name="value_type_id" readonly="1"/>
+                            <field name="value_unit_id" readonly="1"/>
+                            <field name="point_id" readonly="1"/>
+                        </group>
+
+                        <notebook colspan="4">
+                            <page string="Detail">
+                                <group>
+                                    <field name="value_ids" nolabel="1" colspan="4" widget="one2many_list">
+                                        <tree editable="bottom" create="false">
+                                            <field name="dates" readonly="1"/>
+                                            <field name="channel_value" readonly="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_onpoint_logger_kanban" model="ir.ui.view">
+            <field name="name">onpoint.logger.kanban</field>
+            <field name="model">onpoint.logger</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban string="Logger" class="o_kanban_mobile">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="logger_type_id"/>
+                    <field name="logger_type_name"/>
+                    <field name="zone_id"/>
+                    <field name="dma_id"/>
+                    <field name="last_data_date"/>
+                    <field name="is_still_active"/>
+                    <field name="state"/>
+                    <field name="channel_ids"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="card-logger">
+                                <div t-attf-class="card-header #{record.state.raw_value}">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <h6>
+                                                <t t-esc="record.logger_type_name.value"/>
+                                            </h6>
+                                            <h2>
+                                                <t t-esc="record.name.value"/>
+                                            </h2>
+                                        </div>
+                                        <div class="col-md-2 logger-state">
+                                            <t t-if="record.state.raw_value == 'enabled'">
+                                                <t t-if="record.is_still_active.raw_value == true">
+                                                    <i class="fas fa-check-circle fa-2x"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <i class="fas fa-exclamation-triangle fa-2x"/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="row" style="magin: auto">
+                                        <t t-foreach="record.channel_ids.raw_value" t-as="channel">
+                                            <t t-if="channel.display_on_chart == true">
+                                                <t t-if="channel.value_unit_name">
+                                                    <div class="col-md-6" style="margin-top: 5px">
+                                                        <h6>
+                                                            <t t-if="channel.name" t-esc="channel.name"/>
+                                                            <t t-else="" t-esc="channel.value_type_name"/>
+                                                        </h6>
+                                                        <h3>
+                                                            <t t-esc="channel.last_value"/>&#160;
+                                                            <t t-esc="channel.value_unit_name"/>
+                                                        </h3>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col">
+                                            <t t-esc="record.last_data_date.value"/>
+                                        </div>
+                                        <div class="col" style="text-align: right">
+                                            <button t-attf-class="btn btn-primary #{record.state.raw_value}"
+                                                    type="action"
+                                                    name="%(act_view_logger_chart)d"
+                                                    string="View">View
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_onpoint_logger_map" model="ir.ui.view">
+            <field name="name">onpoint.logger.map</field>
+            <field name="model">onpoint.logger</field>
+            <field name="arch" type="xml">
+                <map class="oe_kanban_global_click o_res_partner_map"
+                     library="geometry"
+                     string="Map"
+                     lat="latitude"
+                     lng="longitude"
+                     create="0"
+                     colors="marker_seba:brand_owner=='seba';marker_pointorange:brand_owner=='pointorange';">
+                    <field name="id"/>
+                    <field name="brand_owner"/>
+                    <field name="latitude"/>
+                    <field name="longitude"/>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="logger_type_id"/>
+                    <field name="zone_id"/>
+                    <field name="dma_id"/>
+                    <field name="image_1920"/>
+                    <field name="channel_ids"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click oe_kanban_details">
+                                <div class="oe_kanban_details" style="margin-left:10px">
+                                    <div>
+                                        <strong class="o_kanban_record_title">
+                                            <span>
+                                                <t t-esc="record.name.value"/>
+                                            </span>
+                                        </strong>
+                                        <p>
+                                            <field name="logger_type_id"/>
+                                        </p>
+                                    </div>
+                                    <table width="200vw">
+                                        <t t-foreach="record.channel_ids.raw_value" t-as="channel">
+                                            <t t-if="channel.display_on_chart == true">
+                                                <t t-if="channel.value_unit_name">
+                                                    <tr>
+                                                        <td>
+                                                            <t t-esc="channel.name"/>
+                                                        </td>
+                                                        <td>:
+                                                            <t t-esc="channel.last_value"/>
+                                                            <t t-esc="channel.value_unit_name"/>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </table>
+                                    <div class="o_kanban_record_bottom float-right" style="margin-right:10px">
+                                        <button class="btn btn-primary" type="action" name="%(act_view_logger_chart)d"
+                                                string="View">View
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </map>
+            </field>
+        </record>
+
+        <record id="view_onpoint_logger_search" model="ir.ui.view">
+            <field name="name">onpoint.logger.search</field>
+            <field name="model">onpoint.logger</field>
+            <field name="arch" type="xml">
+                <search string="Cari Logger">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="logger_type_id"/>
+                    <field name="dma_id"/>
+                    <field name="department_id"/>
+
+                    <filter string="Enabled Logger" name="filter_enabled_logger"
+                            domain="[('state', '=', 'enabled')]"/>
+                    <filter string="Disabled Logger" name="filter_disabled_logger"
+                            domain="[('state', '=', 'disabled')]"/>
+
+                    <!--                    <filter string="Logger Type: Critical Point" name="filter_critical_point"-->
+                    <!--                            domain="[('logger_type_name', '=', 'Critical Point')]"/>-->
+                    <!--                    <filter string="Logger Type: Reservoir" name="filter_reservoir"-->
+                    <!--                            domain="[('logger_type_name', '=', 'Reservoir')]"/>-->
+                    <!--                    <filter string="Logger Type: Meter Induk" name="filter_reservoir"-->
+                    <!--                            domain="[('logger_type_name', '=', 'Meter Induk')]"/>-->
+                    <!--                    <filter string="Logger Type: Rumah Pompa" name="filter_reservoir"-->
+                    <!--                            domain="[('logger_type_name', '=', 'Rumah Pompa')]"/>-->
+                    <!--                    <filter string="Logger Type: Fountain" name="filter_reservoir"-->
+                    <!--                            domain="[('logger_type_name', '=', 'Fountain')]"/>-->
+                    <!--                    <filter string="Logger Type: Pos Clorinasi" name="filter_reservoir"-->
+                    <!--                            domain="[('logger_type_name', '=', 'Pos Clorinasi')]"/>-->
+                    <!--                    <filter string="Logger Type: RCA" name="filter_reservoir"-->
+                    <!--                            domain="[('logger_type_name', '=', 'RCA')]"/>-->
+
+                    <searchpanel>
+                        <field name="logger_type_id" string="Logger Type" icon="fa-object-group"/>
+                        <field name="dma_id" string="DMA" icon="fa-layer-group"/>
+                    </searchpanel>
+
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_logger">
+            <field name="name">Logger</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.logger</field>
+            <field name="view_mode">map,kanban,tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_filter_enabled_logger' : 1}</field>
+            <field name="search_view_id" ref="view_onpoint_logger_search"/>
+        </record>
+
+        <record id="action_onpont_logger_map" model="ir.actions.act_window.view">
+            <field eval="3" name="sequence"/>
+            <field name="view_mode">map</field>
+            <field name="view_id" ref="view_onpoint_logger_map"/>
+            <field name="act_window_id" ref="act_onpoint_logger"/>
+        </record>
+
+
+    </data>
+</odoo>

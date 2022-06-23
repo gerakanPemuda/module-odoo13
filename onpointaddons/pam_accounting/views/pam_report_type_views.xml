@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_report_type_tree" model="ir.ui.view">
+	        <field name="name">pam.report.type.tree</field>
+	        <field name="model">pam.report.type</field>
+	        <field name="arch" type="xml">
+	            <tree>
+					<field name="code"/>
+	                <field name="name"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_report_type_form" model="ir.ui.view">
+	        <field name="name">pam.report.type.form</field>
+	        <field name="model">pam.report.type</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<sheet>
+						<group col="4" colspan="2">
+							<field name="code" />
+							<field name="name" />
+
+							<notebook colspan="4">
+								<page string="Detail">
+									<group>
+										<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+											<tree editable="bottom" default_order="sequence asc">
+												<field name="code" />
+												<field name="name" />
+												<field name="coa_type"/>
+												<field name="sequence" />
+												<field name="is_show"/>
+											</tree>
+										</field>
+									</group>
+								</page>
+								<page string="TTD">
+									<group>
+										<field name="ttd_ids" nolabel="1" colspan="4" widget="one2many_list">
+											<tree editable="bottom">
+												<field name="code" />
+												<field name="name" />
+												<field name="position" />
+												<field name="name_ttd" />
+											</tree>
+										</field>
+									</group>
+								</page>
+							</notebook>
+						</group>
+		            </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+
+
+	    <record id="view_pam_report_type_search" model="ir.ui.view">
+	        <field name="name">pam.report.type.search</field>
+	        <field name="model">pam.report.type</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Tipe Laporan">
+	               <field name="name"/>
+	               <field name="code"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_report_type">
+			<field name="name">Tipe Laporan</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.report.type</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_report_type_search"/>
+		</record>
+
+    </data>
+</odoo>

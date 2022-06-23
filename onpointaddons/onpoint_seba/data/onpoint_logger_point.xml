@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="onpoint_logger_point_1" model="onpoint.logger.point">
+              <field name="name">Channel 1</field>
+              <field name="code">ch1</field>
+              <field name="owner">seba</field>
+          </record>
+        <record id="onpoint_logger_point_2" model="onpoint.logger.point">
+              <field name="name">Channel 2</field>
+              <field name="code">ch2</field>
+              <field name="owner">seba</field>
+          </record>
+        <record id="onpoint_logger_point_3" model="onpoint.logger.point">
+              <field name="name">Channel 3</field>
+              <field name="code">ch3</field>
+              <field name="owner">seba</field>
+          </record>
+        <record id="onpoint_logger_point_4" model="onpoint.logger.point">
+              <field name="name">Channel 4</field>
+              <field name="code">ch4</field>
+              <field name="owner">seba</field>
+          </record>
+    </data>
+</odoo>

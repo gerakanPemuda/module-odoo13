@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="onpoint_logger_point_101" model="onpoint.logger.point">
+              <field name="name">AI0</field>
+              <field name="code">AI0</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_102" model="onpoint.logger.point">
+              <field name="name">AI1</field>
+              <field name="code">AI1</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_103" model="onpoint.logger.point">
+              <field name="name">AI2</field>
+              <field name="code">AI2</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_104" model="onpoint.logger.point">
+              <field name="name">AI3</field>
+              <field name="code">AI3</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+
+        <record id="onpoint_logger_point_105" model="onpoint.logger.point">
+              <field name="name">Temperature</field>
+              <field name="code">AI5</field>
+              <field name="function_name"></field>
+              <field name="owner">pointorange</field>
+        </record>
+
+        <record id="onpoint_logger_point_106" model="onpoint.logger.point">
+              <field name="name">Battery Voltage</field>
+              <field name="code">AI6</field>
+              <field name="function_name"></field>
+              <field name="owner">pointorange</field>
+        </record>
+
+        <record id="onpoint_logger_point_106" model="onpoint.logger.point">
+              <field name="name">Battery Voltage</field>
+              <field name="code">AI6</field>
+              <field name="function_name"></field>
+              <field name="owner">pointorange</field>
+        </record>
+
+
+
+        <record id="onpoint_logger_point_5" model="onpoint.logger.point">
+              <field name="name">CI0/field>
+              <field name="code">CI0</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_6" model="onpoint.logger.point">
+              <field name="name">CI1</field>
+              <field name="code">CI1</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_7" model="onpoint.logger.point">
+              <field name="name">CI2</field>
+              <field name="code">CI2</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_8" model="onpoint.logger.point">
+              <field name="name">CI3</field>
+              <field name="code">CI3</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+
+        <record id="onpoint_logger_point_10" model="onpoint.logger.point">
+              <field name="name">DI0</field>
+              <field name="code">DI0</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_11" model="onpoint.logger.point">
+              <field name="name">DI1</field>
+              <field name="code">DI1</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_12" model="onpoint.logger.point">
+              <field name="name">DI2</field>
+              <field name="code">DI2</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_13" model="onpoint.logger.point">
+              <field name="name">DI3</field>
+              <field name="code">DI3</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_14" model="onpoint.logger.point">
+              <field name="name">DI4</field>
+              <field name="code">DI4</field>
+              <field name="is_sensor">True</field>
+              <field name="owner">pointorange</field>
+        </record>
+        <record id="onpoint_logger_point_15" model="onpoint.logger.point">
+              <field name="name">DI4</field>
+              <field name="code">DI4</field>
+              <field name="owner">pointorange</field>
+        </record>
+        
+        
+    </data>
+</odoo>

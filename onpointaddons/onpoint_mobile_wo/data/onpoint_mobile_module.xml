@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="onpoint_mobile_module_wo" model="onpoint.mobile.module">
+              <field name="name">Work Order</field>
+              <field name="link">mobile/wo/index</field>
+              <field name="menu_icon" type="base64" file="onpoint_mobile_wo/static/img/icon_wo.png"/>
+          </record>
+    </data>
+</odoo>

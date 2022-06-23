@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="onpoint_logger_brand_1" model="onpoint.logger.brand">
+              <field name="name">Sebalog D-3</field>
+              <field name="owner">seba</field>
+              <field name="image_1920" type="base64" file="onpoint_seba/static/src/img/profile_sebalog_d3.jpg"/>
+          </record>
+    </data>
+</odoo>

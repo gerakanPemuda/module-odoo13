@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_asset_depreciation_tree" model="ir.ui.view">
+	        <field name="name">pam.asset.depreciation.tree</field>
+	        <field name="model">pam.asset.depreciation</field>
+	        <field name="arch" type="xml">
+	            <tree>
+					<field name="name"/>
+	                <field name="use_max" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_depreciation_form" model="ir.ui.view">
+	        <field name="name">pam.asset.depreciation.form</field>
+	        <field name="model">pam.asset.depreciation</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<sheet>
+						<group col="4" colspan="2">
+							<field name="name"/>
+							<field name="use_max"/>
+						</group>
+		            </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_depreciation_search" model="ir.ui.view">
+	        <field name="name">pam.asset.depreciation.search</field>
+	        <field name="model">pam.asset.depreciation</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Asset depreciation">
+	               <field name="use_max"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_asset_depreciation">
+			<field name="name">Asset depreciation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.asset.depreciation</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_asset_depreciation_search"/>
+		</record>
+
+
+
+    </data>
+</odoo>

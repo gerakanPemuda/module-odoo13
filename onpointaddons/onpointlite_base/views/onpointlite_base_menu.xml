@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpointlite_base_root"
+                  name="Base"
+                  sequence="2"
+                  web_icon="onpointlite_base,static/img/icon_base.png"/>
+
+        <menuitem id="menu_onpointlite_database_configuration" name="Database Configuration" parent="menu_onpointlite_base_root" sequence="1"
+                  action="act_onpointlite_database_configuration"/>
+        
+    </data>
+</odoo>

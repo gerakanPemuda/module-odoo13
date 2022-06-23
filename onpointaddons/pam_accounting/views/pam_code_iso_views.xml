@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_pam_code_iso_tree" model="ir.ui.view">
+            <field name="name">pam.code.iso.tree</field>
+            <field name="model">pam.code.iso</field>
+            <field name="arch" type="xml">
+                <tree string="Kode ISO">
+                    <field name="name"/>
+                    <field name="code_iso"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pam_code_iso_form" model="ir.ui.view">
+            <field name="name">pam.code.iso.form</field>
+            <field name="model">pam.code.iso</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="code_iso"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pam_code_iso_search" model="ir.ui.view">
+            <field name="name">pam.code.iso.search</field>
+            <field name="model">pam.code.iso</field>
+            <field name="arch" type="xml">
+                <search string="Cari Persetujuan">
+                    <field name="name"/>
+                    <field name="code_iso"/>
+               </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_pam_code_iso">
+            <field name="name">Kode ISO</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pam.code.iso</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_pam_code_iso_search"/>
+        </record>
+
+    </data>
+</odoo>

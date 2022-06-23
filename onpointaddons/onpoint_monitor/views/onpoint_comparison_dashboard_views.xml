@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Client Action For Dashboard -->
+        <record id="act_onpoint_comparison_dashboard" model="ir.actions.client">
+            <field name="name">Comparison Dashboard</field>
+            <field name="tag">onpoint_monitor.comparison_dashboard</field>
+            
+            <!-- call from smart button -->
+            <field name="context">{'comparison_id': context.get('default_id') }</field>
+            
+        </record>
+
+        <template id="onpoint_monitor_comparison_dashboard_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+
+                <!-- ComparisonDashboard -->
+                <script type="text/javascript" src="/onpoint_monitor/static/src/js/onpoint_comparison_dashboard.js"/>
+
+            </xpath>
+        </template>
+    </data>
+</odoo>

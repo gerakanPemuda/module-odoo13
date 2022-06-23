@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!-- TODO: no update 1 when done -->
+    <data noupdate="1">
+        
+        
+        
+        <!--
+        
+        	 one attachment for scss variable settings 
+        	Write this file each time when we change theme settings.
+        	include this file in assets file by url.
+        	
+         -->
+        <record id="sh_back_theme_config_settings_attachment_scss_file" model="ir.attachment">
+            <field name="public" eval="True"/>
+            <field name="name">Back Theme Settings scss File</field>
+        	<field name="datas" type="base64" file="sh_back_theme_config/data/back_theme_config_main_scss.scss"></field>            
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">binary</field>
+            <field name="mimetype">text/scss</field>
+            
+            <field name="url">/sh_back_theme_config/static/src/scss/back_theme_config_main_scss.scss</field>
+        </record>   
+                
+        
+        <!-- Create back theme setting record at install time -->
+        <record id="sh_back_theme_config_rec" model="sh.back.theme.config.settings">
+            <field name="name">sh_back_theme_config_rec</field> 
+            <field name="primary_color">#3f51b5</field>
+            <field name="primary_hover">rgba(0,0,0,.1) </field>
+            <field name="primary_active">#3949ab</field>
+            <field name="login_page_style">style_1</field> 
+            <field name="login_page_background_type">bg_img</field>            			
+  			<field name="loading_gif" type="base64" file="sh_back_theme_config/static/src/img/loading/spinner.gif"/> 
+  			
+  			<field name="login_page_background_image" type="base64" file="sh_back_theme_config/static/src/img/login/login_bg.jpg"/> 
+  			<field name="login_page_banner_image" type="base64" file="sh_back_theme_config/static/src/img/login/login_banner_img.png"/>   			  			         
+
+  			<field name="body_background_image" type="base64" file="sh_back_theme_config/static/src/img/background/body_bg.jpg"/> 
+  			<field name="sidebar_background_image" type="base64" file="sh_back_theme_config/static/src/img/background/sidebar_bg.jpg"/>   			
+        
+        </record>        
+        
+        
+      
+
+             
+        
+	</data>
+		
+	
+</odoo>

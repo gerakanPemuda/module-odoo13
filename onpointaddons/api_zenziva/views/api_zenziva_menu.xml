@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_zenziva_root"
+            name="Zenziva"
+            sequence="1"/>
+
+        	<menuitem id="menu_zenziva_message" name="Message" parent="menu_zenziva_root" sequence="1" action="act_api_message"/>
+        	<menuitem id="menu_zenziva_outbox" name="Outbox" parent="menu_zenziva_root" sequence="2" action="act_zenziva_outbox"/>
+    </data>
+</odoo>

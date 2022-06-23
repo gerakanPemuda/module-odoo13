@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem
+                id="menu_onpoint_copyright"
+                name="Copyright"
+                sequence="1000"
+                web_icon="onpoint_base,static/img/icon_copyright.png"
+                action="act_view_copyright_dashboard"
+        />
+
+    </data>
+</odoo>

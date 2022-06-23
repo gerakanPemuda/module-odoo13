@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<!--Blog Page Custom -->
+	<template id="iapp_blog_post_short" inherit_id="website_blog.blog_post_short"
+		name="Blog Posts">
+		<xpath expr="//div[@id='o_wblog_blog_top']" position="replace">
+
+		</xpath>
+		<xpath expr="//t/t[@t-call='website_blog.blogs_nav']" position="replace">
+
+		</xpath>
+		<xpath
+			expr="//t[@t-call='website_blog.index']/section[@id='o_wblog_index_content']"
+			position="replace">
+
+		</xpath>
+
+		<xpath expr="//t[@t-call='website_blog.index']" position="inside">
+			<!-- breadcrumb area start -->
+			<div class="breadcrumb-area breadcrumb-bg extra">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="breadcrumb-inner">
+								<h1 class="page-title">Blog</h1>
+								<ul class="page-navigation">
+									<li>
+										<a href="/#home"> Home</a>
+									</li>
+									<li>Blog</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- breadcrumb area end -->
+			<section id="o_wblog_index_content">
+				<div class="page-content-area padding-top-120 padding-bottom-120">
+					<div class="container">
+						<div class="row">
+							<!-- No blog post yet -->
+							<div t-if="not posts and not first_post" class="col-lg-8">
+								<div class="col">
+									<h2>No blog post yet.</h2>
+									<div class="alert alert-info" groups="website.group_website_designer">
+										Click on "
+										<b>New</b>
+										" in the top-right corner to write your first blog post.
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-8" t-if="posts">
+								<!-- If posts are filtered by date or tags, show applyed filters -->
+								<div t-if="tag or date_begin" class="col-12 mb-3">
+									<div class="h4 mb-3">
+										<t t-esc="len(posts)" />
+										<t t-if="len(posts) &lt; 2">Article</t>
+										<t t-else="">Articles</t>
+									</div>
+									<t t-if="tag">
+										<!-- Show active tags with a category set -->
+										<t t-foreach="tag_category" t-as="nav_tag_category">
+											<t t-call="website_blog.tags_list">
+												<t t-set="tags" t-value="nav_tag_category.tag_ids" />
+												<t t-set="dismissibleBtn" t-value="True" />
+											</t>
+										</t>
+
+										<!-- Show active tags without a category set -->
+										<t t-call="website_blog.tags_list">
+											<t t-set="tags" t-value="other_tags" />
+											<t t-set="dismissibleBtn" t-value="True" />
+										</t>
+									</t>
+									<span t-if="date_begin"
+										class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
+										<i class="fa fa-calendar-o mr-2 text-muted" />
+										<t t-esc="date_begin" t-options="{'widget': 'date', 'format': 'MMM yyyy'}" />
+										<a t-attf-href="#{blog_url(date_begin=False, date_end=False)}"
+											class="btn border-0 py-1">×</a>
+									</span>
+									<hr class="mt-2" />
+								</div>
+								<div class="row">
+									<t t-foreach="posts" t-as="blog_post">
+
+										<div class="col-lg-6 col-md-6">
+
+											<div class="single-blog-grid-item"><!-- single blog grid item -->
+
+												<div class="thumb">
+													<t t-set="_cp" t-value="json.loads(blog_post.cover_properties)" />
+													<img t-attf-style="background-image: #{_cp.get('background-image')};"
+														height="245px" width="350px" />
+
+												</div>
+												<div class="content">
+													<ul class="post-meta">
+														<li>
+															<a href="#">
+																<span t-field="blog_post.post_date" t-options='{"format": "d MMMM, yyyy"}' />
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																by
+																<span t-field="blog_post.author_id.sudo().name" />
+															</a>
+														</li>
+													</ul>
+													<h4 class="title">
+														<a
+															t-attf-href="/blog/#{slug(blog_post.blog_id)}/post/#{slug(blog_post)}">
+															<span t-field="blog_post.name" />
+														</a>
+													</h4>
+													<a
+														t-attf-href="/blog/#{slug(blog_post.blog_id)}/post/#{slug(blog_post)}"
+														class="readmore">
+														Read More
+														<i class="fas fa-long-arrow-alt-right"></i>
+													</a>
+												</div>
+											</div><!-- //. single blog grid item -->
+										</div>
+									</t>
+
+
+									<div class="col-lg-12">
+										<div class="blog-pagination margin-top-10"><!-- blog pagination -->
+											<nav aria-label="Page navigation example">
+												<ul t-attf-class="#{ classname or '' } pagination #{_classes}"
+													t-if="pager['page_count'] > 1">
+													<t t-foreach="pager['pages']" t-as="page">
+														<li
+															t-attf-class="page-item 
+									#{'active' if page['num'] == pager['page']['num'] else ''}">
+															<a class="page-link" t-att-href="page['url']" t-raw="page['num']"></a>
+														</li>
+													</t>
+
+													<li
+														t-attf-class="page-item #{'disabled' if pager['page']['num'] == pager['page_count'] else ''}">
+														<a class="page-link"
+															t-att-href="pager['page_next']['url'] if pager['page']['num'] != pager['page_count'] 
+									else None"
+															aria-label="Next">
+															<i class="fas fa-chevron-right"></i>
+														</a>
+													</li>
+												</ul>
+											</nav>
+										</div><!-- //. blog pagination -->
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4">
+								<div class="sidebar widget-area"><!-- widget area -->
+
+									<div class="widget widget_search"><!-- widget -->
+										<h4 class="widget-title">Search</h4>
+										<form action="/blog/search_content" method="post" role="search"
+											class="search-form">
+											<div class="form-group">
+												<input type="text" name="search" class="form-control search_query"
+													placeholder="Search" />
+											</div>
+											<button class="submit-btn" type="submit">
+												<i class="fas fa-search"></i>
+											</button>
+											<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+										</form>
+									</div><!-- //. widget -->
+
+									<div class="widget widget_categories"><!-- widget -->
+										<h4 class="widget-title">Categories</h4>
+										<t t-foreach="blogs" t-as="b">
+											<ul>
+												<li class="cat-item">
+													<a t-attf-href="/blog/#{slug(b)}"
+														t-attf-class="#{(blog and b.id == blog.id) and 'active' or ''}">
+														<t t-esc="b.name" />
+													</a>
+												</li>
+
+											</ul>
+										</t>
+									</div>
+
+									<div class="widget widget_popular_posts"><!-- widget -->
+										<h4 class="widget-title">Popular Posts</h4>
+										<ul>
+											<t
+												t-foreach="request.env['blog.post'].sudo().search([('popular_blog','=',True)])"
+												t-as="blog_post">
+												<li class="single-popular-post-item"><!-- single popular post item -->
+													<div class="thumb">
+														<t t-set="_cp" t-value="json.loads(blog_post.cover_properties)" />
+														<img t-attf-style="background-image: #{_cp.get('background-image')};"
+															height="80px" width="70px" />
+													</div>
+													<div class="content">
+														<span class="time" t-field="blog_post.post_date"
+															t-options='{"format": "d MMMM, yyyy"}'></span>
+														<h4 class="title">
+															<a t-attf-href="/blog/#{slug(blog_post.blog_id)}/post/#{slug(blog_post)}">
+																<span t-field="blog_post.name" />
+															</a>
+														</h4>
+													</div>
+												</li><!-- //. single popular post item -->
+
+											</t>
+										</ul>
+									</div>
+
+									<div class="widget widget_tag_cloud"><!-- widget -->
+										<h4 class="widget-title">Tags</h4>
+										<t
+											t-foreach="request.env['blog.tag'].sudo().search([('show_tag','=',True)])"
+											t-as="i">
+											<div class="tagcloud">
+												<a href="#">
+													<t t-esc="i.name" />
+												</a>
+
+											</div>
+										</t>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</xpath>
+	</template>
+</odoo>

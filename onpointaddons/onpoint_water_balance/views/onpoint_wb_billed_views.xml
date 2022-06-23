@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_billed_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.billed.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='billed']" position="inside">
+                    <notebook>
+                        <page string="Billed Consumption">
+                            <group>
+                                <group string="Billed Metered Consumption">
+                                    <button string="Import Billed" name="action_import_billed_wizard" type="object"
+                                            class="btn btn-primary"/>
+                                    <field name="billed_meter_bulk_water"/>
+                                    <field name="billed_meter_lines" nolabel="1" colspan="2">
+                                        <tree editable="bottom">
+                                            <field name="name" string="Description"/>
+                                            <field name="quantity" string="[m3]"/>
+                                        </tree>
+                                    </field>
+                                    <field string="Total [m3]" name="billed_meter_consumption_total"/>
+                                </group>
+                                <group string="Billed Unmetered Consumption">
+                                    <field name="billed_unmeter_bulk_water"/>
+                                    <field name="billed_unmeter_lines" nolabel="1" colspan="2">
+                                        <tree editable="bottom">
+                                            <field name="name" string="Description"/>
+                                            <field name="quantity" string="[m3]"/>
+                                        </tree>
+                                    </field>
+                                    <field string="Total [m3]" name="billed_unmeter_consumption_total"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Unbilled Consumption">
+                            <group>
+                                <group string="Unbilled Meter Consumption">
+                                    <field name="unbilled_meter_bulk_water"/>
+                                    <field name="unbilled_meter_lines" nolabel="1" colspan="2">
+                                        <tree editable="bottom">
+                                            <field name="name" string="Description"/>
+                                            <field name="quantity" string="[m3]"/>
+                                        </tree>
+                                    </field>
+                                    <field name="unbilled_meter_consumption_total" string="Total [m3]"/>
+                                </group>
+                                <group string="Unbilled Unmetered Consumption">
+                                    <group colspan="2">
+                                        <field name="unbilled_unmeter_lines" nolabel="1" colspan="2">
+                                            <tree editable="bottom">
+                                                <field name="name" string="Description"/>
+                                                <field name="quantity" string="[m3]"/>
+                                                <field name="error_margin" widget="percentage"/>
+                                            </tree>
+                                        </field>
+                                        <field name="unbilled_unmeter_error_margin" widget="percentage"/>
+                                    </group>
+                                    <group colspan="2" string="Unbilled Unmetered Consumption">
+                                        <field name="unbilled_unmeter_minimum"/>
+                                        <field name="unbilled_unmeter_maximum"/>
+                                        <field name="unbilled_unmeter_best_estimate"/>
+                                    </group>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+

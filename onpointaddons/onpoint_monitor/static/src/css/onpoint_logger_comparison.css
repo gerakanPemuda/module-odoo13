@@ -1,0 +1,22 @@
+tr.border-bottom {
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+td.value-info-cell {
+    padding: 5px;
+}
+
+.text-value {
+    font-size:11pt;
+    font-weight: bold;
+}
+
+.logger-info-cell {
+    padding:10px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid #000;
+    margin: 7px;
+    box-shadow: 10px 10px 8px #888888;
+}

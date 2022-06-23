@@ -1,0 +1,37 @@
+/*
+=======================================================================
+				Chatter Sticky Start
+=======================================================================
+*/
+
+@if $is_sticky_chatter == True{
+
+@if $is_sticky_form == True {
+.o_chatter_header_container {
+        position: sticky;
+        top: 40px;
+        z-index: 1;
+        background-color: $o-list-footer-bg-color;
+ }
+ 
+
+ 
+ }
+ @else {
+.o_chatter_header_container {
+        position: sticky;
+        top: 0px !important;
+        z-index: 1;
+        background-color: $o-list-footer-bg-color;
+ }
+ 
+}
+
+
+}
+
+/*
+=======================================================================
+				Chatter Sticky End
+=======================================================================
+*/

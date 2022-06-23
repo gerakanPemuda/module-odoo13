@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_coa_tree" model="ir.ui.view">
+	        <field name="name">pam.coa.tree</field>
+	        <field name="model">pam.coa</field>
+	        <field name="arch" type="xml">
+	            <tree string="Kode Akun">
+	                <field name="code" />
+	                <field name="name" />
+	                <field name="bank_name" />
+					<field name="parent_id"/>
+	                <field name="coa_type_id" />
+	                <field name="coa_ref_id" />
+	                <field name="transactional" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_coa_form" model="ir.ui.view">
+	        <field name="name">pam.coa.form</field>
+	        <field name="model">pam.coa</field>
+	        <field name="arch" type="xml">
+	            <form string="Kode Akun">
+	            	<sheet>
+						<group>
+							<group>
+								<field name="code" />
+								<field name="name" />
+								<field name="bank_name" />
+								<field name="coa_type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+								<field name="coa_ref_id" />
+								<field name="parent_id"/>
+								<field name="transactional" />
+							</group>
+						</group>
+		            </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_coa_search" model="ir.ui.view">
+	        <field name="name">pam.coa.search</field>
+	        <field name="model">pam.coa</field>
+	        <field name="arch" type="xml">
+	            <search string="Search Coa">
+	               <field name="name"/>
+	               <field name="code"/>
+	               <field name="coa_type_id"/>
+	               <field name="coa_ref_id"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_coa">
+			<field name="name">Kode Akun</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.coa</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_coa_search"/>
+		</record>
+
+    </data>
+</odoo>

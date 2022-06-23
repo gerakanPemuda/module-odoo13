@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_modbus_root"
+            name="MM-IM"
+            sequence="3"/>
+
+            <menuitem id="menu_onpoint_mmim" parent="menu_onpoint_modbus_root" name="MM-IM" sequence="1" action="act_onpoint_mmim"/>
+
+        	<menuitem id="menu_onpoint_modbus" name="Modbus" parent="menu_onpoint_modbus_root" sequence="2" />
+                <menuitem id="menu_onpoint_modbus_comm" parent="menu_onpoint_modbus" name="Communication" sequence="2" action="act_onpoint_modbus_comm"/>
+    </data>
+</odoo>

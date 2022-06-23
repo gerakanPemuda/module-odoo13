@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_onpoint_gunung_ulin_report">
+            <field name="name">paperformat.onpoint.gunung.ulin.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">35</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">15</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report id="act_onpoint_gunung_ulin_report1"
+                string="Rekap Gunung Ulin"
+                model="onpoint.gunung.ulin.report"
+                report_type="qweb-pdf"
+                name="onpoint_scada.onpoint_gunung_ulin_report_template"
+                file="onpoint_scada.onpoint_gunung_ulin_report_template"
+                print_report_name="Report"
+                paperformat="paperformat_onpoint_gunung_ulin_report"
+                menu="False"/>
+
+        <template id="onpoint_gunung_ulin_report_template">
+            <t t-call="web.basic_layout">
+                <link rel="stylesheet" href="/onpoint_scada/static/src/css/onpoint-scada.css"/>
+
+                <div class="header">
+                    <div class="row col-12">
+                        <div class="col-6 text-left">
+                            <h4>
+                                <strong>
+                                    Rekap Gunung Ulin
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class="col-6 text-right">
+                            <h5>
+                                <strong>
+                                    <t t-esc="report['report_period']"/>
+                                </strong>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="page">
+
+                    <!--Page 1-->
+                    <p style="page-break-after:always;"/>
+                    <!--                    <div class="report-title">-->
+                    <!--                        <div class="row">-->
+                    <!--                            <div class="col-6">Rekap Gunung Ulin</div>-->
+                    <!--                            <div class="col-6 text-right">-->
+                    <!--                                tess-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <div class="container">
+                        <table style='width: 100%'>
+                            <t t-raw="report['report_qweb']"/>
+                        </table>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="row col-xs-12 text-center" style="border-top: 1px solid black;font-size: 8pt">
+                        <div class="col-6 text-left">
+                            Created by
+                            <t t-esc="user.name"/>
+                            at
+                            <t t-esc="timestamp"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            <div name="pager">
+                                Page:
+                                <span class="page"/>
+                                /
+                                <span class="topage"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

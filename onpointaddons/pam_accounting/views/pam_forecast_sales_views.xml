@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_forecast_sales_tree" model="ir.ui.view">
+	        <field name="name">pam.forecast.sales.tree</field>
+	        <field name="model">pam.forecast.sales</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="years" />
+					<field name="water_usage"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_forecast_sales_form" model="ir.ui.view">
+	        <field name="name">pam.forecast.sales.form</field>
+	        <field name="model">pam.forecast.sales</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<group>
+						<group col="4" colspan="2">
+							<field name="years" />
+							<field name="water_usage"/>
+							<field name="rate_increase"/>
+						</group>
+
+						<notebook colspan="4">
+							<page string="Sambungan">
+								<group>
+									<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom">
+											<field name="customer_classification_id" />
+											<field name="qty" />
+											<field name="water_usage" />
+											<field name="price_average" />
+										</tree>
+									</field>
+								</group>
+							</page>
+
+							<page string="Jumlah Air dijual (m3)">
+								<group>
+									<field name="amount_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree>
+											<field name="customer_classification_id" readonly="True"/>
+											<field name="month_1_amount" />
+											<field name="month_2_amount" />
+											<field name="month_3_amount" />
+											<field name="month_4_amount" />
+											<field name="month_5_amount" />
+											<field name="month_6_amount" />
+											<field name="month_7_amount" />
+											<field name="month_8_amount" />
+											<field name="month_9_amount" />
+											<field name="month_10_amount" />
+											<field name="month_11_amount" />
+											<field name="month_12_amount" />
+										</tree>
+									</field>
+								</group>
+							</page>								
+							<page string="Jumlah Air dijual (ribuan rupiah)">
+								<group>
+									<field name="sales_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree>
+											<field name="customer_classification_id" readonly="True"/>
+											<field name="month_1_sales" />
+											<field name="month_2_sales" />
+											<field name="month_3_sales" />
+											<field name="month_4_sales" />
+											<field name="month_5_sales" />
+											<field name="month_6_sales" />
+											<field name="month_7_sales" />
+											<field name="month_8_sales" />
+											<field name="month_9_sales" />
+											<field name="month_10_sales" />
+											<field name="month_11_sales" />
+											<field name="month_12_sales" />
+										</tree>
+									</field>
+								</group>
+							</page>								
+						</notebook>
+					</group>
+					<div class="oe_chatter">
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_forecast_sales_search" model="ir.ui.view">
+	        <field name="name">pam.forecast.sales.search</field>
+	        <field name="model">pam.forecast.sales</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Rencana Penjualan Air">
+	               <field name="years"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_forecast_sales">
+			<field name="name">Rencana Penjualan Air berdasarkan Klasifikasi Tarif dan Golongan Pelanggan</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.forecast.sales</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_forecast_sales_search"/>
+		</record>
+    </data>
+</odoo>

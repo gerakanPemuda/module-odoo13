@@ -1,0 +1,174 @@
+<odoo>
+    <data>
+
+        <record id="view_onpoint_mmim_tree" model="ir.ui.view">
+            <field name="name">onpoint.mmim.tree</field>
+            <field name="model">onpoint.mmim</field>
+            <field name="arch" type="xml">
+                <tree string="MM-IM">
+                    <field name="name"/>
+                    <field name="host"/>
+                    <field name="port"/>
+                    <field name="unit_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_mmim_form" model="ir.ui.view">
+            <field name="name">onpoint.mmim.form</field>
+            <field name="model">onpoint.mmim</field>
+            <field name="arch" type="xml">
+                <form string="Modbus">
+                    <sheet>
+                        <group>
+                            <group string="Connection">
+                                <field name="name"/>
+                                <field name="host"/>
+                                <field name="port"/>
+                                <field name="unit_id"/>
+                            </group>
+                        </group>
+
+                        <!--                        <group col="4" colspan="4">-->
+                        <!--                            <div>-->
+                        <!--                                <button type="object" class="btn-default" icon="fa-external-link" name="get_mmim_data"-->
+                        <!--                                        string="Get Data"/>-->
+                        <!--                                <button type="object" class="btn-default" icon="fa-external-link" name="write_data"-->
+                        <!--                                        string="Write Data"/>-->
+                        <!--                                <button type="object" class="btn-default" icon="fa-external-link" name="write_coil"-->
+                        <!--                                        string="Toggle Coil"/>-->
+                        <!--                            </div>-->
+                        <!--                        </group>-->
+
+                        <notebook>
+                            <page string="Result">
+                                <field name="line_ids">
+                                    <tree>
+                                        <field name="line_type"/>
+                                        <field name="name"/>
+                                        <field name="address"/>
+                                        <field name="last_value"/>
+                                        <field name="logger_id"/>
+                                    </tree>
+
+                                    <form>
+                                        <div class="oe_button_box"
+                                             name="button_box">
+
+                                            <button class="oe_stat_button"
+                                                    name="act_goto_mmim_value"
+                                                    type="object"
+                                                    icon="fa-file-text-o">
+                                                Data
+                                            </button>
+                                        </div>
+
+                                        <field name="coil_state" invisible="1"/>
+                                        <widget name="web_ribbon" text="ON" bg_color="bg-success"
+                                                attrs="{'invisible':['|', ('line_type', '=', 'analog'), ('coil_state','!=', True)]}"/>
+                                        <widget name="web_ribbon" text="OFF" bg_color="bg-danger"
+                                                attrs="{'invisible':['|', ('line_type', '=', 'analog'), ('coil_state','!=', False)]}"/>
+
+                                        <group>
+                                            <group string="Address">
+                                                <field name="line_type"/>
+                                                <field name="name"/>
+                                                <field name="address"/>
+                                                <field name="logger_id"
+                                                       attrs="{'invisible':[('line_type','!=', 'analog')]}"/>
+                                                <field name="logger_channel_id"
+                                                       attrs="{'invisible':[('line_type','!=', 'analog')]}"/>
+                                                <button type="object"
+                                                        class="btn-default"
+                                                        icon="fa-external-link"
+                                                        name="write_coil"
+                                                        string="Toggle Coil"
+                                                        attrs="{'invisible':[('line_type','!=', 'digital')]}"/>
+
+                                                <field name="qty" invisible="0"/>
+                                            </group>
+                                            <group string="Parameters"
+                                                   attrs="{'invisible':[('line_type','!=', 'analog')]}">
+                                                <field name="using_scalling"
+                                                       attrs="{'required':[('line_type','==', 'analog')]}"/>
+                                                <field name="divider"
+                                                       attrs="{'invisible':[('using_scalling','==', True)], 'required':[('using_scalling','==', False)]}"/>
+                                                <field name="imin"
+                                                       attrs="{'invisible':[('using_scalling','==', False)], 'required':[('line_type','==', 'analog')]}"/>
+                                                <field name="imax"
+                                                       attrs="{'invisible':[('using_scalling', '==', False)], 'required':[('line_type','==', 'analog')]}"/>
+                                                <field name="omin"
+                                                       attrs="{'invisible':[('using_scalling', '==', False)], 'required':[('line_type','==', 'analog')]}"/>
+                                                <field name="omax"
+                                                       attrs="{'invisible':[('using_scalling', '==', False)], 'required':[('line_type','==', 'analog')]}"/>
+                                            </group>
+                                        </group>
+
+                                        <group>
+                                            <group string="Data" attrs="{'invisible':[('line_type','!=', 'analog')]}">
+                                                <field name="data_write" readonly="1"/>
+                                                <field name="data_read" readonly="1"/>
+                                                <field name="result_text" readonly="1"/>
+                                            </group>
+                                            <group>
+                                                <button type="object"
+                                                        class="btn-default"
+                                                        icon="fa-external-link"
+                                                        name="write_data"
+                                                        string="Write Data"/>
+                                                <button type="object"
+                                                        class="btn-default"
+                                                        icon="fa-external-link"
+                                                        name="read_data"
+                                                        string="Get Data"/>
+                                                <button type="object"
+                                                        class="btn-default"
+                                                        icon="fa-external-link"
+                                                        name="clear_message"
+                                                        string="Clear Message"/>
+                                            </group>
+                                            <!--                            <group string="Data Coil">-->
+                                            <!--                                <field name="coil_state" widget="boolean_toggle" readonly="1"/>-->
+                                            <!--                                <label for="coil_state" string="Status"/>-->
+                                            <!--                                <div>-->
+                                            <!--                                    <t t-if="coil_state">ON</t>-->
+                                            <!--                                    <t t-else="">OFF</t>-->
+                                            <!--                                </div>-->
+                                            <!--                            </group>-->
+                                        </group>
+
+
+                                    </form>
+
+
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_onpoint_mmim_search" model="ir.ui.view">
+            <field name="name">onpoint.mmim.search</field>
+            <field name="model">onpoint.mmim</field>
+            <field name="arch" type="xml">
+                <search string="Cari MM-IM">
+                    <field name="name"/>
+                    <field name="unit_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_mmim">
+            <field name="name">MM-IM</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.mmim</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_onpoint_mmim_search"/>
+        </record>
+
+    </data>
+</odoo>

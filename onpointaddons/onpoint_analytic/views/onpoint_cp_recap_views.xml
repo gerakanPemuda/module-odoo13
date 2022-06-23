@@ -1,0 +1,82 @@
+<odoo>
+
+    <data>
+
+    	<record id="view_onpoint_cp_recap_tree" model="ir.ui.view">
+	        <field name="name">onpoint.cp.recap.tree</field>
+	        <field name="model">onpoint.cp.recap</field>
+	        <field name="arch" type="xml">
+	            <tree string="Logger">
+	                <field name="years" />
+					<field name="months" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_cp_recap_form" model="ir.ui.view">
+	        <field name="name">onpoint.cp.recap.form</field>
+	        <field name="model">onpoint.cp.recap</field>
+	        <field name="arch" type="xml">
+	            <form string="Logger">
+					<header style="padding-left:30px">
+						<button class="oe_highlight" string="Get Loggers" type="object" name="act_get_critical_points"  />
+					</header>
+
+					<div style="padding-left:10px; padding-right:10px">
+
+						<group>
+							<group>
+								<field name="years"/>
+								<field name="months"/>
+							</group>
+						</group>
+
+						<notebook>
+							<page string="Details" >
+								<group>
+									<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" >
+										<tree editable="bottom" create="false" delete="false">
+											<field name="logger_id"/>
+											<field name="pressure_0" />
+											<field name="pressure_6" />
+											<field name="pressure_12" />
+											<field name="pressure_18" />
+											<field name="threshold_max" />
+											<field name="threshold_min" />
+											<field name="alarm_freq_max" />
+											<field name="alarm_freq_min" />
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+
+
+					</div>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_cp_recap_search" model="ir.ui.view">
+	        <field name="name">onpoint.cp.recap.search</field>
+	        <field name="model">onpoint.cp.recap</field>
+	        <field name="arch" type="xml">
+	            <search string="Search Recap">
+					<field name="years"/>
+					<field name="months"/>
+	           </search>
+	        </field>
+	    </record>
+
+		<record model="ir.actions.act_window" id="act_onpoint_cp_recap">
+			<field name="name">Critical Point's Recap</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.cp.recap</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_cp_recap_search"/>
+		</record>
+
+    </data>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_asset_subtraction_tree" model="ir.ui.view">
+	        <field name="name">pam.asset.subtraction.tree</field>
+	        <field name="model">pam.asset.subtraction</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="name" />
+	                <field name="date" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_subtraction_form" model="ir.ui.view">
+	        <field name="name">pam.asset.subtraction.form</field>
+	        <field name="model">pam.asset.subtraction</field>
+	        <field name="arch" type="xml">
+	            <form string="Pengurangan Asset" colspan="2">
+ 	            	<header>
+	            		<button class="btn-default oe_highlight" string="Konfirmasi" type="object" name="to_confirm" states="draft"/>
+	            		<field name="state" widget="statusbar"/>
+	            	</header>
+	            	<sheet>
+						<group col="4" colspan="2">
+		            		<div>
+								<label for="name" />
+								<h2>
+									<field name="name" class="oe_inline" readonly="1"/>
+								</h2>
+							</div>
+		                	<group col="2">
+								<field name="date"/>
+				            </group>
+						</group>
+						<notebook colspan="4">
+							<page string="Detail Barang">
+								<group>
+									<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom">
+											<field name="code_id"/>
+											<field name="remark_id" readonly="1" force_save="1"/>
+											<field name="department_id" readonly="1" force_save="1"/>
+											<field name="remark"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+	            	</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_subtraction_search" model="ir.ui.view">
+	        <field name="name">pam.asset.subtraction.search</field>
+	        <field name="model">pam.asset.subtraction</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Asset">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_asset_subtraction">
+			<field name="name">Pengurang Asset</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.asset.subtraction</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_asset_subtraction_search"/>
+		</record>
+
+
+
+    </data>
+</odoo>

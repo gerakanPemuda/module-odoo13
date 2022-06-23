@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_system_input_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.system.input.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='system_input']" position="inside">
+                    <button name="action_system_input_wizard" string="Fill System Input" type="object"
+                            class="btn btn-primary"/>
+                    <group>
+                        <field name="system_input_line_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="wtp_id"/>
+                                <field name="zone_id"/>
+                                <field name="dma_id"/>
+                                <field name="quantity"/>
+                                <field name="error_margin" widget="percentage"/>
+                            </tree>
+                        </field>
+                        <field name="system_input_error_margin" widget="percentage"/>
+                    </group>
+                    <group string="System Input Volume [m3]">
+                        <field name="system_input_minimum"/>
+                        <field name="system_input_maximum"/>
+                        <field name="system_input_best_estimate"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_scada_sensor_parameter_tree" model="ir.ui.view">
+	        <field name="name">onpoint.scada.sensor.parameter.tree</field>
+	        <field name="model">onpoint.scada.sensor.parameter</field>
+	        <field name="arch" type="xml">
+	            <tree string="RTU" editable="bottom">
+	                <field name="unit_line_id" />
+	                <field name="parameter_id" />
+	                <field name="parameter_value" />
+	                <field name="create_date" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_scada_sensor_parameter_search" model="ir.ui.view">
+	        <field name="name">onpoint.scada.sensor.parameter.search</field>
+	        <field name="model">onpoint.scada.sensor.parameter</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Zone">
+	                <field name="unit_line_id" />
+	                <field name="parameter_id" />
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_scada_sensor_parameter">
+			<field name="name">Sensor parameter</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.scada.sensor.parameter</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_scada_sensor_parameter_search"/>
+		</record>
+
+    </data>
+</odoo>

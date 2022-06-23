@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="logger_channel_form_page">
+
+        <div class="page" data-name="logger_channel_form_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        Channel
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="block-title" style="font-size: 1.6em; font-weight: bolder">Edit Channel</div>
+
+                <form id="logger-channel-form" class="list no-hairlines-md">
+                    <input type="hidden" name="id" t-attf-value="{{channel_id}}"/>
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Type</div>
+                                    <t t-esc="channel.value_type_name"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Points</div>
+                                    <t t-esc="channel.point_id.code"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Unit</div>
+                                    <t t-esc="channel.value_unit_id.name"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Interval</div>
+                                    <div class="item-input-wrap">
+                                        <input name="interval_minutes"
+                                               type="number"
+                                               t-att-value="channel.interval_minutes"
+                                               placeholder="0"/>
+                                    </div>
+                                    <div class="item-footer">minute(s)</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Pulse</div>
+                                    <div class="item-input-wrap">
+                                        <input name="pulse"
+                                               type="number"
+                                               t-att-value="channel.pulse"
+                                               placeholder="0"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+
+                <div class="block block-strong row">
+                    <div class="col">
+                        <a class="button button-fill color-red submit-channel-data" href="#">Submit</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </template>
+
+</odoo>

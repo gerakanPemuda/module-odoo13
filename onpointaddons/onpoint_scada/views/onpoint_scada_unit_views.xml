@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_scada_unit_tree" model="ir.ui.view">
+	        <field name="name">onpoint.scada.unit.tree</field>
+	        <field name="model">onpoint.scada.unit</field>
+	        <field name="arch" type="xml">
+	            <tree string="Unit">
+	                <field name="id" />
+	                <field name="name" />
+	                <field name="sequence" />
+	                <field name="location_id" />
+	                <field name="sensor_type_id" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_scada_unit_form" model="ir.ui.view">
+	        <field name="name">onpoint.scada.unit.form</field>
+	        <field name="model">onpoint.scada.unit</field>
+	        <field name="arch" type="xml">
+	            <form string="RTU">
+					<sheet>
+						<group>
+							<group>
+	                			<field name="id" readonly="1" />
+								<field name="name" readonly="1"/>
+								<field name="location_id" />
+								<field name="sensor_type_id" />
+								<field name="sequence"/>
+							</group>
+						</group>
+
+						<!-- <notebook>
+							<page string="Sensor" >
+								<group>
+		    						<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" >
+										<tree string="Sensor" editable="bottom">
+		                					<field name="id" readonly="1"/>
+		                					<field name="name"/>
+		           				 		</tree>
+									</field>
+								</group>
+							</page>
+						</notebook> -->
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+	    <record id="view_onpoint_scada_unit_search" model="ir.ui.view">
+	        <field name="name">onpoint.scada.unit.search</field>
+	        <field name="model">onpoint.scada.unit</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Unit">
+	               <field name="name"/>
+
+                    <searchpanel>
+                        <field name="location_id" string="Location" icon="fa-object-group"/>
+                        <field name="sensor_type_id" string="Sensor" icon="fa-layer-group"/>
+                    </searchpanel>
+
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_scada_unit">
+			<field name="name">SCADA Unit</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.scada.unit</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_scada_unit_search"/>
+		</record>
+
+    </data>
+</odoo>

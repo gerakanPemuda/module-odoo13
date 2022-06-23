@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+
+        <record id="view_zenziva_outbox_tree" model="ir.ui.view">
+            <field name="name">zenziva.outbox.tree</field>
+            <field name="model">zenziva.outbox</field>
+            <field name="arch" type="xml">
+                <tree string="Outbox">
+                    <field name="message_id"/>
+                    <field name="send_to"/>
+                    <field name="message"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_zenziva_outbox_form" model="ir.ui.view">
+            <field name="name">zenziva.outbox.form</field>
+            <field name="model">zenziva.outbox</field>
+            <field name="arch" type="xml">
+                <form string="Logger Brand">
+                    <sheet>
+                        <header style="padding:5px">
+                            <button
+                                    class="oe_highlight"
+                                    string="Send SMS"
+                                    type="object"
+                                    name="send_sms"
+                                    style="margin-left:20px"
+                                    attrs="{'invisible': [('state', '!=', '-1')]}"
+                            />
+
+                            <button
+                                    class="oe_highlight"
+                                    string="Send Whatsapp"
+                                    type="object"
+                                    name="send_whatsapp"
+                                    style="margin-left:20px"
+                                    attrs="{'invisible': [('state', '!=', '1')]}"
+                            />
+
+                            <field name="state" widget="statusbar"/>
+
+                        </header>
+                        <group>
+                            <group>
+                                <field name="send_to"/>
+                                <field name="message"/>
+                            </group>
+                            <group>
+                                <field name="text_response" readonly="1"/>
+                                <field name="cost" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_zenziva_outbox_search" model="ir.ui.view">
+            <field name="name">zenziva.outbox.search</field>
+            <field name="model">zenziva.outbox</field>
+            <field name="arch" type="xml">
+                <search string="Search Zenziva Outbox">
+                    <field name="send_to"/>
+                    <field name="message"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_zenziva_outbox">
+            <field name="name">Zenziva Outbox</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">zenziva.outbox</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_zenziva_outbox_search"/>
+        </record>
+
+    </data>
+</odoo>

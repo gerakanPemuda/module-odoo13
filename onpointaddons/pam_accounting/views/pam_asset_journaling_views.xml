@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_asset_journaling" model="ir.ui.view">
+        <field name="name">pam.asset.journaling.form</field>
+        <field name="model">pam.asset.journaling</field>
+        <field name="arch" type="xml">
+            <form string="Penyusutan">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" regular_icon="fa-check-circle fa-2x" name="journaling" string="Penyusutan"/>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_asset_journaling"
+        name="Penyusutan"
+        res_model="pam.asset.journaling"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

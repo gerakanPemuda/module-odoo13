@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<odoo>
+<data noupdate="0">
+    <record model="ir.module.category" id="module_pam">
+      <field name="name">PAM Accounting Security</field>
+      <field name="description">Category Security for PAM Accounting</field>
+      <field name="sequence">1</field>
+    </record>
+
+    <record id="group_pam_accounting_user" model="res.groups">
+      <field name="name">User Akuntansi</field>
+      <field name="category_id" ref="module_pam"/>
+      <field name="implied_ids" eval="[(6, 0, [ref('base.group_user'), ])]"/>
+    </record>
+
+    <record id="group_pam_accounting_cashier" model="res.groups">
+      <field name="name">Kasir</field>
+      <field name="category_id" ref="module_pam"/>
+    </record>
+
+		<record id="group_pam_accounting_admin" model="res.groups">
+      <field name="name">Admin Akuntansi</field>
+      <field name="category_id" ref="module_pam"/>
+      <field name="implied_ids" eval="[(4, ref('group_pam_accounting_user')), (4, ref('group_pam_accounting_cashier'))]"/>
+    </record>
+
+
+    <record id="group_pam_budget_user" model="res.groups">
+      <field name="name">User Anggaran</field>
+      <field name="category_id" ref="module_pam"/>
+    </record>
+
+
+    <record id="group_pam_budget_admin" model="res.groups">
+      <field name="name">Admin Anggaran</field>
+      <field name="category_id" ref="module_pam"/>
+      <field name="implied_ids" eval="[(4, ref('group_pam_budget_user'))]"/>
+    </record>
+
+		<record id="group_pam_accounting_super_admin" model="res.groups">
+      <field name="name">Super Admin</field>
+      <field name="category_id" ref="module_pam"/>
+      <field name="implied_ids" eval="[(4, ref('group_pam_accounting_admin')), (4, ref('group_pam_budget_admin'))]"/>
+      <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+
+
+</data>
+</odoo>

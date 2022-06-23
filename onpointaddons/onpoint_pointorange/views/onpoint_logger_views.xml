@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_onpoint_pointorange_logger_form">
+            <field name="name">onpoint.pointorange.logger.form</field>
+            <field name="model">onpoint.logger</field>
+            <field name="inherit_id" ref="onpoint_monitor.view_onpoint_logger_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <header position="inside">
+                        <button
+                                class="btn btn-link"
+                                string="Get FTP - Pointorange"
+                                type="object"
+                                name="read_ftp_pointorange"
+                                style="margin-left:20px"
+                                attrs="{'invisible': [('brand_owner', '!=', 'pointorange')]}"
+                        />
+                    </header>
+
+                    <xpath expr="//button[@name='action_to_logger_value']" position="after">
+                        <button class="oe_stat_button" type="object"
+                                name="action_to_logger_alarm"
+                                icon="fa-bell">
+                            <field string="Alarm" name="count_logger_alarm" widget="statinfo"/>
+                        </button>
+                    </xpath>
+
+
+                    <xpath expr="//field[@name='dma_id']" position="after">
+                        <field name="modbus" attrs="{'invisible': [('brand_owner', '!=', 'pointorange')]}"/>
+                    </xpath>
+
+                    <xpath expr="//field[@name='modbus']" position="replace">
+                        <field name="employee_ids" widget="many2many_tags"/>
+                    </xpath>
+
+                    <xpath expr="//field[@name='channel_ids']/form/header" position="inside">
+                        <button
+                                class="oe_highlight"
+                                string="Calculate Totalizer"
+                                type="object"
+                                name="action_calculate_totalizer"
+                                style="margin-left:20px"
+                                groups="onpoint_monitor.group_onpoint_monitor_admin"
+                        />
+                        <button
+                                class="oe_highlight"
+                                string="Adjustment"
+                                type="object"
+                                name="action_read_archives_pointorange"
+                                style="margin-left:20px"
+                                groups="onpoint_monitor.group_onpoint_monitor_admin"
+                                confirm="Are you sure you want to adjust the Meter Index ?"
+                        />
+                    </xpath>
+
+
+                    <xpath expr="//field[@name='channel_ids']/form/group/group[@name='bio2']/field[@name='interval']"
+                           position="after">
+                        <field name="pulse"
+                               attrs="{'invisible': ['|', ('value_type_name', 'not in', ('Flow')), ('brand_owner', '!=', 'pointorange')]}"/>
+                        <field name="conversion"
+                               attrs="{'invisible': ['|', ('value_type_name', 'not in', ('Flow')), ('brand_owner', '!=', 'pointorange')]}"/>
+                        <field name="modbus" attrs="{'invisible': [('brand_owner', '!=', 'pointorange')]}"/>
+                        <field name="totalizer_point_id"
+                               attrs="{'invisible': [('modbus', '=', 'unavailable'), ('value_type_name', 'not in', ('Flow'))]}"/>
+                        <field name="last_totalizer" attrs="{'invisible': [('value_type_name', 'not in', ('Flow',))]}"/>
+                    </xpath>
+
+                    <xpath expr="//field[@name='channel_ids']/form/group/group[@name='bio']/field[@name='value_unit_id']"
+                           position="after">
+                        <field name="source_value_unit_id"
+                               attrs="{'invisible': [('brand_owner', '!=', 'pointorange')]}"/>
+                    </xpath>
+
+                    <xpath expr="//field[@name='channel_ids']/form/group" position="after">
+                        <group name="modbus"
+                               string="Pressure Scaling"
+                               attrs="{'invisible': 1}">
+                            <!--                               attrs="{'invisible': [('modbus', '!=', 'adam')]}">-->
+                            <group>
+                                <field name="imin" attrs="{'required': [('modbus', '==', 'adam')]}"/>
+                                <field name="imax" attrs="{'required': [('modbus', '==', 'adam')]}"/>
+                            </group>
+                            <group>
+                                <field name="omin" attrs="{'required': [('modbus', '==', 'adam')]}"/>
+                                <field name="omax" attrs="{'required': [('modbus', '==', 'adam')]}"/>
+                            </group>
+                        </group>
+                    </xpath>
+
+                    <xpath expr="//page[@name='other']" position="inside">
+                        <field name="additional_ids" nolabel="1" colspan="4" widget="one2many_list">
+                            <tree editable="bottom">
+                                <field name="logger_channel_id"/>
+                                <field name="message_on"/>
+                                <field name="message_off"/>
+                            </tree>
+                        </field>
+                    </xpath>
+
+
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_onpoint_pointorange_logger_value_tree">
+            <field name="name">onpoint.pointorange.logger.value.tree</field>
+            <field name="model">onpoint.logger.value</field>
+            <field name="inherit_id" ref="onpoint_monitor.view_onpoint_logger_value_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='channel_value']" position="after">
+                        <field name="channel_value_formatted"/>
+                    </xpath>
+                    <xpath expr="//field[@name='value_type']" position="after">
+                        <field name="alarm_sent"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_onpoint_logger_value_form" model="ir.ui.view">
+            <field name="name">onpoint.pointorange.logger.value.form</field>
+            <field name="model">onpoint.logger.value</field>
+            <field name="inherit_id" ref="onpoint_monitor.view_onpoint_logger_value_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='value_type']" position="after">
+                        <field name="alarm_sent"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

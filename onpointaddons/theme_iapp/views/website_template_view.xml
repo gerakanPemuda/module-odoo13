@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="i_app_template_custom" model="ir.ui.view">
+		<field name="name">I App</field>
+		<field name="type">qweb</field>
+		<field name="inherit_id"
+			search="[('website_id', '=', 1), ('key', '=', 'website.homepage')]" />
+
+		<field name="arch" type="xml">
+			<xpath expr="//t/t/div[@id='wrap']" position="inside">
+			</xpath>
+		</field>
+	</record>
+	<!-- web site page -->
+	<record id="homepage_i_app_template_menu_custom" model="website.page">
+		<field name="name">I App</field>
+		<field name="website_published">True</field>
+		<field name="url">/</field>
+		<field name="is_homepage">True</field>
+		<field name="view_id" ref="i_app_template_custom" />
+	</record>
+
+	<!-- create web site menu -->
+	<record id="menu_i_app" model="website.menu">
+		<field name="name">I App</field>
+		<field name="url">/</field>
+		<field name="parent_id" ref="website.main_menu" />
+		<field name="sequence" type="int">10</field>
+		<field name="page_id" ref="homepage_i_app_template_menu_custom" />
+		<field name="website_id" ref="website.default_website" />
+	</record>
+
+	<!-- Thank you -->
+	<record id="contactus-thank-you1" model="website.page">
+		<field name="name">Thank You</field>
+		<field name="type">qweb</field>
+		<field name="url">/contactus-thank-you1</field>
+		<field name="website_published">True</field>
+		<field name="is_published">True</field>
+		<field name="key">theme_iapp.contactus-thank-you1</field>
+		<field name="arch" type="xml">
+			<t name="Thank You" t-name="theme_iapp.contactus-thank-you1">
+				<t t-call="website.layout">
+					<div id="wrap">
+						<div class="oe_structure">
+							<div class="header-area header-bg-2 style-two">
+
+								<div class="container">
+									<div class="row">
+										<div class="col-12 text-center">
+											<div class="section-title  mb-60">
+											</div>
+											<h1></h1>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="success text-center">
+												<strong>
+													<h2>
+														THANK YOU FOR CONTACTING US.
+														<br />
+														WE'LL BE IN TOUCH.
+													</h2>
+												</strong>
+												<h4>YOUR ENQUERY HAS BEEN RECEIVED AND ONE OF OUR TEAM WILL
+													BE
+													CONTACTING YOU SHORTLY.ALTERNATIVELY YOU CAN ALSO REACH
+													OUR
+													HOTLINE AT: +1234567890
+												</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+		</field>
+	</record>
+	<!--end thank you -->
+</odoo>
+
+				
+				

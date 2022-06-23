@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ComparisonDashboardMain">
+        <div class="o_dashboards">
+            <div class="container-fluid o_hr_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="ComparisonDashboardContent">
+
+        <div class="row main-section">
+            <div class="col-sm-12 col-lg-12  logger_graph_view">
+                <div class="card" style="margin: 10px">
+                    <div class="card-body">
+                        <p class="stat-head" style="padding : 0px;">Logger Chart</p>
+                    </div>
+
+                    <div class="row" style="padding-left: 10px">
+                        <div class="col-md-11">
+                            <div class="col-md-1">Period : </div>
+                            <div class="col-md-3"><input type="text" id="rangeDate"/></div>
+                            <div class="col-md-3 div_option">
+                                <select id="option_comparison">
+                                    <option value="all">All</option>
+                                    <option value="avg">Average</option>
+                                    <option value="sum">Total</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5 div_period">
+                                <select id="period_comparison" class="col-md-4" style="margin-right: 10px">
+                                    <!-- <option value="all">All</option> -->
+                                    <option value="hour">Hourly</option>
+                                    <option value="day">Daily</option>
+                                    <option value="month">Monthly</option>
+                                </select>
+                                <button id="btn_refresh" type="button" class="btn btn-pill btn-primary btn-sm">Refresh</button>
+                            </div>                                
+                        </div>
+
+
+
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div id="container_comparison_chart"/>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+    </t>
+
+
+
+    <t t-name="ComparisonDashboardWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

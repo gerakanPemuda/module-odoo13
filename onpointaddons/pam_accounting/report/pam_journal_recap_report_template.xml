@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="report.paperformat" id="paperformat_pam_journal_recap_report">
+	        <field name="name">paperformat.pam.journal.recap.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Portrait</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_journal_recap_report" 
+			string="DAFTAR REKAPITULASI JURNAL" 
+			model="pam.journal.recap.report" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_journal_recap_report_template" 
+			file="pam_accounting.print_journal_recap_report_template"
+			paperformat="paperformat_pam_journal_recap_report"
+            menu="False"/>
+
+		<template id="report_journal_recap_report_template">
+			<t t-call="web.html_container">
+				<div class="page">
+					<div class="article">
+						<div class="row">
+							<div class="text-left col-xs-12"><strong>DAFTAR REKAPITULASI JURNAL</strong></div>
+							<div class="text-left col-xs-12" style="text-transform: uppercase;"><strong>ENTRI JURNAL VOUCHER (<span t-esc="journal_type"/>)</strong></div>
+							<div class="text-left col-xs-12"><strong>Periode Tanggal : <span t-esc="start_date"/> s/d <span t-esc="end_date"/></strong></div>
+						</div>
+						<div class="row">
+							<div class="text-left col-xs-12"><strong>Tanggal Cetak : <span t-esc="(datetime.datetime.now() + relativedelta(hours=7)).strftime('%d/%m/%Y %H:%M:%S')"/></strong></div>
+							<div class="text-left col-xs-6"><strong>Telah Diperiksa Oleh : . . . . . . . . . . . . . . </strong></div>
+							<div class="text-left col-xs-6"><strong>Tanggal : . . . . . . . . . . . . . . . </strong></div>
+						</div>
+
+						<br/>
+						<div class="row">
+							<div class="text-left col-xs-3" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>KODE</strong></div>
+							<div class="text-left col-xs-3" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NAMA PERKIRAAN</strong></div>
+							<div class="text-right col-xs-3" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>Debit</strong></div>
+							<div class="text-right col-xs-3" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>Credit</strong></div>
+						</div>
+						
+						<t t-set="total_debit" t-value="0"/>
+						<t t-set="total_credit" t-value="0"/>
+						<t t-foreach="recaps" t-as="recap">
+							<div class="row">
+								<div class="text-left col-xs-3"><t t-esc="recap[0]"/></div>
+								<div class="text-left col-xs-3"><t t-esc="recap[1]"/></div>
+								<div class="text-right col-xs-3"><t t-esc="'{0:,.2f}'.format(recap[2])"/></div>
+								<div class="text-right col-xs-3"><t t-esc="'{0:,.2f}'.format(recap[3])"/></div>
+							</div>
+							<t t-set="total_debit" t-value="total_debit + recap[2]"/>
+							<t t-set="total_credit" t-value="total_credit + recap[3]"/>
+							<t t-if="recap_last">
+								<div class="row">
+									<div class="text-right col-xs-6" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>TOTAL TRANSAKSI :</strong></div>
+									<div class="text-right col-xs-3" style="border-top:1px solid black;border-bottom:1px solid black;"><strong><t t-esc="'{0:,.2f}'.format(total_debit)"/></strong></div>
+									<div class="text-right col-xs-3" style="border-top:1px solid black;border-bottom:1px solid black;"><strong><t t-esc="'{0:,.2f}'.format(total_credit)"/></strong></div>
+								</div>
+							</t>
+						</t>
+
+						<br/>
+						<div class="row col-xs-12">
+							<div class="text-center col-xs-9"><span t-esc="name1"/></div>
+							<div class="text-center col-xs-3">Bogor, <span t-esc="(datetime.datetime.now() + relativedelta(hours=7)).strftime('%d %B %Y')"/></div>
+						</div>
+						<div class="row col-xs-12">
+							<div class="text-center col-xs-9"><span t-esc="position1"/></div>
+							<div class="text-center col-xs-3"><span t-esc="name2"/></div>
+						</div>
+						<br/>
+						<div class="row col-xs-12">
+							<div class="text-center col-xs-9"><span t-esc="name_ttd1"/></div>
+							<div class="text-center col-xs-3"><span t-esc="name_ttd2"/></div>
+						</div> 
+
+					</div>
+					<div class="footer">
+			            <div class="row text-center" style="border-top: 1px solid black;">
+			                <div class="col-xs-6 text-left">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>User:</li>
+			                        <li>
+			                            <span t-esc="user.name"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span t-esc="datetime_cetak"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="col-xs-6 text-right">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>Page:</li>
+			                        <li>
+			                            <span class="page"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span class="topage"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="LoggerDashboardMain">
+        <div class="o_dashboards" style="background:#000000" >
+            <div class="container-fluid o_hr_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="LoggerDashboardContent">
+
+        <div class="row main-section" style="padding-left:30px;background:#FFFFFF">
+            <div class="row main-section">
+                <div class="col-sm-9 col-lg-9 logger_graph_view">
+                    <div class="card text-color">
+                        <div class="card-body pb-0">
+                        </div>
+
+                        Tessss
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </t>
+
+
+
+    <t t-name="LoggerDashboardWarning">
+        <div>
+            <p>Error : Could not find logger</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

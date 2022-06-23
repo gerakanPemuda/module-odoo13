@@ -1,0 +1,107 @@
+/*--style-1--*/
+@if $theme_style == 'style_1'{
+.o_control_panel .o_cp_searchview .o_searchview{background-color: transparent;}
+.o_searchview .o_searchview_input_container .o_searchview_input{background-color: transparent;}
+
+@media only screen and (min-width: 1024px) and (max-width: 1035px){
+   .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 68%;}
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+   .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 60%;}
+   .o_control_panel .o_cp_searchview .o_searchview{width: 58%;}
+   .o_searchview_input_container{width: 18em;}
+   .o_searchview{margin-bottom: 0;padding-bottom: 0;}
+   .o_searchview .o_searchview_more{padding: 9px;}
+   .o_searchview_input_container{width: 18em;}
+   .o_control_panel .o_cp_right{flex: 0 0 50%;}
+}
+}
+
+
+@if $theme_style == 'style_2'{
+   .o_searchview{background-color: transparent;}
+   .o_searchview .o_searchview_input_container .o_searchview_input{background-color: transparent;}
+
+   @media only screen and (min-width: 1023px) and (max-width: 1029px){
+     .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 66%;}
+   }
+   @media only screen and (min-width: 991px) and (max-width: 1023px){
+     .o_cp_right .o_search_options{position: relative;right: 0px;margin-top: 0px;}
+   }
+   @media only screen and (min-width: 768px) and (max-width: 991px){
+      .o_searchview_input_container{width: 18em;}
+      .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 57%;}
+      .o_control_panel .o_cp_searchview .o_searchview{margin-bottom: -3px;}
+      .o_control_panel .o_cp_right{flex: 0 0 52%;}
+   }   
+   
+}
+
+@if $theme_style == 'style_3'{  
+
+  .o_searchview{background-color: transparent;}
+  .o_searchview .o_searchview_input_container .o_searchview_input{background-color: transparent;}
+  
+  
+   @media only screen and (min-width: 1023px) and (max-width: 1130px){
+     .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 66%;}
+   }
+   @media only screen and (min-width: 991px) and (max-width: 1023px){
+     .o_cp_right .o_search_options{position: relative;margin-top: 0;} 
+   }
+   @media only screen and (min-width: 768px) and (max-width: 991px){
+      .o_searchview_input_container{width: 19em;}
+      .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 60%;}
+      .o_control_panel .o_cp_searchview .o_searchview{margin-bottom: -3px;}
+      .o_control_panel .o_cp_right{flex: 0 0 50%;}
+   }
+}
+
+
+
+@if $theme_style == 'style_4'{
+
+  .o_control_panel .o_cp_searchview .o_searchview{background-color: transparent;}
+  .o_searchview .o_searchview_input_container .o_searchview_input{background-color: transparent;}
+  @media only screen and (min-width: 1023px) and (max-width: 1130px){
+     .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 73%;}
+  }    
+  @media only screen and (min-width: 768px) and (max-width: 991px){
+     .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 60%;}
+     .o_control_panel .o_cp_right{flex: 0 0 50%;}
+  } 
+}
+
+
+
+@if $theme_style == 'style_5'{
+.o_control_panel .o_cp_searchview .o_searchview{background-color: transparent;}
+.o_searchview .o_searchview_input_container .o_searchview_input{background-color: transparent;}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+ .o_control_panel .o_cp_searchview .o_searchview{padding-bottom: 0;}
+ .o_searchview .o_searchview_more{padding: 9px;}
+ .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 57%;}
+ .o_searchview_input_container{width: 18em;}
+ .o_searchview .o_searchview_input_container .o_searchview_input{padding: .4em 1em .4em .4em;}
+ .o_control_panel .o_cp_right{flex: 0 0 55%;}
+}
+}
+
+@if $theme_style == 'style_6'{
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+   .o_searchview_input_container{width: 18em;}
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+  .o_control_panel .o_cp_searchview, .o_control_panel .o_cp_right{flex: 0 0 58%;}
+  .o_control_panel .o_cp_right{flex: 0 0 55%;}
+}      
+}
+
+
+
+
+
+
+
+

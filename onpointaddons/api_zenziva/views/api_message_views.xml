@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_api_message_form" model="ir.ui.view">
+            <field name="name">api.message.form</field>
+            <field name="model">api.message</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="send_to"/>
+                                <field name="message"/>
+                            </group>
+                        </group>
+
+                        <button type="object"
+                                class="btn-default"
+                                icon="fa-external-link"
+                                name="send_message"
+                                string="Send SMS"/>
+
+                        <button type="object"
+                                class="btn-default"
+                                icon="fa-external-link"
+                                name="send_whatsapp"
+                                string="Send Whatsapp"/>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_api_message">
+            <field name="name">Message</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">api.message</field>
+            <field name="view_mode">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+    </data>
+</odoo>

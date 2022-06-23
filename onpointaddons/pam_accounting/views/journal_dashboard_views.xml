@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Client Action For Dashboard -->
+        <record id="act_journal_dashboard" model="ir.actions.client">
+            <field name="name">Journal Dashboard</field>
+            <field name="tag">pam_accounting.journal_dashboard</field>
+        </record>
+
+
+        <template id="pam_accouting_dashboard_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+
+                <!-- CSS -->
+                <link rel="stylesheet" href="/pam_accounting/static/src/css/journal_dashboard.css"/>
+                <link rel="stylesheet" href="/pam_accounting/static/src/css/pam_report_styles.css"/>
+
+                <!-- JavaScript -->
+
+                <!-- LoggerDashboard -->
+                <script type="text/javascript" src="/pam_accounting/static/src/js/journal_dashboard.js"/>
+
+            </xpath>
+        </template>
+    </data>
+</odoo>

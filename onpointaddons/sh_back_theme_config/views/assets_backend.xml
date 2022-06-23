@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sh_back_theme_config_web_assets_backend" inherit_id="web.assets_backend" name="Back Theme backend assets">
+        <xpath expr="link[last()]" position="after">
+             
+
+            <link rel="stylesheet" type="text/scss" href="/sh_back_theme_config/static/src/scss/fonts.scss"/>        
+ 			    
+ 			       
+        </xpath>
+    </template>
+    
+    
+    
+    <template id="sh_back_theme_config_assets_primary_variables" inherit_id="web._assets_primary_variables">
+        <xpath expr="//link[last()]" position="after">
+        
+        	<!-- 
+        	<link rel="stylesheet" type="text/scss" href="/sh_back_theme_config/static/src/scss/primary_variables.scss"/>
+        	 -->
+        	 
+            <!-- Attachment URL Actual file not have in static folder -->
+            <link rel="stylesheet" type="text/scss" href="/sh_back_theme_config/static/src/scss/back_theme_config_main_scss.scss"/>           	 
+        	
+        </xpath>
+    </template>    
+    
+    
+</odoo>
+    

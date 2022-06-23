@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_screen_short,access_screen_short,model_screen_short,,1,0,0,0
+access_screen_short_public,access_screen_short_public,model_screen_short,base.group_public,1,0,0,0
+access_screen_short_portal,access_screen_short_portal,model_screen_short,base.group_portal,1,0,0,0
+access_screen_short_website_designer,access_screen_short_website_designer,model_screen_short,website.group_website_designer,1,1,1,1
+access_customer_review,access_customer_review,model_customer_review,,1,0,0,0
+access_customer_review_public,access_customer_review_public,model_customer_review,base.group_public,1,0,0,0
+access_customer_review_portal,access_customer_review_portal,model_customer_review,base.group_portal,1,0,0,0
+access_customer_review_website_designer,access_customer_review_website_designer,model_customer_review,website.group_website_designer,1,1,1,1
+access_contact_us,access_contact_us,model_website_contact_info,,1,0,0,0
+access_contact_us_public,access_contact_us_public,model_website_contact_info,base.group_public,1,0,0,0
+access_contact_us_portal,access_contact_us_portal,model_website_contact_info,base.group_portal,1,0,0,0
+access_contact_us_website_designer,access_contact_us_website_designer,model_website_contact_info,website.group_website_designer,1,1,1,1

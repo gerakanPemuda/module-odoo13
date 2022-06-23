@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="OnpointMimicMain">
+        <div class="o_dashboards">
+            <div class="container-fluid o_hr_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="OnpointMimicContent">
+
+        <div class="row main-section">
+            <div class="card">
+                <div id="mimic_diagram" name="mimic_diagram" style="height:1050px">
+                    <img src="onpoint_monitor/static/src/img/mimic/reservoir_zone_x.png"
+                        style="height: 100%;
+                            position: absolute;
+                            object-fit:contain;
+                            left: 0px;
+                            top: 0px;
+                            z-index: 1;"/>        
+
+                    <div id="div_pressure" style="background-color: lightblue;border: 1px solid black;height: 37px;width: 95px;position: absolute;top: 240px;left: 580px;z-index: 11;font-size: 20px; text-align: center;">0.26 bar</div>
+                    <div id="div_flow" style="background-color: lightblue;border: 1px solid black;height: 37px;width: 95px;position: absolute;top: 279px;left: 660px;z-index: 11;font-size: 20px; text-align: center;">3.12 l/s</div>
+                    <div id="div_level" style="background-color: lightblue;border: 1px solid black;height: 35px;width: 70px;position: absolute;top: 335px;left: 370px;z-index: 11;font-size: 20px; text-align: center;">1.2 m</div>
+                    
+                    <div id="div_level_percentage" style="background-color: #33b9ea;border: 1px solid black;height: 120px;width: 560px;position: absolute;bottom: 390px;left: 340px;z-index: 0;font-size: 20px; text-align: center;"></div>
+                    
+                    <div id="div_cp1_pressure" style="background-color: lightblue;border: 1px solid black;height: 35px;width: 95px;position: absolute;top: 65px;left: 1050px;z-index: 11;font-size: 20px; text-align: center;">1.30 bar</div>
+                    <div id="div_cp2_pressure" style="background-color: lightblue;border: 1px solid black;height: 35px;width: 95px;position: absolute;top: 708px;left: 605px;z-index: 11;font-size: 20px; text-align: center;">0.57 bar</div>
+                    <div id="div_cp3_pressure" style="background-color: lightblue;border: 1px solid black;height: 35px;width: 95px;position: absolute;top: 255px;left: 230px;z-index: 11;font-size: 20px; text-align: center;">1.53 bar</div>
+
+                    <div id="div_reservoir4" style="background-color: red;height: 74px;width: 600px;position: absolute;top: 174px;left: 30px;z-index: 1;display:none"></div>
+                    <div id="div_reservoir3" style="background-color: yellow;height: 75px;width: 600px;position: absolute;top: 245px;left: 30px;z-index: 1;display:none"></div>
+                    <!-- #07A807 -->
+                    <div id="div_reservoir2" style="background-color: #07A807;height: 75px;width: 600px;position: absolute;top: 320px;left: 30px;z-index: 1;display:none"></div>
+                    <div id="div_reservoir1" style="background-color: lightgreen;height: 85px;width: 600px;position: absolute;top: 394px;left: 30px;z-index: 1;display:none"></div>
+
+                </div>
+            </div>
+        </div>
+
+    </t>
+
+
+
+    <t t-name="OnpointMimicWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

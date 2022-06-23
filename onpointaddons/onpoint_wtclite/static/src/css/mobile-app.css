@@ -1,0 +1,190 @@
+:root {
+    --f7-font-size: calc(10px + 1vw);
+    --f7-block-font-size: calc(10px + 1vw);
+    --f7-list-font-size: calc(10px + 1vw);
+}
+
+ /* width */
+.data-table::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.data-table::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.data-table::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.tabbar-custom-label {
+    font-size: 3vw !important;
+}
+
+.navbar-inner {
+    background-color: #df1429;
+    color: white;
+}
+
+.item-title {
+    font-size: 13pt !important;
+    font-weight: bold !important;
+}
+
+.profile-picture {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+.work-order-to {
+    margin: 10px 5px 0px 5px;
+    color: #353535;
+}
+
+.work-order-from {
+    margin: 10px 5px 0px 5px;
+    color : #2f4f4f;
+}
+
+.strong-text {
+    font-weight: bold;
+    font-size: 16px;
+    color: #2f4f4f;
+}
+
+.box-picture {
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+}
+
+.box-picture img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+
+.card-button {
+    background: #f6f6f6;
+}
+
+.card-button .title {
+    font-weight: 600;
+    font-size: 15px;
+    color: #2f4f4f;
+    margin-bottom: 10px;
+}
+
+.card-button img {
+    width: 40px;
+    margin-bottom: 5px;
+}
+
+.card-header-pic .card-header {
+  height: 60vw;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.card-header-pic .card-content-padding .date{
+  color: #8e8e93;
+}
+
+.journal-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 15px;
+}
+.journal-button > i {
+  width: 24px;
+  margin-right: 5px;
+}
+
+.journal-daily-card .card-header {
+    display: block;
+    padding: 10px;
+}
+
+.journal-daily-card .title {
+    float: left;
+}
+
+.journal-daily-card .action {
+    float: right;
+}
+
+.work-order-card .card-header {
+    display: block;
+    padding: 10px;
+}
+
+.work-order-card .state {
+    float: left;
+}
+
+.work-order-card .level {
+    float: right;
+}
+
+.work-order-card .card-content {
+    padding: 0 15px 5px 15px;
+}
+
+.work-order-card .row-date {
+    text-align: right;
+}
+
+.work-order-card .row-users {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.work-order-card .col-project {
+    font-weight: bolder;
+}
+
+.work-order-card .col-date {
+    text-align: right;
+}
+
+.work-order-card .row-unit {
+    font-weight: bolder;
+}
+
+.work-order-card .row-notes {
+    margin: 5px 0 5px 0;
+    text-align: justify;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.work-order-card .chip-level {
+    width: 50px;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.work-order-detail-card .title {
+    font-weight: bold;
+    float: left;
+}
+
+.work-order-detail-card .row-users {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}

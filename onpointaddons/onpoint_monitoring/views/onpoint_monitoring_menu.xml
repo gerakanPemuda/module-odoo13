@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_root" 
+            name="Monitoring" 
+            sequence="1"
+            web_icon="onpoint_monitoring,static/src/img/icon-monitoring.png"/>
+
+        	<menuitem id="menu_onpoint_dashboard" name="Dashboard" parent="menu_onpoint_root" sequence="1" action="act_onpoint_dashboard" />
+
+        	<menuitem id="menu_onpoint_logger" name="Logger" parent="menu_onpoint_root" sequence="2" action="act_onpoint_logger" />
+        	<menuitem id="menu_onpoint_comparison" name="Chart Comparison" parent="menu_onpoint_root" sequence="3" action="act_onpoint_comparison" />
+        	<menuitem id="menu_onpoint_mimic" name="Mimic Diagram" parent="menu_onpoint_root" sequence="3" action="act_onpoint_mimic" />
+        	<menuitem id="menu_onpoint_water_balance" name="Critical Point Recap" parent="menu_onpoint_root" sequence="4" action="act_onpoint_water_balance" />
+
+        	<!-- <menuitem id="menu_onpoint_logger_value_views" name="Logger Value" parent="menu_onpoint_root" sequence="2" action="act_onpoint_logger_value" /> -->
+        	
+            <menuitem id="menu_onpoint_config" name="Setup" parent="menu_onpoint_root" sequence="5"/>
+                <menuitem id="menu_onpoint_zone" parent="menu_onpoint_config" name="Zone" sequence="1" action="act_onpoint_zone"/>
+                <menuitem id="menu_onpoint_dma" parent="menu_onpoint_config" name="DMA" sequence="2" action="act_onpoint_dma"/>
+                <menuitem id="menu_onpoint_logger_type" parent="menu_onpoint_config" name="Logger Type" sequence="3" action="act_onpoint_logger_type"/>
+                <menuitem id="menu_onpoint_value_type" parent="menu_onpoint_config" name="Type" sequence="4" action="act_onpoint_value_type"/>
+                <menuitem id="menu_onpoint_value_unit" parent="menu_onpoint_config" name="Unit" sequence="5" action="act_onpoint_value_unit"/>
+                <menuitem id="menu_onpoint_seba_spec" parent="menu_onpoint_config" name="Seba Spec" sequence="6" action="act_onpoint_seba_spec"/>
+    </data>
+</odoo>

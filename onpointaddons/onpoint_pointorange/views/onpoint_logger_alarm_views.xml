@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        <record id="view_onpoint_logger_alarm_tree" model="ir.ui.view">
+            <field name="name">onpoint.logger.alarm.tree</field>
+            <field name="model">onpoint.logger.alarm</field>
+            <field name="arch" type="xml">
+                <tree string="Logger alarm">
+                    <field name="logger_id"/>
+                    <field name="channel_id"/>
+                    <field name="is_active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_logger_alarm_form" model="ir.ui.view">
+            <field name="name">onpoint.logger.alarm.form</field>
+            <field name="model">onpoint.logger.alarm</field>
+            <field name="arch" type="xml">
+                <form string="Logger alarm">
+                    <sheet>
+                        <group col="4">
+                            <field name="logger_id"/>
+                            <field name="channel_id"/>
+                            <field name="is_active"/>
+                        </group>
+                        <group>
+                            <field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+                                <tree string="Alarm" readonly="1">
+                                    <field name="alarm_date"/>
+                                    <field name="alarm_value"/>
+                                    <field name="is_active"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_onpoint_logger_alarm_search" model="ir.ui.view">
+            <field name="name">onpoint.logger.alarm.search</field>
+            <field name="model">onpoint.logger.alarm</field>
+            <field name="arch" type="xml">
+                <search string="Cari Logger alarm">
+                    <field name="logger_id"/>
+                    <field name="channel_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="act_onpoint_logger_alarm">
+            <field name="name">Logger alarm</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.logger.alarm</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{"default_is_active" : "1"}</field>
+            <field name="search_view_id" ref="view_onpoint_logger_alarm_search"/>
+        </record>
+    </data>
+</odoo>

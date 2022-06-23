@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_budget_generate_wizard" model="ir.ui.view">
+        <field name="name">pam.budget.generate.wizard.form</field>
+        <field name="model">pam.budget.generate.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <separator string="Budget Generate" colspan="4"/>
+                    <group>
+                        <label for="years"/>
+                        <div>
+                            <field name="years" nolabel="1" class="oe_inline" />
+                        </div>
+                        <label for="budget_type"/>
+                        <div>
+                            <field name="budget_type" nolabel="1" class="oe_inline" />
+                        </div>
+                    </group>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" icon="fa-external-link" name="generate_data" string="Generate"/>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_budget_generate_wizard"
+        name="Budget Generate"
+        res_model="pam.budget.generate.wizard"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

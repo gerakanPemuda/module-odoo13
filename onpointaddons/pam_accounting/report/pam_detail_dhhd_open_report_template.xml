@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="report.paperformat" id="paperformat_pam_detail_dhhd_open_report">
+	        <field name="name">paperformat.pam.detail.dhhd.open.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Landscape</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_detail_dhhd_open_report" 
+			string="Detail DHHD Terbuka" 
+			model="pam.detail.dhhd.open.report" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_detail_dhhd_open_report_template" 
+			file="pam_accounting.print_detail_dhhd_open_report_template"
+			paperformat="paperformat_pam_detail_dhhd_open_report"
+            menu="False"/>
+
+		<template id="report_detail_dhhd_open_report_template">
+			<t t-call="web.html_container">
+				<div class="page">
+					<div class="article">
+						<div class="text-center col-xs-12">
+							<t t-call="pam_accounting.report_template_style"/>
+							<span t-raw="html"/>
+						</div>
+<!-- BATAS -->
+						<div class="row">
+							<h5 class="text-center col-xs-12"><strong>DAFTAR HUTANG YANG MASIH DIBAYAR (D H H D) TERBUKA</strong></h5>
+							<h5 class="text-center col-xs-12" style="text-transform: uppercase;border-bottom:2px double black;"><strong>SAMPAI DENGAN BULAN : <span t-esc="start_date"/> s/d <span t-esc="end_date"/></strong></h5>
+						</div>
+
+						<table class="table table-bordered" style="border-color: 1px solid black;">
+							<tr>
+								<th rowspan="2">TGL</th>
+								<th rowspan="2">NO VOUCHER</th>
+								<th rowspan="2">SUPPLIER</th>
+								<th rowspan="2">KODE PERK</th>
+								<th rowspan="2">NAMA PERKIRAAN</th>
+								<th rowspan="2">JUMLAH</th>
+								<th>Hutang Usaha</th>
+								<th>Hutang Lainnya</th>
+								<th>By ymh dibayar</th>
+							</tr>
+							<tr>
+								<th>21111110</th>
+								<th>21121110</th>
+								<th>21131110</th>
+							</tr>
+							<t t-set="before_period" t-value="0"/>
+							<t t-set="before_no" t-value="0"/>
+							<t t-foreach="recaps" t-as="recap">
+								<t t-set="code" t-value="recap[4]"/>
+								<tr t-if="before_period != recap[0]">
+									<td colspan="9"><t t-esc="recap[0]"/></td>
+								</tr>
+								<tr t-if="before_no != recap[2]">
+									<td><t t-esc="recap[1]"/></td>
+									<td><t t-esc="recap[2]"/></td>
+									<td><t t-esc="recap[3]"/></td>
+									<td><t t-esc="recap[4]"/></td>
+									<td><t t-esc="recap[5]"/></td>
+									<td t-if="code not in ('21111110', '21121110', '21131110')"
+										><t t-esc="recap[6]"/>
+									</td>
+									<td t-else="">
+										0
+									</td>
+									<td><t t-esc="recap[7]"/></td>
+									<td><t t-esc="recap[8]"/></td>
+									<td><t t-esc="recap[9]"/></td>
+								</tr>
+								<tr t-else="">
+									<td></td>
+									<td></td>
+									<td></td>
+									<td><t t-esc="recap[4]"/></td>
+									<td><t t-esc="recap[5]"/></td>
+									<td t-if="code not in ('21111110', '21121110', '21131110')">
+										<t t-esc="recap[6]"/>
+									</td>
+									<td t-else="">
+										0
+									</td>
+									<td><t t-esc="recap[7]"/></td>
+									<td><t t-esc="recap[8]"/></td>
+									<td><t t-esc="recap[9]"/></td>
+								</tr>
+								<t t-set="before_period" t-value="recap[0]"/>
+								<t t-set="before_no" t-value="recap[2]"/>
+							</t>
+						</table>
+<!-- BATAS -->
+						<div class="row">
+							<div class="text-center col-xs-12"><strong>BULAN <span t-esc="months"/><![CDATA[&nbsp;]]><span t-esc="years"/></strong></div>
+						</div>
+
+						<table class="table table-bordered" style="border-color: 1px solid black;">
+							<tr>
+								<th>NO</th>
+								<th>KODE PERKIRAAN</th>
+								<th>URAIAN</th>
+								<th>DEBIT</th>
+								<th>KREDIT</th>
+								<th>TOTAL</th>
+								<th>DHHD TERBUKA</th>
+								<th>DHDH LUNAS</th>
+							</tr>
+							<t t-set="total" t-value="0"/>
+							<t t-set="total_open_dhhd" t-value="0"/>
+							<t t-set="total_paid_dhhd" t-value="0"/>
+							<t t-set="no" t-value="1"/>
+							<t t-foreach="details" t-as="detail">
+								<tr>
+									<td><t t-esc="no"/></td>
+									<td><t t-esc="detail[0]"/></td>
+									<td><t t-esc="detail[1]"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(detail[2])"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(detail[3])"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(detail[4])"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(detail[5])"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(detail[6])"/></td>
+								</tr>
+							<t t-set="no" t-value="no + 1"/>
+							<t t-set="total" t-value="total + detail[4]"/>
+							<t t-set="total_open_dhhd" t-value="total_open_dhhd + detail[5]"/>
+							<t t-set="total_paid_dhhd" t-value="total_paid_dhhd + detail[6]"/>
+							<t t-if="detail_last">
+								<tr>
+									<td><![CDATA[&nbsp;]]></td>
+									<td><![CDATA[&nbsp;]]></td>
+									<td><![CDATA[&nbsp;]]></td>
+									<td><![CDATA[&nbsp;]]></td>
+									<td>Jumlah </td>
+									<td><t t-esc="'{0:,.2f}'.format(total)"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(total_open_dhhd)"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(total_paid_dhhd)"/></td>
+								</tr>
+							</t>					
+							</t>
+						</table>
+
+						<div class="footer">
+				            <div class="row text-center" style="border-top: 1px solid black;">
+				                <div class="col-xs-6 text-left">
+				                    <ul class="list-inline" style="margin-top:10px;">
+				                        <li>User:</li>
+				                        <li>
+				                            <span t-esc="user.name"/>
+				                        </li>
+				                        <li>/</li>
+				                        <li>
+				                            <span t-esc="datetime_cetak"/>
+				                        </li>
+				                    </ul>
+				                </div>
+				                <div class="col-xs-6 text-right">
+				                    <ul class="list-inline" style="margin-top:10px;">
+				                        <li>Page:</li>
+				                        <li>
+				                            <span class="page"/>
+				                        </li>
+				                        <li>/</li>
+				                        <li>
+				                            <span class="topage"/>
+				                        </li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+
+    </data>
+</odoo>

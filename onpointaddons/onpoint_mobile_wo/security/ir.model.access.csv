@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_mobile_module_user,onpoint_mobile_base.onpoint.mobile.module user,onpoint_mobile_base.model_onpoint_mobile_module,onpoint_monitor.group_onpoint_monitor_user,1,1,1,0
+,,,,,,,
+access_onpoint_mobile_module_admin,onpoint_mobile_base.onpoint.mobile.module admin,onpoint_mobile_base.model_onpoint_mobile_module,onpoint_monitor.group_onpoint_monitor_admin,1,1,1,0
+,,,,,,,
+access_onpoint_mobile_module_superadmin,onpoint_mobile_base.onpoint.mobile.module superadmin,onpoint_mobile_base.model_onpoint_mobile_module,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1
+,,,,,,,

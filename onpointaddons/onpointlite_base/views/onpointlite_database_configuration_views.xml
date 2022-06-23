@@ -1,0 +1,39 @@
+<odoo>
+	<data>
+
+		<record id="view_onpointlite_database_configuration_tree" model="ir.ui.view">
+			<field name="name">onpointlite.database.configuration.tree</field>
+			<field name="model">onpointlite.database.configuration</field>
+			<field name="arch" type="xml">
+				<tree string="Database Configuration" default_order="name asc" editable="bottom">
+					<field name="name" />
+					<field name="url" />
+					<field name="database" />
+				</tree>
+			</field>
+		</record>
+
+	    <record id="view_onpointlite_database_configuration_search" model="ir.ui.view">
+	        <field name="name">onpointlite.database.configuration.search</field>
+	        <field name="model">onpointlite.database.configuration</field>
+	        <field name="arch" type="xml">
+	            <search string="Search Database Configuration">
+	               <field name="name"/>
+	               <field name="url"/>
+	               <field name="database"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpointlite_database_configuration">
+			<field name="name">Database Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpointlite.database.configuration</field>
+			<field name="view_mode">tree</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpointlite_database_configuration_search"/>
+		</record>
+
+	</data>
+</odoo>

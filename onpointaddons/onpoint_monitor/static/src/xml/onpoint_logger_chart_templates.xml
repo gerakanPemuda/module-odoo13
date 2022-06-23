@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="LoggerChartMain">
+        <style>
+            div.scroll {
+                margin:0px, 0px;
+                padding:0px;
+				width: 100%;
+				height: 100%;
+                overflow-x: hidden;
+                overflow-x: auto;
+            }
+        </style>
+        <div class="o_charts scroll" style="background:#FFFFFF">
+            <div class="container-fluid o_hr_chart">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="LoggerChartContent">
+
+        <div class="main-section" style="background:#FFFFFF">
+            <div class="o_action o_view_controller">
+                <div class="o_cp_controller">
+                    <div class="o_control_panel">
+                        <div>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item-active">
+                                    <h2><t t-esc="widget.logger.name"/></h2>
+                                </li>
+                            </ol>
+                            <div class="o_cp_searchview">
+                                <div class="col-md-2 col-xs-12 float-right"
+                                     style="padding-right: 0px; text-align: center;">
+                                    <button id="btn_refresh" type="button" class="btn btn-pill btn-primary btn-sm">Refresh</button>
+                                </div>
+                                <div class="col-md-3 col-xs-12 float-right">
+                                    <select id="select_hour">
+                                        <option value="00" t-att-selected="widget.logger.hour == '00'">00:00</option>
+                                        <option value="01" t-att-selected="widget.logger.hour == '01'">01:00</option>
+                                        <option value="02" t-att-selected="widget.logger.hour == '02'">02:00</option>
+                                        <option value="03" t-att-selected="widget.logger.hour == '03'">03:00</option>
+                                        <option value="04" t-att-selected="widget.logger.hour == '04'">04:00</option>
+                                        <option value="05" t-att-selected="widget.logger.hour == '05'">05:00</option>
+                                        <option value="06" t-att-selected="widget.logger.hour == '06'">06:00</option>
+                                        <option value="07" t-att-selected="widget.logger.hour == '07'">07:00</option>
+                                        <option value="08" t-att-selected="widget.logger.hour == '08'">08:00</option>
+                                        <option value="09" t-att-selected="widget.logger.hour == '09'">09:00</option>
+                                        <option value="10" t-att-selected="widget.logger.hour == '10'">10:00</option>
+                                        <option value="11" t-att-selected="widget.logger.hour == '11'">11:00</option>
+                                        <option value="12" t-att-selected="widget.logger.hour == '12'">12:00</option>
+                                        <option value="13" t-att-selected="widget.logger.hour == '13'">13:00</option>
+                                        <option value="14" t-att-selected="widget.logger.hour == '14'">14:00</option>
+                                        <option value="15" t-att-selected="widget.logger.hour == '15'">15:00</option>
+                                        <option value="16" t-att-selected="widget.logger.hour == '16'">16:00</option>
+                                        <option value="17" t-att-selected="widget.logger.hour == '17'">17:00</option>
+                                        <option value="18" t-att-selected="widget.logger.hour == '18'">18:00</option>
+                                        <option value="19" t-att-selected="widget.logger.hour == '19'">19:00</option>
+                                        <option value="20" t-att-selected="widget.logger.hour == '20'">20:00</option>
+                                        <option value="21" t-att-selected="widget.logger.hour == '21'">21:00</option>
+                                        <option value="22" t-att-selected="widget.logger.hour == '22'">22:00</option>
+                                        <option value="23" t-att-selected="widget.logger.hour == '23'">23:00</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-xs-12 float-right">
+                                    <input type="text" id="rangeDate"
+                                           t-attf-value="{{ widget.logger.period_start }} - {{ widget.logger.period_end }}"/>
+                                </div>
+                                <div class="col-md-3 col-xs-12 float-right">
+                                    <select id="select_period">
+                                        <option value="1d" t-att-selected="widget.logger.option == '1d'">1 Day</option>
+                                        <option value="3d" t-att-selected="widget.logger.option == '3d'">3 Days</option>
+                                        <option value="1w" t-att-selected="widget.logger.option == '1w'">1 Week</option>
+                                        <option value="2w"
+                                                t-att-selected="widget.logger.option == '2w'">2 Weeks</option>
+                                        <option value="1m"
+                                                t-att-selected="widget.logger.option == '1m'">1 Month</option>
+                                        <option value="2m"
+                                                t-att-selected="widget.logger.option == '2m'">2 Months</option>
+                                        <option value="custom"
+                                                t-att-selected="widget.logger.option == 'custom'">Custom</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="o_cp_left">
+                                <div class="o_cp_buttons" role="toolbar">
+                                    <div>
+                                        <button id="btn_config" type="button" class="btn btn-pill btn-primary">View Configuration</button>
+                                        <button id="btn_report" type="button" class="btn btn-pill btn-primary">View Logger Data</button>
+                                        <button id="btn_print" type="button" class="btn btn-pill btn-primary">Print Result</button>
+                                        <input type="text" id="interval" value="default" style="display:none"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_cp_searchview" style="margin-top: 10px; text-align: center;">
+                                <label class="toggle float-right" for="auto_refresh">
+                                    Auto Refresh
+                                    <input type="checkbox" class="toggle__input" id="auto_refresh"/>
+                                    <span class="toggle-track" style="margin-left: 10px;">
+                                        <span class="toggle-indicator">
+                                            <!-- 	This check mark is optional	 -->
+                                            <span class="checkMark">
+                                                <svg viewBox="0 0 24 24" id="ghq-svg-check" role="presentation"
+                                                     aria-hidden="false">
+                                                    <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <!--                                <button id="btn_auto_refresh" type="button" class="btn btn-pill btn-primary">Auto Refresh</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="o_content row">
+                    <div class="col-md-12" style="margin-top:10px">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- Battery Card-->
+                                <div id="card_power" class="col-lg-3 col-sm-6" style="cursor: pointer">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_battery.src }}"
+                                                             width="60px"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="numbers">
+                                                        <p>Power</p>
+                                                        <t t-esc="widget.logger.state_battery.last_value"/>
+                                                        V
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                          <div class="stats">
+                                              <div class="row">
+                                                  <div class="float-left col-sm-4 text-left">
+                                                    <small><t t-esc="widget.logger.state_battery.alarm_events"/>
+                                                        alarms</small>
+                                                  </div>
+                                                  <div class="float-right col-sm-8 text-right">
+                                                    <small><t t-esc="widget.logger.state_battery.last_date"/></small>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Battery Card-->
+
+                                <!-- Signal Card-->
+                                <div id="card_signal" class="col-lg-3 col-sm-6" style="cursor: pointer">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_signal.src }}"
+                                                             width="60px"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="numbers">
+                                                        <p>Signal</p>
+                                                        <t t-esc="widget.logger.state_signal.last_value"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                          <div class="stats">
+                                              <div class="row">
+                                                  <div class="float-left col-sm-4 text-left">
+                                                    <small><t t-esc="widget.logger.state_signal.alarm_events"/>
+                                                        alarms</small>
+                                                  </div>
+                                                  <div class="float-right col-sm-8 text-right">
+                                                    <small><t t-esc="widget.logger.state_signal.last_date"/></small>
+                                                  </div>
+                                              </div>
+
+
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Signal Card-->
+
+                                <!-- Temperature Card-->
+                                <div id="card_temperature" class="col-lg-3 col-sm-6" style="cursor: pointer">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_temperature.src }}"
+                                                             width="60px"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="numbers">
+                                                        <p>Temperature</p>
+                                                        <t t-esc="widget.logger.state_temperature.last_value"/> &#8451;
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                          <div class="stats">
+                                              <div class="row">
+                                                  <div class="float-left col-sm-4 text-left">
+                                                    <small><t t-esc="widget.logger.state_temperature.alarm_events"/>
+                                                        alarms</small>
+                                                  </div>
+                                                  <div class="float-right col-sm-8 text-right">
+                                                    <small><t t-esc="widget.logger.state_temperature.last_date"/></small>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Temperature Card-->
+
+                                <!--Submerged Card-->
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/icon_over_water.png"
+                                                             width="60px"/>
+                                                        <!--                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_submerged.src }}" width="60px"/>-->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="numbers">
+                                                        <p>Submersion</p>
+                                                        <label style="font-size:20px !important">Unsubmerged</label>
+                                                        <!--                                                        <label style="font-size:20px !important"><t t-esc="widget.logger.state_submerged.last_value"/></label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                          <div class="stats">
+                                              <div class="row">
+                                                  <div class="float-left col-sm-4 text-left">
+                                                    <small><t t-esc="widget.logger.state_submerged.alarm_events"/>
+                                                        alarms</small>
+                                                  </div>
+                                                  <div class="float-right col-sm-8 text-right">
+                                                    <small><t t-esc="widget.logger.state_submerged.last_date"/></small>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Submerged Card-->
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="padding-bottom: 10px">
+                        <span id="label-consumption" style="font-weight: bolder; font-size: larger">Consumption :</span>
+                        <div id="div_flow_channels" style="padding: inherit"/>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-6 float-left" style="text-align:left">
+                            <a id="back_to_logger" href="#" style="display:none">Back to Logger's Data</a>
+                        </div>
+                        <div class="col-md-6 float-right" style="text-align:right">
+                            Last Refresh <b><span id="last_update">10-10-2019 00:00:00</span></b>
+                        </div>
+                    </div>
+
+                    <div id="div_logger" class="col-md-12" style="margin-top:10px">
+                        <div id="container_logger_chart"/>
+                        <div id="logger_channel_info" class="container">
+                            <div class="row justify-content-md-center">
+                                <t t-foreach="widget.logger.events" t-as="event">
+                                    <div class="col-sm-5 col-lg-5 logger-info-cell">
+                                        <table width="100%">
+                                            <tr>
+                                                <td colspan="2" align="center"
+                                                    style="font-size: 12pt"><b><t t-esc="event.name"/></b></td>
+                                            </tr>
+                                            <!--                                        <tr class="border-bottom" style="font-size: 11pt">-->
+                                            <!--                                            <td colspan="2" align="center"-->
+                                            <!--                                                style="border: 0px 0px 1px 0px; border-color: #000"><b><t t-esc="logger.channel_name"/></b></td>-->
+                                            <!--                                        </tr>-->
+                                            <tr class="border-bottom">
+                                                <td width="40%" class="value-info-cell">Last Value</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <t t-if="event.last_date != ''">
+                                                        <span class="text-value">
+                                                            <t t-esc="event.last_value"/>
+                                                            <t t-esc="event.unit_name"/>
+                                                        </span>
+                                                        <br/>
+                                                        <t t-esc="event.last_date"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span class="text-value">
+                                                            -
+                                                        </span>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <td width="40%" class="value-info-cell">Min Value</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <t t-if="event.min_date != ''">
+                                                        <span class="text-value">
+                                                            <t t-esc="event.min_value"/>
+                                                            <t t-esc="event.unit_name"/>
+                                                        </span>
+                                                        <br/>
+                                                        <t t-esc="event.min_date"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span class="text-value">
+                                                            -
+                                                        </span>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" class="value-info-cell">Max Value</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <t t-if="event.max_date != ''">
+                                                        <span class="text-value">
+                                                            <t t-esc="event.max_value"/>
+                                                            <t t-esc="event.unit_name"/>
+                                                        </span>
+                                                        <br/>
+                                                        <t t-esc="event.max_date"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span class="text-value">
+                                                            -
+                                                        </span>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" class="value-info-cell">Avg Value</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <span class="text-value">
+                                                        <t t-esc="event.avg_value"/>
+                                                        <t t-esc="event.unit_name"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <t t-if="event.need_totalizer and event.show_consumption">
+                                                <tr>
+                                                    <td width="40%" class="value-info-cell">Consumption</td>
+                                                    <td width="60%" class="value-info-cell">
+                                                        <span class="text-value"><t t-esc="event.last_totalizer"/>
+                                                            m3</span>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="div_alarm" class="col-md-12" style="margin-top:10px">
+                        <div id="container_power_chart"/>
+                    </div>
+
+                    <div id="div_consumption" class="col-md-12" style="margin-top:10px">
+                        <div class="row" style="margin-bottom: 10px">
+                            <div class="col-md-12 float-right" style="text-align:center">
+                                <button id="button-consumption-default"
+                                        class="btn btn_pill btn-success btn_consumption_intervals"
+                                        style="border-radius: 10px; width: 100px; position: relative;"
+                                        data-channel-id="0"
+                                        data-interval="default">
+                                    Default
+                                </button>
+                                <button id="button-consumption-hour"
+                                        class="btn btn_pill btn-primary btn_consumption_intervals"
+                                        style="border-radius: 10px; width: 100px; position: relative;"
+                                        data-channel-id="0"
+                                        data-interval="hour">
+                                    Hourly
+                                </button>
+                                <button id="button-consumption-day"
+                                        class="btn btn_pill btn-primary btn_consumption_intervals"
+                                        style="border-radius: 10px; width: 100px; position: relative;"
+                                        data-channel-id="0"
+                                        data-interval="day">
+                                    Daily
+                                </button>
+                                <button id="button-consumption-month"
+                                        class="btn btn_pill btn-primary btn_consumption_intervals"
+                                        style="border-radius: 10px; width: 100px; position: relative;"
+                                        data-channel-id="0"
+                                        data-interval="month">
+                                    Monthly
+                                </button>
+                            </div>
+                        </div>
+                        <div id="container_consumption_chart"/>
+                        <div id="logger_consumption_info" class="container">
+                            <div class="row justify-content-md-center">
+                                <div class="col-sm-5 col-lg-5 logger-info-cell">
+                                    <table width="100%">
+                                        <tr>
+                                            <td colspan="2" align="center"
+                                                style="font-size: 12pt"><b>Consumption</b></td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Last Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <span class="text-value">
+                                                    <span id="consumption_last_value"/>
+                                                    m3
+                                                </span>
+                                                <br/>
+                                                <span id="consumption_last_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td width="40%" class="value-info-cell">Min Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <span class="text-value">
+                                                    <span id="consumption_min_value"/>
+                                                    m3
+                                                </span>
+                                                <br/>
+                                                <span id="consumption_min_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="40%" class="value-info-cell">Max Value</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <span class="text-value">
+                                                    <span id="consumption_max_value"/>
+                                                    m3
+                                                </span>
+                                                <br/>
+                                                <span id="consumption_max_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="40%" class="value-info-cell">Meter Index</td>
+                                            <td width="60%" class="value-info-cell">
+                                                <span class="text-value" id='consumption_last_totalizer'/>
+                                                m3
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <textarea id="infile" style="display: none"/>
+                    <textarea id="img_chart_text" style="display: none"/>
+
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="LoggerFlowChannels">
+        <div class="o_cp_buttons">
+            <t t-foreach="widget.flow_channels" t-as="flow_channel">
+                <button class="btn btn_pill btn-primary div_flow_channel"
+                        style="border-radius: 10px; width: 100px"
+                        t-attf-data-channel-id="{{flow_channel.channel_id}}"
+                        data-interval="default">
+                    <t t-esc="flow_channel.channel_name"/>
+                </button>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="LoggerChartWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

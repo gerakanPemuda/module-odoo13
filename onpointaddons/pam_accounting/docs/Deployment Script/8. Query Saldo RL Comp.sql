@@ -1,0 +1,2 @@
+DELETE FROM pam_balance_line WHERE coa_id = (select id from pam_coa where code = '24191120' limit 1);
+INSERT INTO pam_balance_line (balance_id, coa_id, beginning_balance, current_balance, ending_balance, create_uid, create_date, write_uid, write_date) VALUES(3, (select id from pam_coa where code = '24191120' limit 1), 0,  -57500797250, -57500797250, 1, NOW(), 1, NOW());

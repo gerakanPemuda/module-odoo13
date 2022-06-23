@@ -1,0 +1,15 @@
+<odoo>
+    <record id="onpoint_res_partner" model="ir.actions.act_window">
+        <field name="name">Onpoint Res Partner</field>
+        <field name="model">onpoint.res.partner</field>
+        <field name="inherit_id" ref="base.view_onpoint_work_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='assign_to']" position="before">
+                <field name="street" position="attributes">
+                    <attribute name="widget">gplaces_address_autocomplete</attribute>
+                    <attribute name="options">{'lat': 'partner_latitude', 'lng': 'partner_longitude'}</attribute>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

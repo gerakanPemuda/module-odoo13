@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="act_onpoint_wtclite_report"
+                string="Logger Report"
+                model="consumption_report"
+                report_type="xlsx"
+                name="onpoint_wtclite.consumption_report"
+                attachment_use="False"/>
+    </data>
+</odoo>

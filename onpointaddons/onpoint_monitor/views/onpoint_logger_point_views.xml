@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_logger_point_tree" model="ir.ui.view">
+	        <field name="name">onpoint.logger.point.tree</field>
+	        <field name="model">onpoint.logger.point</field>
+	        <field name="arch" type="xml">
+	            <tree string="Logger Point" editable="top">
+	                <field name="name" />
+	                <field name="code" />
+	                <field name="code_alt" />
+	                <field name="code_source" />
+	                <field name="code_source_alt" />
+	                <field name="is_sensor" />
+	                <field name="is_alarm" />
+	                <field name="need_totalizer" />
+	                <field name="function_name" />
+	                <field name="function_name_display" />
+	                <field name="alarm_type" />
+	                <field name="owner"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_logger_point_search" model="ir.ui.view">
+	        <field name="name">onpoint.logger.point.search</field>
+	        <field name="model">onpoint.logger.point</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Logger Point">
+	               <field name="name"/>
+	                <field name="code" />
+	                <field name="function_name" />
+	                <field name="function_name_display" />
+	               <field name="owner"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_logger_point">
+			<field name="name">Logger Point</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.logger.point</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_logger_point_search"/>
+		</record>
+
+    </data>
+</odoo>

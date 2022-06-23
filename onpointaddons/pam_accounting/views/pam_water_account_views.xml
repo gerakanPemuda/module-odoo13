@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_water_account_tree" model="ir.ui.view">
+	        <field name="name">pam.water.account.tree</field>
+	        <field name="model">pam.water.account</field>
+	        <field name="arch" type="xml">
+	            <tree string="Data Manual Ringkasan Utama">
+	                <field name="name" />
+	                <field name="payment_receive" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_water_account_form" model="ir.ui.view">
+	        <field name="name">pam.water.account.form</field>
+	        <field name="model">pam.water.account</field>
+	        <field name="arch" type="xml">
+	            <form string="Data Manual Ringkasan Utama">
+					<group>
+						<group>
+							<field name="months" />
+							<field name="years" />
+							<!-- <field name="start_date" invisible="1"/>
+							<field name="end_date" invisible="1"/>
+							<field name="this_month_water_bill"/>
+							<field name="this_month_administration_fee" /> -->
+						</group>
+
+					</group>
+
+					<div class="col-md-6">
+						<separator string="Penerimaan Tagihan Rekening Air"/>
+						<group>
+							<field name="payment_receive" />
+							<field name="payment_receive_until_this_month" />
+						</group>
+					</div>
+
+					<div class="col-md-6">
+						<separator string="Kapasitas Produksi dan Distribusi"/>
+						<group>
+							<field name="water_productivity" />
+							<field name="water_distribution" />
+							<field name="water_accounted" />
+							<field name="recorded_account" />
+						</group>
+					</div>
+
+					<div class="col-md-6">
+						<separator string="Lain - lain"/>
+						<group>
+							<field name="number_of_customers" />
+							<field name="number_of_employee" />
+						</group>
+					</div>							
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_water_account_search" model="ir.ui.view">
+	        <field name="name">pam.water.account.search</field>
+	        <field name="model">pam.water.account</field>
+	        <field name="arch" type="xml">
+	            <search string="Search Coa">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_water_account">
+			<field name="name">Data Manual Ringkasan Utama</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.water.account</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_water_account_search"/>
+		</record>
+
+    </data>
+</odoo>

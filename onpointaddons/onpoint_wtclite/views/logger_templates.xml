@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="logger_form_page">
+
+        <div class="page" data-name="logger_form_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">Add Logger</div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="block-title" style="font-size: 1.6em; font-weight: bolder">New Logger</div>
+
+                <form id="logger-form" class="list no-hairlines-md">
+                    <ul>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Name</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" name="name" placeholder="Name..."/>
+                                    <span class="input-clear-button"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Identifier</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" name="identifier" placeholder="Identifier..."/>
+                                    <span class="input-clear-button"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="item-link smart-select smart-select-init">
+                                <select name="logger_type_id">
+                                    <t t-foreach="logger_types" t-as="logger_type">
+                                        <option t-att-value="logger_type.id">
+                                            <t t-esc="logger_type.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Logger Type</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Address</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" name="address" placeholder="Address..."/>
+                                    <span class="input-clear-button"/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+
+                <div class="block block-strong row">
+                    <div class="col">
+                        <a class="button button-fill color-red convert-form-to-data" href="#">Submit</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </template>
+
+    <template id="logger_detail_page">
+
+        <div class="page" data-name="logger_detail_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        <t t-esc="logger['name']"/>
+                    </div>
+                    <div class="right" style="padding-right: 5px">
+                        <i id="icon-disable"
+                           class="fas fa-times-circle"
+                           style="margin: 10px"/>
+                        <i id="icon-download"
+                           class="fas fa-download"
+                           style="margin: 10px"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolbar tabbar toolbar-top">
+                <div class="toolbar-inner" style="font-size: smaller">
+                    <a href="#tab-profile" class="tab-link">Profile</a>
+                    <a href="#tab-channels" class="tab-link tab-link-active">Channels</a>
+                    <a href="#tab-chart" class="tab-link">Chart</a>
+                </div>
+            </div>
+
+            <div class="tabs-swipeable-wrap">
+                <div class="tabs">
+                    <div id="tab-profile" class="page-content tab">
+                        <div class="list">
+                            <ul>
+                                <li class="list-group-title">General Info</li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Name</div>
+                                                <t t-esc="logger['name']"/>
+                                                <input type="hidden" id="logger_id" t-attf-value="{{logger['id']}}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Identifier</div>
+                                                <t t-esc="logger['logger_identifier']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Type</div>
+                                                <t t-esc="logger['logger_type_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Department</div>
+                                                <t t-esc="logger['logger_department_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">WTP</div>
+                                                <t t-esc="logger['logger_wtp_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Zone</div>
+                                                <t t-esc="logger['logger_zone_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">DMA</div>
+                                                <t t-esc="logger['logger_dma_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-title">Location and Communication</li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">SIM Card</div>
+                                                <t t-esc="logger['logger_simcard']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Address</div>
+                                                <t t-esc="logger['logger_address']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Latitude</div>
+                                                <t t-esc="logger['logger_latitude']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Longitude</div>
+                                                <t t-esc="logger['logger_longitude']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-title">Profile</li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Meter Type</div>
+                                                <t t-esc="logger['logger_meter_type_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Meter Brand</div>
+                                                <t t-esc="logger['logger_meter_brand_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Meter Size</div>
+                                                <t t-esc="logger['logger_meter_size_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Pipe Material</div>
+                                                <t t-esc="logger['logger_pipe_material_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Pipe Size</div>
+                                                <t t-esc="logger['logger_pipe_size_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">Valve Control</div>
+                                                <t t-esc="logger['logger_valve_control_name']"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="tab-channels" class="page-content ptr-content ptr-content-logger ptr-content-logger tab tab-active" data-ptr-distance="55" data-ptr-mousewheel="true">
+
+                        <div class="ptr-preloader">
+                            <div class="preloader"/>
+                            <div class="ptr-arrow"/>
+                        </div>
+
+                        <a href="#" id="link-refresh">Refresh</a>
+
+                        <t t-foreach="logger['events']" t-as="channel">
+                            <div class="card elevation-4">
+                                <div class="card-header">
+                                    <div class="strong-text channel-form-link"
+                                         t-attf-data-id="{{channel['channel_id']}}">
+                                        <i class="fas fa-edit"/>
+                                        <t t-esc="channel['name']"/>
+                                    </div>
+                                    <span>
+                                        <t t-esc="channel['last_date']"/>
+                                    </span>
+                                </div>
+                                <div class="card-content card-content-padding"
+                                     t-attf-style="text-align: center; font-size: 3em; font-weight: bold; color: {{channel['color']}};">
+                                    <t t-esc="channel['last_value']"/>
+                                    <t t-esc="channel['unit_name']"/>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="list" style="width:100%">
+                                        <ul>
+                                            <t t-if="channel['need_totalizer'] and channel['show_consumption']">
+                                                <li>
+                                                    <a t-attf-href="/logger/consumption/{{ logger['id'] }}/{{ channel['channel_id'] }}"
+                                                       class="item-link item-content"
+                                                       data-force="true"
+                                                       data-ignore-cache="true"
+                                                       data-reload="true">
+                                                        <div class="card_project item-inner">
+                                                            <div class="item-title-row" style="width: 100%">
+                                                                <div class="item-title">Consumption</div>
+                                                                <div class="item-after">
+                                                                    <t t-esc="channel['last_totalizer']"/>
+                                                                    m3
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </t>
+
+                                            <li>
+                                                <a t-attf-href="/logger/threshold/{{ logger['id'] }}/{{ channel['channel_id'] }}"
+                                                   class="item-link item-content"
+                                                   data-force="true"
+                                                   data-ignore-cache="true"
+                                                   data-reload="true">
+                                                    <div class="card_project item-inner">
+                                                        <div class="item-title-row" style="width: 100%">
+                                                            <div class="item-title">Threshold</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+
+                    <div id="tab-chart" class="page-content tab">
+                        <div id="chart-container"/>
+                        <br/>
+                        <t t-foreach="logger['events']" t-as="channel">
+                            <div class="card elevation-4">
+                                <div class="card-header">
+                                    <div class="strong-text">
+                                        <t t-esc="channel['name']"/>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="list" style="width:100%">
+                                        <ul>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div>
+                                                            Last Value
+                                                            <br/>
+                                                            <span style="font-size: smaller">
+                                                                <t
+                                                                        t-esc="channel['last_date']"/>
+                                                            </span>
+                                                        </div>
+                                                        <div class="item-after">
+                                                            <t t-esc="channel['last_value']"/>
+                                                            <t
+                                                                    t-esc="channel['unit_name']"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div>
+                                                            Min Value
+                                                            <br/>
+                                                            <span style="font-size: smaller">
+                                                                <t
+                                                                        t-esc="channel['min_date']"/>
+                                                            </span>
+                                                        </div>
+                                                        <div class="item-after">
+                                                            <t t-esc="channel['min_value']"/>
+                                                            <t
+                                                                    t-esc="channel['unit_name']"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div>
+                                                            Max Value
+                                                            <br/>
+                                                            <span style="font-size: smaller">
+                                                                <t
+                                                                        t-esc="channel['max_date']"/>
+                                                            </span>
+                                                        </div>
+                                                        <div class="item-after">
+                                                            <t t-esc="channel['max_value']"/>
+                                                            <t
+                                                                    t-esc="channel['unit_name']"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div>
+                                                            Avg Value
+                                                        </div>
+                                                        <div class="item-after">
+                                                            <t t-esc="channel['avg_value']"/>
+                                                            <t
+                                                                    t-esc="channel['unit_name']"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </template>
+
+    <template id="logger_consumption_page">
+
+        <div class="page" data-name="logger_consumption_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        <t t-esc="logger['logger_name']"/>
+                    </div>
+                    <div class="right" style="margin-right: 10px">
+                        <i id="act-download" class="fas fa-download" style="color: #fff; display: none"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="block-title" style="font-size: 1.6em; font-weight: bolder">Consumption</div>
+                <input id="logger_id" type="text" t-attf-value="{{logger_id}}" style="display: none"/>
+                <input id="channel_id" type="text" t-attf-value="{{channel_id}}" style="display: none"/>
+                <input id="interval" type="text" value="default" style="display: none"/>
+                <input id="chart_image_url" type="text" value="" style="display: none"/>
+                <input id="report_period" type="text" value="" style="display: none"/>
+                <div class="block text-align-center">
+                    <span id="button-consumption-default"
+                          class="badge color-green btn_consumption_intervals"
+                          style="min-width: 60px; padding: 15px"
+                          data-interval="default">Default</span>
+                    <span id="button-consumption-hour"
+                          class="badge btn_consumption_intervals"
+                          style="min-width: 60px; padding: 15px"
+                          data-interval="hour">Hourly</span>
+                    <span id="button-consumption-day"
+                          class="badge btn_consumption_intervals"
+                          style="min-width: 60px; padding: 15px"
+                          data-interval="day">Daily</span>
+                    <span id="button-consumption-month"
+                          class="badge btn_consumption_intervals"
+                          style="min-width: 60px; padding: 15px"
+                          data-interval="month">Monthly</span>
+                </div>
+                <div id="consumption-chart-container"/>
+                <div class="list" style="margin-top: 5px">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="">
+                                        Last Value
+                                        <br/>
+                                        <span style="font-size: smaller">
+                                            <t t-esc="logger['last_date']"/>
+                                        </span>
+                                    </div>
+                                    <div class="item-after" style="font-weight: bolder">
+                                        <t t-esc="logger['last_value']"/>
+                                        m3
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="">
+                                        Min Value
+                                        <br/>
+                                        <span style="font-size: smaller">
+                                            <t t-esc="logger['min_date']"/>
+                                        </span>
+                                    </div>
+                                    <div class="item-after" style="font-weight: bolder">
+                                        <t t-esc="logger['min_value']"/>
+                                        m3
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="">
+                                        Max Value
+                                        <br/>
+                                        <span style="font-size: smaller">
+                                            <t t-esc="logger['max_date']"/>
+                                        </span>
+                                    </div>
+                                    <div class="item-after" style="font-weight: bolder">
+                                        <t t-esc="logger['max_value']"/>
+                                        m3
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="">
+                                        Meter Index
+                                    </div>
+                                    <div class="item-after" style="font-weight: bolder">
+                                        <t t-esc="logger['last_totalizer']"/>
+                                        m3
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <template id="logger_threshold_page">
+
+        <div class="page" data-name="logger_threshold_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        <t t-esc="logger['logger_name']"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="block-title" style="font-size: 1.6em; font-weight: bolder">Threshold</div>
+                <div class="list inline-labels no-hairlines-md">
+                    <input id="logger_channel_id" t-attf-value="{{logger['logger_channel_id']}}" style="display: none"/>
+                    <ul>
+                        <t t-if="logger['can_write']">
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['overrange_enabled']">
+                                        <input id="overrange_enabled" type="checkbox" checked="checked"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input id="overrange_enabled" type="checkbox"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Overrange</div>
+                                    <div class="item-input-wrap">
+                                        <input id="overrange_threshold" type="text"
+                                               t-attf-value="{{logger['overrange_threshold']}}"/>
+                                        <span class="input-clear-button"></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['hi_hi_enabled']">
+                                        <input id="hi_hi_enabled" type="checkbox" checked="checked"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input id="hi_hi_enabled" type="checkbox"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Hi Hi</div>
+                                    <div class="item-input-wrap">
+                                        <input id="hi_hi_threshold" type="text"
+                                               t-attf-value="{{logger['hi_hi_threshold']}}"/>
+                                        <span class="input-clear-button"></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['hi_enabled']">
+                                        <input id="hi_enabled" type="checkbox" checked="checked"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input id="hi_enabled" type="checkbox"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Hi</div>
+                                    <div class="item-input-wrap">
+                                        <input id="hi_threshold" type="text" t-attf-value="{{logger['hi_threshold']}}"/>
+                                        <span class="input-clear-button"></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['lo_enabled']">
+                                        <input id="lo_enabled" type="checkbox" checked="checked"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input id="lo_enabled" type="checkbox"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Lo</div>
+                                    <div class="item-input-wrap">
+                                        <input id="lo_threshold" type="text" t-attf-value="{{logger['lo_threshold']}}"/>
+                                        <span class="input-clear-button"></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['lo_lo_enabled']">
+                                        <input id="lo_lo_enabled" type="checkbox" checked="checked"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input id="lo_lo_enabled" type="checkbox"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Lo Lo</div>
+                                    <div class="item-input-wrap">
+                                        <input id="lo_lo_threshold" type="text"
+                                               t-attf-value="{{logger['lo_lo_threshold']}}"/>
+                                        <span class="input-clear-button"></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['underrange_enabled']">
+                                        <input id="underrange_enabled" type="checkbox" checked="checked"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input id="underrange_enabled" type="checkbox"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Underrange</div>
+                                    <div class="item-input-wrap">
+                                        <input id="underrange_threshold" type="text"
+                                               t-attf-value="{{logger['underrange_threshold']}}"/>
+                                        <span class="input-clear-button"></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content">
+                                <button id="btn-submit-threshold"
+                                        class="col button button-raised button-fill"
+                                        style="background-color: #df1429; border-radius: 30px;">Submit
+                                </button>
+                            </li>
+
+                        </t>
+                        <t t-else="">
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['overrange_enabled']">
+                                        <input type="checkbox" checked="checked" onclick="return false;"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input type="checkbox" onclick="return false;"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Overrange</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" t-attf-value="{{logger['overrange_threshold']}}"
+                                               readonly="readonly"/>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['hi_hi_enabled']">
+                                        <input type="checkbox" checked="checked" onclick="return false;"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input type="checkbox" onclick="return false;"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Hi Hi</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" t-attf-value="{{logger['hi_hi_threshold']}}"
+                                               readonly="readonly"/>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['hi_enabled']">
+                                        <input type="checkbox" checked="checked" onclick="return false;"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input type="checkbox" onclick="return false;"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Hi</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" t-attf-value="{{logger['hi_threshold']}}"
+                                               readonly="readonly"/>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['lo_enabled']">
+                                        <input type="checkbox" checked="checked" onclick="return false;"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input type="checkbox" onclick="return false;"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Lo</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" t-attf-value="{{logger['lo_threshold']}}"
+                                               readonly="readonly"/>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['lo_lo_enabled']">
+                                        <input type="checkbox" checked="checked" onclick="return false;"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input type="checkbox" onclick="return false;"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Lo Lo</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" t-attf-value="{{logger['lo_lo_threshold']}}"
+                                               readonly="readonly"/>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content item-input">
+                                <div style="margin-right: 5px">
+                                    <t t-if="logger['underrange_enabled']">
+                                        <input type="checkbox" checked="checked" onclick="return false;"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input type="checkbox" onclick="return false;"/>
+                                    </t>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Underrange</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" t-attf-value="{{logger['underrange_threshold']}}"
+                                               readonly="readonly"/>
+                                    </div>
+                                </div>
+                            </li>
+                        </t>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <template id="logger_channel_form_page">
+
+        <div class="page" data-name="logger_channel_form_page">
+
+            <!-- Top Navbar -->
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#"
+                           class="link back"
+                           data-force="true"
+                           data-ignore-cache="true"
+                           data-reload="true">
+                            <i class="fas fa-arrow-left" style="color: #fff"/>
+                        </a>
+                    </div>
+                    <div class="title">
+                        Channel
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="block-title" style="font-size: 1.6em; font-weight: bolder">Edit Channel</div>
+
+                <form id="logger-channel-form" class="list no-hairlines-md">
+                    <input type="hidden" name="id" t-attf-value="{{channel_id}}"/>
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Type</div>
+                                    <t t-esc="channel.value_type_name"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Points</div>
+                                    <t t-esc="channel.point_id.code"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Unit</div>
+                                    <t t-esc="channel.value_unit_id.name"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Interval</div>
+                                    <div class="item-input-wrap">
+                                        <input name="interval_minutes"
+                                               type="number"
+                                               t-att-value="channel.interval_minutes"
+                                               placeholder="0"/>
+                                    </div>
+                                    <div class="item-footer">minute(s)</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header">Pulse</div>
+                                    <div class="item-input-wrap">
+                                        <input name="pulse"
+                                               type="number"
+                                               t-att-value="channel.pulse"
+                                               placeholder="0"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+
+                <div class="block block-strong row">
+                    <div class="col">
+                        <a class="button button-fill color-red submit-channel-data" href="#">Submit</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </template>
+
+</odoo>

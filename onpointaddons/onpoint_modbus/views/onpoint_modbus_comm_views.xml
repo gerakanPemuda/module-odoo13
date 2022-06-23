@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="onpoint_modbus_comm_form" model="ir.ui.view">
+        <field name="name">onpoint.modbus.comm.form</field>
+        <field name="model">onpoint.modbus.comm</field>
+        <field name="arch" type="xml">
+            <form string="Modbus">
+                <sheet>
+                    <group>
+                        <group string="Connection">
+                            <field name="name" />
+                            <field name="port" />
+                            <field name="unit_id" />
+                            <field name="address" />
+                            <field name="qty" invisible="1"/>
+                        </group>
+                        <group string="Scaling Parameters">
+                            <field name="imin" />
+                            <field name="imax" />
+                            <field name="omin" />
+                            <field name="omax" />
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Data Writing">
+                            <field name="data_write" />
+                        </group>
+                    </group>
+
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" icon="fa-external-link" name="get_data" string="Get Data"/>
+                            <button type="object" class="btn-default" icon="fa-external-link" name="write_data" string="Write Data"/>
+                        </div>
+                    </group>
+
+                    <notebook>
+                        <page string="Result">
+                            <group>
+                                <group>
+                                    <field name="raw_data" readonly="1"/>
+                                    <field name="scaled_data" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="result_text" nolabel="1" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_onpoint_modbus_comm"
+        name="Modbus Communication"
+        res_model="onpoint.modbus.comm"
+        view_mode="form"
+        target="inline" />
+
+</odoo>

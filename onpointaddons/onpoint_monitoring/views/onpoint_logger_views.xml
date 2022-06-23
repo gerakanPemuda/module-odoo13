@@ -1,0 +1,414 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_logger_tree" model="ir.ui.view">
+	        <field name="name">onpoint.logger.tree</field>
+	        <field name="model">onpoint.logger</field>
+	        <field name="arch" type="xml">
+	            <tree string="Logger">
+	                <field name="name" />
+					<field name="identifier" />
+	                <field name="logger_type_id" />
+	                <field name="dma_id" />
+					<field name="brand_id" />
+					<field name="last_data_date" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_logger_form" model="ir.ui.view">
+	        <field name="name">onpoint.logger.form</field>
+	        <field name="model">onpoint.logger</field>
+	        <field name="arch" type="xml">
+	            <form string="Logger">
+					<header style="padding:5px">
+						<!-- <button class="oe_highlight" 
+							string="Get FTP - Point Orange" 
+							type="object" 
+							name="read_ftp" /> -->
+
+						<button class="oe_highlight" 
+							string="Get FTP - Seba" 
+							type="object" 
+							name="read_ftp_seba" />
+
+						<!-- <button class="oe_highlight" 
+							string="Get Realtime Data" 
+							type="object" 
+							name="read_realtime_data" />
+ -->
+					</header>
+
+					<div class="oe_button_box" name="button_box">
+						<button class="oe_stat_button" name="action_to_logger_value" type="object" icon="fa-pencil">
+							<field name="count_logger_value" string="Logger Value" widget="statinfo"/>
+						</button>
+
+						<button 
+							class="oe_stat_button o_res_partner_tip_opp" 
+							name="%(act_onpoint_logger_dashboard)d"  
+							context="{'default_id': id}" 
+							type="action" 
+							icon="fa-chart-line">
+							Chart
+						</button>						
+
+						<button 
+							class="oe_stat_button o_res_partner_tip_opp" 
+							name="%(act_onpoint_logger_realtime_dashboard)d"  
+							context="{'default_id': id}" 
+							type="action" 
+							icon="fa-stopwatch"
+							attrs="{'invisible': [('is_realtime', '=', False)]}">
+							Realtime
+						</button>						
+
+
+
+					</div>
+
+
+					<field name="logger_image" widget='image' class="oe_avatar" options='{"preview_image":"image_medium"}'/>
+					<div class="oe_title">
+						<label for="name" />
+						<h1>
+							<field name="name" class="oe_inline"/>
+						</h1>
+					</div>
+					<group col="4">
+						<field name="brand_id" />
+						<field name="logger_type_id" />
+						<field name="identifier" />
+						<field name="department_id" />
+						<field name="zone_id" />
+						<field name="dma_id" />
+						<field name="address" colspan="4"/>
+						<field name="simcard" />
+						<field name="nosal" />
+						<field name="latitude" />
+						<field name="longitude" />
+						<field name="elevation" />
+						<field name="is_realtime" />
+						<field name="remarks" colspan="4" />
+						<field name="is_threshold_hourly" invisible="True" />
+					</group>
+
+					<notebook>
+						<page string="Channel">
+
+							<group>
+								<field name="channel_ids" nolabel="1" colspan="4" widget="one2many_list" >
+									<tree string="Logger">
+										<field name="value_type_id"/>
+										<field name="value_unit_id"/>
+										<field name="points"/>
+										<button type="object" class="btn-default" solid_icon="fa-info-circle" name="view_channel_values" style="border: 0px"/>
+									</tree>
+
+									<form>
+										<group>
+											<group>
+												<field name="value_type_id"/>
+												<field name="value_unit_id"/>
+												<field name="points"/>
+												<field name="color" widget="color"/>
+											</group>
+
+											<group colspan="4">
+												<table class="o_list_view table table-condensed table-striped o_list_view_ungrouped" width="60%">
+													<thead>
+														<tr>
+															<th class="o_column_sortable" width="15%">Enabled</th>
+															<th class="o_column_sortable" width="50%">Level</th>
+															<th class="o_column_sortable" width="35%">Value</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr class="o_data_row">
+															<td style="text-align:center"><field name="overrange_enabled" nolabel="1"/></td>
+															<td>Overrange</td>
+															<td><field name="overrange_threshold" nolabel="1"/></td>
+														</tr>
+														<tr class="o_data_row">
+															<td style="text-align:center"><field name="hi_hi_enabled" nolabel="1"/></td>
+															<td>Hi Hi</td>
+															<td><field name="hi_hi_threshold" nolabel="1"/></td>
+														</tr>
+														<tr class="o_data_row">
+															<td style="text-align:center"><field name="hi_enabled" nolabel="1"/></td>
+															<td>Hi</td>
+															<td><field name="hi_threshold" nolabel="1"/></td>
+														</tr>
+														<tr class="o_data_row">
+															<td style="text-align:center"><field name="lo_enabled" nolabel="1"/></td>
+															<td>Lo</td>
+															<td><field name="lo_threshold" nolabel="1"/></td>
+														</tr>
+														<tr class="o_data_row">
+															<td style="text-align:center"><field name="lo_lo_enabled" nolabel="1"/></td>
+															<td>Lo Lo</td>
+															<td><field name="lo_lo_threshold" nolabel="1"/></td>
+														</tr>
+														<tr class="o_data_row">
+															<td style="text-align:center"><field name="underrange_enabled" nolabel="1"/></td>
+															<td>Underrange</td>
+															<td><field name="underrange_threshold" nolabel="1"/></td>
+														</tr>
+													</tbody>
+												</table>
+											</group>
+
+
+										</group>
+
+									</form>
+								</field>
+							</group>
+
+
+							<!-- <div class="col-sm-3">
+								<separator string="Channel 1"/>
+								<group>
+									<field name="ch1_active" string="Active"/>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch1_active', '=', False)]}">
+										<label for="ch1_value_type_id" style="font-weight:bold !important"/>
+										<h5><field name="ch1_value_type_id" class="oe_inline" attrs="{'required': [('ch1_active', '=', True)]}"/></h5>
+									</div>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch1_active', '=', False)]}">
+										<label for="ch1_value_unit_id" style="font-weight:bold !important" />
+										<h5><field name="ch1_value_unit_id" class="oe_inline" attrs="{'required': [('ch1_active', '=', True)]}"/></h5>
+									</div>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch1_active', '=', False)]}">
+										<label for="ch1_color" style="font-weight:bold !important"/>
+										<h5><field name="ch1_color" widget="color" class="oe_inline" attrs="{'required': [('ch1_active', '=', True)]}"/></h5>
+									</div>
+
+								</group>
+							</div>
+
+							<div class="col-sm-3">
+								<separator string="Channel 2"/>
+								<group>
+									<field name="ch2_active" string="Active"/>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch2_active', '=', False)]}">
+										<label for="ch2_value_type_id" style="font-weight:bold !important"/>
+										<h5><field name="ch2_value_type_id" class="oe_inline" attrs="{'required': [('ch2_active', '=', True)]}"/></h5>
+									</div>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch2_active', '=', False)]}">
+										<label for="ch2_value_unit_id" style="font-weight:bold !important" />
+										<h5><field name="ch2_value_unit_id" class="oe_inline" attrs="{'required': [('ch2_active', '=', True)]}"/></h5>
+									</div>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch2_active', '=', False)]}">
+										<label for="ch2_color" style="font-weight:bold !important"/>
+										<h5><field name="ch2_color" widget="color" class="oe_inline" attrs="{'required': [('ch2_active', '=', True)]}"/></h5>
+									</div>
+
+								</group>
+							</div>
+
+							<div class="col-sm-3">
+								<separator string="Channel 3"/>
+								<group>
+									<field name="ch3_active" string="Active"/>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch3_active', '=', False)]}">
+										<label for="ch3_value_type_id" style="font-weight:bold !important"/>
+										<h5><field name="ch3_value_type_id" class="oe_inline" attrs="{'required': [('ch3_active', '=', True)]}"/></h5>
+									</div>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch3_active', '=', False)]}">
+										<label for="ch3_value_unit_id" style="font-weight:bold !important" />
+										<h5><field name="ch3_value_unit_id" class="oe_inline" attrs="{'required': [('ch3_active', '=', True)]}"/></h5>
+									</div>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch3_active', '=', False)]}">
+										<label for="ch3_color" style="font-weight:bold !important"/>
+										<h5><field name="ch3_color" widget="color" class="oe_inline" attrs="{'required': [('ch3_active', '=', True)]}"/></h5>
+									</div>
+
+								</group>
+							</div>
+
+							<div class="col-sm-3">
+								<separator string="Channel 4"/>
+								<group>
+									<field name="ch4_active" string="Active"/>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch4_active', '=', False)]}">
+										<label for="ch4_value_type_id" style="font-weight:bold !important"/>
+										<h5><field name="ch4_value_type_id" class="oe_inline" attrs="{'required': [('ch4_active', '=', True)]}"/></h5>
+									</div>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch4_active', '=', False)]}">
+										<label for="ch4_value_unit_id" style="font-weight:bold !important" />
+										<h5><field name="ch4_value_unit_id" class="oe_inline" attrs="{'required': [('ch4_active', '=', True)]}"/></h5>
+									</div>
+
+									<div class="oe_title" colspan="4" attrs="{'invisible': [('ch4_active', '=', False)]}">
+										<label for="ch4_color" style="font-weight:bold !important"/>
+										<h5><field name="ch4_color" widget="color" class="oe_inline" attrs="{'required': [('ch4_active', '=', True)]}"/></h5>
+									</div>
+
+								</group>
+							</div>
+
+
+-->
+						</page>
+
+						<!-- <page string="Threshold">
+							<group>
+
+								<group>
+									<div class="col-md-11">
+										<field name="threshold_ids" nolabel="1" colspan="4" widget="one2many_list" >
+											<tree string="Logger" editable="bottom">
+												<field name="value_type_id"/>
+												<field name="min_value" />
+												<field name="max_value" />
+											</tree>
+										</field>
+									</div>
+								</group>
+
+								<group string="Leakage">
+									<field name="leakage" />
+									<field name="leakage_interval_minutes" />
+									<field name="leakage_interval_days" />
+								</group>
+							</group>
+						</page> -->
+
+						<page string="Threshold Hourly" attrs="{'invisible': [('is_threshold_hourly', '=', False)]}" >
+							<group>
+								<field name="threshold_hourly_ids" nolabel="1" colspan="4" widget="one2many_list" >
+									<tree string="Logger" editable="bottom" create="false" delete="false">
+										<field name="hours"/>
+										<field name="min_value" />
+										<field name="max_value" />
+									</tree>
+								</field>
+							</group>
+						</page>
+
+					</notebook>
+	            </form>
+	        </field>
+	    </record>
+
+		<record id="view_channel_values_form" model="ir.ui.view">
+	        <field name="name">onpoint.logger.channel.form</field>
+	        <field name="model">onpoint.logger.channel</field>
+	        <field name="arch" type="xml">
+	            <form create="false" delete="false">
+					<group>
+						<group>
+							<field name="value_type_id" readonly="1"/>
+							<field name="value_unit_id" readonly="1"/>
+							<field name="points" readonly="1"/>
+						</group>
+
+						<notebook colspan="4">
+							<page string="Detail">
+								<group>
+									<field name="value_ids" nolabel="1" colspan="4" widget="one2many_list">
+										<tree editable="bottom" create="false">
+											<field name="dates" readonly="1"/>
+											<field name="channel_value" readonly="1"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</group>
+	            </form>
+	        </field>
+	    </record>
+
+
+
+	    <record id="view_onpoint_logger_search" model="ir.ui.view">
+	        <field name="name">onpoint.logger.search</field>
+	        <field name="model">onpoint.logger</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Logger">
+					<field name="name"/>
+					<field name="address"/>
+					<field name="logger_type_id"/>
+					<field name="dma_id"/>
+					<field name="department_id"/>
+
+					<filter string="Logger Type: Critical Point" name="filter_critical_point" domain="[('logger_type_name', '=', 'Critical Point')]"/>
+					<filter string="Logger Type: Reservoir" name="filter_reservoir" domain="[('logger_type_name', '=', 'Reservoir')]"/>
+					<filter string="Logger Type: Meter Induk" name="filter_reservoir" domain="[('logger_type_name', '=', 'Meter Induk')]"/>
+					<filter string="Logger Type: Rumah Pompa" name="filter_reservoir" domain="[('logger_type_name', '=', 'Rumah Pompa')]"/>
+					<filter string="Logger Type: Fountain" name="filter_reservoir" domain="[('logger_type_name', '=', 'Fountain')]"/>
+					<filter string="Logger Type: Pos Clorinasi" name="filter_reservoir" domain="[('logger_type_name', '=', 'Pos Clorinasi')]"/>
+					<filter string="Logger Type: RCA" name="filter_reservoir" domain="[('logger_type_name', '=', 'RCA')]"/>
+	           </search>
+	        </field>
+	    </record>
+
+		<record id="view_onpoint_logger_kanban" model="ir.ui.view">
+			<field name="name">onpoint.logger.kanban</field>
+				<field name="model">onpoint.logger</field>
+				<field name="type">kanban</field>
+				<field name="arch" type="xml">
+					<kanban string="Logger" class="o_kanban_mobile">
+						<field name="id" />
+						<field name="name" />
+						<field name="address" />
+						<field name="logger_type_id" />
+						<field name="dma_id" />
+						<templates>
+							<t t-name="kanban-box">
+								<div t-attf-class="oe_kanban_card">
+									<div class="o_kanban_record_top mb16">
+										<div class="o_kanban_record_headings mt4">
+											<strong class="o_kanban_record_title">
+												<span>
+													<t t-esc="record.name.value" />
+												</span>
+											</strong>
+											<p><t t-esc="record.address.value"/></p>
+										</div>
+										<strong>
+											<field name="logger_type_id" /></strong>
+									</div>
+									<div class="o_kanban_record_bottom" style="padding-bottom:10px">
+										<div class="oe_kanban_bottom_left text-muted">
+											<span>
+												DMA : <t t-esc="record.dma_id.value" />
+											</span>
+										</div>
+										<div class="oe_kanban_bottom_right">
+											<button class="btn btn-primary" type="action" name="%(act_onpoint_logger_dashboard)d"
+												 string="View">View</button>
+										</div>
+									</div>
+								</div>
+							</t>
+						</templates>
+				</kanban>
+			</field>
+		</record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_logger">
+			<field name="name">Logger</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.logger</field>
+			<field name="view_type">form</field>
+			<!-- <field name="view_mode">kanban,tree,form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_logger_search"/>
+		</record>
+    </data>
+</odoo>

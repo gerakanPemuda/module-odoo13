@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.pointorange</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Point Orange" string="Point Orange"
+                     data-key="onpoint_pointorange">
+                    <h2>FTP Point Orange Settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-12 o_setting_box" title="Set default host">
+                            <div class="o_setting_right_pane">
+                                <label for="ftp_pointorange_host" string="Pointorange FTP Server"/>
+                                <div class="text-muted">
+                                    Set FTP Settings for Pointorangelog
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <!--                                        <label for="ftp_pointorange_host" class="o_light_label"/>-->
+                                        <group>
+                                            <field name="ftp_pointorange_host" string="Host"/>
+                                            <field name="ftp_pointorange_port" string="Port" widget="integer"/>
+                                            <field name="ftp_pointorange_username" string="Username"/>
+                                            <field name="ftp_pointorange_password" string="Password"/>
+                                            <field name="ftp_pointorange_folder" string="Folder"/>
+                                        </group>
+                                    </div>
+                                </div>
+                                <button
+                                        class="oe_highlight"
+                                        string="Testing Connection"
+                                        type="object"
+                                        name="act_testing_connection"
+                                        style="margin-left:20px"/>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="onpoint_pointorange_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'onpoint_pointorange'}</field>
+    </record>
+
+    <menuitem id="onpoint_pointorange_menu_configuration"
+              name="Settings"
+              parent="onpoint_monitor.menu_onpoint_config"
+              sequence="1"
+              action="onpoint_pointorange_config_settings_action"
+              groups="base.group_system"/>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="system_input_wizard_form" model="ir.ui.view">
+            <field name="name">system.input.wizard.form</field>
+            <field name="model">system.input.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="water_balance_id" readonly="1"/>
+                        <field name="system_input_template_id" string="Template"/>
+                        <field name="end_of_period" readonly="1"/>
+                        <field name="system_input_lines" options="{'no_open': True}"
+                               readonly="1" force_save="1">
+                            <tree editable="top">
+                                <field name="logger_id"/>
+                                <field name="wtp_id"/>
+                                <field name="zone_id"/>
+                                <field name="dma_id"/>
+                                <field name="quantity"/>
+                                <field name="error_margin"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="name" readonly="1"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                    <footer>
+                        <button string="Process" class="btn btn-primary" type="object" name="action_system_input_process" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

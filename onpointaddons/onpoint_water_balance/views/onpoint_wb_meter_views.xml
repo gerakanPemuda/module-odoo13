@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_meter_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.meter.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='meter_error']" position="inside">
+                    <group colspan="4">
+                        <field name="meter_error_billed_meter_manual"/>
+                    </group>
+                    <group string="Billed Metered Consumption (without Bulk Supply)"
+                           attrs="{'invisible': [('meter_error_billed_meter_manual', '=', False)]}">
+                        <field name="meter_error_billed_meter_lines" nolabel="1" colspan="2">
+                            <tree editable="bottom">
+                                <field name="name" string="Description"/>
+                                <field name="quantity"/>
+                                <field name="meter_under_registration"/>
+                                <field name="total"/>
+                                <field name="error_margin" widget="percentage"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <div>
+                        <div class="row">
+                            <div class="col-2 font-weight-bold"><span>Description</span></div>
+                            <div class="col-2 font-weight-bold"><span>Total [m3]</span></div>
+                            <div class="col-2 font-weight-bold"><span>Meter under-registration</span></div>
+                            <div class="col-2 font-weight-bold"><span>Total [m3]</span></div>
+                            <div class="col-2 font-weight-bold"><span>Error Margin [%]</span></div>
+                        </div>
+                        <div class="row" attrs="{'invisible': [('meter_error_billed_meter_manual', '=', True)]}">
+                            <div class="col-2 font-weight-bold"><span>Billed Metered Consumption (without Bulk Supply)</span></div>
+                            <div class="col-2"><field name="meter_error_billed_meter_quantity"/></div>
+                            <div class="col-2"><field name="meter_error_billed_meter_under_registration"/></div>
+                            <div class="col-2"><field name="meter_error_billed_meter_total"/></div>
+                            <div class="col-2"><field name="meter_error_billed_meter_error_margin" widget="percentage"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 font-weight-bold"><span>Metered Bulk Supply (Export)</span></div>
+                            <div class="col-2"><field name="meter_error_bulk_supply_quantity"/></div>
+                            <div class="col-2"><field name="meter_error_bulk_supply_under_registration"/></div>
+                            <div class="col-2"><field name="meter_error_bulk_supply_total"/></div>
+                            <div class="col-2"><field name="meter_error_bulk_supply_error_margin" widget="percentage"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 font-weight-bold"><span>Unbilled Metered Consumpiton (without Bulk Supply)</span></div>
+                            <div class="col-2"><field name="meter_error_unmeter_consumption_quantity"/></div>
+                            <div class="col-2"><field name="meter_error_unmeter_consumption_under_registration"/></div>
+                            <div class="col-2"><field name="meter_error_unmeter_consumption_total"/></div>
+                            <div class="col-2"><field name="meter_error_unmeter_consumption_error_margin" widget="percentage"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-4 col-2 font-weight-bold"><span>Estimated % of under-reading</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 font-weight-bold"><span>Corrupt Meter Reading Practices</span></div>
+                            <div class="col-2"><field name="meter_error_corrupt_quantity"/></div>
+                            <div class="col-2"><field name="meter_error_corrupt_under_reading"/></div>
+                            <div class="col-2"><field name="meter_error_corrupt_total"/></div>
+                            <div class="col-2"><field name="meter_error_corrupt_error_margin" widget="percentage"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 font-weight-bold"><span>Data Handling Errors (Office)</span></div>
+                            <div class="offset-4 col-2"><field name="meter_error_data_handling_total"/></div>
+                            <div class="col-2"><field name="meter_error_data_handling_error_margin" widget="percentage"/></div>
+                        </div>
+                    </div>
+                    <group string="Customer Meter Inaccuracies and Data Handling Errors">
+                        <field name="meter_error_error_margin" widget="percentage"/>
+                        <field name="meter_error_minimum"/>
+                        <field name="meter_error_maximum"/>
+                        <field name="meter_error_best_estimate"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

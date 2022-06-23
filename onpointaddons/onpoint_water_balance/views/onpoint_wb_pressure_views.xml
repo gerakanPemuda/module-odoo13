@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="onpoint_water_balance_pressure_form" model="ir.ui.view">
+            <field name="name">onpoint.water.balance.pressure.form</field>
+            <field name="model">onpoint.water.balance</field>
+            <field name="inherit_id" ref="onpoint_water_balance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='pressure']" position="inside">
+                    <group>
+                        <field name="pressure_lines">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="connection_number"/>
+                                <field name="daily_average_pressure"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field name="pressure_error_margin" widget="percentage"/>
+                        <field name="pressure_minimum"/>
+                        <field name="pressure_maximum"/>
+                        <field name="pressure_best_estimate"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

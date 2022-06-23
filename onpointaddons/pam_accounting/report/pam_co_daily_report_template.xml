@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="report.paperformat" id="paperformat_pam_co_daily_report">
+	        <field name="name">paperformat.pam.co.daily.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Landscape</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_co_daily_report" 
+			string="DAFTAR PENGELUARAN HARIAN (DPH)" 
+			model="pam.co.daily.report" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_co_daily_report_template" 
+			file="pam_accounting.print_co_daily_report_template"
+			paperformat="paperformat_pam_co_daily_report"
+            menu="False"/>
+
+		<template id="report_co_daily_report_template">
+			<t t-call="web.html_container">
+				<div class="page">
+					<div class="article">
+						<div class="row">
+							<div class="text-left col-xs-12"><strong>PERUSAHAAN DAERAH AIR MINUM</strong></div>
+							<h5 class="text-left col-xs-12"><strong>TIRTA PAKUAN KOTA BOGOR</strong></h5>
+							<div class="text-left col-xs-12" style="border-bottom:1px solid black">Jln. Siliwangi No. 121 Bogor Telp.8324111 Fax.8321575</div>
+						</div>
+
+						<div class="row">
+							<div class="text-center col-xs-12"><strong>DAFTAR PENGELUARAN HARIAN (DPH)</strong></div>
+						</div>
+						
+						<br/>
+						<div class="row">
+							<div class="text-center col-xs-12" style="text-transform: uppercase;"><span t-esc="payment_date"/></div>
+						</div>
+
+						<table class="table table-bordered" style="border-color: 1px solid black;">
+							<tr>
+								<th>No. </th>
+								<th>URAIAN</th>
+								<th>COH</th>
+								<th>NOMOR VOUCHER</th>
+								<th>NO CEK</th>
+								<th>Rp JUMLAH</th>
+							</tr>
+							<t t-set="daily2" t-value="0"/>
+							<t t-set="total_daily" t-value="0"/>
+							<t t-set="no" t-value="1"/>
+							<t t-foreach="dailys" t-as="daily">
+<!-- 								<tr>
+									<t t-if="daily[2] == daily2">
+										<td><t t-esc="no"/></td>
+										<td><![CDATA[&nbsp;]]></td>
+										<td><![CDATA[&nbsp;]]></td>
+										<td><t t-esc="daily[2]"/></td>
+										<td><![CDATA[&nbsp;]]></td>
+										<td><![CDATA[&nbsp;]]></td>
+									</t>
+									<t t-else="">
+										<td><![CDATA[&nbsp;]]></td>
+										<td><t t-esc="daily[0]"/></td>
+										<td><t t-esc="daily[1]"/></td>
+										<td><![CDATA[&nbsp;]]></td>
+										<td><t t-esc="daily[3]"/></td>
+										<td><t t-esc="'{0:,.2f}'.format(daily[4])"/></td>
+									</t>
+								</tr> -->
+								<tr>
+									<t t-if="daily[0] != ''">
+										<td><t t-esc="no"/></td>
+										<td><t t-esc="daily[0]"/></td>
+										<td><t t-esc="daily[1]"/></td>
+										<td><t t-esc="daily[2]"/></td>
+										<td><t t-esc="daily[3]"/></td>
+										<td><t t-esc="'{0:,.2f}'.format(daily[4])"/></td>
+									<t t-set="no" t-value="no + 1"/>
+									</t>
+									<t t-else="">
+										<td></td>
+										<td><t t-esc="daily[0]"/></td>
+										<td><t t-esc="daily[1]"/></td>
+										<td><t t-esc="daily[2]"/></td>
+										<td><t t-esc="daily[3]"/></td>
+										<td><t t-esc="'{0:,.2f}'.format(daily[4])"/></td>
+									</t>
+								</tr>
+								<t t-set="total_daily" t-value="total_daily + daily[4]"/>
+								<t t-set="daily2" t-value="daily[2]"/>
+								<t t-if="daily_last">
+									<tr>
+										<td><![CDATA[&nbsp;]]></td>
+										<td><![CDATA[&nbsp;]]></td>
+										<td><![CDATA[&nbsp;]]></td>
+										<td><![CDATA[&nbsp;]]></td>
+										<td><b>JUMLAH</b></td>
+										<td><t t-esc="'{0:,.2f}'.format(total_daily)"/></td>
+									</tr>
+								</t>
+							</t>
+						</table>
+<!-- 
+						<div class="row">
+							<div class="text-left col-xs-1" style="border-top:1px solid black;border-bottom:1px solid black;border-left:1px solid black;border-right:1px solid black"><strong>No. </strong></div>
+							<div class="text-left col-xs-3" style="border-top:1px solid black;border-bottom:1px solid black;border-right:1px solid black"><strong>URAIAN</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;border-right:1px solid black"><strong>COH</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;border-right:1px solid black"><strong>NOMOR VOUCHER</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;border-right:1px solid black"><strong>NO CEK</strong></div>
+							<div class="text-right col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;border-right:1px solid black"><strong>Rp JUMLAH</strong></div>
+						</div>
+
+						<t t-set="total_daily" t-value="0"/>
+						<t t-set="no" t-value="1"/>
+						<t t-foreach="dailys" t-as="daily">
+							<div class="row">
+								<div class="text-left col-xs-1" style="border-left:1px solid black;border-right:1px solid black"><t t-esc="no"/>.</div>
+								<div class="text-left col-xs-3" style="border-right:1px solid black"><t t-esc="daily[0]"/></div>
+								<div class="text-left col-xs-2" style="border-right:1px solid black"><t t-esc="daily[1]"/></div>
+								<div class="text-left col-xs-2" style="border-right:1px solid black"><t t-esc="daily[2]"/></div>
+								<div class="text-left col-xs-2" style="border-right:1px solid black"><t t-esc="daily[3]"/></div>
+								<div class="text-right col-xs-2" style="border-right:1px solid black"><t t-esc="'{0:,.2f}'.format(daily[4])"/></div>
+							</div>
+
+							<t t-set="no" t-value="no + 1"/>
+							<t t-set="total_daily" t-value="total_daily + daily[4]"/>
+							<t t-if="daily_last">
+								<div class="row">
+									<div class="text-right col-xs-10" style="border-top:1px solid black;border-bottom:1px solid black;border-left:1px solid black;border-right:1px solid black"><strong>JUMLAH</strong></div>
+									<div class="text-right col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;border-right:1px solid black"><t t-esc="'{0:,.2f}'.format(total_daily)"/></div>
+								</div>
+							</t>
+						</t>
+						<br/>-->
+
+ 						<div class="row">
+							<div class="text-center col-xs-6"><span t-esc="name1"/></div>
+							<div class="text-center col-xs-6"><span t-esc="name2"/></div>
+						</div>
+
+						<div>
+							<div class="text-center col-xs-6"><span t-esc="position1"/></div>
+							<div class="text-center col-xs-6"><span t-esc="position2"/></div>
+						</div>
+
+						<br/>
+ 						<div class="row">
+							<div class="text-center col-xs-6"><span t-esc="name_ttd1"/></div>
+							<div class="text-center col-xs-6"><span t-esc="name_ttd2"/></div>
+						</div> 
+
+					</div>
+					
+					<div class="footer">
+			            <div class="row text-center" style="border-top: 1px solid black;">
+			                <div class="col-xs-6 text-left">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>User:</li>
+			                        <li>
+			                            <span t-esc="user.name"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span t-esc="datetime_cetak"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="col-xs-6 text-right">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>Page:</li>
+			                        <li>
+			                            <span class="page"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span class="topage"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+
+    </data>
+</odoo>

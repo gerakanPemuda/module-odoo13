@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_onpoint_message_logger_form">
+            <field name="name">onpoint.message.logger.form</field>
+            <field name="model">onpoint.logger</field>
+            <field name="inherit_id" ref="onpoint_monitor.view_onpoint_logger_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page[@name='profile']" position="after">
+                        <page name="notification" string="Notification Settings">
+                            <button
+                                    class="oe_highlight oe_read_only"
+                                    string="Notification Logs"
+                                    type="object"
+                                    name="act_view_notification_log"
+                                    style="margin-top:10px; float: right"
+                            />
+
+                            <group>
+                                <field name="message_setup_ids"
+                                       nolabel="1"
+                                       colspan="4"
+                                       widget="one2many_list" >
+                                    <tree string="Seetings">
+                                        <field name="employee_id"/>
+                                        <field name="mobile_phone"/>
+                                        <field name="send_alarm"/>
+                                        <field name="send_info"/>
+                                        <field name="info_interval"/>
+                                        <field name="next_send"/>
+                                        <field name="is_active"/>
+                                    </tree>
+
+                                    <form>
+                                        <group>
+                                            <group>
+<!--                                                <field name="logger_id" />-->
+                                                <field name="employee_id"/>
+                                                <field name="mobile_phone"/>
+                                                <field name="send_sms" invisible="1" force_save="1"/>
+<!--                                                <field name="send_wa"/>-->
+                                                <field name="is_active"/>
+                                            </group>
+                                            <group>
+                                                <field name="send_alarm"/>
+                                                <field name="send_info"/>
+                                                <field name="info_interval"/>
+                                                <field name="next_send"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <field name="outbox_ids" nolabel="1" colspan="4" widget="one2many_list">
+                                                <tree readonly="1" create="0">
+                                                    <field name="logger_id" readonly="1"/>
+                                                    <field name="message_type" readonly="1"/>
+                                                    <field name="media" readonly="1"/>
+                                                    <field name="message" readonly="1"/>
+                                                    <field name="text_response" readonly="1"/>
+                                                    <field name="cost" readonly="1"/>
+                                                    <field name="state" readonly="1"/>
+                                                    <field name="create_date" readonly="1"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_open_report" model="ir.ui.view">
+        <field name="name">pam.open.form</field>
+        <field name="model">pam.open</field>
+        <field name="arch" type="xml">
+            <form string="Neraca">
+                <sheet>
+                    <separator string="Unposting" colspan="4"/>
+                    <group>
+                        <field name="balance_id" readonly="True"/>
+                        <field name="balance_month" readonly="True"/>
+                        <field name="balance_year" readonly="True"/>
+                    </group>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" regular_icon="fa-check-circle fa-2x" name="open" string="Proses" confirm="Apakah anda yakin akan melakukan Unposting ?"/>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_open"
+        name="Unposting"
+        res_model="pam.open"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

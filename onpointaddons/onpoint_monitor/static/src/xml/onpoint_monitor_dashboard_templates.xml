@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="MonitorDashboardMain">
+        <style>
+            div.scroll {
+                margin:0px, 0px;
+                padding:0px;
+				width: 100%;
+				height: 100%;
+                overflow-x: hidden;
+                overflow-x: auto;
+            }
+        </style>
+        <div class="o_charts scroll" style="background:#FFFFFF">
+            <div class="container-fluid o_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="MonitorDashboardContent">
+
+        <div class="main-section" style="background:#FFFFFF">
+            <div class="o_action o_view_controller">
+                <div class="o_cp_controller">
+                    <div class="o_control_panel" style="background-color:#FFFFFF !important;">
+                        <div style="background-color:#FFFFFF !important;">
+                            <ol class="breadcrumb" style="background-color:#FFFFFF !important;">
+                                <li class="breadcrumb-item-active">
+                                    <h2><t t-esc="widget.company"/></h2>
+                                </li>
+                            </ol>
+                            <div class="o_cp_searchview">
+                                <button type="button" class="btn btn-primary rounded-pill float-right btn_logger">
+                                  Active Loggers
+                                    <span id="badge_active_logger"
+                                          class="badge bg-success"
+                                          style="margin-left:5px">0</span>
+                                    of
+                                    <span id="badge_total_logger"
+                                          class="badge bg-light"
+                                          style="margin-left:5px">0</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="o_content row" style="margin-top:10px">
+
+<!--                    <div class="col-md-12">-->
+                        <t t-foreach="widget.loggers" t-as="logger">
+                            <div class="col-md-6">
+                                <div class="courses-container">
+                                    <div class="course">
+                                        <div class="course-preview">
+                                            <h6 style="font-size: 0.8vw !important;"><t t-esc="logger.logger_type_name"/></h6>
+                                            <h2 style="font-size: 1.7vw !important; min-height: 90px">
+                                                <t t-esc="logger.name"/>
+                                            </h2>
+                                            <a href="#" style="font-size: 0.9vw !important; color:white !important" t-att-data-logger-id="logger.id"
+                                               class="btn_act_view_logger">View all data <i
+                                                    class="fas fa-chevron-right"></i></a>
+                                        </div>
+                                        <div class="course-info">
+                                            <div class="row">
+                                                <t t-foreach="logger.channels" t-as="channel">
+                                                    <t t-if="channel.value_unit_name">
+                                                        <div class="col-md-6">
+                                                            <h6><t t-esc="channel.name"/></h6>
+                                                            <h2 t-attf-style="color: {{ channel.color }} !important; font-weight: bolder; font-size: 1.7vw !important">
+                                                                <t t-esc="channel.last_value"/>
+                                                                <t t-esc="channel.value_unit_name"/>
+                                                            </h2>
+                                                        </div>
+                                                    </t>
+                                                </t>
+                                                <div class="col-md-12" style="margin-top:5px">
+                                                    <div class="row logger-properties">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-5"><b>Battery</b></div>
+                                                                <div class="col-md-7"><t t-esc="logger.alarms.state_battery.last_value"/>
+                                                                    V</div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-5"><b>Signal</b></div>
+                                                                <div class="col-md-7"><t t-esc="logger.alarms.state_signal.last_value"/></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-5"><b>Temperature</b></div>
+                                                                <div class="col-md-7"><t t-esc="logger.alarms.state_temperature.last_value"/>
+                                                                    &#8451;</div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-5"><b>Submersion</b></div>
+                                                                <div class="col-md-7"><t t-esc="logger.alarms.state_submerged.last_value"/></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row" style="position: absolute; bottom: 10px; right: 10px">
+                                                <div class="col float-right"
+                                                     style="text-align: right; font-size: 0.8vw; color: #3e3e3e">
+                                                    Last Update: <t t-esc="logger.last_data_date"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+<!--                    </div>-->
+
+                    <!--                    <div class="col-md-4">-->
+                    <!--                        <div id="container_logger_chart" style="height:350px;margin-top:10px"/>-->
+                    <!--                    </div>-->
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </t>
+
+
+    <t t-name="MonitorDashboardWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_logger_compare_tree" model="ir.ui.view">
+	        <field name="name">onpoint.logger.compare.tree</field>
+	        <field name="model">onpoint.logger.compare</field>
+	        <field name="arch" type="xml">
+	            <tree string="Chart Comparison">
+	                <field name="name" />
+	                <field name="remarks"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_logger_compare_form" model="ir.ui.view">
+	        <field name="name">onpoint.logger.compare.form</field>
+	        <field name="model">onpoint.logger.compare</field>
+	        <field name="arch" type="xml">
+	            <form string="Chart Comparison">
+					<sheet>
+						<div class="oe_button_box" name="button_box">
+							<button
+								class="oe_stat_button o_res_partner_tip_opp"
+								name="%(act_view_logger_compare)d"
+								context="{'default_id': id}"
+								type="action"
+								icon="fa-chart-line">
+								Chart
+							</button>
+						</div>
+
+						<group>
+							<group>
+								<field name="name"/>
+								<field name="remarks"/>
+							</group>
+						</group>
+
+						<notebook>
+							<page string="Loggers" >
+								<group>
+		    						<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" >
+										<tree string="comparison" editable="bottom">
+		                					<field name="logger_id"/>
+		           				 		</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+	    <record id="view_onpoint_logger_compare_search" model="ir.ui.view">
+	        <field name="name">onpoint.logger.compare.search</field>
+	        <field name="model">onpoint.logger.compare</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Zone">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_logger_compare">
+			<field name="name">Chart Comparison</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.logger.compare</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_logger_compare_search"/>
+		</record>
+
+    </data>
+</odoo>

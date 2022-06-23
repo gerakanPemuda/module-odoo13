@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onpoint_telegram_group_user,onpoint_telegram.onpoint.telegram.group user,onpoint_telegram.model_onpoint_telegram_group,onpoint_monitor.group_onpoint_monitor_user,1,0,0,0
+,,,,,,,
+access_onpoint_telegram_group_admin,onpoint_telegram.onpoint.telegram.group admin,onpoint_telegram.model_onpoint_telegram_group,onpoint_monitor.group_onpoint_monitor_admin,1,0,0,0
+,,,,,,,
+access_onpoint_telegram_group_superadmin,onpoint_telegram.onpoint.telegram.group superadmin,onpoint_telegram.model_onpoint_telegram_group,onpoint_monitor.group_onpoint_monitor_superadmin,1,1,1,1

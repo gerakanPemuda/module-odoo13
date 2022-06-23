@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<!-- Screen short slider -->
+	<record id="customer_image_1" model="screen.short">
+		<field name="image" type="base64"
+			file="theme_iapp/static/src/img/screenshort/screen-1.jpg" />
+	</record>
+	<record id="customer_image_2" model="screen.short">
+		<field name="image" type="base64"
+			file="theme_iapp/static/src/img/screenshort/screen-2.jpg" />
+	</record>
+	<record id="customer_image_3" model="screen.short">
+		<field name="image" type="base64"
+			file="theme_iapp/static/src/img/screenshort/screen-3.jpg" />
+	</record>
+	<record id="customer_image_4" model="screen.short">
+		<field name="image" type="base64"
+			file="theme_iapp/static/src/img/screenshort/screen-4.jpg" />
+	</record>
+
+	<!-- Customer -->
+	<record id="cust_partner_1" model="res.partner">
+		<field name="name">Riley Cassidy</field>
+		<field name="function">Chief executive</field>
+		<field name="is_company">1</field>
+		<field name="street">7500 W Linne Road</field>
+		<field name="city">Tracy</field>
+		<field name="state_id" ref='base.state_us_5' />
+		<field name="zip">95304</field>
+		<field name="country_id" ref="base.us" />
+		<field name="email">ready.mat28@example.com</field>
+		<field name="phone">(803)-873-6126</field>
+		<field name="image_1920" type="base64"
+			file="theme_iapp/static/src/img/testimonial/01.png" />
+	</record>
+	<record id="cust_partner_2" model="res.partner">
+		<field name="name">Archie Tracey</field>
+		<field name="function">Technician</field>
+		<field name="is_company">1</field>
+		<field name="street">7500 W Linne Road</field>
+		<field name="city">Tracy</field>
+		<field name="state_id" ref='base.state_us_5' />
+		<field name="zip">95304</field>
+		<field name="country_id" ref="base.us" />
+		<field name="email">ready.mat28@example.com</field>
+		<field name="phone">(803)-873-6126</field>
+		<field name="image_1920" type="base64"
+			file="theme_iapp/static/src/img/testimonial/02.png" />
+	</record>
+	<record id="cust_partner_3" model="res.partner">
+		<field name="name">Brodie Hopley</field>
+		<field name="function">Chief Elevator</field>
+		<field name="is_company">1</field>
+		<field name="street">7500 W Linne Road</field>
+		<field name="city">Tracy</field>
+		<field name="state_id" ref='base.state_us_5' />
+		<field name="zip">95304</field>
+		<field name="country_id" ref="base.us" />
+		<field name="email">ready.mat28@example.com</field>
+		<field name="phone">(803)-873-6126</field>
+		<field name="image_1920" type="base64"
+			file="theme_iapp/static/src/img/testimonial/03.png" />
+	</record>
+	
+	<!--Customer Review -->
+	<record id="customer_review_1" model="customer.review">
+		<field name="partner_id" eval="ref('cust_partner_1')" />
+		<field name="review">They provide innovative solutions with the best.
+			tempor incididunt utla bore et dolor tempor incididunt .
+		</field>
+	</record>
+	<record id="customer_review_2" model="customer.review">
+		<field name="partner_id" eval="ref('cust_partner_2')" />
+		<field name="review">They provide innovative solutions with the best.
+			tempor incididunt utla bore et dolor tempor incididunt .
+		</field>
+	</record>
+	<record id="customer_review_3" model="customer.review">
+		<field name="partner_id" eval="ref('cust_partner_3')" />
+		<field name="review">They provide innovative solutions with the best.
+			tempor incididunt utla bore et dolor tempor incididunt .
+		</field>
+	</record>
+
+	<!-- Product Template -->
+	<record id="customer_product_1" model="product.template">
+		<field name="name">Primary Plan</field>
+		<field name="standard_price">250</field>
+		<field name="analyzer">5 Analyzer</field>
+		<field name="support">3 Month Support</field>
+		<field name="session">10 Sessions</field>
+		<field name="no_risk">No Risk Garrunty</field>
+		<field name="show_product">True</field>
+		<field name="mo">Mo</field>
+	</record>
+	<record id="customer_product_2" model="product.template">
+		<field name="name">Basic Plan</field>
+		<field name="standard_price">350</field>
+		<field name="analyzer">5 Analyzer</field>
+		<field name="support">3 Month Support</field>
+		<field name="session">10 Sessions</field>
+		<field name="no_risk">No Risk Garrunty</field>
+		<field name="show_product">True</field>
+		<field name="mo">Mo</field>
+	</record>
+	<record id="customer_product_3" model="product.template">
+		<field name="name">Advance Plan</field>
+		<field name="standard_price">150</field>
+		<field name="analyzer">5 Analyzer</field>
+		<field name="support">3 Month Support</field>
+		<field name="session">10 Sessions</field>
+		<field name="no_risk">No Risk Garrunty</field>
+		<field name="show_product">True</field>
+		<field name="mo">Mo</field>
+	</record>
+
+	<!-- Logo -->
+	<record id="base.main_partner" model="res.partner">
+		<field name="image_1920" type="base64"
+			file="theme_iapp/static/src/img/logo-white.png" />
+	</record>
+
+	<!-- Blog Tag -->
+	<record id="custom__blog_tag_1" model="blog.tag">
+		<field name="name">Events</field>
+		<field name="show_tag">True</field>
+	</record>
+	<record id="custom__blog_tag_2" model="blog.tag">
+		<field name="name">Love</field>
+		<field name="show_tag">True</field>
+	</record>
+	<record id="custom__blog_tag_3" model="blog.tag">
+		<field name="name">Story</field>
+		<field name="show_tag">True</field>
+	</record>
+	<record id="custom__blog_tag_4" model="blog.tag">
+		<field name="name">Gift</field>
+		<field name="show_tag">True</field>
+	</record>
+	<record id="custom__blog_tag_5" model="blog.tag">
+		<field name="name">First Metting</field>
+		<field name="show_tag">True</field>
+	</record>
+	<record id="custom__blog_tag_6" model="blog.tag">
+		<field name="name">Couple</field>
+		<field name="show_tag">True</field>
+	</record>
+	<record id="custom__blog_tag_7" model="blog.tag">
+		<field name="name">Marketing</field>
+	</record>
+	<record id="custom__blog_tag_8" model="blog.tag">
+		<field name="name">Design</field>
+	</record>
+	<!--End Blog TAGS -->
+
+	<!-- Blog Blog -->
+	<record id="custom_blog_blog_1" model="blog.blog">
+		<field name="name">Lifestyle</field>
+		<field name="show_category">True</field>
+	</record>
+	<record id="custom_blog_blog_2" model="blog.blog">
+		<field name="name">Travel</field>
+		<field name="show_category">True</field>
+	</record>
+	<record id="custom_blog_blog_3" model="blog.blog">
+		<field name="name">Fashion</field>
+		<field name="show_category">True</field>
+	</record>
+	<record id="custom_blog_blog_4" model="blog.blog">
+		<field name="name">Music</field>
+		<field name="show_category">True</field>
+	</record>
+	<record id="custom_blog_blog_5" model="blog.blog">
+		<field name="name">Branding</field>
+		<field name="show_category">True</field>
+	</record>
+	<record id="custom_blog_blog_6" model="blog.blog">
+		<field name="name">History</field>
+		<field name="show_category">True</field>
+	</record>
+	<!--End Blog Blog -->
+
+	<!-- Blog Post -->
+	<record id="custom_blog_post_1" model="blog.post">
+		<field name="name">Mobile apps are becoming popular in 3rd world
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="cover_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids"
+			eval="[(6, 0, [ref('custom__blog_tag_7'), ref('custom__blog_tag_8')])]" />
+		<field name="blog_ids"
+			eval="[(6, 0, [ref('custom_blog_blog_1'), ref('custom_blog_blog_2'), ref('custom_blog_blog_4')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/blog/01.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<record id="custom_blog_post_2" model="blog.post">
+		<field name="name">Depart do be so he enough talent. Sociable for
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="cover_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids"
+			eval="[(6, 0, [ref('custom__blog_tag_7'), ref('custom__blog_tag_8')])]" />
+		<field name="blog_ids"
+			eval="[(6, 0, [ref('custom_blog_blog_1'), ref('custom_blog_blog_2'), ref('custom_blog_blog_4')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/blog/02.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<record id="custom_blog_post_3" model="blog.post">
+		<field name="name">At name no an what Pressed my by do affixed
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="cover_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids"
+			eval="[(6, 0, [ref('custom__blog_tag_7'), ref('custom__blog_tag_8')])]" />
+		<field name="blog_ids"
+			eval="[(6, 0, [ref('custom_blog_blog_1'), ref('custom_blog_blog_2'), ref('custom_blog_blog_4')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/blog/03.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<record id="custom_blog_post_4" model="blog.post">
+		<field name="name">Do am he horrible distance marriage so alth
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="cover_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids"
+			eval="[(6, 0, [ref('custom__blog_tag_7'), ref('custom__blog_tag_8')])]" />
+		<field name="blog_ids"
+			eval="[(6, 0, [ref('custom_blog_blog_1'), ref('custom_blog_blog_2'), ref('custom_blog_blog_4')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/blog/04.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<record id="custom_blog_post_5" model="blog.post">
+		<field name="name">His many same been well can high that did law
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="cover_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids"
+			eval="[(6, 0, [ref('custom__blog_tag_7'), ref('custom__blog_tag_8')])]" />
+		<field name="blog_ids"
+			eval="[(6, 0, [ref('custom_blog_blog_1'), ref('custom_blog_blog_2'), ref('custom_blog_blog_4')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/blog/05.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<record id="custom_blog_post_6" model="blog.post">
+		<field name="name">He into walk roof made tall cold he jelings
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="cover_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids"
+			eval="[(6, 0, [ref('custom__blog_tag_7'), ref('custom__blog_tag_8')])]" />
+		<field name="blog_ids"
+			eval="[(6, 0, [ref('custom_blog_blog_1'), ref('custom_blog_blog_2'), ref('custom_blog_blog_4')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/blog/06.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<record id="custom_popular_blog_post_1" model="blog.post">
+		<field name="name">Aliquam eu mauris euismod lacus vel.
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="popular_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids" eval="[(6, 0, [ref('custom__blog_tag_3')])]" />
+		<field name="blog_ids" eval="[(6, 0, [ref('custom_blog_blog_1')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/popular-post/01.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<record id="custom_popular_blog_post_2" model="blog.post">
+		<field name="name">Aliquam eu mauris euismod lacus vel.
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="popular_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids" eval="[(6, 0, [ref('custom__blog_tag_3')])]" />
+		<field name="blog_ids" eval="[(6, 0, [ref('custom_blog_blog_1')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/popular-post/02.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<record id="custom_popular_blog_post_3" model="blog.post">
+		<field name="name">Aliquam eu mauris euismod lacus vel.
+		</field>
+		<field name="blog_id" ref="custom_blog_blog_5" />
+		<field name="is_published" eval="True" />
+		<field name="popular_blog" eval="True" />
+		<field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')" />
+		<field name="tag_ids" eval="[(6, 0, [ref('custom__blog_tag_3')])]" />
+		<field name="blog_ids" eval="[(6, 0, [ref('custom_blog_blog_1')])]" />
+		<field name="cover_properties">{"background-image":
+			"url('/theme_iapp/static/src/img/popular-post/03.jpg')", "resize_class":
+			"o_record_has_cover cover_full", "text_size_class":
+			"o_record_cover_font_big", "background-color": "oe_black", "opacity":
+			"0"}
+		</field>
+		<field name="content"><![CDATA[
+                         <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus. Nullam ornare eget ipsum sit amet consequat. Nunc finibus vitae diam non suscipit. Praesent elementum felis sit amet urna tempus commodo. Proin congue id ante ac maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod arcu venenatis, viverra arcu eu, efficitur mauris. Aliquam sagittis sagittis elit, in cursus est faucibus in.</p>
+                            <blockquote>
+                                    Nunc blandit tincidunt consequat. Duis diam metus, suscipit ininar eget, egestas id arcu. Duis a enim vel mauris ultrices. Nullam aliquet velit ac velit tempus in semper.
+                            </blockquote>
+                            <p>Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since. Lorem Ipsums is simply dummy text of the print  industry. Lorem Ipsum has industry's standard dummy text ever since.</p>
+                            <p>Proin vitae blandit felis. Proin rhoncus imperdiet facilisis. Etiam et mauris ex. Maecenas posuere ipsum orci, at imperdiet est venenatis quis. Maecenas quis fermentum ipsum, ac eleifend urna. Cras sed viverra nibh. Mauris eget finibus erat. Mauris tempor varius purus nec cursus.</p>
+                          ]]>
+
+		</field>
+	</record>
+	<!-- End Blog Post -->
+	<!-- Mail message -->
+	<record id="custom_blog_message_1" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_1" />
+		<field name="parent_id" ref="custom_blog_post_1" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_2" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_1" />
+		<field name="parent_id" ref="custom_blog_post_1" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_3" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_1" />
+		<field name="parent_id" ref="custom_blog_post_1" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_4" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_2" />
+		<field name="parent_id" ref="custom_blog_post_2" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_5" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_2" />
+		<field name="parent_id" ref="custom_blog_post_2" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_6" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_2" />
+		<field name="parent_id" ref="custom_blog_post_2" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_7" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_3" />
+		<field name="parent_id" ref="custom_blog_post_3" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_8" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_3" />
+		<field name="parent_id" ref="custom_blog_post_3" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_9" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_3" />
+		<field name="parent_id" ref="custom_blog_post_3" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_10" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_4" />
+		<field name="parent_id" ref="custom_blog_post_4" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_11" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_4" />
+		<field name="parent_id" ref="custom_blog_post_4" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_12" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_4" />
+		<field name="parent_id" ref="custom_blog_post_4" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_13" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_5" />
+		<field name="parent_id" ref="custom_blog_post_5" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_14" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_5" />
+		<field name="parent_id" ref="custom_blog_post_5" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_15" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_5" />
+		<field name="parent_id" ref="custom_blog_post_5" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_16" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_6" />
+		<field name="parent_id" ref="custom_blog_post_6" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_17" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_6" />
+		<field name="parent_id" ref="custom_blog_post_6" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<record id="custom_blog_message_18" model="mail.message">
+		<field name="model">blog.post</field>
+		<field name="res_id" ref="custom_blog_post_6" />
+		<field name="parent_id" ref="custom_blog_post_6" />
+		<field name="body">Lorem ipsum dolor sit amet, consectetur adipiscing
+			elit sed do eiusmod tempor labore dolore that magna aliqua. Ut enim
+			ad minim veniam, exercitation.
+		</field>
+		<field name="message_type">comment</field>
+		<field name="name">Admin</field>
+		<field name="email_id">admin@mail.com</field>
+		<field name="author_id" ref="base.partner_root" />
+	</record>
+	<!--End Mail message -->
+	
+	
+	<!-- social link -->
+	<record id="base.main_company" model="res.company">
+		<field name="social_twitter">https://twitter.com</field>
+		<field name="social_facebook">https://www.facebook.com</field>
+		<field name="social_linkedin">https://www.linkedin.com</field>
+		<field name="social_youtube">https://www.youtube.com</field>
+	</record>
+	<!-- social link -->
+	<record id="website_config" model="res.config.settings">
+		<field name="social_twitter">https://twitter.com</field>
+		<field name="social_facebook">https://www.facebook.com</field>
+		<field name="social_linkedin">https://www.linkedin.com</field>
+		<field name="social_youtube">https://www.youtube.com</field>
+	</record>
+	
+
+</odoo>

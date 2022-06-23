@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="onpoint_logger_compare_report" model="ir.ui.view">
+        <field name="name">onpoint.logger.compare.report.form</field>
+        <field name="model">onpoint.logger.compare.report</field>
+        <field name="arch" type="xml">
+            <form string="Logger">
+                <group>
+                    <field name="report_period" readonly="1" force_save="1"/>
+                    <field name="logger_compare_id" readonly="1" force_save=""/>
+                    <field name="image_url" invisible="1" force_save="1"/>
+                </group>
+                <group string="Remarks" col="2" colspan="4">
+                    <field name="remarks" nolabel="1" placeholder="input your remarks..."/>
+                </group>
+                <footer>
+                    <button name="generate_pdf_report" string="Generate Report" type="object" default_focus="1"
+                            class="oe_highlight"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_onpoint_logger_compare_report"
+                name="Logger Report"
+                res_model="onpoint.logger.compare.report"
+                view_mode="form"
+                target="inline"/>
+
+</odoo>

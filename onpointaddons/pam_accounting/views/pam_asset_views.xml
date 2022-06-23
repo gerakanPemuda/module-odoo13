@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_asset_tree" model="ir.ui.view">
+	        <field name="name">pam.asset.tree</field>
+	        <field name="model">pam.asset</field>
+	        <field name="arch" type="xml">
+	            <tree>
+					<field name="coa_id"/>
+	                <field name="name" />
+	                <field name="category_id" />
+	                <field name="months" />
+	                <field name="years" />
+					<field name="price_nett"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_form" model="ir.ui.view">
+	        <field name="name">pam.asset.form</field>
+	        <field name="model">pam.asset</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<sheet>
+						<group col="4" colspan="2">
+							<field name="name" colspan="4"/>
+							<field name="category_id" />
+							<newline />
+							<newline />
+							<field name="item_id"/>
+							<label for="qty" string="Kuantitas"/>
+							<div>
+								<field name="qty" nolabel="1" class="oe_inline"/>
+								<field name="uom_id" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+							</div>
+							<newline />
+							<label for="coa_id" string="Kode Akun"/>
+							<div>
+								<field name="coa_id" class="oe_inline"/><!-- 
+								<label string=" " style="padding-left:35px"/>
+								<field name="coa_id_name"/> -->
+							</div>
+							<field name="journal_id"/>
+							<field name="vendor_id"/>
+							<field name="spk"/>
+							<label for="months" string="Bulan Perolehan"/>
+							<div>
+								<field name="months" nolabel="1" class="oe_inline" required="1"/>
+								<field name="years" nolabel="1" class="oe_inline" required="1" style="margin-left:10px"/>
+							</div>
+							<label for="tariff" string="Tarif Penyusutan"/>
+							<div>
+								<field name="depreciation_id" nolabel="1" class="oe_inline"/>
+								<label string="Masa Manfaat Max" class="oe_inline" style="margin-left:10px" for="use_max"/>
+								<field name="use_max" nolabel="1" class="oe_inline" style="margin-left:10px" />
+							</div>
+							<newline/>
+							<field name="price"/>
+							<field name="price_add"/>
+							<field name="price_nett" readonly="1"/>
+							<field name="price_subtract"/>
+							<field name="remark"/>
+							<label for="start_months" string="Perubahan Berlaku"/>
+							<div>
+								<field name="start_months" nolabel="1" class="oe_inline"/>
+								<field name="start_years" nolabel="1" class="oe_inline" style="margin-left:10px"/>
+							</div>
+
+							<button colspan="4" class="oe_highlight" 
+								string="Kalkulasi Penyusutan" 
+								type="object" 
+								name="set_depreciation" />
+
+
+							<notebook colspan="4">
+								<page string="Detail Barang">
+									<group>
+										<field name="item_detail_ids" nolabel="1" colspan="4" widget="one2many_list">
+											<tree editable="bottom">
+												<field name="name"/>
+												<field name="remark"/>
+												<field name="department_id"/>
+												<field name="is_activ" invisible="1"/>
+											</tree>
+										</field>
+									</group>
+								</page>
+								<page string="Penyusutan">
+									<group>
+										<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list">
+											<tree>
+												<field name="years" required="1"/>
+												<field name="price" sum="Total"/>
+											</tree>
+
+											<form>
+												<group col="4" colspan="2">
+													<field name="years" />
+													<newline />
+													
+													<notebook colspan="4">
+														<page string="Penyusutan Bulanan">
+															<group>
+																<field name="detail_ids" nolabel="1" colspan="4" widget="one2many_list">
+																	<tree editable="bottom">
+																		<field name="months" />
+																		<field name="years" />
+																		<field name="price" sum="Total"/>
+																	</tree>
+																</field>
+															</group>
+														</page>
+													</notebook>
+												</group>
+											</form>
+										</field>
+									</group>
+								</page>
+							</notebook>
+						</group>
+		            </sheet>
+
+					<div class="oe_chatter">
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_asset_search" model="ir.ui.view">
+	        <field name="name">pam.asset.search</field>
+	        <field name="model">pam.asset</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Aset">
+	               <field name="name"/>
+	               <field name="coa_id"/>
+	                <field name="category_id" />
+	                <field name="months" />
+	                <field name="years" />
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_asset">
+			<field name="name">Daftar Aset</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.asset</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_asset_search"/>
+		</record>
+
+
+
+    </data>
+</odoo>

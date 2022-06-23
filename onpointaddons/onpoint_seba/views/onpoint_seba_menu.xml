@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+<!--        <menuitem id="menu_onpoint_seba_root"-->
+<!--            name="Seba"-->
+<!--            sequence="1"-->
+<!--            web_icon="onpoint_seba,static/src/img/icon-monitoring.png"/>-->
+
+        	<menuitem id="menu_onpoint_seba_spec"
+                      name="Spec"
+                      parent="onpoint_monitor.menu_onpoint_config"
+                      groups="onpoint_monitor.group_onpoint_monitor_superadmin"
+                      sequence="1" 
+                      action="act_onpoint_seba_spec"
+                      web_icon="onpoint_seba,static/description/icon-monitoring.png"/>
+    </data>
+</odoo>

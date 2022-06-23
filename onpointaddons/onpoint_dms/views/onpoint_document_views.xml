@@ -1,0 +1,118 @@
+<odoo>
+
+    <data>
+
+        <record id="view_onpoint_document_tree" model="ir.ui.view">
+            <field name="name">onpoint.document.tree</field>
+            <field name="model">onpoint.document</field>
+            <field name="arch" type="xml">
+                <tree string="Document">
+                    <field name="name"/>
+                    <field name="document_category_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_onpoint_document_form" model="ir.ui.view">
+            <field name="name">onpoint.document.form</field>
+            <field name="model">onpoint.document</field>
+            <field name="arch" type="xml">
+                <form string="Document">
+                    <sheet>
+
+                        <div class="oe_title">
+                            <div class="right">
+                                <field name="image_1920" widget='image'
+                                       class="oe_avatar"
+                                       nolabel="1"
+                                       options='{"preview_image": "image_128"}'/>
+                            </div>
+
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+
+                            <group>
+                                <group>
+                                    <field name="document_category_id"/>
+                                </group>
+                            </group>
+
+                        </div>
+
+                        <group>
+                            <field name="document_file" widget="pdf_viewer" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_onpoint_document_kanban" model="ir.ui.view">
+            <field name="name">onpoint.document.kanban</field>
+            <field name="model">onpoint.document</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban string="Logger" class="o_kanban_mobile">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="document_category_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+                                <field name="image_128" widget="image" class="o_kanban_image o_hr_rounded_circle"
+                                       options="{'zoom': true, 'background': true, 'preventClicks': false}"/>
+
+                                <div class="oe_kanban_details" style="margin-left:10px">
+                                    <div>
+                                        <div>
+                                            <strong>
+                                                <field name="document_category_id"/>
+                                            </strong>
+                                        </div>
+                                        <strong class="o_kanban_record_title">
+                                            <span>
+                                                <t t-esc="record.name.value"/>
+                                            </span>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="view_onpoint_document_search" model="ir.ui.view">
+            <field name="name">onpoint.document.search</field>
+            <field name="model">onpoint.document</field>
+            <field name="arch" type="xml">
+                <search string="Cari Document">
+                    <field name="name"/>
+                    <field name="document_category_id"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_document_category" string="Document Category"
+                                context="{'group_by': 'document_category_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="document_category_id" string="Document Category" icon="fa-book"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_onpoint_document">
+            <field name="name">Document</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">onpoint.document</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_onpoint_document_search"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="report.paperformat" id="paperformat_pam_depreciation_report">
+	        <field name="name">paperformat.pam.depreciation.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Landscape</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_depreciation_report" 
+			string="Laporan Penyusutan" 
+			model="pam.depreciation.report" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_depreciation_template" 
+			file="pam_accounting.print_depreciation_template"
+			paperformat="paperformat_pam_depreciation_report"
+            menu="False"/>
+
+		<template id="report_depreciation_template">
+			<t t-call="web.html_container">
+				<div class="page">
+					<div class="article">
+ 						<div class="row">
+							<!-- START HEADER -->
+							<div class="row">
+								<!-- <t t-foreach="asset_group_pays" t-as="asset_group_pay"> -->
+								<div class="text-left col-xs-12"><img src="/web/binary/company_logo"/></div>
+								<div class="text-left col-xs-12" style="font:Tahoma;"><strong>PERIODE : <span t-esc="months"/><![CDATA[&nbsp;]]><span t-esc="years"/></strong></div>
+								<!-- </t> -->
+							</div>
+							<!-- END HEADER -->
+							<br/>
+							<div class="text-center col-xs-12" style="text-transform: uppercase;">
+								<t t-call="pam_accounting.report_template_style"/>
+								<span t-raw="html"/>
+							</div>
+						</div>
+					</div>
+					<div class="footer">
+			            <div class="row text-center" style="border-top: 1px solid black;">
+			                <div class="col-xs-6 text-left">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>User:</li>
+			                        <li>
+			                            <span t-esc="user.name"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span t-esc="datetime_cetak"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="col-xs-6 text-right">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>Page:</li>
+			                        <li>
+			                            <span class="page"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span class="topage"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+    </data>
+</odoo>

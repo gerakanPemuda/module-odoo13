@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_scada_root"
+            name="Onpoint"
+            sequence="1"/>
+
+            <menuitem id="menu_onpoint-scada_dashboard" parent="menu_onpoint_scada_root" name="Dashboard" sequence="1" action="act_onpoint_scada_home"/>
+
+    </data>
+</odoo>

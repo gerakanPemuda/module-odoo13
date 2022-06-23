@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_seba_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.seba</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Sebalog" string="Sebalog" data-key="onpoint_seba">
+                    <h2>FTP Settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-12 o_setting_box" title="Set default host">
+                            <div class="o_setting_right_pane">
+                                <label for="ftp_seba_host" string="Seba FTP Server"/>
+                                <div class="text-muted">
+                                    Set FTP Settings for Sebalog
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+<!--                                        <label for="ftp_seba_host" class="o_light_label"/>-->
+                                        <group>
+                                            <field name="ftp_seba_host" string="Host"/>
+                                            <field name="ftp_seba_port" string="Port" widget="integer"/>
+                                            <field name="ftp_seba_username" string="Username"/>
+                                            <field name="ftp_seba_password" string="Password"/>
+                                            <field name="ftp_seba_folder" string="Folder"/>
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="onpoint_seba_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'onpoint_seba'}</field>
+    </record>
+
+    <menuitem id="onpoint_seba_menu_configuration"
+        name="Settings"
+        parent="onpoint_monitor.menu_onpoint_config"
+        sequence="8"
+        action="onpoint_seba_config_settings_action"
+        groups="base.group_system"/>
+</odoo>

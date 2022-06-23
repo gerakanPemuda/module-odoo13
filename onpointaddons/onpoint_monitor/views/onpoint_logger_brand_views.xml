@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_logger_brand_tree" model="ir.ui.view">
+	        <field name="name">onpoint.logger.brand.tree</field>
+	        <field name="model">onpoint.logger.brand</field>
+	        <field name="arch" type="xml">
+	            <tree string="Logger Brand">
+	                <field name="name" />
+	                <field name="owner"/>
+	                <field name="convert_time"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	     <record id="view_onpoint_logger_brand_form" model="ir.ui.view">
+	        <field name="name">onpoint.logger.brand.form</field>
+	        <field name="model">onpoint.logger.brand</field>
+	        <field name="arch" type="xml">
+	            <form string="Logger Brand">
+	            	<sheet>
+						<group>
+							<group>
+								<field name="name" />
+								<field name="owner" />
+								<field name="convert_time" />
+							</group>
+							<group>
+								<field name="image_1920" widget="image" nolabel="1" class="oe_avatar" options='{"preview_image": "image_128"}'/>
+							</group>
+						</group>
+		            </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_logger_brand_search" model="ir.ui.view">
+	        <field name="name">onpoint.logger.brand.search</field>
+	        <field name="model">onpoint.logger.brand</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Logger Brand">
+	               <field name="name"/>
+	               <field name="owner"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_logger_brand">
+			<field name="name">Logger Brand</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.logger.brand</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_logger_brand_search"/>
+		</record>
+
+    </data>
+</odoo>

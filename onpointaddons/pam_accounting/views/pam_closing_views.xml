@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_closing_report" model="ir.ui.view">
+        <field name="name">pam.closing.form</field>
+        <field name="model">pam.closing</field>
+        <field name="arch" type="xml">
+            <form string="Neraca">
+                <sheet>
+                    <separator string="Tutup Buku" colspan="4"/>
+                    <group>
+                        <field name="name" />
+                        <label for="monthly" string="Periode"/>
+                        <div>
+                            <field name="months" nolabel="1" class="oe_inline" attrs="{'invisible': [('name', '=', 'annualy')]}"/>
+                            <field name="years" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                        </div>
+                    </group>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" regular_icon="fa-check-circle fa-2x" name="closing" string="Proses" confirm="Apakah anda yakin akan Posting ?"/>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_closing"
+        name="Tutup Buku"
+        res_model="pam.closing"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

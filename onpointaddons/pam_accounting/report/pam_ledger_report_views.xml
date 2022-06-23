@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pam_ledger_report" model="ir.ui.view">
+        <field name="name">pam.ledger.report.form</field>
+        <field name="model">pam.ledger.report</field>
+        <field name="arch" type="xml">
+            <form string="Laporan Buku Besar">
+                <sheet>
+                    <separator string="Laporan Buku Besar" colspan="4"/>
+                    <group>
+                        <label for="coa_id" string="Kode Akun"/>
+                        <div>
+                            <field name="coa_id" />
+                            <label string=" " style="padding-left:5px" for="coa_id_name"/>
+                            <field name="coa_id_name" readonly="1" force_save="1"/>
+                        </div>
+                        <label for="monthly" string="Periode"/>
+                        <div>
+                            <field name="from_month" nolabel="1" class="oe_inline"/>  -   
+                            <field name="to_month" nolabel="1" class="oe_inline"/>
+                            <field name="years" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                        </div>
+                        <field name="file_bin" readonly="1" filename="file_name"/>
+                        <field name="file_name" invisible="1"/> 
+                        <field name="count_lines" invisible="1"/>
+                     </group>
+                    <group col="4" colspan="4">
+                        <div>
+                            <button type="object" class="btn-default" icon="fa-external-link" name="get_data" string="Get Data"/>
+                            <button type="object" class="btn-default" solid_icon="fa-file-pdf" style="margin-left:10px" name="export_report_pdf" string="Export to PDF" attrs="{'invisible': [('count_lines', '&lt;=', 0)]}"/>
+                            <button type="object" class="btn-default" solid_icon="fa-file-excel" string="Export Excel" style="margin-left:10px" name="export_report_xls" attrs="{'invisible': [('count_lines', '&lt;=', 0)]}"/>
+                        </div>
+                    </group>
+
+                    <group>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-3 text-right">SALDO AWAL :</div>
+                            <div class="col-md-3 text-right"><field name="beginning_balance" nolabel="1" class="oe_inline" readonly="True"/></div>
+                        </div>
+                    </group>
+                    <group>
+                        <div class="row" style="border-bottom: 1px solid black">
+                            <div class="col-md-2">Transaksi</div>
+                            <div class="col-md-2 text-right">Debit</div>
+                            <div class="col-md-2 text-right">Kredit</div>
+                            <div class="col-md-3 text-right">NET</div>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </group>
+                    <group>
+                        <div class="row">
+                            <div class="col-md-2">1. S/D BULAN LALU</div>
+                            <div class="col-md-2 text-right"><field name="last_month_debit" nolabel="1" class="oe_inline" readonly="True"/></div>
+                            <div class="col-md-2 text-right"><field name="last_month_credit" nolabel="1" class="oe_inline" readonly="True"/></div>
+                            <div class="col-md-3 text-right"><field name="last_month_net" nolabel="1" class="oe_inline" readonly="True"/></div>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </group>
+                    <group>
+                        <div class="row">
+                            <div class="col-md-2">2. BULAN INI</div>
+                            <div class="col-md-2 text-right"><field name="current_month_debit" nolabel="1" class="oe_inline" readonly="True"/></div>
+                            <div class="col-md-2 text-right"><field name="current_month_credit" nolabel="1" class="oe_inline" readonly="True"/></div>
+                            <div class="col-md-3 text-right"><field name="current_month_net" nolabel="1" class="oe_inline" readonly="True"/></div>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </group>
+                    <group>
+                        <div class="row">
+                            <div class="col-md-2">3. S/D BULAN INI</div>
+                            <div class="col-md-2 text-right"><field name="ending_month_debit" nolabel="1" class="oe_inline" readonly="True"/></div>
+                            <div class="col-md-2 text-right"><field name="ending_month_credit" nolabel="1" class="oe_inline" readonly="True"/></div>
+                            <div class="col-md-3 text-right"></div>
+                            <div class="col-md-3 text-right"><field name="ending_month_net" nolabel="1" class="oe_inline" readonly="True"/></div>
+                        </div>
+                    </group>
+                    <group>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2 text-right"></div>
+                            <div class="col-md-2 text-right"></div>
+                            <div class="col-md-3 text-right">SALDO AKHIR :</div>
+                            <div class="col-md-3 text-right"><field name="ending_balance" nolabel="1" class="oe_inline" readonly="True"/></div>
+                        </div>
+                    </group>
+
+                    <notebook>
+                        <page string="Details">
+                            <field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" readonly="True">
+                                <tree create="false" delete="false">
+                                    <field name="entry_date" />
+                                    <field name="transaction_number" />
+                                    <field name="remark"/>
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="act_pam_ledger_report"
+        name="Laporan Buku Besar"
+        res_model="pam.ledger.report"
+        view_mode="form"
+        target="inline"
+         />
+
+</odoo>

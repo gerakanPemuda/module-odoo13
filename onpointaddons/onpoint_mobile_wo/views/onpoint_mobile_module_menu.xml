@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_mobile_root"
+            name="Onpoint Mobile"
+            sequence="1"
+            web_icon="onpoint_mobile_module,static/img/icon_base.png"/>
+
+            <menuitem id="menu_onpoint_mobile_config" name="Configuration" parent="menu_onpoint_mobile_root" sequence="5"/>
+                <menuitem id="menu_onpoint_mobile_module" parent="menu_onpoint_mobile_config" name="Module" sequence="1" action="act_onpoint_mobile_module"/>
+
+    </data>
+</odoo>

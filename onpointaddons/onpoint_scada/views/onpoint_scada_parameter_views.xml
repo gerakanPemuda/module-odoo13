@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+
+    	<record id="view_onpoint_scada_parameter_tree" model="ir.ui.view">
+	        <field name="name">onpoint.scada.parameter.tree</field>
+	        <field name="model">onpoint.scada.parameter</field>
+	        <field name="arch" type="xml">
+	            <tree string="Location" editable="bottom">
+	                <field name="id" />
+	                <field name="name" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_onpoint_scada_parameter_search" model="ir.ui.view">
+	        <field name="name">onpoint.scada.parameter.search</field>
+	        <field name="model">onpoint.scada.parameter</field>
+	        <field name="arch" type="xml">
+	            <search string="Search Location">
+	               <field name="name"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_onpoint_scada_parameter">
+			<field name="name">Parameter</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">onpoint.scada.parameter</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_onpoint_scada_parameter_search"/>
+		</record>
+
+    </data>
+</odoo>

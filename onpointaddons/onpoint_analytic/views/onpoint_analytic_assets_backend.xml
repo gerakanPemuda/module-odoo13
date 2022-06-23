@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="onpoint_analytic_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/onpoint_analytic/static/src/js/onpoint_night_flow.js"/>
+            </xpath>
+        </template>
+
+        <record id="act_view_night_flow" model="ir.actions.client">
+            <field name="name">View Night Flow</field>
+            <field name="tag">onpoint_analytic_night_flow</field>
+            <field name="context">{}</field>
+        </record>
+
+
+    </data>
+</odoo>

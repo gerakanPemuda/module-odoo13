@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<template id="sh_backmate_theme_web_login_layout" inherit_id="web.login_layout" name="Backmate Login Layout">
+	
+		<xpath expr="//div[hasclass('container')]" position="replace">
+			
+			
+            <t t-set="theme_config" t-value="request.env['sh.back.theme.config.settings'].search([('id','=',1)],limit = 1)" />			
+		
+			<!-- SIDE BY SIDE IMAGE AND LOGIN START HERE STYLE 2-->	
+            <div class="container-fluid mb-5 pb-5" t-if="theme_config.login_page_style == 'style_2'">
+            
+	            	<div class="row">
+	            	<div class="sh_backmate_th_login_left_img_st_2 col-lg-6 col-md-6 col-sm-6 col-12">
+
+					</div>
+	                <div t-attf-class="card border-0 mx-auto mt-5 bg-100 {{login_card_classes}} o_database_list col-lg-6 col-md-6 col-sm-6 col-12" style="max-width: 300px;">
+	                    
+	                    
+	                    <div class="card-body">
+	                        <div t-attf-class="text-center pb-3 border-bottom {{'mb-3' if form_small else 'mb-4'}}">
+	                            <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}" alt="Logo" style="max-height:120px; max-width: 100%; width:auto"/>
+	                        </div>
+	                        <t t-raw="0"/>
+	                        <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer">
+	                            <t t-if="not disable_database_manager">
+	                                <a class="border-right pr-2 mr-1" href="/web/database/manager">Manage Databases</a>
+	                            </t>
+	                            <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Odoo</span></a>
+	                        </div>
+	                    </div>
+	                </div>
+				</div>
+            </div>	
+			<!-- SIDE BY SIDE IMAGE AND LOGIN ENDS HERE STYLE 2 -->            
+
+            <div class="container mb-5 pb-5" t-if="theme_config.login_page_style != 'style_2'">
+                <div t-attf-class="card border-0 mx-auto mt-5 bg-100 {{login_card_classes}} o_database_list" style="max-width: 300px;">
+                    <div class="card-body">
+                        <div t-attf-class="text-center pb-3 border-bottom {{'mb-3' if form_small else 'mb-4'}}">
+                            <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}" alt="Logo" style="max-height:120px; max-width: 100%; width:auto"/>
+                        </div>
+                        <t t-raw="0"/>
+                        <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer">
+                            <t t-if="not disable_database_manager">
+                                <a class="border-right pr-2 mr-1" href="/web/database/manager">Manage Databases</a>
+                            </t>
+                            <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Odoo</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+
+		
+		</xpath>
+			
+    </template>
+    
+    	
+
+</odoo>

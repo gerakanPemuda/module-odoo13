@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+
+		<record id="act_onpoint_scada_home" model="ir.actions.act_url">
+			<field name="name">Home</field>
+			<field name="target">self</field>
+			<field name="url">/home</field>
+		</record>
+
+
+    </data>
+</odoo>

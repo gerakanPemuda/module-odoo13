@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_budget_revision_tree" model="ir.ui.view">
+	        <field name="name">pam.budget.revision.tree</field>
+	        <field name="model">pam.budget.revision</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="years" />
+	                <field name="state" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_budget_revision_form" model="ir.ui.view">
+	        <field name="name">pam.budget.revision.form</field>
+	        <field name="model">pam.budget.revision</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<header>
+	            		<button class="btn-default oe_highlight" string="Submit" type="object" name="submit" states="draft"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,submit,approved" />
+					</header>				
+	            	<sheet>
+						<group>
+							<group col="4" colspan="2">
+								<field name="years" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+								<field name="revision_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+							</group>
+
+							<group colspan="4" string='Rencana Revisi RKAP'>
+								<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list"  context="{'budget_year': years}">
+									<tree>
+										<field name="department_id" />
+										<field name="job_id" />
+										<field name="coa_id" />
+										<field name="coa_id_name" />
+										<field name="remark" />
+										<field name="sub_total_old" sum="Semula"/>
+										<field name="sub_total_new" sum="Revisi"/>
+										<field name="sub_total_diff" sum="Selisih"/>
+									</tree>
+
+									<form>
+										<group col="4" colspan="2">
+											<field name="budget_type"/>
+											<field name="revision_type" attrs="{'invisible': [('budget_type', '=', 'new')]}"/>
+										</group>
+
+										<group col="4" colspan="2" attrs="{'invisible': [('budget_type', '=', 'old')]}">
+											<field name="department_id" />
+											<field name="manager_name" />
+											<field name="job_id" />
+											<label for="coa_id" string="COA"/>
+											<div>
+												<field name="coa_id" colspan="4"/> 
+												<field name="coa_id_name" readonly="1" force_save="1" colspan="4"/>
+											</div>
+											<field name="remark" colspan="4"/>
+										</group>
+
+										<group attrs="{'invisible': [('budget_type', '=', 'new')]}">
+											<field name="budget_line2_id" />
+											<field name="budget_line3_id" />
+										</group>
+
+										<group col="4" colspan="2">
+											<field name="month_1_old" readonly="1" force_save="1"/>
+											<field name="month_1_new"/>
+											<field name="month_2_old" readonly="1" force_save="1"/>
+											<field name="month_2_new"/>
+											<field name="month_3_old" readonly="1" force_save="1"/>
+											<field name="month_3_new"/>
+											<field name="month_4_old" readonly="1" force_save="1"/>
+											<field name="month_4_new"/>
+											<field name="month_5_old" readonly="1" force_save="1"/>
+											<field name="month_5_new"/>
+											<field name="month_6_old" readonly="1" force_save="1"/>
+											<field name="month_6_new"/>
+											<field name="month_7_old" readonly="1" force_save="1"/>
+											<field name="month_7_new"/>
+											<field name="month_8_old" readonly="1" force_save="1"/>
+											<field name="month_8_new"/>
+											<field name="month_9_old" readonly="1" force_save="1"/>
+											<field name="month_9_new"/>
+											<field name="month_10_old" readonly="1" force_save="1"/>
+											<field name="month_10_new"/>
+											<field name="month_11_old" readonly="1" force_save="1"/>
+											<field name="month_11_new"/>
+											<field name="month_12_old" readonly="1" force_save="1"/>
+											<field name="month_12_new"/>
+											<field name="sub_total_old" invisible="1"/>
+											<field name="sub_total_new" invisible="1"/>
+											<field name="sub_total_diff" invisible="1"/>
+										</group>
+									</form>
+								</field>
+							</group>
+						</group>
+		            </sheet>
+
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_budget_revision_search" model="ir.ui.view">
+	        <field name="name">pam.budget.revision.search</field>
+	        <field name="model">pam.budget.revision</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Revisi Anggaran">
+	               <field name="years"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_budget_revision">
+			<field name="name">Revisi Anggaran</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.budget.revision</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_budget_revision_search"/>
+		</record>
+
+
+    </data>
+</odoo>

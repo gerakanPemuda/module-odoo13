@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_budget_change_tree" model="ir.ui.view">
+	        <field name="name">pam.budget.change.tree</field>
+	        <field name="model">pam.budget.change</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="years" />
+					<field name="department_id"/>
+	                <field name="state" />
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_budget_change_form" model="ir.ui.view">
+	        <field name="name">pam.budget.change.form</field>
+	        <field name="model">pam.budget.change</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<header>
+	            		<button class="btn-default oe_highlight" string="Submit" type="object" name="submit" states="draft"/>
+	            		<button class="btn-default oe_highlight" string="Approve" type="object" name="approve"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,submit,approved" />
+					</header>				
+	            	<sheet>
+						<group>
+							<group col="4" colspan="2">
+								<field name="years" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+								<label string="" invisible="1" for="department_id"/>
+								<field name="department_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+								<field name="manager_name" readonly="1"/>
+							</group>
+
+							<group colspan="4" string='Anggaran Lama'>
+								<field name="old_ids" nolabel="1" colspan="4" widget="one2many_list" context="{'budget_department_id': department_id, 'budget_year': years}">
+									<tree editable="bottom">
+										<field name="budget_line2_id" />
+										<field name="budget_line3_id" />
+										<field name="sub_total" string="Pagu Anggaran" sum="Sub Total"/>
+									</tree>
+								</field>
+							</group>
+
+							<group colspan="4" string='Pergeseran Anggaran'>
+								<field name="new_ids" nolabel="1" colspan="4" widget="one2many_list">
+									<tree>
+										<field name="department_id" />
+										<field name="job_id" />
+										<field name="coa_id" />
+										<field name="coa_id_name" />
+										<field name="remark" />
+										<field name="sub_total" sum="Total"/>
+									</tree>
+
+									<form>
+										<group>
+											<field name="change_type"/>
+										</group>
+
+										<group attrs="{'invisible': [('change_type', '=', 'old')]}">
+											<field name="department_id" />
+											<field name="manager_name" />
+											<field name="job_id" />
+											<field name="coa_id" />
+											<field name="coa_id_name" />
+											<field name="remark" />
+										</group>
+
+										<group attrs="{'invisible': [('change_type', '=', 'new')]}">
+											<field name="budget_line2_id" />
+											<field name="budget_line3_id" />
+										</group>
+
+										<group col="4" colspan="2">
+											<field name="month_1"/>
+											<field name="month_2"/>
+											<field name="month_3"/>
+											<field name="month_4"/>
+											<field name="month_5"/>
+											<field name="month_6"/>
+											<field name="month_7"/>
+											<field name="month_8"/>
+											<field name="month_9"/>
+											<field name="month_10"/>
+											<field name="month_11"/>
+											<field name="month_12"/>
+											<field name="sub_total" invisible="1"/>
+
+
+											<!-- <table class="o_list_view table table-condensed table-striped o_list_view_ungrouped">
+												<thead>
+													<tr>
+														<th style="text-align: right;">I</th>
+														<th style="text-align: right;">II</th>
+														<th style="text-align: right;">III</th>
+														<th style="text-align: right;">IV</th>
+														<th style="text-align: right;">V</th>
+														<th style="text-align: right;">VI</th>
+														<th style="text-align: right;">VII</th>
+														<th style="text-align: right;">VIII</th>
+														<th style="text-align: right;">IX</th>
+														<th style="text-align: right;">X</th>
+														<th style="text-align: right;">XI</th>
+														<th style="text-align: right;">XII</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr class="o_data_row">
+														<td class="o_data_cell o_list_number"><field name="month_1"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_2"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_3"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_4"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_5"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_6"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_7"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_8"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_9"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_10"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_11"/></td>
+														<td class="o_data_cell o_list_number"><field name="month_12"/></td>
+													</tr>
+												</tbody>
+											</table> -->
+										</group>
+									</form>
+								</field>
+							</group>
+						</group>
+		            </sheet>
+
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>					
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_budget_change_search" model="ir.ui.view">
+	        <field name="name">pam.budget.change.search</field>
+	        <field name="model">pam.budget.change</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Perubahan Anggaran">
+	               <field name="years"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_budget_change">
+			<field name="name">Perubahan Anggaran</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.budget.change</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+	        <field name="search_view_id" ref="view_pam_budget_change_search"/>
+		</record>
+
+
+    </data>
+</odoo>

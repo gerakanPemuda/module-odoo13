@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="report.paperformat" id="paperformat_pam_co_recap_report">
+	        <field name="name">paperformat.pam.co.recap.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Landscape</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_co_recap_report" 
+			string="DAFTAR JURNAL BAYAR KAS" 
+			model="pam.co.recap.report" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_co_recap_report_template" 
+			file="pam_accounting.print_co_recap_report_template"
+			paperformat="paperformat_pam_co_recap_report"
+            menu="False"/>
+
+		<template id="report_co_recap_report_template">
+			<t t-call="web.html_container">
+<!-- 				<div class="page">
+					<div class="article">
+						<div class="row">
+							<h5 class="text-center col-xs-12"><strong>DAFTAR HUTANG YANG MASIH DIBAYAR (D H H D) TERBUKA</strong></h5>
+							<h5 class="text-center col-xs-12" style="text-transform: uppercase;border-bottom:2px double black;"><strong>SAMPAI DENGAN BULAN : <span t-esc="start_date"/> s/d <span t-esc="end_date"/></strong></h5>
+						</div>
+
+						<table class="table table-bordered" style="border-color: 1px solid black;">
+							<tr>
+								<th rowspan="2"><b>No. </b></th>
+								<th rowspan="2"><b>NOMOR CO</b></th>
+								<th rowspan="2"><b>TANGGAL</b></th>
+								<th rowspan="2"><b>NOMOR AP</b></th>
+								<th rowspan="2"><b>NOMOR CHECK</b></th>
+								<th rowspan="2"><b>NAMA BANK</b></th>
+								<th rowspan="2"><b>JUMLAH</b></th>
+							</tr>
+							<t t-set="total_recap" t-value="0"/>
+							<t t-set="no" t-value="1"/>
+							<t t-foreach="recaps" t-as="recap">
+								<tr>
+									<td><t t-esc="no"/>.</td>
+									<td><t t-esc="recap[0]"/></td>
+									<td><t t-esc="recap[1]"/></td>
+									<td><t t-esc="recap[2]"/></td>
+									<td><t t-esc="recap[3]"/></td>
+									<td><t t-esc="recap[4]"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(recap[5])"/></td>
+								</tr>
+							<t t-set="no" t-value="no + 1"/>
+							<t t-set="total_recap" t-value="total_recap + recap[5]"/>
+							<t t-if="recap_last">
+								<tr>
+									<td class="text-right col-xs-10" style="border-top:1px solid black;border-bottom:1px solid black;"><b>TOTAL TRANSAKSI :</b></td>
+									<td class="text-right col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><t t-esc="'{0:,.2f}'.format(total_recap)"/></td>
+								</tr>
+							</t>
+							</t>
+						</table>
+
+						<div class="footer">
+				            <div class="row text-center" style="border-top: 1px solid black;">
+				                <div class="col-xs-3 col-xs-offset-9 text-right">
+				                    <ul class="list-inline" style="margin-top:10px;">
+				                        <li>Page:</li>
+				                        <li>
+				                            <span class="page"/>
+				                        </li>
+				                        <li>/</li>
+				                        <li>
+				                            <span class="topage"/>
+				                        </li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+			        </div>
+				</div> -->
+				<div class="page">
+					<div class="article">
+						<div class="rows">
+							<div class="text-left col-xs-12"><strong>DAFTAR JURNAL BAYAR KAS</strong></div>
+							<div class="text-left col-xs-12"><strong>PERIODE TANGGAL : <span t-esc="start_date"/> s/d <span t-esc="end_date"/></strong></div>
+						</div>
+						<div class="rows">
+							<div class="text-left col-xs-12"><strong>Tanggal Cetak :<span t-esc="(datetime.datetime.now() + relativedelta(hours=7)).strftime('%d/%m/%Y %H:%M:%S')"/></strong></div>
+							<div class="text-left col-xs-6"><strong>Telah Diperiksa Oleh : . . . . . . . . . . . . . . </strong></div>
+							<div class="text-left col-xs-6"><strong>Tanggal : . . . . . . . . . . . . . . . </strong></div>
+						</div>
+
+						<table class="table table-bordered" style="border-color: 1px solid black;">
+							<tr>
+								<th><b>No. </b></th>
+								<th><b>NOMOR CO</b></th>
+								<th><b>TANGGAL</b></th>
+								<th><b>NOMOR AP</b></th>
+								<th><b>NOMOR CHECK</b></th>
+								<th><b>NAMA BANK</b></th>
+								<th><b>JUMLAH</b></th>
+							</tr>
+							<t t-set="total_recap" t-value="0"/>
+							<t t-set="no" t-value="1"/>
+							<t t-foreach="recaps" t-as="recap">
+								<tr>
+									<td><t t-esc="no"/>.</td>
+									<td><t t-esc="recap[0]"/></td>
+									<td><t t-esc="recap[1]"/></td>
+									<td><t t-esc="recap[2]"/></td>
+									<td><t t-esc="recap[3]"/></td>
+									<td><t t-esc="recap[4]"/></td>
+									<td><t t-esc="'{0:,.2f}'.format(recap[5])"/></td>
+								</tr>
+							<t t-set="no" t-value="no + 1"/>
+							<t t-set="total_recap" t-value="total_recap + recap[5]"/>
+							<t t-if="recap_last">
+								<tr>
+									<td><![CDATA[&nbsp;]]></td>
+									<td><![CDATA[&nbsp;]]></td>
+									<td><![CDATA[&nbsp;]]></td>
+									<td><![CDATA[&nbsp;]]></td>
+									<td><![CDATA[&nbsp;]]></td>
+									<td><b>TOTAL TRANSAKSI :</b></td>
+									<td><t t-esc="'{0:,.2f}'.format(total_recap)"/></td>
+								</tr>
+<!-- 								<div class="rows">
+									<div class="text-right col-xs-10" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>TOTAL TRANSAKSI :</strong></div>
+									<div class="text-right col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><t t-esc="'{0:,.2f}'.format(total_recap)"/></div>
+								</div> -->
+							</t>
+							</t>
+						</table>
+<!-- 						<div class="rows">
+							<div class="text-left" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>No. </strong></div>
+							<div class="text-left" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NOMOR CO</strong></div>
+							<div class="text-left" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>TANGGAL</strong></div>
+							<div class="text-left" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NOMOR AP</strong></div>
+							<div class="text-left" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NOMOR CHECK</strong></div>
+							<div class="text-left" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NAMA BANK</strong></div>
+							<div class="text-right" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>JUMLAH</strong></div>
+						</div>
+						<t t-set="total_recap" t-value="0"/>
+						<t t-set="no" t-value="1"/>
+						<t t-foreach="recaps" t-as="recap">
+							<div class="rows">
+								<div class="text-left"><t t-esc="no"/>.</div>
+								<div class="text-left"><t t-esc="recap[0]"/></div>
+								<div class="text-left"><t t-esc="recap[1]"/></div>
+								<div class="text-left"><t t-esc="recap[2]"/></div>
+								<div class="text-left"><t t-esc="recap[3]"/></div>
+								<div class="text-left"><t t-esc="recap[4]"/></div>
+								<div class="text-right"><t t-esc="'{0:,.2f}'.format(recap[5])"/></div>
+							</div> -->
+<!-- 						<div class="rows">
+							<div class="text-left col-xs-1" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>No. </strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NOMOR CO</strong></div>
+							<div class="text-left col-xs-1" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>TANGGAL</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NOMOR AP</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NOMOR CHECK</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>NAMA BANK</strong></div>
+							<div class="text-right col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>JUMLAH</strong></div>
+						</div>
+						<t t-set="total_recap" t-value="0"/>
+						<t t-set="no" t-value="1"/>
+						<t t-foreach="recaps" t-as="recap">
+							<div class="rows">
+								<div class="text-left col-xs-1"><t t-esc="no"/>.</div>
+								<div class="text-left col-xs-2"><t t-esc="recap[0]"/></div>
+								<div class="text-left col-xs-1"><t t-esc="recap[1]"/></div>
+								<div class="text-left col-xs-2"><t t-esc="recap[2]"/></div>
+								<div class="text-left col-xs-2"><t t-esc="recap[3]"/></div>
+								<div class="text-left col-xs-2"><t t-esc="recap[4]"/></div>
+								<div class="text-right col-xs-2"><t t-esc="'{0:,.2f}'.format(recap[5])"/></div>
+							</div>
+ -->
+<!-- 							<t t-set="no" t-value="no + 1"/>
+							<t t-set="total_recap" t-value="total_recap + recap[5]"/>
+							<t t-if="recap_last">
+								<div class="rows">
+									<div class="text-right col-xs-10" style="border-top:1px solid black;border-bottom:1px solid black;"><strong>TOTAL TRANSAKSI :</strong></div>
+									<div class="text-right col-xs-2" style="border-top:1px solid black;border-bottom:1px solid black;"><t t-esc="'{0:,.2f}'.format(total_recap)"/></div>
+								</div>
+							</t>
+						</t> -->
+					</div>
+					<div class="footer">
+			            <div class="row text-center" style="border-top: 1px solid black;">
+			                <div class="col-xs-6 text-left">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>User:</li>
+			                        <li>
+			                            <span t-esc="user.name"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span t-esc="datetime_cetak"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="col-xs-6 text-right">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>Page:</li>
+			                        <li>
+			                            <span class="page"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span class="topage"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+
+    </data>
+</odoo>

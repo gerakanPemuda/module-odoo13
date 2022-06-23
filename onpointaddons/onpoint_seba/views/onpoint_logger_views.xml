@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_onpoint_seba_logger_form">
+            <field name="name">onpoint.seba.logger.form</field>
+            <field name="model">onpoint.logger</field>
+            <field name="inherit_id" ref="onpoint_monitor.view_onpoint_logger_form"/>
+            <field name="arch" type="xml">
+                <data>
+	            	<header position="inside">
+						<button
+                                class="oe_highlight"
+                                string="Get FTP - Seba"
+                                type="object"
+                                name="read_ftp_seba"
+                                style="margin-left:20px"
+                                attrs="{'invisible': [('brand_owner', '!=', 'seba')]}"
+                        />
+						<button
+                                class="oe_highlight"
+                                string="Get Realtime Data"
+                                type="object"
+                                name="act_read_realtime"
+                                style="margin-left:20px"
+                                attrs="{'invisible': [('brand_owner', '!=', 'seba')]}"
+                                groups="onpoint_monitor.group_onpoint_monitor_superadmin"
+                        />
+					</header>
+
+                    <xpath expr="//field[@name='dma_id']" position="after">
+                        <field name="is_realtime" attrs="{'invisible': [('brand_owner', '!=', 'seba')]}"/>
+                    </xpath>
+
+				</data>
+			</field>
+		</record>
+
+    </data>
+</odoo>

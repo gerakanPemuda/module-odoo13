@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_onpoint_analytic_root"
+            name="Analytic"
+            sequence="3"
+            web_icon="onpoint_analytic,static/img/icon_analytic.png"/>
+
+            <menuitem id="menu_onpoint_night_flow" parent="menu_onpoint_analytic_root" name="Night Flow" sequence="1" action="act_view_night_flow"/>
+<!--        	<menuitem id="menu_onpoint_analytic" name="Analytic" parent="menu_onpoint_analytic_root" sequence="1" />-->
+<!--                <menuitem id="menu_onpoint_cp_recap" parent="menu_onpoint_analytic" name="CP Analytic" sequence="1" action="act_onpoint_cp_recap"/>-->
+<!--                <menuitem id="menu_onpoint_water_balance" parent="menu_onpoint_analytic" name="Water Balance" sequence="2" action="act_onpoint_water_balance"/>-->
+
+<!--        	<menuitem id="menu_onpoint_analytic_integration" name="Integration" parent="menu_onpoint_analytic_root" sequence="2" />-->
+<!--                <menuitem id="menu_onpoint_dma_billing" parent="menu_onpoint_analytic_integration" name="DMA Billing" sequence="1" action="act_onpoint_dma_billing"/>-->
+
+    </data>
+</odoo>

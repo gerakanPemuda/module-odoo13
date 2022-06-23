@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="UnitChartMain">
+        <style>
+            div.scroll {
+                margin:0px, 0px;
+                padding:0px;
+				width: 100%;
+				height: 100%;
+                overflow-x: hidden;
+                overflow-x: auto;
+            }
+        </style>
+        <div class="o_charts scroll" style="background:#FFFFFF">
+            <div class="o_hr_chart">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="UnitChartContent">
+
+        <div class="main-section" style="background:#FFFFFF">
+            <div class="o_action o_view_controller">
+                <div class="o_cp_controller">
+                    <div class="o_control_panel">
+                        <div class="row">
+                            <div class="col-4" style="font-size: 18px">
+                                <t t-esc="widget.unit.location_name"/>
+                                /
+                                <t t-esc="widget.unit.unit_name"/>
+                                <input type="text" id="unit_id" t-att-value="widget.unit.unit_id" style="display:none"/>
+                            </div>
+                            <div class="col-8 float-end">
+                                <img src="/onpoint_scada/static/src/img/logo-onpoint.jpg" class="float-end"
+                                     style="width: 10em; margin-left: 10px"/>
+                                <div class="float-end"
+                                     style="padding-right: 10px; text-align: center;">
+                                    <button id="btn_refresh" type="button"
+                                            class="btn btn-pill btn-primary-onpoint">Refresh
+                                    </button>
+                                    <button id="btn_generate_image" type="button"
+                                            class="btn btn-pill btn-primary-onpoint" style="display: none">
+                                                Generate Image
+                                            </button>
+                                    <span id="print_loading" style="margin-left:5px; font-size: smaller">Preparing Report...</span>
+                                    <button id="btn_print" type="button"
+                                            class="btn btn-pill btn-primary-onpoint">Print Result
+                                            </button>
+                                    <div class="modal fade" id="modal_print" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content" style="height: 400">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Print Results
+                                                    </h5>
+                                                    <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body" style="text-align: left">
+                                                    <div class="row">
+                                                        <div class="col-3"><b>Period</b></div>
+                                                        <div class="col-9">01/01/2022 - 31/01/2022</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-3"><b>Chart</b></div>
+                                                        <div class="col-9"><textarea id="img_chart_text"/></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12"><b>Remarks</b></div>
+                                                        <div class="col-12"><textarea id="remarks" style="width: 100%; height: 130"/></div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary">Save changes
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="float-end" style="padding-right: 10px; text-align: center;">
+                                            <select id="select_hour" class="form-select">
+                                                <option value="00">00:00
+                                                </option>
+                                                <option value="01">01:00
+                                                </option>
+                                                <option value="02">02:00
+                                                </option>
+                                                <option value="03">03:00
+                                                </option>
+                                                <option value="04">04:00
+                                                </option>
+                                                <option value="05">05:00
+                                                </option>
+                                                <option value="06">06:00
+                                                </option>
+                                                <option value="07">07:00
+                                                </option>
+                                                <option value="08">08:00
+                                                </option>
+                                                <option value="09">09:00
+                                                </option>
+                                                <option value="10">10:00
+                                                </option>
+                                                <option value="11">11:00
+                                                </option>
+                                                <option value="12">12:00
+                                                </option>
+                                                <option value="13">13:00
+                                                </option>
+                                                <option value="14">14:00
+                                                </option>
+                                                <option value="15">15:00
+                                                </option>
+                                                <option value="16">16:00
+                                                </option>
+                                                <option value="17">17:00
+                                                </option>
+                                                <option value="18">18:00
+                                                </option>
+                                                <option value="19">19:00
+                                                </option>
+                                                <option value="20">20:00
+                                                </option>
+                                                <option value="21">21:00
+                                                </option>
+                                                <option value="22">22:00
+                                                </option>
+                                                <option value="23">23:00
+                                                </option>
+                                            </select>
+                                        </div>
+                                <div class="float-end" style="padding-right: 10px; text-align: center;">
+                                        <input type="text" id="rangeDate" class="form-control" style="width: 15em"/>
+                                </div>
+                                <div class="float-end" style="padding-right: 10px; text-align: center;">
+                                    <select id="select_interval" class="form-select">
+                                        <option value="300">5 minutes</option>
+                                        <option value="900" selected="selected">15 minutes</option>
+                                        <option value="3600">1 hour</option>
+                                        <option value="86400">1 day</option>
+                                        <option value="604800">7 days</option>
+                                        <option value="18144000">30 days</option>
+                                    </select>
+                                </div>
+                                <div class="float-end" style="padding-right: 10px; text-align: center;">
+                                    <select id="select_period" class="form-select">
+                                        <option value="1d">1 Day
+                                        </option>
+                                        <option value="3d">3
+                                            Days
+                                        </option>
+                                        <option value="1w">1
+                                            Week
+                                        </option>
+                                        <option value="2w">2 Weeks
+                                        </option>
+                                        <option value="1m">1 Month
+                                        </option>
+                                        <option value="2m">2 Months
+                                        </option>
+                                        <option value="custom">Custom
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="o_cp_left">
+                                <div class="o_cp_buttons" role="toolbar">
+                                    <div>
+                                        <t t-foreach="widget.unit.other_units" t-as="other_unit">
+                                            <button class="btn btn-pill btn-primary btn_unit"
+                                                    t-attf-data-unit-id="{{other_unit.unit_id}}">
+                                                <t t-esc="other_unit.unit_name"/>
+                                            </button>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_cp_searchview" style="margin-top: 10px; text-align: center;">
+                                <label class="toggle float-right" for="auto_refresh">
+                                    Auto Refresh
+                                    <input type="checkbox" class="toggle__input" id="auto_refresh"/>
+                                    <span class="toggle-track" style="margin-left: 10px;">
+                                        <span class="toggle-indicator">
+                                            <!-- 	This check mark is optional	 -->
+                                            <span class="checkMark">
+                                                <svg viewBox="0 0 24 24" id="ghq-svg-check" role="presentation"
+                                                     aria-hidden="false">
+                                                    <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <button id="btn_loggers" class="btn btn-pill btn-primary btn-primary-onpoint float-end" style="margin-right: 10px">
+                                    Loggers
+                                </button>
+                                <!--                                <button id="btn_auto_refresh" type="button" class="btn btn-pill btn-primary">Auto Refresh</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="o_content row">
+                    <div class="container-fluid">
+                        <div id="div_alarm" class="col-md-12" style="margin-top:40px">
+                            <div id="container_unit_chart"/>
+                        </div>
+
+                        <div class="container">
+                            <div class="row justify-content-md-center">
+                                <t t-foreach="widget.unit.stats" t-as="stat">
+                                    <div class="col-sm-5 col-lg-5 l unit-info-cell">
+                                        <table width="100%">
+                                            <tr>
+                                                <td colspan="2" align="center"
+                                                    style="font-size: 12pt"><b><t t-esc="stat.name"/></b></td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <td width="40%" class="value-info-cell">Last Value</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <t t-if="stat.last_date != ''">
+                                                        <span class="text-value">
+                                                            <t t-esc="stat.last_value"/>
+                                                            <t t-esc="stat.sensor_type_uom"/>
+                                                        </span>
+                                                        <br/>
+                                                        <t t-esc="stat.last_date"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span class="text-value">
+                                                            -
+                                                        </span>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <td width="40%" class="value-info-cell">Min Value</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <t t-if="stat.min_date != ''">
+                                                        <span class="text-value">
+                                                            <t t-esc="stat.min_value"/>
+                                                            <t t-esc="stat.sensor_type_uom"/>
+                                                        </span>
+                                                        <br/>
+                                                        <t t-esc="stat.min_date"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span class="text-value">
+                                                            -
+                                                        </span>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" class="value-info-cell">Max Value</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <t t-if="stat.max_date != ''">
+                                                        <span class="text-value">
+                                                            <t t-esc="stat.max_value"/>
+                                                            <t t-esc="stat.sensor_type_uom"/>
+                                                        </span>
+                                                        <br/>
+                                                        <t t-esc="stat.max_date"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span class="text-value">
+                                                            -
+                                                        </span>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" class="value-info-cell">Avg Value</td>
+                                                <td width="60%" class="value-info-cell">
+                                                    <span class="text-value">
+                                                        <t t-esc="stat.avg_value"/>
+                                                        <t t-esc="stat.sensor_type_uom"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </t>
+                            </div>
+                        </div>
+
+                        <textarea id="infile" style="display: none"/>
+                        <textarea id="image_base64_text" style="display: none"/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="UnitChartWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+</templates>

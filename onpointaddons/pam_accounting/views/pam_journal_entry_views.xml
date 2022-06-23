@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    	<record id="view_pam_journal_entry_tree" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.tree</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <tree>
+	                <field name="name" />
+					<field name="entry_date"/>
+					<field name="remark"/>
+					<field name="total_debit" string="Total"/>
+	                <field name="state" />
+	                <field name="create_uid" string="Dibuat oleh"/>
+	            </tree>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_journal_entry_form" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.form</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <form>
+					<header>
+						<button class="oe_highlight"
+							string="Submit"
+							type="object"
+							name="submit"
+							attrs="{'invisible': [('state', 'in', ('submit', 'posted'))]}" />
+
+						<button class="oe_highlight"
+							string="Export to Excel"
+							type="object"
+							name="generate_excel_report" />
+
+						<field name="file_bin" readonly="1" filename="file_name"/>
+						<field name="file_name" invisible="1"/>
+
+
+						<!-- <button class="oe_highlight"
+							string="Post"
+							type="object"
+							name="posted"
+							confirm="Apakah anda yakin akan memposting transaksi ini ?"
+							attrs="{'invisible': [('state', 'in', ('draft','posted'))]}"
+							groups="pam_accounting.group_pam_accounting_admin" /> -->
+
+						<field name="state" widget="statusbar" statusbar_visible="draft,submit,posted" />
+					</header>
+
+	            	<sheet>
+						<group col="4" colspan="2">
+							<label for="code_number" string="Kode"/>
+							<div>
+								<field name="code_number" nolabel="1" class="oe_inline" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+								<label string="/" style="padding-left:5px" for="code_journal_type"/>
+								<field name="code_journal_type" nolabel="1" class="oe_inline" readonly="True"/>
+								<label string="/" style="padding-left:5px" for="code_month"/>
+								<field name="code_month" nolabel="1" class="oe_inline" readonly="True"/>
+								<label string="/" style="padding-left:5px" for="code_year"/>
+								<field name="code_year" nolabel="1" class="oe_inline" readonly="True"/>
+							</div>
+
+							<field name="entry_date" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+							<field name="refers_to" string="Uraian" colspan="4" attrs="{'invisible': [('refers_to', '=', False)]}"/>
+							<field name="remark" colspan="4" attrs="{'readonly': [('state', '=', 'posted')], 'invisible': [('refers_to', '!=', False)]}"/>
+							<field name="is_cancellation" attrs="{'readonly': [('state', '=', 'posted')], 'invisible': [('journal_type', '!=', 'ju')]}"/>
+
+							<label for="is_cash_flow" string="Arus Kas" attrs="{'invisible': [('journal_type', '!=', 'ju')]}"/>
+							<div attrs="{'invisible': [('journal_type', '!=', 'ju')]}">
+								<field name="is_cash_flow" nolabel="1" class="oe_inline" attrs="{'readonly': [('state', '=', 'posted')], 'invisible': [('journal_type', '!=', 'ju')]}"/>
+								<field name="cash_flow_type" nolabel="1" class="oe_inline" style="padding-left:5px" attrs="{'readonly': [('state', '=', 'posted')], 'invisible': [('is_cash_flow', '=', False)], 'required': [('is_cash_flow', '=', True)]}"/>
+							</div>
+
+
+							<field name="journal_type" invisible="True" />
+							<field name="total_debit" invisible="True"/>
+							<field name="total_credit" invisible="True"/>
+
+							<notebook colspan="4">
+								<page string="Akun">
+									<group>
+										<field name="line_ids" nolabel="1" colspan="4" widget="one2many_list" attrs="{'readonly': [('state', '=', 'posted')]}">
+											<tree editable="bottom">
+												<field name="coa_id" />
+												<field name="coa_id_name" readonly="1" force_save="1"/>
+												<field name="debit" sum="Total Debit"/>
+												<field name="credit" sum="Total Kredit"/>
+											</tree>
+
+											<form>
+												<group>
+													<field name="coa_id"/>
+													<field name="debit"/>
+													<field name="credit"/>
+												</group>
+											</form>
+
+										</field>
+
+										<group class="oe_subtotal_footer oe_right">
+											<div class="oe_subtotal_footer_separator oe_inline">
+												<label for="total_diff" string="Selisih Debit/Credit"/>
+											</div>
+											<field name="total_diff" nolabel="1" class="oe_subtotal_footer_separator" />
+										</group>
+
+
+
+									</group>
+
+
+								</page>
+							</notebook>
+						</group>
+		            </sheet>
+
+					<div class="oe_chatter">
+						<field name="message_ids" widget="mail_thread"/>
+					</div>
+
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="view_pam_journal_entry_search" model="ir.ui.view">
+	        <field name="name">pam.journal.entry.search</field>
+	        <field name="model">pam.journal.entry</field>
+	        <field name="arch" type="xml">
+	            <search string="Cari Jurnal Umum">
+	               <field name="name"/>
+	               <field name="remark"/>
+	           </search>
+	        </field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="act_pam_journal_gl">
+			<field name="name">Jurnal Umum (JU)</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.journal.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('journal_type', '=', 'ju')]</field>
+			<field name="context">{"default_journal_type" : "ju", "default_code_journal_type" : "JU"}</field>
+	        <field name="search_view_id" ref="view_pam_journal_entry_search"/>
+		</record>
+
+	    <record model="ir.actions.act_window" id="act_pam_journal_co">
+			<field name="name">Jurnal Bayar Kas (CO)</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.journal.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('journal_type', '=', 'co')]</field>
+			<field name="context">{"default_journal_type" : "co", "default_code_journal_type" : "CO"}</field>
+	        <field name="search_view_id" ref="view_pam_journal_entry_search"/>
+		</record>
+
+	    <record model="ir.actions.act_window" id="act_pam_journal_ci">
+			<field name="name">Jurnal Penerimaan Kas (CI)</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.journal.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('journal_type', '=', 'ci')]</field>
+			<field name="context">{"default_journal_type" : "ci", "default_code_journal_type" : "CI"}</field>
+	        <field name="search_view_id" ref="view_pam_journal_entry_search"/>
+		</record>
+
+	    <record model="ir.actions.act_window" id="act_pam_journal_bl">
+			<field name="name">Jurnal Rekening (BL)</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.journal.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('journal_type', '=', 'bl')]</field>
+			<field name="context">{"default_journal_type" : "bl", "default_code_journal_type" : "BL"}</field>
+	        <field name="search_view_id" ref="view_pam_journal_entry_search"/>
+		</record>
+
+
+	    <record model="ir.actions.act_window" id="act_pam_journal_in">
+			<field name="name">Jurnal Instalasi dan Kimia (IN)</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.journal.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('journal_type', '=', 'in')]</field>
+			<field name="context">{"default_journal_type" : "in", "default_code_journal_type" : "IN"}</field>
+	        <field name="search_view_id" ref="view_pam_journal_entry_search"/>
+		</record>
+
+	    <record model="ir.actions.act_window" id="act_pam_journal_aj">
+			<field name="name">Jurnal Penyesuaian (AJ)</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pam.journal.entry</field>
+
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('journal_type', '=', 'aj')]</field>
+			<field name="context">{"default_journal_type" : "aj", "default_code_journal_type" : "AJ"}</field>
+	        <field name="search_view_id" ref="view_pam_journal_entry_search"/>
+		</record>
+
+    </data>
+</odoo>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="report.paperformat" id="paperformat_pam_journal_payment_report">
+	        <field name="name">paperformat.pam.journal.payment.report</field>
+	        <field name="default" eval="True"/>
+	        <field name="format">A4</field>
+	        <field name="page_width">0</field>
+	        <field name="page_width">0</field>
+	        <field name="orientation">Portrait</field>
+	        <field name="margin_top">5</field>
+	        <field name="margin_right">5</field>
+	        <field name="margin_bottom">10</field>
+	        <field name="margin_left">5</field>
+	        <field name="header_line" eval="False"/>
+	        <field name="header_spacing">00</field>
+	        <field name="dpi">90</field>
+	    </record>
+
+	    <report id="action_pam_journal_payment_report" 
+			string="DAFTAR REKAPITULASI JURNAL" 
+			model="pam.journal.payment" 
+			report_type="qweb-pdf" 
+			name="pam_accounting.report_journal_payment_report_template" 
+			file="pam_accounting.print_journal_payment_report_template"
+			paperformat="paperformat_pam_journal_payment_report"
+            menu="False"/>
+
+		<template id="report_journal_payment_report_template">
+			<t t-call="web.html_container">
+				<div class="page">
+					<div class="article">
+						<div class="row">
+							<div class="text-right col-xs-10"><![CDATA[&nbsp;]]></div>
+							<div class="text-left col-xs-2">No: <span t-esc="name"/></div>
+							<div class="text-right col-xs-10"><![CDATA[&nbsp;]]></div>
+							<div class="text-left col-xs-2">Tgl: <span t-esc="payment_date"/></div>
+						</div>
+
+						<div class="row">
+							<div class="text-right col-xs-8"><strong><![CDATA[&nbsp;]]></strong></div>
+							<div class="text-left col-xs-4"><strong>Kepada Yth :</strong></div>
+							<div class="text-right col-xs-8"><strong><![CDATA[&nbsp;]]></strong></div>
+							<div class="text-left col-xs-4"><strong>Kepala Bagian Keuangan</strong></div>
+							<div class="text-right col-xs-8"><strong><![CDATA[&nbsp;]]></strong></div>
+							<div class="text-left col-xs-4"><strong>PDAM Tirta Pakuan Kota Bogor</strong></div>
+							<div class="text-right col-xs-8"><strong><![CDATA[&nbsp;]]></strong></div>
+							<div class="text-left col-xs-4"><strong>Di Tempat</strong></div>
+						</div>
+
+						<div class="row">
+							<div class="text-left col-xs-12"><strong>Dengan Hormat,</strong></div>
+							<div class="text-left col-xs-6"><strong>Mohon dapat mengalihkan kas di Bank : <span t-esc="coa_id"/></strong></div>
+							<div class="text-left col-xs-6"><strong>No. Cek : <span t-esc="cheque_number"/></strong></div>
+							<div class="text-left col-xs-12"><strong>pada kas perusahaan untuk pembayaran tagihan - tagihan sebagai berikut :</strong></div>
+						</div>
+
+						<br/>
+						<div class="row">
+							<div class="text-center col-xs-12" style="border-bottom:1px solid black;"><strong>REKAPITULASI PEMBAYARAN VOUCHER MELALUI KAS TUNAI</strong></div>
+						</div>
+						
+						<br/>
+						<div class="row">
+							<div class="text-left col-xs-1" style="border-top:1px solid black;border-right:1px solid black;border-left:1px solid black;border-bottom:1px solid black;"><strong>NO</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-right:1px solid black;border-bottom:1px solid black;"><strong>NO VOUCHER</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-right:1px solid black;border-bottom:1px solid black;"><strong>TGL VOUCHER</strong></div>
+							<div class="text-left col-xs-2" style="border-top:1px solid black;border-right:1px solid black;border-bottom:1px solid black;"><strong>KEPADA</strong></div>
+							<div class="text-left col-xs-3" style="border-top:1px solid black;border-right:1px solid black;border-bottom:1px solid black;"><strong>URAIAN</strong></div>
+							<div class="text-right col-xs-2" style="border-top:1px solid black;border-right:1px solid black;border-bottom:1px solid black;"><strong><![CDATA[&nbsp;]]></strong></div>
+						</div>
+						
+						<t t-set="no" t-value="1"/>
+						<t t-set="total_jumlah" t-value="0"/>
+						<t t-foreach="journals" t-as="journal">
+							<div class="row">
+								<div class="text-left col-xs-1" style="border-right:1px solid black;border-left:1px solid black;border-bottom:1px solid black;"><t t-esc="no"/></div>
+								<div class="text-left col-xs-2" style="border-right:1px solid black;border-bottom:1px solid black;"><span t-esc="journal[0]"/></div>
+								<div class="text-left col-xs-2" style="border-right:1px solid black;border-bottom:1px solid black;"><span t-esc="payment_date"/></div>
+								<div class="text-left col-xs-2" style="border-right:1px solid black;border-bottom:1px solid black;"><t t-esc="journal[1]"/></div>
+								<div class="text-left col-xs-3" style="border-right:1px solid black;border-bottom:1px solid black;"><t t-esc="journal[2]"/></div>
+								<div class="text-right col-xs-2" style="border-right:1px solid black;border-bottom:1px solid black;">Rp <span t-esc="'{0:,.2f}'.format(total_payment)"/></div>
+							</div>
+							<t t-set="no" t-value="no + 1"/>
+							<t t-set="total_jumlah" t-value="total_jumlah + total_payment"/>
+							<t t-if="journal_last">
+								<div class="row">
+									<div class="text-right col-xs-10" style="border-right:1px solid black;border-left:1px solid black;border-bottom:1px solid black;"><strong>JUMLAH</strong></div>
+									<div class="text-right col-xs-2" style="border-right:1px solid black;border-bottom:1px solid black;"><strong>Rp <t t-esc="'{0:,.2f}'.format(total_jumlah)"/></strong></div>
+								</div>
+							</t>
+						</t>
+
+						<div class="row">
+							<div class="text-left col-xs-12">Demikian pengajuan ini kami sampaikan, atas perhatiannya kami ucapkan terimakasih.</div>
+							<div class="text-right col-xs-10"><![CDATA[&nbsp;]]></div>
+							<div class="text-center col-xs-2">Diajukan Oleh :</div>
+							<div class="text-right col-xs-10"><![CDATA[&nbsp;]]></div>
+							<div class="text-center col-xs-2"><strong>Asisten Manager</strong></div>
+							<div class="text-right col-xs-10"><![CDATA[&nbsp;]]></div>
+							<div class="text-center col-xs-2"><strong>Kas</strong></div>
+						</div>
+
+					</div>
+					<div class="footer">
+			            <div class="row text-center" style="border-top: 1px solid black;">
+			                <div class="col-xs-6 text-left">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>User:</li>
+			                        <li>
+			                            <span t-esc="user.name"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span t-esc="datetime_cetak"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			                <div class="col-xs-6 text-right">
+			                    <ul class="list-inline" style="margin-top:10px;">
+			                        <li>Page:</li>
+			                        <li>
+			                            <span class="page"/>
+			                        </li>
+			                        <li>/</li>
+			                        <li>
+			                            <span class="topage"/>
+			                        </li>
+			                    </ul>
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</t>
+		</template>
+
+    </data>
+</odoo>
