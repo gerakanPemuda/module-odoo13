@@ -48,3 +48,5 @@ class OnpointSchedulerPointorange(models.Model):
             logger.read_ftp_pointorange()
 
         self.env['onpoint.vw.logger.threshold'].search([]).send_alarm()
+
+

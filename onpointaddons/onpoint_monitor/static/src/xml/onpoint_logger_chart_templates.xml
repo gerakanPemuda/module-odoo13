@@ -124,17 +124,39 @@
                                     <div class="card">
                                         <div class="card-content">
                                             <div class="row">
-                                                <div class="col-sm-5">
+                                                <div class="col-sm-6" style="font-size: 7px">
                                                     <div class="icon-big icon-warning text-center">
                                                         <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_battery.src }}"
                                                              width="60px"/>
                                                     </div>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <div class="numbers">
-                                                        <p>Power</p>
+                                                    <div class="numbers text-center">
+                                                        <p>Battery Power</p>
                                                         <t t-esc="widget.logger.state_battery.last_value"/>
                                                         V
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6" style="font-size: 7px">
+                                                    <div class="icon-big icon-warning text-center">
+                                                        <img t-attf-src="/onpoint_monitor/static/src/img/{{ widget.logger.state_external.src }}"
+                                                             width="60px"/>
+                                                    </div>
+                                                    <div class="numbers text-center">
+                                                        <p> External Power</p>
+                                                        <t t-if="widget.logger.state_external.last_value == 'N/A'"> Not Available
+                                                        </t>
+                                                        <t t-else="widget.logger.state_external.last_value != ''N/A">
+                                                            <t t-esc="widget.logger.state_external.last_value"/> V
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div>
+                                                        <h6>
+                                                            <t t-esc="widget.logger.state_battery.message"/> <br/>
+                                                            <t t-esc="widget.logger.state_external.message"/>
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,8 +165,9 @@
                                           <div class="stats">
                                               <div class="row">
                                                   <div class="float-left col-sm-4 text-left">
-                                                    <small><t t-esc="widget.logger.state_battery.alarm_events"/>
-                                                        alarms</small>
+                                                    <small>
+                                                        <t t-esc="widget.logger.state_battery.alarm_events"/>
+                                                    </small>
                                                   </div>
                                                   <div class="float-right col-sm-8 text-right">
                                                     <small><t t-esc="widget.logger.state_battery.last_date"/></small>
@@ -174,20 +197,28 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row" style="padding: 23px 5px 0px 10px">
+                                                <div class="col-sm-12">
+                                                    <div>
+                                                        <h6>
+                                                            <t t-esc="widget.logger.state_signal.message"/>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="card-footer">
                                           <div class="stats">
                                               <div class="row">
                                                   <div class="float-left col-sm-4 text-left">
-                                                    <small><t t-esc="widget.logger.state_signal.alarm_events"/>
-                                                        alarms</small>
+                                                    <small>
+                                                        <t t-esc="widget.logger.state_signal.alarm_events"/>
+                                                    </small>
                                                   </div>
                                                   <div class="float-right col-sm-8 text-right">
                                                     <small><t t-esc="widget.logger.state_signal.last_date"/></small>
                                                   </div>
                                               </div>
-
-
                                           </div>
                                         </div>
                                     </div>
@@ -212,13 +243,23 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row" style="padding: 23px 5px 0px 10px">
+                                                <div class="col-sm-12">
+                                                    <div>
+                                                        <h6>
+                                                            <t t-esc="widget.logger.state_temperature.message"/>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="card-footer">
                                           <div class="stats">
                                               <div class="row">
                                                   <div class="float-left col-sm-4 text-left">
-                                                    <small><t t-esc="widget.logger.state_temperature.alarm_events"/>
-                                                        alarms</small>
+                                                    <small>
+                                                        <t t-esc="widget.logger.state_temperature.alarm_events"/>
+                                                    </small>
                                                   </div>
                                                   <div class="float-right col-sm-8 text-right">
                                                     <small><t t-esc="widget.logger.state_temperature.last_date"/></small>
@@ -250,13 +291,17 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row" style="padding: 23px 5px 0px 10px">
+                                                <div class="col-sm-12"><p/></div>
+                                            </div>
                                         </div>
                                         <div class="card-footer">
                                           <div class="stats">
                                               <div class="row">
                                                   <div class="float-left col-sm-4 text-left">
-                                                    <small><t t-esc="widget.logger.state_submerged.alarm_events"/>
-                                                        alarms</small>
+                                                    <small>
+                                                        <t t-esc="widget.logger.state_submerged.alarm_events"/>
+                                                    </small>
                                                   </div>
                                                   <div class="float-right col-sm-8 text-right">
                                                     <small><t t-esc="widget.logger.state_submerged.last_date"/></small>

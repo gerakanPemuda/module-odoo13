@@ -132,20 +132,29 @@ class OnpointLogger(models.Model):
                 temp_file = io.StringIO()
                 temp_filename = '/opt/odoo13/odoo-custom-addons/onpoint_pointorange/temps/temp.csv'
 
-                with open(temp_filename, 'wb') as f:
-                    ftp.retrbinary('RETR ' + file_name, f.write)
+                size = ftp.size(file_name)
+                if size > 0:
+                    with open(temp_filename, 'wb') as f:
+                        ftp.retrbinary('RETR ' + file_name, f.write)
 
-                df = pd.read_csv(temp_filename, engine='python', encoding='ISO-8859-1')
-                df = df.drop(df.columns[df.columns.str.contains('unnamed', case=False)], axis=1)
+                    df = pd.read_csv(temp_filename, engine='python', encoding='ISO-8859-1')
+                    df = df.drop(df.columns[df.columns.str.contains('unnamed', case=False)], axis=1)
 
-                # Import to Database
-                logger_file = self.import_to_database(points, file_name, df)
+                    # Import to Database
+                    logger_file = self.import_to_database(points, file_name, df)
 
-                # Process Data in Temporary Table
-                value_ids, channels = self.process_data(logger_file, channels, value_ids)
+                    # Process Data in Temporary Table
+                    value_ids, channels = self.process_data(logger_file, channels, value_ids)
 
-                temp_file.close()
-                ftp.rename(file_name, 'archives/' + file_name)
+                    temp_file.close()
+                    archive_file_name = file_name
+                else:
+                    now = datetime.now()
+                    time = now.strftime("%H%M%S")
+                    split_file_names = file_name.split(".")
+                    archive_file_name = split_file_names[0] + '_' + time + '.' + split_file_names[1]
+
+                ftp.rename(file_name, 'archives/' + archive_file_name)
 
             if value_ids:
                 logger = self.env['onpoint.logger'].search([('id', '=', self.id)])
@@ -584,6 +593,7 @@ class OnpointLogger(models.Model):
         main_alarms = super(OnpointLogger, self).set_main_alarm(logger_id, start_date, end_date)
 
         state_battery = main_alarms['state_battery']
+        state_external = main_alarms['state_external']
         state_signal = main_alarms['state_signal']
         state_submerged = main_alarms['state_submerged']
         state_temperature = main_alarms['state_temperature']
@@ -591,7 +601,6 @@ class OnpointLogger(models.Model):
         logger = self.env['onpoint.logger'].search([('id', '=', logger_id)])
         channels = logger.channel_ids.search([('logger_id', '=', logger_id), ('point_id.alarm_type', '!=', False)])
 
-        external_power = False
         for channel in channels:
 
             last_value = channel.value_ids.search([('channel_id', '=', channel.id), ('dates', '<=', end_date)],
@@ -620,7 +629,7 @@ class OnpointLogger(models.Model):
                 alarm_threshold = self.env['onpoint.alarm.threshold'].search(
                     [('alarm_type', '=', channel.point_id.alarm_type)])
 
-                if channel.point_id.alarm_type == 'battery' and not external_power:
+                if channel.point_id.alarm_type == 'battery':
                     if value_type == 'trending':
                         state_battery['src'] = 'icon_battery_full.png'
                     else:
@@ -633,21 +642,34 @@ class OnpointLogger(models.Model):
 
                     if alarm_threshold.normal_min <= last_channel_value <= alarm_threshold.normal_max:
                         state_battery['src'] = 'icon_battery_full.png'
-                    elif alarm_threshold.medium_min < last_channel_value < alarm_threshold.medium_max:
+                        state_battery['message'] = 'Battery in Full Capacity'
+                    elif alarm_threshold.medium_min <= last_channel_value <= alarm_threshold.medium_max:
                         state_battery['src'] = 'icon_battery_half.png'
+                        state_battery['message'] = 'Battery is in Half capacity'
                     elif last_channel_value <= alarm_threshold.danger_max:
                         state_battery['src'] = 'icon_battery_empty.png'
+                        state_battery['message'] = 'Battery is Weak, Please replace the battery'
                     else:
                         state_battery['src'] = 'icon_battery_disable.png'
 
                 if channel.point_id.alarm_type == 'external':
-                    if last_channel_value > 0:
-                        external_power = True
-                        state_battery['enable'] = True
-                        state_battery['last_date'] = last_value.dates
-                        state_battery['last_value'] = last_channel_value
-                        state_battery['alarm_events'] = alarm_count
-                        state_battery['src'] = 'icon_external_power.png'
+
+                    state_external['enable'] = True
+                    state_external['last_date'] = last_value.dates
+                    state_external['last_value'] = last_channel_value
+                    state_external['alarm_events'] = alarm_count
+
+                    if alarm_threshold.normal_min <= last_channel_value >= alarm_threshold.normal_max:
+                        state_external['src'] = 'icon_external_power_empty.png'
+                        state_external['message'] = 'External Power Weak Voltage'
+                    elif alarm_threshold.medium_min <= last_channel_value >= alarm_threshold.medium_max:
+                        state_external['src'] = 'icon_external_power_half.png'
+                        state_external['message'] = 'External Power Half Voltage'
+                    elif alarm_threshold.danger_min <= last_channel_value >= alarm_threshold.danger_max:
+                        state_external['src'] = 'icon_external_power.png'
+                        state_external['message'] = 'External Power Full Voltage'
+                    else:
+                        state_external['src'] = 'icon_external_power_disable.png'
 
                 if channel.point_id.alarm_type == 'signal':
                     if value_type == 'trending':
@@ -662,15 +684,25 @@ class OnpointLogger(models.Model):
 
                     last_channel_value_float = float(last_channel_value[0:-4])
 
-                    if alarm_threshold.normal_min <= last_channel_value_float <= alarm_threshold.normal_max:
-                        state_signal['src'] = 'icon_signal_full.png'
-                    elif alarm_threshold.medium_min <= last_channel_value_float <= alarm_threshold.medium_max:
-                        state_signal['src'] = 'icon_signal_half.png'
-                    elif alarm_threshold.danger_min <= last_channel_value_float <= alarm_threshold.danger_max:
-                        state_signal['src'] = 'icon_signal_empty.png'
+                    if alarm_threshold.signal_excellent_min >= last_channel_value_float >= alarm_threshold.signal_excellent_max:
+                        state_signal['src'] = 'icon_signal_excellent.png'
+                        state_signal['message'] = 'Signal is Excellent'
+                    elif alarm_threshold.signal_good_min >= last_channel_value_float >= alarm_threshold.signal_good_max:
+                        state_signal['src'] = 'icon_signal_good.png'
+                        state_signal['message'] = 'Signal is Good'
+                    elif alarm_threshold.signal_fair_min >= last_channel_value_float >= alarm_threshold.signal_fair_max:
+                        state_signal['src'] = 'icon_signal_fair.png'
+                        state_signal['message'] = 'Signal is Fair'
+                    elif alarm_threshold.signal_poor_min >= last_channel_value_float >= alarm_threshold.signal_poor_max:
+                        state_signal['src'] = 'icon_signal_poor.png'
+                        state_signal['message'] = 'Signal is Poor. Please check!'
+                    elif alarm_threshold.signal_nosignal_min >= last_channel_value_float > alarm_threshold.signal_nosignal_max:
+                        state_signal['src'] = 'icon_signal_nosignal.png'
+                        state_signal['message'] = 'Signal is Lost. Please check!'
                     else:
                         # state_signal['src'] = 'icon_signal_disable.png'
-                        state_signal['src'] = 'icon_signal_full.png'
+                        state_signal['src'] = 'icon_signal_nosignal.png'
+                        state_signal['message'] = 'Signal Disable'
 
                 if channel.point_id.alarm_type == 'submerged':
                     if last_value.channel_value == 0:
@@ -696,15 +728,20 @@ class OnpointLogger(models.Model):
 
                     if alarm_threshold.normal_min <= last_channel_value <= alarm_threshold.normal_max:
                         state_temperature['src'] = 'icon_temperature_normal.png'
+                        state_temperature['message'] = 'Temperature is in Normal Level'
                     elif alarm_threshold.medium_min <= last_channel_value <= alarm_threshold.medium_max:
                         state_temperature['src'] = 'icon_temperature_warning.png'
+                        state_temperature['message'] = 'Temperature above Normal Level'
                     elif alarm_threshold.danger_min <= last_channel_value <= alarm_threshold.danger_max:
                         state_temperature['src'] = 'icon_temperature_danger.png'
+                        state_temperature['message'] = 'Temperature is in Danger Level. Please Check!'
                     else:
                         state_temperature['src'] = 'icon_temperature_disable.png'
+                        state_temperature['message'] = 'Temperature Disable'
 
         data = {
             'state_battery': state_battery,
+            'state_external': state_external,
             'state_signal': state_signal,
             'state_submerged': state_submerged,
             'state_temperature': state_temperature,
@@ -744,9 +781,16 @@ class OnpointLogger(models.Model):
                     point_id = self.env['onpoint.logger.point'].search([('code', '=', col_point)])
 
                     if point_id:
-                        value_date = datetime.strptime(row['Date & Time'], '%Y/%m/%d %H:%M:%S')
-                        value_channel = float(row['Value'])
                         channel = channels.filtered(lambda c: c.point_id.id == point_id.id)
+                        value_date = datetime.strptime(row['Date & Time'], '%Y/%m/%d %H:%M:%S')
+                        if channel.source_value_unit_id.name == 'm3/h':
+                            current_source_value = row['Value'] / 3.6
+                        elif channel.source_value_unit_id.name == 'm3/s' and channel.value_unit_id.name == 'l/s':
+                            current_source_value = row['Value'] * 1000
+                        else:
+                            current_source_value = row['Value']
+
+                        value_channel = float(current_source_value)
 
                         # if channel.modbus == 'adam':
                         #     function_name = 'process_modbus_adam'
@@ -870,8 +914,9 @@ class OnpointLoggerChannel(models.Model):
     omin = fields.Float(string='OMIN', default=0)
     omax = fields.Float(string='OMAX', default=10)
     source_value_unit_id = fields.Many2one('onpoint.value.unit', string='Channel Source Unit', index=True)
+    message = fields.Char(string='message')
 
-    def _compute_last_value(self):
+    def _compute_last_value(self, logger_id, start_date, end_date):
         for record in self:
             last_value = record.value_ids.search([('channel_id', '=', record.id)], order='dates desc', limit=1)
             last_channel_value = round(last_value.channel_value, 3)
@@ -887,6 +932,8 @@ class OnpointLoggerChannel(models.Model):
             record.last_date = last_value.dates
             record.last_value = last_channel_value
             record.last_value_type = last_value.value_type
+
+            main_alarms = self.pool.get('onpoint.logger').set_main_alarm(self, logger_id, start_date, end_date)
 
     def _compute_last_totalizer(self):
         for record in self:

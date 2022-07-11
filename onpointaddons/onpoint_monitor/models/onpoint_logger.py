@@ -879,6 +879,14 @@ class OnpointLogger(models.Model):
             'alarm_events': 0
         }
 
+        state_external = {
+            'enable': False,
+            'src': 'icon_external_power_disable.png',
+            'last_date': 'N/A',
+            'last_value': 'N/A',
+            'alarm_events': 0
+        }
+
         state_signal = {
             'enable': False,
             'src': 'icon_signal_disable.png',
@@ -905,6 +913,7 @@ class OnpointLogger(models.Model):
 
         data = {
             'state_battery': state_battery,
+            'state_external': state_external,
             'state_signal': state_signal,
             'state_submerged': state_submerged,
             'state_temperature': state_temperature,
@@ -1277,6 +1286,9 @@ class OnpointLoggerChannel(models.Model):
             record.last_date = last_value.dates
             record.last_value = str(round(last_value.channel_value, 3))
             record.last_value_type = last_value.value_type
+
+            main_alarms = self.set_main_alarm()
+            x = 1
 
     def _compute_last_initial(self):
         for record in self:

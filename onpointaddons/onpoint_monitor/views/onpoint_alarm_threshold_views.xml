@@ -22,7 +22,7 @@
 								<field name="alarm_type" />
 							</group>
 						</group>
-						<group attrs="{'invisible': [('alarm_type', '=', 'submerged')]}">
+						<group attrs="{'invisible': [('alarm_type', 'in', ('submerged', 'signal'))]}">
 							<table class="o_list_view table table-condensed table-striped o_list_view_ungrouped" width="60%">
 								<thead>
 									<tr>
@@ -49,7 +49,6 @@
 									</tr>
 								</tbody>
 							</table>
-
 						</group>
 						<group attrs="{'invisible': [('alarm_type', '!=', 'submerged')]}">
 							<table class="o_list_view table table-condensed table-striped o_list_view_ungrouped" width="60%">
@@ -71,6 +70,44 @@
 									<tr class="o_data_row">
 										<td>Danger</td>
 										<td><field name="danger_submerged" nolabel="1"/></td>
+									</tr>
+								</tbody>
+							</table>
+						</group>
+						<group attrs="{'invisible': [('alarm_type', '!=', 'signal')]}">
+							<table class="o_list_view table table-condensed table-striped o_list_view_ungrouped" width="60%">
+								<thead>
+									<tr>
+										<th class="o_column_sortable" width="15%">Level</th>
+										<th class="o_column_sortable" width="50%">Min</th>
+										<th class="o_column_sortable" width="35%">Max</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="o_data_row">
+										<td>Excellent</td>
+										<td><field name="signal_excellent_min" nolabel="1"/></td>
+										<td><field name="signal_excellent_max" nolabel="1"/></td>
+									</tr>
+									<tr class="o_data_row">
+										<td>Good</td>
+										<td><field name="signal_good_min" nolabel="1"/></td>
+										<td><field name="signal_good_max" nolabel="1"/></td>
+									</tr>
+									<tr class="o_data_row">
+										<td>Fair</td>
+										<td><field name="signal_fair_min" nolabel="1"/></td>
+										<td><field name="signal_fair_max" nolabel="1"/></td>
+									</tr>
+									<tr class="o_data_row">
+										<td>Poor</td>
+										<td><field name="signal_poor_min" nolabel="1"/></td>
+										<td><field name="signal_poor_max" nolabel="1"/></td>
+									</tr>
+									<tr class="o_data_row">
+										<td>No Signal</td>
+										<td><field name="signal_nosignal_min" nolabel="1"/></td>
+										<td><field name="signal_nosignal_max" nolabel="1"/></td>
 									</tr>
 								</tbody>
 							</table>

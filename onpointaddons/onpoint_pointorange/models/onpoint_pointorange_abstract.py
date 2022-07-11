@@ -62,6 +62,7 @@ class OnpointPointorange(models.AbstractModel):
         result_channel_value = 0
         if channel.imin >= channel.imax:
             result_channel_value = detail.logger_value
+
         elif detail.logger_value < channel.imin:
             result_channel_value = channel.omin
         elif detail.logger_value > channel.imax:
